@@ -27,7 +27,7 @@ mixinMongoMethods(App, "Application", "Applications");
 App.prototype.fromEvent = function(e) {
   return this.set({
     name: e['App Name'],
-    'time.start': e['Timestamp'],
+    'time.start': this.processTime(e['Timestamp']),
     user: e['User'],
     attempt: e['App Attempt ID']
   });

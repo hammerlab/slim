@@ -23,7 +23,8 @@ var handlers = {
   },
 
   SparkListenerApplicationEnd: function(e) {
-    getApp(e).set('time.end', e['Timestamp']).upsert();
+    var app = getApp(e);
+    app.set('time.end', app.processTime(e['Timestamp'])).upsert();
   },
 
   SparkListenerJobStart: function(e) {
@@ -48,7 +49,7 @@ var handlers = {
     });
 
     job.set({
-      'time.start': e['Submission Time'],
+      'time.start': job.processTime(e['Submission Time']),
       stageIDs: e['Stage IDs'],
       'taskCounts.num': numTasks,
       'stageCounts.num': e['Stage IDs'].length,
@@ -62,7 +63,7 @@ var handlers = {
     var job = app.getJob(e);
 
     job.set({
-      'time.end': e['Completion Time'],
+      'time.end': job.processTime(e['Completion Time']),
       result: e['Job Result'],
       succeeded: e['Job Result']['Result'] == 'JobSucceeded',
       ended: true

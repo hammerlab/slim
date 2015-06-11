@@ -16,8 +16,8 @@ function StageAttempt(appId, stage, id) {
 
 StageAttempt.prototype.fromStageInfo = function(si) {
   return this.set({
-    'time.start': si['Submission Time'],
-    'time.end': si['Completion Time'],
+    'time.start': this.processTime(si['Submission Time']),
+    'time.end': this.processTime(si['Completion Time']),
     failureReason: si['Failure Reason']
   });
 };

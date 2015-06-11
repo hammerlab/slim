@@ -86,11 +86,18 @@ function addUpsert(clazz, className, collectionName) {
   };
 }
 
+function addProcessTime(clazz) {
+  clazz.prototype.processTime = function(t) {
+    return t ? t : undefined;
+  };
+}
+
 module.exports.mixinMongoMethods = function(clazz, className, collectionName) {
   addSetProp(clazz, className);
   addIncProp(clazz);
   addDecProp(clazz);
   addGetProp(clazz);
+  addProcessTime(clazz);
   addUpsert(clazz, className, collectionName);
 };
 
