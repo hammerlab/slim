@@ -1,22 +1,18 @@
 
 var mixinMongoMethods = require("../utils").mixinMongoMethods;
 
-function TaskAttempt(appId, stageId, stageAttemptId, id, taskIndex, taskAttemptId) {
+function TaskAttempt(appId, stageId, stageAttemptId, id) {
   this.appId = appId;
   this.stageId = stageId;
   this.stageAttemptId = stageAttemptId;
   this.id = id;
-  this.taskIndex = taskIndex;
-  this.taskAttemptId = taskAttemptId;
 
   this.findObj = { appId: appId, id: id };
   this.propsObj = {};
   this.toSyncObj = {};
   this.set({
     stageId: stageId,
-    stageAttemptId: stageAttemptId,
-    index: taskIndex,
-    attempt: taskAttemptId
+    stageAttemptId: stageAttemptId
   });
   this.dirty = true;
 
@@ -32,7 +28,9 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     speculative: ti['Speculative'],
     gettingResultTime: this.processTime(ti['Getting Result Time']),
     failed: ti['Failed'],
-    accumulables: ti['Accumulables']
+    accumulables: ti['Accumulables'],
+    index: ti['Index'],
+    attempt: ti['Attempt']
   });
 };
 

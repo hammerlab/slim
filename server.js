@@ -161,9 +161,8 @@ var handlers = {
 
     var ti = e['Task Info'];
     var taskId = ti['Task ID'];
-    var taskIndex = ti['Index'];
-    var taskAttemptId = ti['Attempt'];
 
+    var taskIndex = ti['Index'];
     var task = stage.getTask(taskIndex);
     var prevTaskStatus = task.get('status');
 
@@ -173,6 +172,7 @@ var handlers = {
     taskAttempt.fromTaskInfo(ti);
 
     if (prevTaskAttemptStatus) {
+      var taskAttemptId = ti['Attempt'];
       l.error(
             "Found extant status %s for task %d (%s:%s)",
             statusStr[prevTaskAttemptStatus],
