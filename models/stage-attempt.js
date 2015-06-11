@@ -1,10 +1,9 @@
 
 var mixinMongoMethods = require("../utils").mixinMongoMethods;
 
-function StageAttempt(appId, stage, id) {
+function StageAttempt(appId, stageId, id) {
   this.appId = appId;
-  this.stage = stage;
-  this.stageId = stage.id;
+  this.stageId = stageId;
   this.id = id;
   this.dirty = true;
   this.findObj = { appId: appId, stageId: this.stageId, id: id };

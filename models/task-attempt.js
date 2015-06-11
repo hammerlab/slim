@@ -1,11 +1,9 @@
 
 var mixinMongoMethods = require("../utils").mixinMongoMethods;
 
-function TaskAttempt(appId, id, index, attemptId) {
+function TaskAttempt(appId, id) {
   this.appId = appId;
   this.id = id;
-  this.index = index;
-  this.attemptId = attemptId;
 
   this.findObj = { appId: appId, id: id };
   this.propsObj = {};
