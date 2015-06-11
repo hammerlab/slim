@@ -174,8 +174,8 @@ var handlers = {
     if (prevTaskAttemptStatus) {
       var taskAttemptId = ti['Attempt'];
       l.error(
-            "Found extant status %s for task %d (%s:%s)",
-            statusStr[prevTaskAttemptStatus],
+            "Found extant status %s (%d) for task %d (%s:%s)",
+            statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
             taskId,
             stage.id + "." + stageAttempt.id,
             taskIndex + "." + taskAttemptId
@@ -266,11 +266,11 @@ var handlers = {
       }
     } else {
       l.error(
-            "Got TaskEnd for %d (%s:%s) with previous status %s",
+            "Got TaskEnd for %d (%s:%s) with previous status %s (%d)",
             taskId,
             stage.id + "." + stageAttempt.id,
             taskIndex + "." + taskAttemptId,
-            statusStr[prevTaskAttemptStatus]
+            statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus
       )
     }
 
