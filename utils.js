@@ -4,11 +4,19 @@ var deq = require('deep-equal');
 
 var l = require('./log').l;
 
-module.exports.RUNNING = 0;
-module.exports.FAILED = 1;
+module.exports.PENDING = undefined;
+module.exports.RUNNING = 1;
 module.exports.SUCCEEDED = 2;
-module.exports.SKIPPED = 3;
+module.exports.FAILED = 3;
+module.exports.SKIPPED = 4;
 
+module.exports.status = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+  SKIPPED: "SKIPPED"
+};
 
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {

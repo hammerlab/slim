@@ -8,9 +8,11 @@ var getApp = require('./models/app').getApp;
 var colls = require('./collections');
 
 var utils = require("./utils");
+var statusStr = utils.status;
 
 var l = require('./log').l;
 
+var PENDING = utils.PENDING;
 var RUNNING = utils.RUNNING;
 var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
@@ -75,6 +77,7 @@ var handlers = {
       if (status == RUNNING || status == FAILED) {
         l.err("Found unexpected status " + status + " for stage " + stage.id + " when marking job " + job.id + " complete.");
       } else if (!status) {
+        // Will fail if a status exists for this stage
         stage.set('status', SKIPPED).upsert();
       }
     });
