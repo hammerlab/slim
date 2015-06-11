@@ -63,12 +63,18 @@ function addSetProp(clazz, className) {
 
 function addIncProp(clazz) {
   clazz.prototype.inc = function(key, i) {
+    if (i === undefined) {
+      i = 1;
+    }
     return this.set(key, (this.get(key) || 0) + i, true);
   };
 }
 
 function addDecProp(clazz) {
   clazz.prototype.dec = function(key, i) {
+    if (i === undefined) {
+      i = 1;
+    }
     return this.set(key, (this.get(key) || 0) - i, true);
   };
 }

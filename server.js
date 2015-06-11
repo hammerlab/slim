@@ -99,9 +99,9 @@ var handlers = {
     // Crashes if extant status found.
     attempt.fromStageInfo(si).set({ started: true, status: RUNNING }).upsert();
 
-    app.getJobByStageId(stage.id).inc('stageCounts.running', 1).upsert();
+    app.getJobByStageId(stage.id).inc('stageCounts.running').upsert();
 
-    stage.fromStageInfo(si).set({ properties: e['Properties'] }).inc('attempts.num', 1).inc('attempts.running', 1).upsert();
+    stage.fromStageInfo(si).set({ properties: e['Properties'] }).inc('attempts.num').inc('attempts.running').upsert();
   },
 
   SparkListenerStageCompleted: function(e) {
@@ -122,9 +122,9 @@ var handlers = {
     var job = app.getJobByStageId(stage.id);
 
     if (prevAttemptStatus == RUNNING) {
-      stage.dec('attempts.running', 1);
+      stage.dec('attempts.running');
       l.info("before dec: " + job.get('stageCounts.running'));
-      job.dec('stageCounts.running', 1);
+      job.dec('stageCounts.running');
       l.info("after dec: " + job.get('stageCounts.running'));
     } else {
       l.err(
@@ -135,16 +135,16 @@ var handlers = {
       if (prevStageStatus == SUCCEEDED) {
         l.info("Ignoring attempt " + attempt.id + " SUCCEEDED in stage " + stage.id + " that is already SUCCEEDED");
       } else {
-        stage.set('status', newAttemptStatus).inc('attempts.succeeded', 1);
-        job.inc('stageCounts.succeeded', 1);
+        stage.set('status', newAttemptStatus).inc('attempts.succeeded');
+        job.inc('stageCounts.succeeded');
       }
     } else {
       // FAILED
       if (prevStageStatus == SUCCEEDED) {
         l.info("Ignoring attempt " + attempt.id + " FAILED in stage " + stage.id + " that is already SUCCEEDED");
       } else {
-        stage.set('status', newAttemptStatus).inc('attempts.failed', 1);
-        job.inc('stageCounts.failed', 1);
+        stage.set('status', newAttemptStatus).inc('attempts.failed');
+        job.inc('stageCounts.failed');
       }
     }
 
