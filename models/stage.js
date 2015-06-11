@@ -25,7 +25,7 @@ mixinMongoMethods(Stage, "Stage", "Stages");
 Stage.prototype.fromStageInfo = function(si) {
   return this.set({
     name: si['Stage Name'],
-    numTasks: si['Number of Tasks'],
+    'taskCounts.num': si['Number of Tasks'],
     rddIDs: si['RDD Info'].map(function (ri) {
       //console.log("rdd id: " + ri["RDD ID"])
       return ri['RDD ID'];
