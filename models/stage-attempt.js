@@ -29,7 +29,7 @@ StageAttempt.prototype.getTaskAttempt = function(taskId) {
     taskId = taskId['Task ID'];
   }
   if (!(taskId in this.task_attempts)) {
-    this.task_attempts[taskId] = new TaskAttempt(this.appId, taskId);
+    this.task_attempts[taskId] = new TaskAttempt(this.appId, this.stageId, this.id, taskId);
   }
   return this.task_attempts[taskId];
 };

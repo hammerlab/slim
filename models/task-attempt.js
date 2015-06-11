@@ -1,13 +1,23 @@
 
 var mixinMongoMethods = require("../utils").mixinMongoMethods;
 
-function TaskAttempt(appId, id) {
+function TaskAttempt(appId, stageId, stageAttemptId, id, taskIndex, taskAttemptId) {
   this.appId = appId;
+  this.stageId = stageId;
+  this.stageAttemptId = stageAttemptId;
   this.id = id;
+  this.taskIndex = taskIndex;
+  this.taskAttemptId = taskAttemptId;
 
   this.findObj = { appId: appId, id: id };
   this.propsObj = {};
   this.toSyncObj = {};
+  this.set({
+    stageId: stageId,
+    stageAttemptId: stageAttemptId,
+    index: taskIndex,
+    attempt: taskAttemptId
+  });
   this.dirty = true;
 
 }
