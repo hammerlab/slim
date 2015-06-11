@@ -135,7 +135,7 @@ var handlers = {
       if (prevStageStatus == SUCCEEDED) {
         l.info("Ignoring attempt " + attempt.id + " SUCCEEDED in stage " + stage.id + " that is already SUCCEEDED");
       } else {
-        stage.set('status', newAttemptStatus).inc('attempts.succeeded');
+        stage.set('status', newAttemptStatus, true).inc('attempts.succeeded');
         job.inc('stageCounts.succeeded');
       }
     } else {
@@ -143,7 +143,7 @@ var handlers = {
       if (prevStageStatus == SUCCEEDED) {
         l.info("Ignoring attempt " + attempt.id + " FAILED in stage " + stage.id + " that is already SUCCEEDED");
       } else {
-        stage.set('status', newAttemptStatus).inc('attempts.failed');
+        stage.set('status', newAttemptStatus, true).inc('attempts.failed');
         job.inc('stageCounts.failed');
       }
     }
