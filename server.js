@@ -155,13 +155,129 @@ var handlers = {
   },
 
   SparkListenerTaskStart: function(e) {
+    var app = getApp(e);
+    var stage = app.getStage(e);
+    var stageAttempt = stage.getAttempt(e);
+
+    var ti = e['Task Info'];
+    var taskId = ti['Task ID'];
+    var taskIndex = ti['Index'];
+    var taskAttemptId = ti['Attempt'];
+
+    var task = stage.getTask(taskIndex);
+    var prevTaskStatus = task.get('status');
+
+    var taskAttempt = stageAttempt.getTaskAttempt(taskId);
+    var prevTaskAttemptStatus = task.get('status');
+
+    taskAttempt.fromTaskInfo(ti);
+
+    if (prevTaskAttemptStatus) {
+      l.error(
+            "Found extant status %s for task %d (%s:%s)",
+            statusStr[prevTaskAttemptStatus],
+            taskId,
+            stage.id + "." + stageAttempt.id,
+            taskIndex + "." + taskAttemptId
+      );
+    } else {
+      taskAttempt.set('status', RUNNING);
+      stageAttempt.inc('taskCounts.running');
+
+      if (!prevTaskStatus) {
+        task.set('status', RUNNING);
+        stage.inc('taskCounts.running');
+      } else if (prevTaskStatus == FAILED) {
+        task.set('status', RUNNING, true);
+        stage.dec('taskCounts.failed').inc('taskCounts.running');
+      }
+    }
+
+    stage.upsert();
+    stageAttempt.upsert();
+    task.upsert();
+    taskAttempt.upsert();
 
   },
+
   SparkListenerTaskGettingResult: function(e) {
+    var app = getApp(e);
+    var stageAttempt = stage.getAttempt(e);
 
+    var ti = e['Task Info'];
+    var taskId = ti['Task ID'];
+
+    stageAttempt.getTaskAttempt(taskId).fromTaskInfo(ti).upsert();
   },
-  SparkListenerTaskEnd: function(e) {
 
+  SparkListenerTaskEnd: function(e) {
+    var app = getApp(e);
+    var stage = app.getStage(e);
+    var stageAttempt = stage.getAttempt(e);
+
+    var ti = e['Task Info'];
+    var taskId = ti['Task ID'];
+    var taskIndex = ti['Index'];
+    var taskAttemptId = ti['Attempt'];
+
+    var task = stage.getTask(taskIndex);
+    var prevTaskStatus = task.get('status');
+
+    var taskAttempt = stageAttempt.getTaskAttempt(taskId);
+    var prevTaskAttemptStatus = task.get('status');
+
+    taskAttempt.fromTaskInfo(ti);
+    var succeeded = !ti['Failed'];
+    var status = succeeded ? SUCCEEDED : FAILED;
+    var taskCountKey = succeeded ? 'taskCounts.succeeded' : 'taskCounts.failed';
+
+    if (prevTaskAttemptStatus == RUNNING) {
+      taskAttempt.set('status', status, true);
+      stageAttempt.dec('taskCounts.running').inc(taskCountKey);
+
+      if (!prevTaskStatus) {
+        l.error(
+              "Got TaskEnd for %d (%s:%s) with previous task status %s",
+              taskId,
+              stage.id + "." + stageAttempt.id,
+              taskIndex + "." + taskAttemptId,
+              statusStr[prevTaskStatus]
+        );
+      } else {
+        if (prevTaskStatus == RUNNING) {
+          task.set('status', status, true);
+          stage.dec('taskCounts.running').inc(taskCountKey);
+
+        } else if (prevTaskStatus == FAILED) {
+          if (succeeded) {
+            task.set('status', status, true);
+            stage.dec('taskCounts.failed').inc('taskCount.succeeded');
+          }
+        } else {
+          var logFn = succeeded ? l.info : l.warn;
+          logFn(
+                "Ignoring status %s for task %d (%s:%s) because existing status is SUCCEEDED",
+                statusStr[status],
+                taskId,
+                stage.id + "." + stageAttempt.id,
+                taskIndex + "." + taskAttemptId
+          )
+        }
+      }
+    } else {
+      l.error(
+            "Got TaskEnd for %d (%s:%s) with previous status %s",
+            taskId,
+            stage.id + "." + stageAttempt.id,
+            taskIndex + "." + taskAttemptId,
+            statusStr[prevTaskAttemptStatus]
+      )
+    }
+
+    stage.upsert();
+    stageAttempt.upsert();
+    task.upsert();
+    taskAttempt.upsert();
   },
 
   SparkListenerEnvironmentUpdate: function(e) {

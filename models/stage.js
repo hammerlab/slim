@@ -2,6 +2,8 @@
 var utils = require("../utils");
 
 var StageAttempt = require('./stage-attempt').StageAttempt;
+var Task = require('./task').Task;
+
 var mixinMongoMethods = utils.mixinMongoMethods;
 
 var RUNNING = utils.RUNNING;
@@ -18,6 +20,7 @@ function Stage(appId, id) {
   this.toSyncObj = {};
 
   this.attempts = {};
+  this.tasks = {};
 }
 
 mixinMongoMethods(Stage, "Stage", "Stages");
@@ -44,6 +47,16 @@ Stage.prototype.getAttempt = function(attemptId) {
     this.attempts[attemptId] = new StageAttempt(this.appId, this.id, attemptId);
   }
   return this.attempts[attemptId];
+};
+
+Stage.prototype.getTask = function(taskIndex) {
+  if (typeof taskIndex == 'object') {
+    taskIndex = taskIndex['Index'];
+  }
+  if (!(taskIndex in this.tasks)) {
+    this.tasks[taskIndex] = new Task(this.appId, this.id, taskIndex);
+  }
+  return this.tasks[taskIndex];
 };
 
 module.exports.Stage = Stage;
