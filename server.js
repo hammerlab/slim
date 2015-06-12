@@ -304,20 +304,44 @@ var handlers = {
     );
   },
   SparkListenerBlockManagerAdded: function(e) {
-
+    var app = getApp(e);
+    app.getExecutor(e).set({
+      maxMem: e['Maximum Memory'],
+      'time.start': app.processTime(e['Timestamp']),
+      host: e['Block Manager ID']['Host'],
+      port: e['Block Manager ID']['Port']
+    }).upsert();
   },
   SparkListenerBlockManagerRemoved: function(e) {
-
+    var app = getApp(e);
+    app.getExecutor(e).set({
+      'time.end': app.processTime(e['Timestamp']),
+      host: e['Block Manager ID']['Host'],
+      port: e['Block Manager ID']['Port']
+    }).upsert();
   },
   SparkListenerUnpersistRDD: function(e) {
-
   },
+
   SparkListenerExecutorAdded: function(e) {
-
+    var app = getApp(e);
+    var ei = e['Executor Info'];
+    app.getExecutor(e).set({
+      'time.start': app.processTime(e['Timestamp']),
+      host: ei['Host'],
+      cores: ei['Total Cores'],
+      urls: ei['Log Urls']
+    }).upsert();
   },
+
   SparkListenerExecutorRemoved: function(e) {
-
+    var app = getApp(e);
+    app.getExecutor(e).set({
+      'time.end': app.processTime(e['Timestamp']),
+      reason: e['Removed Reason']
+    }).upsert();
   },
+
   SparkListenerLogStart: function(e) {
 
   },

@@ -4,6 +4,7 @@ var mixinMongoMethods = require("../utils").mixinMongoMethods;
 var Job = require('./job').Job;
 var Stage = require('./stage').Stage;
 var RDD = require('./rdd').RDD;
+var Executor = require('./executor').Executor;
 
 var apps = {};
 
@@ -81,6 +82,19 @@ App.prototype.getRDD = function(rddId) {
     this.rdds[rddId] = new RDD(this.id, rddId);
   }
   return this.rdds[rddId];
+};
+
+App.prototype.getExecutor = function(executorId) {
+  if (typeof executorId == 'object') {
+    if ('Block Manager ID' in executorId) {
+      executorId = executorId['Block Manager ID'];
+    }
+    executorId = executorId['Executor ID'];
+  }
+  if (!(executorId in this.executors)) {
+    this.executors[executorId] = new Executor(this.id, executorId);
+  }
+  return this.executors[executorId];
 };
 
 module.exports.App = App;
