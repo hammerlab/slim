@@ -29,6 +29,8 @@ var upsertCb = function(event) {
   }
 };
 
+module.exports.upsertOpts = upsertOpts;
+module.exports.upsertCb = upsertCb;
 
 function addSetProp(clazz, className) {
   clazz.prototype.set = function(key, val, allowExtant) {

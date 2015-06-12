@@ -18,6 +18,14 @@ var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
 
+function toSeq(m) {
+  var ret = [];
+  for (k in m) {
+    ret.push([k, m[k]]);
+  }
+  return ret;
+}
+
 var handlers = {
 
   SparkListenerApplicationStart: function(e) {
@@ -281,7 +289,19 @@ var handlers = {
   },
 
   SparkListenerEnvironmentUpdate: function(e) {
-
+    colls.Environment.findOneAndUpdate(
+          { appId: e['appId'] },
+          {
+            $set: {
+              jvm: toSeq(e['JVM Information']),
+              spark: toSeq(e['Spark Properties']),
+              system: toSeq(e['System Properties']),
+              classpath: toSeq(e['Classpath Entries'])
+            }
+          },
+          utils.upsertOpts,
+          utils.upsertCb("Environment")
+    );
   },
   SparkListenerBlockManagerAdded: function(e) {
 

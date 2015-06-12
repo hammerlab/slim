@@ -14,7 +14,8 @@ module.exports = {
   RDDs: null,
   Executors: null,
   Tasks: null,
-  TaskAttempts: null
+  TaskAttempts: null,
+  Environment: null
 };
 
 module.exports.init = function(url, cb) {
@@ -30,6 +31,7 @@ module.exports.init = function(url, cb) {
     module.exports.Executors = db.collection('executors');
     module.exports.Tasks = db.collection('tasks');
     module.exports.TaskAttempts = db.collection('task_attempts');
+    module.exports.Environment = db.collection('environment');
 
     cb(db);
   });
