@@ -54,7 +54,7 @@ function addSetProp(clazz, className) {
       }
     } else if (typeof key == 'object') {
       for (k in key) {
-        this.set(k, key[k]);
+        this.set(k, key[k], !!val);
       }
     } else {
       throw new Error("Invalid " + className + ".set() argument: " + key);

@@ -319,7 +319,7 @@ var handlers = {
       'time.start': app.processTime(e['Timestamp']),
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
-    }).upsert();
+    }, true).upsert();
   },
   SparkListenerBlockManagerRemoved: function(e) {
     var app = getApp(e);
@@ -327,7 +327,7 @@ var handlers = {
       'time.end': app.processTime(e['Timestamp']),
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
-    }).upsert();
+    }, true).upsert();
   },
   SparkListenerUnpersistRDD: function(e) {
   },
