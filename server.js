@@ -26,6 +26,15 @@ function toSeq(m) {
   return ret;
 }
 
+function removeKeySpaces(obj) {
+  if (typeof obj !== 'object') return obj;
+  var ret = {};
+  for (k in obj) {
+    ret[k.replace(/ /g, '')] = removeKeySpaces(obj[k]);
+  }
+  return ret;
+}
+
 var handlers = {
 
   SparkListenerApplicationStart: function(e) {
@@ -228,10 +237,10 @@ var handlers = {
     var taskIndex = ti['Index'];
     var taskAttemptId = ti['Attempt'];
 
-    var task = stage.getTask(taskIndex);
+    var task = stage.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
 
-    var taskAttempt = stageAttempt.getTaskAttempt(taskId);
+    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
     var prevTaskAttemptStatus = task.get('status');
 
     taskAttempt.fromTaskInfo(ti);
