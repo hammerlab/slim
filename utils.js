@@ -117,3 +117,22 @@ module.exports.mixinMongoMethods = function(clazz, className, collectionName) {
   addUpsert(clazz, className, collectionName);
 };
 
+function toSeq(m) {
+  var ret = [];
+  for (k in m) {
+    ret.push([k, m[k]]);
+  }
+  return ret;
+}
+
+function removeKeySpaces(obj) {
+  if (typeof obj !== 'object') return obj;
+  var ret = {};
+  for (k in obj) {
+    ret[k.replace(/ /g, '')] = removeKeySpaces(obj[k]);
+  }
+  return ret;
+}
+
+module.exports.toSeq = toSeq;
+module.exports.removeKeySpaces = removeKeySpaces;

@@ -18,22 +18,8 @@ var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
 
-function toSeq(m) {
-  var ret = [];
-  for (k in m) {
-    ret.push([k, m[k]]);
-  }
-  return ret;
-}
-
-function removeKeySpaces(obj) {
-  if (typeof obj !== 'object') return obj;
-  var ret = {};
-  for (k in obj) {
-    ret[k.replace(/ /g, '')] = removeKeySpaces(obj[k]);
-  }
-  return ret;
-}
+var toSeq = utils.toSeq;
+var removeKeySpaces = utils.removeKeySpaces;
 
 var handlers = {
 
@@ -329,7 +315,9 @@ var handlers = {
       port: e['Block Manager ID']['Port']
     }, true).upsert();
   },
+
   SparkListenerUnpersistRDD: function(e) {
+
   },
 
   SparkListenerExecutorAdded: function(e) {

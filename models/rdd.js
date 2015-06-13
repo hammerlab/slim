@@ -1,5 +1,7 @@
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
+var utils = require('../utils');
+var mixinMongoMethods = utils.mixinMongoMethods;
+var removeKeySpaces = utils.removeKeySpaces;
 
 function RDD(appId, id) {
   this.appId = appId;
@@ -16,7 +18,7 @@ RDD.prototype.fromRDDInfo = function(ri) {
   return this.set({
     name: ri['Name'],
     parentIDs: ri['Parent IDs'],
-    storageLevel: ri['Storage Level'],
+    storageLevel: removeKeySpaces(ri['Storage Level']),
     numPartitions: ri['Number of Partitions'],
     numCachedPartitions: ri['Number of Cached Partitions'],
     memSize: ri['Memory Size'],
