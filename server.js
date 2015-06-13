@@ -165,6 +165,8 @@ var handlers = {
     var ti = e['Task Info'];
     var taskId = ti['Task ID'];
 
+    var executor = app.getExecutor(ti);
+
     var taskIndex = ti['Index'];
     var task = stage.getTask(taskIndex);
     var prevTaskStatus = task.get('status');
@@ -186,6 +188,7 @@ var handlers = {
     } else {
       taskAttempt.set('status', RUNNING);
       stageAttempt.inc('taskCounts.running');
+      executor.inc('taskCounts.running').inc('taskCounts.num');
 
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
@@ -200,7 +203,7 @@ var handlers = {
     stageAttempt.upsert();
     task.upsert();
     taskAttempt.upsert();
-
+    executor.upsert();
   },
 
   SparkListenerTaskGettingResult: function(e) {
@@ -223,6 +226,8 @@ var handlers = {
     var taskIndex = ti['Index'];
     var taskAttemptId = ti['Attempt'];
 
+    var executor = app.getExecutor(ti);
+
     var task = stage.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
 
@@ -237,6 +242,7 @@ var handlers = {
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
       stageAttempt.dec('taskCounts.running').inc(taskCountKey);
+      executor.dec('taskCounts.running').inc(taskCountKey);
 
       if (!prevTaskStatus) {
         l.error(
@@ -281,6 +287,7 @@ var handlers = {
     stageAttempt.upsert();
     task.upsert();
     taskAttempt.upsert();
+    executor.upsert();
   },
 
   SparkListenerEnvironmentUpdate: function(e) {
