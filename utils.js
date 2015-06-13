@@ -46,6 +46,20 @@ function addSetProp(clazz, className) {
   }
 }
 
+function addUnset(clazz) {
+  clazz.prototype.unset = function(key) {
+    if (key in this.propsObj) {
+      this.unsetKeys = this.unsetKeys || [];
+      this.unsetKeys.push(key);
+      delete this.propsObj[key];
+      delete this.toSyncObj[key];
+      this.dirty = true;
+      return true;
+    }
+    return false;
+  }
+}
+
 function addIncProp(clazz) {
   clazz.prototype.inc = function(key, i) {
     if (i === undefined) {
@@ -75,9 +89,17 @@ function addGetProp(clazz) {
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function() {
     if (!this.dirty) return this;
+    var upsertObj = { $set: this.toSyncObj };
+    if (this.unsetKeys) {
+      upsertObj['$unset'] = {};
+      this.unsetKeys.forEach(function(unsetKey) {
+        upsertObj['$unset'][unsetKey] = 1;
+      });
+      this.unsetKeys = [];
+    }
     colls[collectionName].findOneAndUpdate(
           this.findObj,
-          { $set: this.toSyncObj },
+          upsertObj,
           upsertOpts,
           upsertCb(className)
     );
@@ -95,12 +117,13 @@ function addProcessTime(clazz) {
 
 function mixinMongoMethods(clazz, className, collectionName) {
   addSetProp(clazz, className);
+  addUnset(clazz);
   addIncProp(clazz);
   addDecProp(clazz);
   addGetProp(clazz);
   addProcessTime(clazz);
   addUpsert(clazz, className, collectionName);
-};
+}
 
 function toSeq(m) {
   var ret = [];
