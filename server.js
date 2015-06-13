@@ -242,9 +242,10 @@ var handlers = {
     var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
     var prevTaskAttemptStatus = task.get('status');
 
+    var taskMetrics = removeKeySpaces(e['Task Metrics']);
     taskAttempt.fromTaskInfo(ti);
     var prevTaskAttemptMetrics = taskAttempt.get('metrics');
-    var newTaskAttemptMetrics = removeKeySpaces(e['Task Metrics']);
+    var newTaskAttemptMetrics = taskMetrics;
 
     taskAttempt.set('metrics', newTaskAttemptMetrics);
 
@@ -258,6 +259,8 @@ var handlers = {
     var taskMetricsDiff = subObjs(newTaskMetrics, prevTaskMetrics);
     task.set("metrics", newTaskMetrics, true);
     stage.set("metrics", addObjs(stage.get("metrics"), taskMetricsDiff), true);
+
+    executor.updateBlocks(app, taskMetrics['UpdatedBlocks']);
 
     var succeeded = !ti['Failed'];
     var status = succeeded ? SUCCEEDED : FAILED;
@@ -313,6 +316,7 @@ var handlers = {
     taskAttempt.upsert();
     executor.upsert();
     job.upsert();
+    app.upsert();
   },
 
   SparkListenerEnvironmentUpdate: function(e) {
@@ -338,14 +342,16 @@ var handlers = {
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
     }, true).upsert();
+    app.inc('maxMem', e['Maximum Memory']).upsert();
   },
   SparkListenerBlockManagerRemoved: function(e) {
     var app = getApp(e);
-    app.getExecutor(e).set({
+    var executor = app.getExecutor(e).set({
       'time.end': app.processTime(e['Timestamp']),
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
     }, true).upsert();
+    app.dec('maxMem', e.get('maxMem')).upsert();
   },
 
   SparkListenerUnpersistRDD: function(e) {
