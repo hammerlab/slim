@@ -18,8 +18,13 @@ var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
 
+var subObjs = utils.subObjs;
+var addObjs = utils.addObjs;
+var maxObjs = utils.maxObjs;
+
 var toSeq = utils.toSeq;
 var removeKeySpaces = utils.removeKeySpaces;
+var flattenObj = utils.flattenObj;
 
 var handlers = {
 
@@ -220,6 +225,7 @@ var handlers = {
   SparkListenerTaskEnd: function(e) {
     var app = getApp(e);
     var stage = app.getStage(e);
+    var job = app.getJobByStageId(stage.id);
     var stageAttempt = stage.getAttempt(e);
 
     var ti = e['Task Info'];
@@ -232,11 +238,28 @@ var handlers = {
 
     var task = stage.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
+    var prevTaskMetrics = task.get('metrics');
 
     var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
     var prevTaskAttemptStatus = task.get('status');
 
     taskAttempt.fromTaskInfo(ti);
+    var prevTaskAttemptMetrics = taskAttempt.get('metrics');
+    var newTaskAttemptMetrics = removeKeySpaces(e['Task Metrics']);
+
+    taskAttempt.set('metrics', newTaskAttemptMetrics);
+
+    var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
+    executor.set("metrics", addObjs(executor.get('metrics'), taskAttemptMetricsDiff), true);
+    executor.set(executorStageKey + "metrics", addObjs(executor.get('metrics'), taskAttemptMetricsDiff), true);
+    stageAttempt.set("metrics", addObjs(stageAttempt.get('metrics'), taskAttemptMetricsDiff), true);
+    job.set("metrics", addObjs(job.get("metrics"), taskAttemptMetricsDiff), true);
+
+    var newTaskMetrics = maxObjs(prevTaskMetrics, newTaskAttemptMetrics);
+    var taskMetricsDiff = subObjs(newTaskMetrics, prevTaskMetrics);
+    task.set("metrics", newTaskMetrics, true);
+    stage.set("metrics", addObjs(stage.get("metrics"), taskMetricsDiff), true);
+
     var succeeded = !ti['Failed'];
     var status = succeeded ? SUCCEEDED : FAILED;
     var taskCountKey = succeeded ? 'taskCounts.succeeded' : 'taskCounts.failed';
@@ -290,6 +313,7 @@ var handlers = {
     task.upsert();
     taskAttempt.upsert();
     executor.upsert();
+    job.upsert();
   },
 
   SparkListenerEnvironmentUpdate: function(e) {

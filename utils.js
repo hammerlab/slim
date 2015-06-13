@@ -4,33 +4,16 @@ var deq = require('deep-equal');
 
 var l = require('./log').l;
 
-module.exports.PENDING = undefined;
-module.exports.RUNNING = 1;
-module.exports.SUCCEEDED = 2;
-module.exports.FAILED = 3;
-module.exports.SKIPPED = 4;
-
-module.exports.status = {
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-  SKIPPED: "SKIPPED"
-};
-
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
   return function(err, val) {
     if (err) {
-      l.error("ERROR (" + event + "): ", err);
+      l.error("ERROR (%s): %O", event, err);
     } else {
-      l.info("Added " + event + ": ", val);
+      l.info("Added %s: %O", event, val);
     }
   }
 };
-
-module.exports.upsertOpts = upsertOpts;
-module.exports.upsertCb = upsertCb;
 
 function addSetProp(clazz, className) {
   clazz.prototype.set = function(key, val, allowExtant) {
@@ -68,6 +51,7 @@ function addIncProp(clazz) {
     if (i === undefined) {
       i = 1;
     }
+    if (i == 0) return this;
     return this.set(key, (this.get(key) || 0) + i, true);
   };
 }
@@ -77,6 +61,7 @@ function addDecProp(clazz) {
     if (i === undefined) {
       i = 1;
     }
+    if (i == 0) return this;
     return this.set(key, (this.get(key) || 0) - i, true);
   };
 }
@@ -108,7 +93,7 @@ function addProcessTime(clazz) {
   };
 }
 
-module.exports.mixinMongoMethods = function(clazz, className, collectionName) {
+function mixinMongoMethods(clazz, className, collectionName) {
   addSetProp(clazz, className);
   addIncProp(clazz);
   addDecProp(clazz);
@@ -134,5 +119,86 @@ function removeKeySpaces(obj) {
   return ret;
 }
 
-module.exports.toSeq = toSeq;
-module.exports.removeKeySpaces = removeKeySpaces;
+function combineObjKey(ret, a, b, k, combineFn) {
+  if (typeof a[k] == 'number') {
+    if (b && k in b && typeof b[k] != 'number') {
+      l.error("Found {%s:%d} in %O but {%s:%s} in %O", k, a[k], a, k, b[k], b);
+    } else {
+      ret[k] = combineFn(a[k], b && b[k] || 0);
+    }
+  } else if (typeof a[k] == 'object') {
+    if (b && k in b && typeof b[k] != 'object') {
+      l.error("Found {%s:%O} in %O but {%s:%s} in %O", k, a[k], a, k, b[k], b);
+    } else {
+      ret[k] = combineObjs(a[k], b && b[k] || {}, combineFn);
+    }
+  } else {
+    ret[k] = a[k];
+  }
+}
+
+function combineObjs(a, b, combineFn) {
+  var ret = {};
+  if (a) {
+    for (k in a) {
+      combineObjKey(ret, a, b, k, combineFn);
+    }
+  }
+  if (b) {
+    for (k in b) {
+      if (a && k in a) continue;
+      combineObjKey(ret, b, a, k, combineFn);
+    }
+  }
+  return ret;
+}
+
+function sub(a, b) { return a - b; }
+function add(a, b) { return a + b; }
+
+function subObjs(a, b) {
+  return combineObjs(a, b, sub);
+}
+
+function addObjs(a, b) {
+  return combineObjs(a, b, add);
+}
+
+function maxObjs(a, b) {
+  return combineObjs(a, b, Math.max);
+}
+
+function flattenObj(o, prefix, ret) {
+  if (typeof o != 'object') return o;
+  ret = ret || {};
+  prefix = prefix || '';
+  var prefixDot = prefix ? (prefix + '.') : '';
+  for (k in o) {
+    ret[prefixDot] = flattenObj(o[k], prefixDot + k, ret);
+  }
+  return ret;
+}
+
+module.exports = {
+  PENDING: undefined,
+  RUNNING: 1,
+  SUCCEEDED: 2,
+  FAILED: 3,
+  SKIPPED: 4,
+  status: {
+    PENDING: "PENDING",
+    RUNNING: "RUNNING",
+    FAILED: "FAILED",
+    SUCCEEDED: "SUCCEEDED",
+    SKIPPED: "SKIPPED"
+  },
+  toSeq: toSeq,
+  removeKeySpaces: removeKeySpaces,
+  upsertOpts: upsertOpts,
+  upsertCb: upsertCb,
+  mixinMongoMethods: mixinMongoMethods,
+  flattenObj: flattenObj,
+  addObjs: addObjs,
+  subObjs: subObjs,
+  maxObjs: maxObjs
+};
