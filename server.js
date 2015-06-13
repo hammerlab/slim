@@ -24,7 +24,6 @@ var maxObjs = utils.maxObjs;
 
 var toSeq = utils.toSeq;
 var removeKeySpaces = utils.removeKeySpaces;
-var flattenObj = utils.flattenObj;
 
 var handlers = {
 
