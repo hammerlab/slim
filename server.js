@@ -166,6 +166,7 @@ var handlers = {
     var taskId = ti['Task ID'];
 
     var executor = app.getExecutor(ti);
+    var executorStageKey = 'stages.' + stage.id + '.' + stageAttempt.id + '.taskCounts.';
 
     var taskIndex = ti['Index'];
     var task = stage.getTask(taskIndex);
@@ -188,7 +189,7 @@ var handlers = {
     } else {
       taskAttempt.set('status', RUNNING);
       stageAttempt.inc('taskCounts.running');
-      executor.inc('taskCounts.running').inc('taskCounts.num');
+      executor.inc('taskCounts.running').inc('taskCounts.num').inc(executorStageKey + 'running').inc(executorStageKey + 'num');
 
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
@@ -227,6 +228,7 @@ var handlers = {
     var taskAttemptId = ti['Attempt'];
 
     var executor = app.getExecutor(ti);
+    var executorStageKey = 'stages.' + stage.id + '.' + stageAttempt.id + '.';
 
     var task = stage.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
@@ -242,7 +244,7 @@ var handlers = {
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
       stageAttempt.dec('taskCounts.running').inc(taskCountKey);
-      executor.dec('taskCounts.running').inc(taskCountKey);
+      executor.dec('taskCounts.running').inc(taskCountKey).dec(executorStageKey + 'taskCounts.running').inc(executorStageKey + taskCountKey);
 
       if (!prevTaskStatus) {
         l.error(
