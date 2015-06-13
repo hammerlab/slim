@@ -134,12 +134,17 @@ function toSeq(m) {
 }
 
 function removeKeySpaces(obj) {
-  if (typeof obj !== 'object') return obj;
-  var ret = {};
-  for (k in obj) {
-    ret[k.replace(/ /g, '')] = removeKeySpaces(obj[k]);
+  if (obj instanceof Array) {
+    return obj.map(removeKeySpaces);
   }
-  return ret;
+  if (typeof obj === 'object') {
+    var ret = {};
+    for (k in obj) {
+      ret[k.replace(/ /g, '')] = removeKeySpaces(obj[k]);
+    }
+    return ret;
+  }
+  return obj;
 }
 
 function combineObjKey(ret, a, b, k, combineFn) {
