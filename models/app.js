@@ -78,6 +78,9 @@ App.prototype.getStage = function(stageId) {
 };
 
 App.prototype.getRDD = function(rddId) {
+  if (typeof rddId == 'object') {
+    rddId = rddId['RDD ID'];
+  }
   if (!(rddId in this.rdds)) {
     this.rdds[rddId] = new RDD(this.id, rddId);
   }

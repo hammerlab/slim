@@ -47,7 +47,7 @@ var handlers = {
       var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).upsert();
 
       si['RDD Info'].forEach(function(ri) {
-        app.getRDD(ri['RDD ID']).fromRDDInfo(ri).upsert();
+        app.getRDD(ri).fromRDDInfo(ri).upsert();
       }.bind(this));
 
       numTasks += si['Number of Tasks'];
@@ -317,7 +317,7 @@ var handlers = {
   },
 
   SparkListenerUnpersistRDD: function(e) {
-
+    getApp(e).getRDD(e).set({ unpersisted: true }).upsert();
   },
 
   SparkListenerExecutorAdded: function(e) {
