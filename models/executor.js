@@ -21,28 +21,42 @@ function isNone(storageLevel) {
 }
 
 Executor.prototype.updateBlocks = function(app, updatedBlocks) {
-  if (!updatedBlocks) return this;
+  var rdds = [];
+  if (!updatedBlocks) return rdds;
   updatedBlocks.forEach(function(block) {
-    var blockIdKey = 'blocks.' + block['BlockID'];
+    var blockId = block['BlockID'];
+    var blockIdKey = 'blocks.' + blockId;
+
+    var rddIdMatch = blockId.match(/^rdd_([0-9]+)_[0-9]+$/);
+    var rdd = null;
+    if (rddIdMatch) {
+      var rddId = parseInt(rddIdMatch[1]);
+      rdd = app.getRDD(rddId);
+      rdds.push(rdd);
+    }
+
     var status = block['Status'];
     ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function(key) {
       var delta = status[key] - (this.get(blockIdKey + '.' + key) || 0);
       this.inc(key, delta);
       app.inc(key, delta);
+      if (rdd) rdd.inc(key, delta);
     }.bind(this));
     if (isNone(status["StorageLevel"])) {
       if (blockIdKey in this.propsObj) {
         this.unset(blockIdKey);
         this.dec('numBlocks');
+        if (rdd) rdd.dec("numCachedPartitions")
       }
     } else {
       if (!(blockIdKey in this.propsObj)) {
         this.inc('numBlocks');
+        if (rdd) rdd.inc("numCachedPartitions")
       }
-      this.set(blockIdKey, block);
+      this.set(blockIdKey, status);
     }
   }.bind(this));
-  return this;
+  return rdds;
 };
 
 module.exports.Executor = Executor;

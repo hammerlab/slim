@@ -260,7 +260,7 @@ var handlers = {
     task.set("metrics", newTaskMetrics, true);
     stage.set("metrics", addObjs(stage.get("metrics"), taskMetricsDiff), true);
 
-    executor.updateBlocks(app, taskMetrics['UpdatedBlocks']);
+    var rdds = executor.updateBlocks(app, taskMetrics['UpdatedBlocks']);
 
     var succeeded = !ti['Failed'];
     var status = succeeded ? SUCCEEDED : FAILED;
@@ -317,6 +317,7 @@ var handlers = {
     executor.upsert();
     job.upsert();
     app.upsert();
+    rdds.forEach(function(rdd) { rdd.upsert(); });
   },
 
   SparkListenerEnvironmentUpdate: function(e) {
