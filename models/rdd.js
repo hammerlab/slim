@@ -21,9 +21,9 @@ RDD.prototype.fromRDDInfo = function(ri) {
     storageLevel: removeKeySpaces(ri['Storage Level']),
     numPartitions: ri['Number of Partitions'],
     numCachedPartitions: ri['Number of Cached Partitions'],
-    memSize: ri['Memory Size'],
-    externalBlockStoreSize: ri['ExternalBlockStore Size'],
-    diskSize: ri['Disk Size'],
+    MemorySize: ri['MemorySize'],
+    ExternalBlockStoreSize: ri['ExternalBlockStore Size'],
+    DiskSize: ri['Disk Size'],
     scope: ri['Scope']
   });
 };

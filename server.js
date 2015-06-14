@@ -351,7 +351,7 @@ var handlers = {
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
     }, true).upsert();
-    app.dec('maxMem', e.get('maxMem')).upsert();
+    app.dec('maxMem', executor.get('maxMem')).upsert();
   },
 
   SparkListenerUnpersistRDD: function(e) {
