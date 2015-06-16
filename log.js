@@ -9,6 +9,7 @@ function pad(s, n, p) {
 }
 
 module.exports.l = require('tracer').colorConsole({
+  level: 'warn',
   format: [
     "{{timestamp}} {{title}} {{file}}:{{line}}: {{message}}",
     {

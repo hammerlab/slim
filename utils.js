@@ -10,7 +10,7 @@ var upsertCb = function(event) {
     if (err) {
       l.error("ERROR (%s): %O", event, err);
     } else {
-      l.info("Added %s: %O", event, val);
+      l.debug("Added %s: %O", event, val);
     }
   }
 };
