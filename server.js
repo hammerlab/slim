@@ -164,6 +164,7 @@ var handlers = {
   SparkListenerTaskStart: function(e) {
     var app = getApp(e);
     var stage = app.getStage(e);
+    var job = app.getJobByStageId(stage.id);
     var stageAttempt = stage.getAttempt(e);
 
     var ti = e['Task Info'];
@@ -198,12 +199,15 @@ var handlers = {
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
         stage.inc('taskCounts.running');
+        job.inc('taskCounts.running');
       } else if (prevTaskStatus == FAILED) {
         task.set('status', RUNNING, true);
         stage.dec('taskCounts.failed').inc('taskCounts.running');
+        job.dec('taskCounts.failed').inc('taskCounts.running');
       }
     }
 
+    job.upsert();
     stage.upsert();
     stageAttempt.upsert();
     task.upsert();
@@ -283,11 +287,13 @@ var handlers = {
         if (prevTaskStatus == RUNNING) {
           task.set('status', status, true);
           stage.dec('taskCounts.running').inc(taskCountKey);
+          job.dec('taskCounts.running').inc(taskCountKey);
 
         } else if (prevTaskStatus == FAILED) {
           if (succeeded) {
             task.set('status', status, true);
             stage.dec('taskCounts.failed').inc('taskCount.succeeded');
+            job.dec('taskCounts.failed').inc('taskCount.succeeded');
           }
         } else {
           var logFn = succeeded ? l.info : l.warn;
