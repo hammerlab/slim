@@ -1,5 +1,8 @@
 
 var http = require('http');
+var net = require('net');
+var oboe = require('oboe');
+
 var extend = require('node.extend');
 
 var url = 'mongodb://localhost:27017/spruit';
@@ -392,29 +395,38 @@ var handlers = {
   }
 };
 
-//We need a function which handles requests and send response
-function handleRequest(request, response) {
-  var d = '';
-  request.on('data', function(chunk) {
-    d += chunk;
-  });
-  request.on('end', function() {
-    if (d) {
-      var e = JSON.parse(d);
-      l.info('Got data: ' + d);
-      handlers[e['Event']](e)
+function handleEvent(e) {
+  l.info('Got data: ', e);
+  if ('Event' in e) {
+    numEvents++;
+    if (numEvents % 10 == 0) {
+      l.warn("numEvents: %d", numEvents);
     }
-    response.end('OK');
-  });
+    handlers[e['Event']](e);
+  }
 }
 
 const SPARK_LISTENER_PORT=8123;
 
 colls.init(url, function(db) {
-  var server = http.createServer(handleRequest);
+  var server = net.createServer(function(c) {
+    l.info("client connected");
+    var setupOboe = function() {
+      l.info("registering oboe");
+      oboe(c).node('!', function(e) {
+        handleEvent(e);
+      }).fail(function(e) {
+        l.error("oboe error: ", e, typeof e.thrown, e.thrown[0]);
+        setupOboe();
+      });
+    };
+    setupOboe();
 
+    c.on('end', function() {
+      l.warn("client disconnected");
+    })
+  });
   server.listen(SPARK_LISTENER_PORT, function() {
-    //Callback triggered when server is successfully listening. Hurray!
     l.info("Server listening on: http://localhost:%s", SPARK_LISTENER_PORT);
   });
 });

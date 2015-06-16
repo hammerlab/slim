@@ -8,6 +8,7 @@
     "mongodb": "2.0.33",
     "node.extend": "1.1.5",
     "deep-equal": "1.0.0",
+    "oboe": "2.1.2",
     "tracer": "0.7.4"
   }
 }
