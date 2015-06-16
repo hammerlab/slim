@@ -398,10 +398,6 @@ var handlers = {
 function handleEvent(e) {
   l.info('Got data: ', e);
   if ('Event' in e) {
-    numEvents++;
-    if (numEvents % 10 == 0) {
-      l.warn("numEvents: %d", numEvents);
-    }
     handlers[e['Event']](e);
   }
 }
@@ -410,7 +406,7 @@ const SPARK_LISTENER_PORT=8123;
 
 colls.init(url, function(db) {
   var server = net.createServer(function(c) {
-    l.info("client connected");
+    l.warn("client connected");
     var setupOboe = function() {
       l.info("registering oboe");
       oboe(c).node('!', function(e) {
@@ -427,6 +423,6 @@ colls.init(url, function(db) {
     })
   });
   server.listen(SPARK_LISTENER_PORT, function() {
-    l.info("Server listening on: http://localhost:%s", SPARK_LISTENER_PORT);
+    l.warn("Server listening on: http://localhost:%s", SPARK_LISTENER_PORT);
   });
 });
