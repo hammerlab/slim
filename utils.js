@@ -86,10 +86,18 @@ function addGetProp(clazz) {
   }
 }
 
+function isEmptyObject(o) {
+  for (k in o) return false;
+  return true;
+}
+
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function() {
     if (!this.dirty) return this;
-    var upsertObj = { $set: this.toSyncObj };
+    var upsertObj = {};
+    if (!isEmptyObject(this.toSyncObj)) {
+      upsertObj['$set'] = this.toSyncObj;
+    }
     if (this.unsetKeys) {
       upsertObj['$unset'] = {};
       this.unsetKeys.forEach(function(unsetKey) {
