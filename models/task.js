@@ -10,6 +10,7 @@ function Task(appId, stageId, id) {
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;
+  this.key = [ 'app', appId, 'stage', stageId, 'task', id ].join('-');
 
   this.set({
     attempts: {},

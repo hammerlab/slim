@@ -10,6 +10,7 @@ function RDD(appId, id) {
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;
+  this.key = [ 'app', appId, 'rdd', id ].join('-');
 }
 
 mixinMongoMethods(RDD, "RDD", "RDDs");

@@ -91,9 +91,18 @@ function isEmptyObject(o) {
   return true;
 }
 
+var blockingKeys = {};
+var blockedKeys = {};
+
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function() {
     if (!this.dirty) return this;
+
+    if (this.key in blockingKeys) {
+      blockedKeys[this.key] = true;
+      return this;
+    }
+
     var upsertObj = {};
     if (!isEmptyObject(this.toSyncObj)) {
       upsertObj['$set'] = this.toSyncObj;
@@ -105,6 +114,15 @@ function addUpsert(clazz, className, collectionName) {
       });
       this.unsetKeys = [];
     }
+    setTimeout(function() {
+      delete blockingKeys[this.key];
+      if (this.key in blockedKeys) {
+        delete blockedKeys[this.key];
+        this.upsert();
+      }
+    }.bind(this), rateLimit);
+    blockingKeys[this.key] = true;
+
     colls[collectionName].findOneAndUpdate(
           this.findObj,
           upsertObj,

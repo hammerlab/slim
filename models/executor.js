@@ -8,6 +8,7 @@ function Executor(appId, id) {
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;
+  this.key = [ "app", appId, "executor", id ].join('-');
 }
 
 mixinMongoMethods(Executor, "Executor", "Executors");

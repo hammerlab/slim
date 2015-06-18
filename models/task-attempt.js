@@ -15,6 +15,7 @@ function TaskAttempt(appId, stageId, stageAttemptId, id) {
     stageAttemptId: stageAttemptId
   });
   this.dirty = true;
+  this.key = [ 'app', appId, 'task', id ].join('-');
 
 }
 

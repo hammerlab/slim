@@ -8,6 +8,7 @@ function Job(appId, id) {
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;
+  this.key = [ 'app', appId, 'job', id ].join('-');
 }
 
 mixinMongoMethods(Job, "Job", "Jobs");

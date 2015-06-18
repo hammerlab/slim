@@ -18,6 +18,7 @@ function Stage(appId, id) {
   this.findObj = { appId: appId, id: id };
   this.propsObj = {};
   this.toSyncObj = {};
+  this.key = [ 'app', appId, 'stage', id ].join('-');
 
   this.attempts = {};
   this.tasks = {};
