@@ -56,9 +56,8 @@ function addUnset(clazz) {
       delete this.propsObj[key];
       delete this.toSyncObj[key];
       this.dirty = true;
-      return true;
     }
-    return false;
+    return this;
   }
 }
 

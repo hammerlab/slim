@@ -367,7 +367,26 @@ var handlers = {
   },
 
   SparkListenerUnpersistRDD: function(e) {
-    getApp(e).getRDD(e).set({ unpersisted: true }).upsert();
+    var app = getApp(e);
+    var rddId = e['RDD ID'];
+    app.getRDD(rddId).set({ unpersisted: true }).upsert();
+    for (var eid in app.executors) {
+      var executor = app.executors[eid];
+      var rddKey = ['blocks', 'rdd', rddId].join('.');
+      app
+            .dec('numBlocks', executor.get(rddKey + '.numBlocks'))
+            .dec('MemorySize', executor.get(rddKey + '.MemorySize'))
+            .dec('DiskSize', executor.get(rddKey + '.DiskSize'))
+            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize'));
+      executor
+            .dec('numBlocks', executor.get(rddKey + '.numBlocks'))
+            .dec('MemorySize', executor.get(rddKey + '.MemorySize'))
+            .dec('DiskSize', executor.get(rddKey + '.DiskSize'))
+            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize'))
+            .unset(rddKey)
+            .upsert();
+    }
+    app.upsert();
   },
 
   SparkListenerExecutorAdded: function(e) {
