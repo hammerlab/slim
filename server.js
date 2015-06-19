@@ -5,7 +5,7 @@ var oboe = require('oboe');
 
 var extend = require('node.extend');
 
-var url = 'mongodb://localhost:27017/spruit';
+var url = 'mongodb://localhost:27017/spree';
 
 var getApp = require('./models/app').getApp;
 var colls = require('./collections');
