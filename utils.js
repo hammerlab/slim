@@ -5,6 +5,7 @@ var deq = require('deep-equal');
 var l = require('./log').l;
 
 var rateLimit = 100;
+var applyRateLimits = true;
 
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
@@ -99,7 +100,7 @@ function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function() {
     if (!this.dirty) return this;
 
-    if (this.key in blockingKeys) {
+    if (this.applyRateLimits && this.key in blockingKeys) {
       blockedKeys[this.key] = true;
       return this;
     }
@@ -115,14 +116,17 @@ function addUpsert(clazz, className, collectionName) {
       });
       this.unsetKeys = null;
     }
-    setTimeout(function() {
-      delete blockingKeys[this.key];
-      if (this.key in blockedKeys) {
-        delete blockedKeys[this.key];
-        this.upsert();
-      }
-    }.bind(this), rateLimit);
-    blockingKeys[this.key] = true;
+
+    if (this.applyRateLimits) {
+      setTimeout(function () {
+        delete blockingKeys[this.key];
+        if (this.key in blockedKeys) {
+          delete blockedKeys[this.key];
+          this.upsert();
+        }
+      }.bind(this), rateLimit);
+      blockingKeys[this.key] = true;
+    }
 
     colls[collectionName].findOneAndUpdate(
           this.findObj,

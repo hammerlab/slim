@@ -15,6 +15,7 @@ function App(id) {
   this.toSyncObj = {};
   this.dirty = true;
   this.key = [ "app", id ].join('-');
+  this.applyRateLimit = true;
 
   this.jobs = {};
   this.stages = {};

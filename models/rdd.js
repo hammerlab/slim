@@ -11,6 +11,7 @@ function RDD(appId, id) {
   this.toSyncObj = {};
   this.dirty = true;
   this.key = [ 'app', appId, 'rdd', id ].join('-');
+  this.applyRateLimit = true;
 }
 
 mixinMongoMethods(RDD, "RDD", "RDDs");

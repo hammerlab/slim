@@ -9,6 +9,7 @@ function Job(appId, id) {
   this.toSyncObj = {};
   this.dirty = true;
   this.key = [ 'app', appId, 'job', id ].join('-');
+  this.applyRateLimit = true;
 }
 
 mixinMongoMethods(Job, "Job", "Jobs");

@@ -9,6 +9,7 @@ function Executor(appId, id) {
   this.toSyncObj = {};
   this.dirty = true;
   this.key = [ "app", appId, "executor", id ].join('-');
+  this.applyRateLimit = true;
 }
 
 mixinMongoMethods(Executor, "Executor", "Executors");

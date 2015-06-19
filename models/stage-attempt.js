@@ -12,6 +12,7 @@ function StageAttempt(appId, stageId, id) {
   this.propsObj = {};
   this.toSyncObj = {};
   this.key = [ 'app', appId, 'stage', stageId, 'attempt', id ].join('-');
+  this.applyRateLimit = true;
 
   this.task_attempts = {};
 }
