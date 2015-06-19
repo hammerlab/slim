@@ -4,6 +4,8 @@ var deq = require('deep-equal');
 
 var l = require('./log').l;
 
+var rateLimit = 100;
+
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
   return function(err, val) {
