@@ -114,7 +114,7 @@ function addUpsert(clazz, className, collectionName) {
       this.unsetKeys.forEach(function(unsetKey) {
         upsertObj['$unset'][unsetKey] = 1;
       });
-      this.unsetKeys = [];
+      this.unsetKeys = null;
     }
     setTimeout(function() {
       delete blockingKeys[this.key];
