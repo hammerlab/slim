@@ -188,11 +188,12 @@ var handlers = {
     if (prevTaskAttemptStatus) {
       var taskAttemptId = ti['Attempt'];
       l.error(
-            "Found extant status %s (%d) for task %d (%s:%s)",
-            statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
+            "Unexpected TaskStart for %d (%s:%s), status: %s (%d) -> %s (%d)",
             taskId,
             stage.id + "." + stageAttempt.id,
-            taskIndex + "." + taskAttemptId
+            taskIndex + "." + taskAttemptId,
+            statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
+            "RUNNING", RUNNING
       );
     } else {
       taskAttempt.set('status', RUNNING);
@@ -311,11 +312,12 @@ var handlers = {
       }
     } else {
       l.error(
-            "Got TaskEnd for %d (%s:%s) with previous status %s (%d)",
+            "Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
             taskId,
             stage.id + "." + stageAttempt.id,
             taskIndex + "." + taskAttemptId,
-            statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus
+            statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
+            statusStr[status], status
       )
     }
 

@@ -239,13 +239,6 @@ module.exports = {
   SUCCEEDED: 2,
   FAILED: 3,
   SKIPPED: 4,
-  status: {
-    PENDING: "PENDING",
-    RUNNING: "RUNNING",
-    FAILED: "FAILED",
-    SUCCEEDED: "SUCCEEDED",
-    SKIPPED: "SKIPPED"
-  },
   toSeq: toSeq,
   removeKeySpaces: removeKeySpaces,
   upsertOpts: upsertOpts,
@@ -256,3 +249,10 @@ module.exports = {
   subObjs: subObjs,
   maxObjs: maxObjs
 };
+
+module.exports.status = {};
+module.exports.status[module.exports.PENDING] = "PENDING";
+module.exports.status[module.exports.RUNNING] = "RUNNING";
+module.exports.status[module.exports.FAILED] = "FAILED";
+module.exports.status[module.exports.SUCCEEDED] = "SUCCEEDED";
+module.exports.status[module.exports.SKIPPED] = "SKIPPED";
