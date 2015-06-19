@@ -433,8 +433,7 @@ colls.init(url, function(db) {
       oboe(c).node('!', function(e) {
         handleEvent(e);
       }).fail(function(e) {
-        l.error("oboe error: ", e, typeof e.thrown, e.thrown[0]);
-        setupOboe();
+        throw e.thrown;
       });
     };
     setupOboe();
