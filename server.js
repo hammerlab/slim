@@ -102,7 +102,7 @@ var handlers = {
     var prevStatus = attempt.get('status');
     if (prevStatus) {
       l.err(
-            "Stage " + id + " marking attempt " + attempt.id + " as RUNNING despite extant status " + prevStatus
+            "Stage " + stage.id + " marking attempt " + attempt.id + " as RUNNING despite extant status " + prevStatus
       );
     }
 
