@@ -4,9 +4,6 @@ var deq = require('deep-equal');
 
 var l = require('./log').l;
 
-var rateLimit = 100;
-var applyRateLimits = true;
-
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
   return function(err, val) {
@@ -93,16 +90,16 @@ function isEmptyObject(o) {
   return true;
 }
 
-var blockingKeys = {};
-var blockedKeys = {};
-
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function() {
     if (!this.dirty) return this;
-
-    if (this.applyRateLimits && this.key in blockingKeys) {
-      blockedKeys[this.key] = true;
-      return this;
+    if (this.applyRateLimit) {
+      if (this.blocking) {
+        this.blocked = true;
+        return this;
+      } else {
+        this.blocking = true;
+      }
     }
 
     var upsertObj = {};
@@ -117,22 +114,22 @@ function addUpsert(clazz, className, collectionName) {
       this.unsetKeys = null;
     }
 
-    if (this.applyRateLimits) {
-      setTimeout(function () {
-        delete blockingKeys[this.key];
-        if (this.key in blockedKeys) {
-          delete blockedKeys[this.key];
-          this.upsert();
-        }
-      }.bind(this), rateLimit);
-      blockingKeys[this.key] = true;
-    }
-
     colls[collectionName].findOneAndUpdate(
           this.findObj,
           upsertObj,
           upsertOpts,
-          upsertCb(className)
+          function(err, val) {
+            this.blocking = false;
+            if (err) {
+              l.error("ERROR (%s): %O", className, err);
+            } else {
+              l.debug("Added %s: %O", className, val);
+              if (this.blocked) {
+                this.blocked = false;
+                this.upsert();
+              }
+            }
+          }.bind(this)
     );
     this.toSyncObj = {};
     this.dirty = false;
