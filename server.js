@@ -259,7 +259,7 @@ var handlers = {
 
     var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
     executor.set("metrics", addObjs(executor.get('metrics'), taskAttemptMetricsDiff), true);
-    executor.set(executorStageKey + "metrics", addObjs(executor.get('metrics'), taskAttemptMetricsDiff), true);
+    executor.set(executorStageKey + "metrics", addObjs(executor.get(executorStageKey + 'metrics'), taskAttemptMetricsDiff), true);
     stageAttempt.set("metrics", addObjs(stageAttempt.get('metrics'), taskAttemptMetricsDiff), true);
     job.set("metrics", addObjs(job.get("metrics"), taskAttemptMetricsDiff), true);
 
