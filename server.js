@@ -374,15 +374,15 @@ var handlers = {
       var executor = app.executors[eid];
       var rddKey = ['blocks', 'rdd', rddId].join('.');
       app
-            .dec('numBlocks', executor.get(rddKey + '.numBlocks'))
-            .dec('MemorySize', executor.get(rddKey + '.MemorySize'))
-            .dec('DiskSize', executor.get(rddKey + '.DiskSize'))
-            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize'));
+            .dec('numBlocks', executor.get(rddKey + '.numBlocks') || 0)
+            .dec('MemorySize', executor.get(rddKey + '.MemorySize') || 0)
+            .dec('DiskSize', executor.get(rddKey + '.DiskSize') || 0)
+            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize') || 0);
       executor
-            .dec('numBlocks', executor.get(rddKey + '.numBlocks'))
-            .dec('MemorySize', executor.get(rddKey + '.MemorySize'))
-            .dec('DiskSize', executor.get(rddKey + '.DiskSize'))
-            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize'))
+            .dec('numBlocks', executor.get(rddKey + '.numBlocks') || 0)
+            .dec('MemorySize', executor.get(rddKey + '.MemorySize') || 0)
+            .dec('DiskSize', executor.get(rddKey + '.DiskSize') || 0)
+            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize') || 0)
             .unset(rddKey)
             .upsert();
     }
