@@ -19,6 +19,7 @@ function StageAttempt(appId, stageId, id) {
 
 StageAttempt.prototype.fromStageInfo = function(si) {
   return this.set({
+    name: si['Stage Name'],
     'time.start': this.processTime(si['Submission Time']),
     'time.end': this.processTime(si['Completion Time']),
     'taskCounts.num': si['Number of Tasks'],
