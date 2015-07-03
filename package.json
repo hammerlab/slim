@@ -5,6 +5,7 @@
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
   "main": "server.js",
   "dependencies": {
+    "moment": "2.10.3",
     "mongodb": "2.0.33",
     "node.extend": "1.1.5",
     "deep-equal": "1.0.0",

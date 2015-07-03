@@ -3,6 +3,7 @@ var colls = require('./collections');
 var deq = require('deep-equal');
 
 var l = require('./log').l;
+var m = require('moment');
 
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
@@ -14,6 +15,58 @@ var upsertCb = function(event) {
     }
   }
 };
+
+var UpsertStats = function() {
+  this.started = 0;
+  this.ended = 0;
+
+  var thresholds = [0, 10, 20, 50];
+  var thresholdMinIdx = 0;
+  var thresholdMaxIdx = 1;
+  var lastWarned = 0;
+
+  var min = thresholds[thresholdMinIdx];
+  var max = thresholds[thresholdMaxIdx];
+
+  this.inc = function() {
+    this.started++;
+    this.maybeWarn();
+  };
+  this.dec = function() {
+    this.ended++;
+    this.maybeWarn();
+  };
+  this.maybeWarn = function() {
+    var d = this.started - this.ended;
+    if (d == max || d == min) {
+      if (d != lastWarned) {
+        l.warn("Upsert backlog: %d (%d started, %d finished)", d, this.started, this.ended);
+      } else {
+        lastWarned = d;
+      }
+      if (d == max) {
+        if (thresholdMaxIdx == thresholds.length - 1) {
+          thresholds.push(thresholds[thresholds.length - 3] * 10);
+          thresholds.push(thresholds[thresholds.length - 3] * 10);
+          thresholds.push(thresholds[thresholds.length - 3] * 10);
+        }
+        thresholdMaxIdx++;
+        thresholdMinIdx = thresholdMaxIdx - 2;
+      } else {
+        if (thresholdMinIdx == 0) {
+          thresholdMaxIdx = 1;
+        } else {
+          thresholdMinIdx--;
+          thresholdMaxIdx = thresholdMinIdx + 2;
+        }
+      }
+      min = thresholds[thresholdMinIdx];
+      max = thresholds[thresholdMaxIdx];
+    }
+  };
+};
+
+var upsertStats = new UpsertStats();
 
 var useRealInc = true;
 
@@ -170,16 +223,37 @@ function addUpsert(clazz, className, collectionName) {
     }
     upsertObj['$inc']['n'] = 1;
 
+    upsertStats.inc();
+    var b = {
+      t: m(),
+      started: upsertStats.started,
+      ended: upsertStats.ended
+    };
     colls[collectionName].findOneAndUpdate(
           this.findObj,
           upsertObj,
           upsertOpts,
           function(err, val) {
+            var after = m();
+            upsertStats.dec();
             this.blocking = false;
             if (err) {
               l.error("ERROR (%s): %O", className, err);
             } else {
               l.debug("Added %s: %O", className, val);
+              if (className == 'Stage') {
+                var v = val.value;
+                l.info(
+                      'After upsert (started %d->%d, ended %d->%d, in flight %d->%d): Stage %d: %d running, %d succeeded, took %d ms',
+                      b.started, upsertStats.started,
+                      b.ended, upsertStats.ended,
+                      b.started - b.ended, upsertStats.started - upsertStats.ended,
+                      v.id,
+                      v.taskCounts && v.taskCounts.running || 0,
+                      v.taskCounts && v.taskCounts.succeeded || 0,
+                      after - b.t
+                );
+              }
               if (this.blocked) {
                 this.blocked = false;
                 this.upsert();
