@@ -16,6 +16,7 @@ function Task(appId, stage, id) {
     this.superKey = ['tasks', id, ''].join('.');
     this.set('id', id);
   } else {
+    this.applyRateLimit = true;
     this.findObj = {appId: appId, stageId: this.stageId, id: id};
     this.propsObj = {};
     this.toSyncObj = {};
