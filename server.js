@@ -9,11 +9,11 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var mongoPort = argv.p || argv['mongo-port'] || 3001;
 var mongoHost = argv.h || argv['mongo-host'] || 'localhost';
-var mongoDb = argv.d || argv['mongo-db'] || 'spree';
+var mongoDb = argv.d || argv['mongo-db'] || 'meteor';
 var mongoUrl = argv.m || argv['mongo-url'] || ('mongodb://' + mongoHost + ':' + mongoPort + '/' + mongoDb);
 var url = 'mongodb://localhost:27017/spree';
 
-var port = argv.P || argv.port;
+var port = argv.P || argv.port || 8123;
 
 var getApp = require('./models/app').getApp;
 var colls = require('./collections');
