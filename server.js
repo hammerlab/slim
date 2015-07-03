@@ -5,7 +5,15 @@ var oboe = require('oboe');
 
 var extend = require('node.extend');
 
+var argv = require('minimist')(process.argv.slice(2));
+
+var mongoPort = argv.p || argv['mongo-port'] || 3001;
+var mongoHost = argv.h || argv['mongo-host'] || 'localhost';
+var mongoDb = argv.d || argv['mongo-db'] || 'spree';
+var mongoUrl = argv.m || argv['mongo-url'] || ('mongodb://' + mongoHost + ':' + mongoPort + '/' + mongoDb);
 var url = 'mongodb://localhost:27017/spree';
+
+var port = argv.P || argv.port;
 
 var getApp = require('./models/app').getApp;
 var colls = require('./collections');
@@ -429,9 +437,7 @@ function handleEvent(e) {
   }
 }
 
-const SPARK_LISTENER_PORT=8123;
-
-colls.init(url, function(db) {
+colls.init(mongoUrl, function(db) {
   var server = net.createServer(function(c) {
     l.warn("client connected");
     var setupOboe = function() {
@@ -448,7 +454,7 @@ colls.init(url, function(db) {
       l.warn("client disconnected");
     })
   });
-  server.listen(SPARK_LISTENER_PORT, function() {
-    l.warn("Server listening on: http://localhost:%s", SPARK_LISTENER_PORT);
+  server.listen(port, function() {
+    l.warn("Server listening on: http://localhost:%s", port);
   });
 });
