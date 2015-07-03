@@ -141,9 +141,7 @@ var handlers = {
 
     if (prevAttemptStatus == RUNNING) {
       stage.dec('attempts.running');
-      l.info("before dec: " + job.get('stageCounts.running'));
       job.dec('stageCounts.running');
-      l.info("after dec: " + job.get('stageCounts.running'));
     } else {
       l.err(
             "Got status " + newAttemptStatus + " for stage " + stage.id + " attempt " + attempt.id + " with existing status " + prevAttemptStatus
@@ -425,7 +423,7 @@ var handlers = {
 };
 
 function handleEvent(e) {
-  l.info('Got data: ', e);
+  l.debug('Got data: ', e);
   if ('Event' in e) {
     handlers[e['Event']](e);
   }
@@ -437,7 +435,7 @@ colls.init(url, function(db) {
   var server = net.createServer(function(c) {
     l.warn("client connected");
     var setupOboe = function() {
-      l.info("registering oboe");
+      l.debug("Registering oboe");
       oboe(c).node('!', function(e) {
         handleEvent(e);
       }).fail(function(e) {
