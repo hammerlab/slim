@@ -8,8 +8,10 @@ function pad(s, n, p) {
   return pads + s;
 }
 
+var argv = require('minimist')(process.argv.slice(2));
+
 module.exports.l = require('tracer').colorConsole({
-  level: 'info',
+  level: argv.l || 'info',
   format: [
     "{{timestamp}} {{title}} {{file}}:{{line}}: {{message}}",
     {

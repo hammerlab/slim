@@ -5,6 +5,8 @@ var deq = require('deep-equal');
 var l = require('./log').l;
 var m = require('moment');
 
+var argv = require('minimist')(process.argv.slice(2));
+
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
   return function(err, val) {
@@ -68,7 +70,7 @@ var UpsertStats = function() {
 
 var upsertStats = new UpsertStats();
 
-var useRealInc = true;
+var useRealInc = !argv.f && !argv['fake-inc'];
 
 function addSetProp(clazz, className) {
   clazz.prototype.set = function(key, val, allowExtant) {
