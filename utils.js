@@ -132,15 +132,14 @@ function addUpsert(clazz, className, collectionName) {
           }.bind(this)
     );
     this.toSyncObj = {};
+    this.incObj = {};
     this.dirty = false;
     return this;
   };
 }
 
-function addProcessTime(clazz) {
-  clazz.prototype.processTime = function(t) {
-    return t ? t : undefined;
-  };
+function processTime(t) {
+  return t ? t : undefined;
 }
 
 function mixinMongoMethods(clazz, className, collectionName) {
@@ -149,7 +148,6 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addIncProp(clazz);
   addDecProp(clazz);
   addGetProp(clazz);
-  addProcessTime(clazz);
   addUpsert(clazz, className, collectionName);
 }
 
@@ -258,3 +256,5 @@ module.exports.status[module.exports.RUNNING] = "RUNNING";
 module.exports.status[module.exports.FAILED] = "FAILED";
 module.exports.status[module.exports.SUCCEEDED] = "SUCCEEDED";
 module.exports.status[module.exports.SKIPPED] = "SKIPPED";
+
+module.exports.processTime = processTime;

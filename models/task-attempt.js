@@ -1,5 +1,9 @@
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
+
+var utils = require("../utils");
+var processTime = utils.processTime;
+var mixinMongoMethods = utils.mixinMongoMethods;
+var mixinMongoSubrecordMethods = utils.mixinMongoSubrecordMethods;
 
 function TaskAttempt(appId, stageId, stageAttemptId, id) {
   this.appId = appId;
@@ -21,13 +25,13 @@ function TaskAttempt(appId, stageId, stageAttemptId, id) {
 
 TaskAttempt.prototype.fromTaskInfo = function(ti) {
   this.set({
-    'time.start': this.processTime(ti['Launch Time']),
-    'time.end': this.processTime(ti['Finish Time']),
+    'time.start': processTime(ti['Launch Time']),
+    'time.end': processTime(ti['Finish Time']),
     execId: ti['Executor ID'],
     //host: ti['Host'],  // redundant with exec ID...
     locality: ti['Locality'],
     speculative: ti['Speculative'],
-    gettingResultTime: this.processTime(ti['Getting Result Time']),
+    gettingResultTime: processTime(ti['Getting Result Time']),
     failed: ti['Failed'],
     accumulables: ti['Accumulables'],
     index: ti['Index'],

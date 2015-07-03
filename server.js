@@ -12,6 +12,7 @@ var colls = require('./collections');
 
 var utils = require("./utils");
 var statusStr = utils.status;
+var processTime = utils.processTime;
 
 var l = require('./log').l;
 
@@ -36,7 +37,7 @@ var handlers = {
 
   SparkListenerApplicationEnd: function(e) {
     var app = getApp(e);
-    app.set('time.end', app.processTime(e['Timestamp'])).upsert();
+    app.set('time.end', processTime(e['Timestamp'])).upsert();
   },
 
   SparkListenerJobStart: function(e) {
@@ -61,7 +62,7 @@ var handlers = {
     });
 
     job.set({
-      'time.start': job.processTime(e['Submission Time']),
+      'time.start': processTime(e['Submission Time']),
       stageIDs: e['Stage IDs'],
       'taskCounts.num': numTasks,
       'stageCounts.num': e['Stage IDs'].length,
@@ -75,7 +76,7 @@ var handlers = {
     var job = app.getJob(e);
 
     job.set({
-      'time.end': job.processTime(e['Completion Time']),
+      'time.end': processTime(e['Completion Time']),
       result: e['Job Result'],
       succeeded: e['Job Result']['Result'] == 'JobSucceeded',
       ended: true
@@ -350,7 +351,7 @@ var handlers = {
     var app = getApp(e);
     app.getExecutor(e).set({
       maxMem: e['Maximum Memory'],
-      'time.start': app.processTime(e['Timestamp']),
+      'time.start': processTime(e['Timestamp']),
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
     }, true).upsert();
@@ -359,7 +360,7 @@ var handlers = {
   SparkListenerBlockManagerRemoved: function(e) {
     var app = getApp(e);
     var executor = app.getExecutor(e).set({
-      'time.end': app.processTime(e['Timestamp']),
+      'time.end': processTime(e['Timestamp']),
       host: e['Block Manager ID']['Host'],
       port: e['Block Manager ID']['Port']
     }, true).upsert();
@@ -393,7 +394,7 @@ var handlers = {
     var app = getApp(e);
     var ei = e['Executor Info'];
     app.getExecutor(e).set({
-      'time.start': app.processTime(e['Timestamp']),
+      'time.start': processTime(e['Timestamp']),
       host: ei['Host'],
       cores: ei['Total Cores'],
       urls: ei['Log Urls']
@@ -403,7 +404,7 @@ var handlers = {
   SparkListenerExecutorRemoved: function(e) {
     var app = getApp(e);
     app.getExecutor(e).set({
-      'time.end': app.processTime(e['Timestamp']),
+      'time.end': processTime(e['Timestamp']),
       reason: e['Removed Reason']
     }).upsert();
   },

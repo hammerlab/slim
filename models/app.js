@@ -1,5 +1,7 @@
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
+var utils = require("../utils");
+var processTime = utils.processTime;
+var mixinMongoMethods = utils.mixinMongoMethods;
 
 var Job = require('./job').Job;
 var Stage = require('./stage').Stage;
@@ -30,7 +32,7 @@ mixinMongoMethods(App, "Application", "Applications");
 App.prototype.fromEvent = function(e) {
   return this.set({
     name: e['App Name'],
-    'time.start': this.processTime(e['Timestamp']),
+    'time.start': processTime(e['Timestamp']),
     user: e['User'],
     attempt: e['App Attempt ID']
   });

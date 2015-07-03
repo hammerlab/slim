@@ -1,7 +1,9 @@
 
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
+var utils = require("../utils");
+var processTime = utils.processTime;
+var mixinMongoMethods = utils.mixinMongoMethods;
 
 function StageAttempt(appId, stageId, id) {
   this.appId = appId;
@@ -20,8 +22,8 @@ function StageAttempt(appId, stageId, id) {
 StageAttempt.prototype.fromStageInfo = function(si) {
   return this.set({
     name: si['Stage Name'],
-    'time.start': this.processTime(si['Submission Time']),
-    'time.end': this.processTime(si['Completion Time']),
+    'time.start': processTime(si['Submission Time']),
+    'time.end': processTime(si['Completion Time']),
     'taskCounts.num': si['Number of Tasks'],
     failureReason: si['Failure Reason']
   });
