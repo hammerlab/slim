@@ -182,7 +182,7 @@ var handlers = {
     var taskId = ti['Task ID'];
 
     var executor = app.getExecutor(ti);
-    var executorStageKey = 'stages.' + stage.id + '.' + stageAttempt.id + '.taskCounts.';
+    var executorStageKey = ['stages', stage.id, stageAttempt.id, 'taskCounts', ''].join('.');
 
     var taskIndex = ti['Index'];
     var task = stage.getTask(taskIndex);
