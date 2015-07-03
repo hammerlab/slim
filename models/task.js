@@ -1,27 +1,30 @@
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
+var subRecord = false;
 
-function Task(appId, stageId, id) {
+var mixinMongoMethods = require("../utils").mixinMongoMethods;
+var mixinMongoSubrecordMethods = require("../utils").mixinMongoSubrecordMethods;
+
+function Task(appId, stage, id) {
   this.appId = appId;
-  this.stageId = stageId;
+  this.stageId = stage.id;
   this.id = id;
 
-  this.findObj = { appId: appId, stageId: stageId, id: id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.dirty = true;
-  this.key = [ 'app', appId, 'stage', stageId, 'task', id ].join('-');
-
-  this.set({
-    attempts: {},
-    numAttempts: 0,
-    'attemptCounts.running': 0,
-    'attemptCounts.failed': 0,
-    'attemptCounts.succeeded': 0
-  });
-
+  if (subRecord) {
+    this.super = stage;
+    this.superKey = ['tasks', id, ''].join('.');
+    this.set('id', id);
+  } else {
+    this.findObj = {appId: appId, stageId: this.stageId, id: id};
+    this.propsObj = {};
+    this.toSyncObj = {};
+    this.dirty = true;
+  }
 }
 
-mixinMongoMethods(Task, "Task", "Tasks");
+if (subRecord) {
+  mixinMongoSubrecordMethods(Task, "Task");
+} else {
+  mixinMongoMethods(Task, "Task", "Tasks");
+}
 
 module.exports.Task = Task;

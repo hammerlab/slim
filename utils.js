@@ -85,6 +85,33 @@ function addGetProp(clazz) {
   }
 }
 
+function addSuperSetProp(clazz, className) {
+  clazz.prototype.set = function(key, val, allowExtant) {
+    if (typeof key == 'string') {
+      this.super.set(this.superKey + key, val, allowExtant);
+    } else if (typeof key == 'object') {
+      for (k in key) {
+        this.set(k, key[k], !!val);
+      }
+    } else {
+      throw new Error("Invalid " + className + ".super.set() argument: " + key);
+    }
+    return this;
+  };
+}
+
+function addSuperGetProp(clazz) {
+  clazz.prototype.get = function(key) {
+    return this.super.get(this.superKey + key);
+  }
+}
+
+function addSuperUnsetProp(clazz) {
+  clazz.prototype.unset = function(key) {
+    return this.super.unset(this.superKey + key);
+  }
+}
+
 function isEmptyObject(o) {
   for (k in o) return false;
   return true;
@@ -149,6 +176,13 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addDecProp(clazz);
   addGetProp(clazz);
   addUpsert(clazz, className, collectionName);
+}
+
+function mixinMongoSubrecordMethods(clazz, className) {
+  addSuperSetProp(clazz, className);
+  addSuperUnsetProp(clazz);
+  addSuperGetProp(clazz);
+  clazz.prototype.upsert = function() {};
 }
 
 function toSeq(m) {
@@ -244,6 +278,7 @@ module.exports = {
   upsertOpts: upsertOpts,
   upsertCb: upsertCb,
   mixinMongoMethods: mixinMongoMethods,
+  mixinMongoSubrecordMethods: mixinMongoSubrecordMethods,
   flattenObj: flattenObj,
   addObjs: addObjs,
   subObjs: subObjs,

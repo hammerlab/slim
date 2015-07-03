@@ -1,26 +1,31 @@
 
+var subRecord = false;
 
 var utils = require("../utils");
 var processTime = utils.processTime;
 var mixinMongoMethods = utils.mixinMongoMethods;
 var mixinMongoSubrecordMethods = utils.mixinMongoSubrecordMethods;
 
-function TaskAttempt(appId, stageId, stageAttemptId, id) {
+function TaskAttempt(appId, stageAttempt, id) {
   this.appId = appId;
-  this.stageId = stageId;
-  this.stageAttemptId = stageAttemptId;
+  this.stageId = stageAttempt.stageId;
+  this.stageAttemptId = stageAttempt.id;
   this.id = id;
 
-  this.findObj = { appId: appId, id: id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.set({
-    stageId: stageId,
-    stageAttemptId: stageAttemptId
-  });
-  this.dirty = true;
-  this.key = [ 'app', appId, 'task', id ].join('-');
-
+  if (subRecord) {
+    this.super = stageAttempt;
+    this.superKey = ['tasks', id, ''].join('.');
+    this.set('id', id);
+  } else {
+    this.findObj = {appId: appId, id: id};
+    this.propsObj = {};
+    this.toSyncObj = {};
+    this.set({
+      stageId: this.stageId,
+      stageAttemptId: this.stageAttemptId
+    });
+    this.dirty = true;
+  }
 }
 
 TaskAttempt.prototype.fromTaskInfo = function(ti) {
@@ -39,6 +44,10 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
   });
 };
 
-mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts");
+if (subRecord) {
+  mixinMongoSubrecordMethods(TaskAttempt, "TaskAttempt");
+} else {
+  mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts");
+}
 
 module.exports.TaskAttempt = TaskAttempt;

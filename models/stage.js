@@ -56,7 +56,7 @@ Stage.prototype.getTask = function(taskIndex) {
     taskIndex = taskIndex['Index'];
   }
   if (!(taskIndex in this.tasks)) {
-    this.tasks[taskIndex] = new Task(this.appId, this.id, taskIndex);
+    this.tasks[taskIndex] = new Task(this.appId, this, taskIndex);
   }
   return this.tasks[taskIndex];
 };
