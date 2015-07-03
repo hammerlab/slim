@@ -29,6 +29,13 @@ var maxObjs = utils.maxObjs;
 var toSeq = utils.toSeq;
 var removeKeySpaces = utils.removeKeySpaces;
 
+function maybeAddTotalShuffleReadBytes(metrics) {
+  if (!('ShuffleReadMetrics' in metrics)) return metrics;
+  var srm = metrics['ShuffleReadMetrics'];
+  srm['TotalBytesRead'] = srm['LocalBytesRead'] + srm['RemoteBytesRead'];
+  return metrics;
+}
+
 var handlers = {
 
   SparkListenerApplicationStart: function(e) {
@@ -251,7 +258,7 @@ var handlers = {
     var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
     var prevTaskAttemptStatus = task.get('status');
 
-    var taskMetrics = removeKeySpaces(e['Task Metrics']);
+    var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
     taskAttempt.fromTaskInfo(ti);
     var prevTaskAttemptMetrics = taskAttempt.get('metrics');
     var newTaskAttemptMetrics = taskMetrics;
