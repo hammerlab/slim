@@ -15,6 +15,8 @@ var upsertCb = function(event) {
   }
 };
 
+var useRealInc = true;
+
 function addSetProp(clazz, className) {
   clazz.prototype.set = function(key, val, allowExtant) {
     if (typeof key == 'string') {
@@ -65,7 +67,15 @@ function addIncProp(clazz) {
       i = 1;
     }
     if (i == 0) return this;
-    return this.set(key, (this.get(key) || 0) + i, true);
+    if (useRealInc) {
+      if (!this.incObj) this.incObj = {};
+      this.incObj[key] = (this.incObj[key] || 0) + i;
+      this.propsObj[key] = (this.propsObj[key] || 0) + i;
+      this.dirty = true;
+      return this;
+    } else {
+      return this.set(key, (this.get(key) || 0) + i, true);
+    }
   };
 }
 
@@ -75,7 +85,7 @@ function addDecProp(clazz) {
       i = 1;
     }
     if (i == 0) return this;
-    return this.set(key, (this.get(key) || 0) - i, true);
+    return this.inc(key, -i);
   };
 }
 
@@ -112,6 +122,18 @@ function addSuperUnsetProp(clazz) {
   }
 }
 
+function addSuperIncProp(clazz) {
+  clazz.prototype.inc = function(key, i) {
+    return this.super.inc(this.superKey + key, i);
+  }
+}
+
+function addSuperDecProp(clazz) {
+  clazz.prototype.dec = function(key, i) {
+    return this.super.dec(this.superKey + key, i);
+  }
+}
+
 function isEmptyObject(o) {
   for (k in o) return false;
   return true;
@@ -129,7 +151,7 @@ function addUpsert(clazz, className, collectionName) {
       }
     }
 
-    var upsertObj = {};
+    var upsertObj = { };
     if (!isEmptyObject(this.toSyncObj)) {
       upsertObj['$set'] = this.toSyncObj;
     }
@@ -140,6 +162,13 @@ function addUpsert(clazz, className, collectionName) {
       });
       this.unsetKeys = null;
     }
+    if (this.incObj && !isEmptyObject(this.incObj)) {
+      upsertObj['$inc'] = this.incObj;
+    }
+    if (!upsertObj['$inc']) {
+      upsertObj['$inc'] = {};
+    }
+    upsertObj['$inc']['n'] = 1;
 
     colls[collectionName].findOneAndUpdate(
           this.findObj,
@@ -182,6 +211,8 @@ function mixinMongoSubrecordMethods(clazz, className) {
   addSuperSetProp(clazz, className);
   addSuperUnsetProp(clazz);
   addSuperGetProp(clazz);
+  addSuperIncProp(clazz);
+  addSuperDecProp(clazz);
   clazz.prototype.upsert = function() {};
 }
 
