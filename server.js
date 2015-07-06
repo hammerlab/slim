@@ -195,7 +195,7 @@ var handlers = {
     var prevTaskStatus = task.get('status');
 
     var taskAttempt = stageAttempt.getTaskAttempt(taskId);
-    var prevTaskAttemptStatus = task.get('status');
+    var prevTaskAttemptStatus = taskAttempt.get('status');
 
     taskAttempt.fromTaskInfo(ti);
 
@@ -262,7 +262,7 @@ var handlers = {
     var prevTaskMetrics = task.get('metrics');
 
     var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
-    var prevTaskAttemptStatus = task.get('status');
+    var prevTaskAttemptStatus = taskAttempt.get('status');
 
     var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
     taskAttempt.fromTaskInfo(ti);
