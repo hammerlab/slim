@@ -43,7 +43,37 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     accumulables: ti['Accumulables'],
     index: ti['Index'],
     attempt: ti['Attempt']
-  }).setDuration();
+  }).setDuration().setHostPort();
+};
+
+var execsById = {};
+var Executors = null;
+
+TaskAttempt.prototype.setHostPort = function() {
+  var eid = this.get('execId');
+  if (eid && (!this.get('host') || !this.get('port'))) {
+    if (!(this.appId in execsById)) {
+      execsById[this.appId] = {};
+    }
+    var appExecsById = execsById[this.appId];
+    if (eid in appExecsById) {
+      var e = appExecsById[eid];
+      this.set({ host: e.host, port: e.port });
+    } else {
+      if (!Executors) {
+        Executors = require("../mongo/collections").Executors;
+      }
+      Executors.findOne({ appId: this.appId, id: eid }, function(err, e) {
+        if (err) {
+          l.error("Failed to fetch executor %s in app %s: ", eid, this.appId, err);
+        } else {
+          appExecsById[eid] = { host: e.host, port: e.port };
+          this.set({ host: e.host, port: e.port }).upsert();
+        }
+      }.bind(this));
+    }
+  }
+  return this;
 };
 
 if (subRecord) {
