@@ -95,6 +95,15 @@ function addDecProp(clazz) {
   };
 }
 
+function addSetDuration(clazz) {
+  clazz.prototype.setDuration = function() {
+    if (!this.get('duration') && this.get('time.start') && this.get('time.end')) {
+      this.set('duration', this.get('time.end') - this.get('time.start'));
+    }
+    return this;
+  }
+}
+
 function addGetProp(clazz) {
   clazz.prototype.get = function(key) {
     return this.propsObj[key];
@@ -189,10 +198,12 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addDecProp(clazz);
   addGetProp(clazz);
   addUpsert(clazz, className, collectionName);
+  addSetDuration(clazz);
 }
 
 module.exports = {
   upsertOpts: upsertOpts,
   upsertCb: upsertCb,
-  mixinMongoMethods: mixinMongoMethods
+  mixinMongoMethods: mixinMongoMethods,
+  addSetDuration: addSetDuration
 };

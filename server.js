@@ -15,8 +15,8 @@ var url = 'mongodb://localhost:27017/spree';
 
 var port = argv.P || argv.port || 8123;
 
-var getApp = require('./models/app').getApp;
 var colls = require('./mongo/collections');
+var getApp = require('./models/app').getApp;
 
 var utils = require("./utils/utils");
 var statusStr = utils.status;
@@ -57,7 +57,7 @@ var handlers = {
 
   SparkListenerApplicationEnd: function(e) {
     var app = getApp(e);
-    app.set('time.end', processTime(e['Timestamp'])).upsert();
+    app.set('time.end', processTime(e['Timestamp'])).setDuration().upsert();
   },
 
   SparkListenerJobStart: function(e) {
@@ -95,12 +95,15 @@ var handlers = {
     var app = getApp(e);
     var job = app.getJob(e);
 
-    job.set({
-      'time.end': processTime(e['Completion Time']),
-      result: e['Job Result'],
-      succeeded: e['Job Result']['Result'] == 'JobSucceeded',
-      ended: true
-    }).upsert();
+    job
+          .set({
+            'time.end': processTime(e['Completion Time']),
+            result: e['Job Result'],
+            succeeded: e['Job Result']['Result'] == 'JobSucceeded',
+            ended: true
+          })
+          .setDuration()
+          .upsert();
 
     job.get('stageIDs').map(function(sid) {
       var stage = app.getStage(sid);
@@ -367,21 +370,29 @@ var handlers = {
   },
   SparkListenerBlockManagerAdded: function(e) {
     var app = getApp(e);
-    app.getExecutor(e).set({
-      maxMem: e['Maximum Memory'],
-      'time.start': processTime(e['Timestamp']),
-      host: e['Block Manager ID']['Host'],
-      port: e['Block Manager ID']['Port']
-    }, true).upsert();
+    app
+          .getExecutor(e)
+          .set({
+            maxMem: e['Maximum Memory'],
+            'time.start': processTime(e['Timestamp']),
+            host: e['Block Manager ID']['Host'],
+            port: e['Block Manager ID']['Port']
+          }, true)
+          .upsert();
     app.inc('maxMem', e['Maximum Memory']).upsert();
   },
   SparkListenerBlockManagerRemoved: function(e) {
     var app = getApp(e);
-    var executor = app.getExecutor(e).set({
-      'time.end': processTime(e['Timestamp']),
-      host: e['Block Manager ID']['Host'],
-      port: e['Block Manager ID']['Port']
-    }, true).upsert();
+    var executor =
+          app
+                .getExecutor(e)
+                .set({
+                  'time.end': processTime(e['Timestamp']),
+                  host: e['Block Manager ID']['Host'],
+                  port: e['Block Manager ID']['Port']
+                }, true)
+                .setDuration()
+                .upsert();
     app.dec('maxMem', executor.get('maxMem')).upsert();
   },
 
@@ -421,10 +432,14 @@ var handlers = {
 
   SparkListenerExecutorRemoved: function(e) {
     var app = getApp(e);
-    app.getExecutor(e).set({
-      'time.end': processTime(e['Timestamp']),
-      reason: e['Removed Reason']
-    }).upsert();
+    app
+          .getExecutor(e)
+          .set({
+            'time.end': processTime(e['Timestamp']),
+            reason: e['Removed Reason']
+          })
+          .setDuration()
+          .upsert();
   },
 
   SparkListenerLogStart: function(e) {

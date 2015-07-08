@@ -1,4 +1,6 @@
 
+var record = require('./record');
+
 function addSuperSetProp(clazz, className) {
   clazz.prototype.set = function(key, val, allowExtant) {
     if (typeof key == 'string') {
@@ -44,6 +46,7 @@ function mixinMongoSubrecordMethods(clazz, className) {
   addSuperGetProp(clazz);
   addSuperIncProp(clazz);
   addSuperDecProp(clazz);
+  record.addSetDuration(clazz);
   clazz.prototype.upsert = function() {};
 }
 

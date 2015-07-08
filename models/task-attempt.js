@@ -43,7 +43,7 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     accumulables: ti['Accumulables'],
     index: ti['Index'],
     attempt: ti['Attempt']
-  });
+  }).setDuration();
 };
 
 if (subRecord) {
