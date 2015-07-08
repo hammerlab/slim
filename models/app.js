@@ -1,7 +1,7 @@
 
-var utils = require("../utils");
+var utils = require("../utils/utils");
 var processTime = utils.processTime;
-var mixinMongoMethods = utils.mixinMongoMethods;
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var Job = require('./job').Job;
 var Stage = require('./stage').Stage;

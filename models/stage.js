@@ -1,10 +1,10 @@
 
-var utils = require("../utils");
+var utils = require("../utils/utils");
 
 var StageAttempt = require('./stage-attempt').StageAttempt;
 var Task = require('./task').Task;
 
-var mixinMongoMethods = utils.mixinMongoMethods;
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var RUNNING = utils.RUNNING;
 var FAILED = utils.FAILED;

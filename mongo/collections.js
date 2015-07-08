@@ -3,7 +3,7 @@ var assert = require('assert');
 
 var MongoClient = require('mongodb').MongoClient;
 
-var l = require('./log').l;
+var l = require('../utils/log').l;
 
 module.exports = {
   // Mongo collection placeholders.

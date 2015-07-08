@@ -1,4 +1,6 @@
 
+var argv = require('minimist')(process.argv.slice(2));
+
 function pad(s, n, p) {
   p = p || ' ';
   var pads = '';
@@ -7,8 +9,6 @@ function pad(s, n, p) {
   }
   return pads + s;
 }
-
-var argv = require('minimist')(process.argv.slice(2));
 
 module.exports.l = require('tracer').colorConsole({
   level: argv.l || 'info',

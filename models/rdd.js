@@ -1,7 +1,7 @@
 
-var utils = require('../utils');
-var mixinMongoMethods = utils.mixinMongoMethods;
-var removeKeySpaces = utils.removeKeySpaces;
+var objUtils = require('../utils/objs');
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
+var removeKeySpaces = objUtils.removeKeySpaces;
 
 function RDD(appId, id) {
   this.appId = appId;

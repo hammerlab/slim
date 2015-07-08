@@ -1,5 +1,5 @@
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 function Job(appId, id) {
   this.appId = appId;

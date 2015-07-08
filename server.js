@@ -16,13 +16,13 @@ var url = 'mongodb://localhost:27017/spree';
 var port = argv.P || argv.port || 8123;
 
 var getApp = require('./models/app').getApp;
-var colls = require('./collections');
+var colls = require('./mongo/collections');
 
-var utils = require("./utils");
+var utils = require("./utils/utils");
 var statusStr = utils.status;
 var processTime = utils.processTime;
 
-var l = require('./log').l;
+var l = require('./utils/log').l;
 
 var PENDING = utils.PENDING;
 var RUNNING = utils.RUNNING;
@@ -30,12 +30,17 @@ var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
 
-var subObjs = utils.subObjs;
-var addObjs = utils.addObjs;
-var maxObjs = utils.maxObjs;
+var objUtils = require("./utils/objs");
+var subObjs = objUtils.subObjs;
+var addObjs = objUtils.addObjs;
+var maxObjs = objUtils.maxObjs;
 
-var toSeq = utils.toSeq;
-var removeKeySpaces = utils.removeKeySpaces;
+var toSeq = objUtils.toSeq;
+var removeKeySpaces = objUtils.removeKeySpaces;
+
+var recordUtils = require("./mongo/record");
+var upsertCb = recordUtils.upsertCb;
+var upsertOpts = recordUtils.upsertOpts;
 
 function maybeAddTotalShuffleReadBytes(metrics) {
   if (!('ShuffleReadMetrics' in metrics)) return metrics;
@@ -356,8 +361,8 @@ var handlers = {
               classpath: toSeq(e['Classpath Entries'])
             }
           },
-          utils.upsertOpts,
-          utils.upsertCb("Environment")
+          upsertOpts,
+          upsertCb("Environment")
     );
   },
   SparkListenerBlockManagerAdded: function(e) {

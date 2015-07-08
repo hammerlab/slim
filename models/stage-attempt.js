@@ -1,9 +1,8 @@
 
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
-var utils = require("../utils");
-var processTime = utils.processTime;
-var mixinMongoMethods = utils.mixinMongoMethods;
+var processTime = require("../utils/utils").processTime;
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 function StageAttempt(appId, stageId, id) {
   this.appId = appId;

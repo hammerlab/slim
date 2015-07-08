@@ -3,8 +3,8 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var subRecord = !!argv.s;
 
-var mixinMongoMethods = require("../utils").mixinMongoMethods;
-var mixinMongoSubrecordMethods = require("../utils").mixinMongoSubrecordMethods;
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
+var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
 function Task(appId, stage, id) {
   this.appId = appId;

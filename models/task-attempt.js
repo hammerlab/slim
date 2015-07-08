@@ -3,10 +3,9 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var subRecord = !!argv.s;
 
-var utils = require("../utils");
-var processTime = utils.processTime;
-var mixinMongoMethods = utils.mixinMongoMethods;
-var mixinMongoSubrecordMethods = utils.mixinMongoSubrecordMethods;
+var processTime = require("../utils/utils").processTime;
+var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
+var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
 function TaskAttempt(appId, stageAttempt, id) {
   this.appId = appId;
