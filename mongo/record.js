@@ -137,6 +137,27 @@ function addDecProp(clazz) {
   };
 }
 
+function addAddToSetProp(clazz) {
+  clazz.prototype.addToSet = function(key, val) {
+    var prop = this.getProp(key, true);
+    if (!prop.exists || !prop.val) {
+      prop.obj[prop.name] = {};
+    }
+    if (!(val in prop.obj[prop.name])) {
+      prop.obj[prop.name][val] = true;
+
+      this.addToSetObj = this.addToSetObj || {};
+      if (!(key in this.addToSetObj)) {
+        this.addToSetObj[key] = {};
+      }
+      this.addToSetObj[key][val] = true;
+
+      this.dirty = true;
+    }
+    return this;
+  };
+}
+
 function addSetDuration(clazz) {
   clazz.prototype.setDuration = function() {
     if (!this.get('duration') && this.get('time.start') && this.get('time.end')) {
@@ -188,6 +209,23 @@ function addUpsert(clazz, className, collectionName) {
     }
     upsertObj['$inc']['n'] = 1;
 
+    if (this.addToSetObj && !isEmptyObject(this.addToSetObj)) {
+      var addToSetObj = {};
+      for (var k in this.addToSetObj) {
+        var keyObj = this.addToSetObj[k];
+        var elems = [];
+        for (var ok in keyObj) {
+          elems.push(ok);
+        }
+        if (elems.length == 1) {
+          addToSetObj[k] = elems[0];
+        } else if (elems.length > 1) {
+          addToSetObj[k] = { $each: elems }
+        }
+      }
+      upsertObj['$addToSet'] = addToSetObj;
+    }
+
     upsertStats.inc();
     var b = {
       t: m(),
@@ -227,6 +265,7 @@ function addUpsert(clazz, className, collectionName) {
           }.bind(this)
     );
     this.toSyncObj = {};
+    this.addToSetObj = {};
     this.incObj = {};
     this.dirty = false;
     return this;
@@ -241,11 +280,13 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addGetProp(clazz);
   addUpsert(clazz, className, collectionName);
   addSetDuration(clazz);
+  addAddToSetProp(clazz);
 }
 
 module.exports = {
   upsertOpts: upsertOpts,
   upsertCb: upsertCb,
   mixinMongoMethods: mixinMongoMethods,
-  addSetDuration: addSetDuration
+  addSetDuration: addSetDuration,
+  addAddToSetProp: addAddToSetProp
 };
