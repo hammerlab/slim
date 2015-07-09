@@ -48,6 +48,7 @@ function mixinMongoSubrecordMethods(clazz, className) {
   addSuperDecProp(clazz);
   record.addSetDuration(clazz);
   record.addAddToSetProp(clazz);
+  record.addHasProp(clazz);
   clazz.prototype.upsert = function() {};
 }
 

@@ -173,6 +173,12 @@ function addGetProp(clazz) {
   }
 }
 
+function addHasProp(clazz) {
+  clazz.prototype.has = function(key) {
+    return this.getProp(key).exists;
+  }
+}
+
 function isEmptyObject(o) {
   for (k in o) return false;
   return true;
@@ -278,6 +284,7 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addIncProp(clazz);
   addDecProp(clazz);
   addGetProp(clazz);
+  addHasProp(clazz);
   addUpsert(clazz, className, collectionName);
   addSetDuration(clazz);
   addAddToSetProp(clazz);
@@ -288,5 +295,6 @@ module.exports = {
   upsertCb: upsertCb,
   mixinMongoMethods: mixinMongoMethods,
   addSetDuration: addSetDuration,
-  addAddToSetProp: addAddToSetProp
+  addAddToSetProp: addAddToSetProp,
+  addHasProp: addHasProp
 };
