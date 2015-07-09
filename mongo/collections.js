@@ -12,11 +12,14 @@ module.exports = {
   Stages: null,
   StageAttempts: null,
   RDDs: null,
+  NonRddBlocks: null,
+  RddBlocks: null,
   Executors: null,
   Tasks: null,
   TaskAttempts: null,
   Environment: null
 };
+
 
 module.exports.init = function(url, cb) {
   MongoClient.connect(url, function(err, db) {
@@ -24,6 +27,8 @@ module.exports.init = function(url, cb) {
     l.warn("Connected to Mongo");
 
     module.exports.Applications = db.collection('apps');
+    module.exports.RddBlocks = db.collection('rdd_blocks');
+    module.exports.NonRddBlocks = db.collection('non_rdd_blocks');
     module.exports.Jobs = db.collection('jobs');
     module.exports.Stages = db.collection('stages');
     module.exports.StageAttempts = db.collection('stage_attempts');
@@ -34,7 +39,9 @@ module.exports.init = function(url, cb) {
     module.exports.Environment = db.collection('environment');
 
     collNamesAndIndices = [
-      ['Applications', { id: 1 } ],
+      [ 'Applications', { id: 1 } ],
+      [ 'RddBlocks', { appId: 1, rddId: 1, id: 1 } ],
+      [ 'NonRddBlocks', { appId: 1, execId: 1, id: 1 } ],
       [ 'Jobs', { appId: 1, id: 1 } ],
       [ 'Stages', { appId: 1, id: 1 } ],
       [ 'Stages', { appId: 1, jobId: 1 } ],
@@ -58,6 +65,7 @@ module.exports.init = function(url, cb) {
       });
     });
 
+    // TODO(ryan): wait until all ensureIndex() calls have returned before calling the callback.
     cb(db);
 
   });

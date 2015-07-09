@@ -2,6 +2,7 @@
 var objUtils = require('../utils/objs');
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var removeKeySpaces = objUtils.removeKeySpaces;
+var RddBlock = require('./block').RddBlock;
 
 function RDD(appId, id) {
   this.appId = appId;
@@ -10,8 +11,10 @@ function RDD(appId, id) {
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;
-  this.key = [ 'app', appId, 'rdd', id ].join('-');
+
   this.applyRateLimit = true;
+
+  this.blocks = {};
 }
 
 mixinMongoMethods(RDD, "RDD", "RDDs");
@@ -28,6 +31,13 @@ RDD.prototype.fromRDDInfo = function(ri) {
     DiskSize: ri['Disk Size'],
     scope: ri['Scope']
   });
+};
+
+RDD.prototype.getBlock = function(blockIndex) {
+  if (!(blockIndex in this.blocks)) {
+    this.blocks[blockIndex] = new RddBlock(this.appId, this.id, blockIndex);
+  }
+  return this.blocks[blockIndex];
 };
 
 module.exports.RDD = RDD;

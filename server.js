@@ -282,7 +282,67 @@ var handlers = {
     task.set("metrics", newTaskMetrics, true);
     stage.set("metrics", addObjs(stage.get("metrics"), taskMetricsDiff), true);
 
-    var rdds = executor.updateBlocks(app, taskMetrics['UpdatedBlocks']);
+    var updatedBlocks = taskMetrics['UpdatedBlocks'];
+    var rdds = [];
+    var blocks = [];
+    if (updatedBlocks) {
+      updatedBlocks.forEach(function (blockInfo) {
+        var blockId = blockInfo['BlockID'];
+
+        var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
+        var rdd = null;
+        var block = null;
+        var blockWasCached = false;
+        var rddKey = null;
+        if (rddIdMatch) {
+          var rddId = parseInt(rddIdMatch[1]);
+          var blockIndex = parseInt(rddIdMatch[2]);
+          rddKey = ['blocks', 'rdd', rddId].join('.');
+
+          rdd = app.getRDD(rddId);
+          rdds.push(rdd);
+
+          block = rdd.getBlock(blockIndex).set('execId', executor.id, true).addToSet('execIds', executor.id);
+          blocks.push(block);
+
+          if (block.isCached()) {
+            blockWasCached = true;
+          }
+        } else {
+          block = executor.getBlock(blockId);
+        }
+
+        var status = blockInfo['Status'];
+        var blockIsCached = false;
+        ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
+          if (status[key] && rdd) {
+            blockIsCached = true;
+          }
+          var delta = status[key] - (block.get(key) || 0);
+          executor.inc(key, delta).inc(rddKey + '.' + key, delta);
+          app.inc(key, delta);
+          if (rdd) {
+            rdd.inc(key, delta);
+          }
+          block.set(key, status[key], true);
+        });
+        if (!blockIsCached) {
+          if (blockWasCached) {
+            executor.dec('numBlocks').dec(rddKey + '.numBlocks');
+            if (rdd) rdd.dec("numCachedPartitions")
+          }
+        } else {
+          if (!blockWasCached) {
+            executor.inc('numBlocks').inc(rddKey + '.numBlocks');
+            if (rdd) rdd.inc("numCachedPartitions")
+          }
+        }
+        if (rdd) {
+          block.set('StorageLevel', status['StorageLevel'], true);
+        }
+        block.set({ host: executor.get('host'), port: executor.get('port') }, true);
+      });
+    }
 
     var succeeded = !ti['Failed'];
     var status = succeeded ? SUCCEEDED : FAILED;
@@ -343,6 +403,7 @@ var handlers = {
     job.upsert();
     app.upsert();
     rdds.forEach(function(rdd) { rdd.upsert(); });
+    blocks.forEach(function(block) { block.upsert(); });
   },
 
   SparkListenerEnvironmentUpdate: function(app, e) {
