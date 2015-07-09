@@ -51,17 +51,15 @@ function maybeAddTotalShuffleReadBytes(metrics) {
 
 var handlers = {
 
-  SparkListenerApplicationStart: function(e) {
-    getApp(e['appId']).fromEvent(e).upsert();
+  SparkListenerApplicationStart: function(app, e) {
+    app.fromEvent(e).upsert();
   },
 
-  SparkListenerApplicationEnd: function(e) {
-    var app = getApp(e);
+  SparkListenerApplicationEnd: function(app, e) {
     app.set('time.end', processTime(e['Timestamp'])).setDuration().upsert();
   },
 
-  SparkListenerJobStart: function(e) {
-    var app = getApp(e);
+  SparkListenerJobStart: function(app, e) {
     var job = app.getJob(e);
     var numTasks = 0;
 
@@ -91,8 +89,7 @@ var handlers = {
 
   },
 
-  SparkListenerJobEnd: function(e) {
-    var app = getApp(e);
+  SparkListenerJobEnd: function(app, e) {
     var job = app.getJob(e);
 
     job
@@ -117,8 +114,7 @@ var handlers = {
     });
   },
 
-  SparkListenerStageSubmitted: function(e) {
-    var app = getApp(e);
+  SparkListenerStageSubmitted: function(app, e) {
     var si = e['Stage Info'];
 
     var stage = app.getStage(si);
@@ -138,8 +134,7 @@ var handlers = {
     stage.fromStageInfo(si).set({ properties: e['Properties'] }).inc('attempts.num').inc('attempts.running').upsert();
   },
 
-  SparkListenerStageCompleted: function(e) {
-    var app = getApp(e);
+  SparkListenerStageCompleted: function(app, e) {
     var si = e['Stage Info'];
 
     var stage = app.getStage(si);
@@ -186,8 +181,7 @@ var handlers = {
 
   },
 
-  SparkListenerTaskStart: function(e) {
-    var app = getApp(e);
+  SparkListenerTaskStart: function(app, e) {
     var stage = app.getStage(e);
     var job = app.getJobByStageId(stage.id);
     var stageAttempt = stage.getAttempt(e);
@@ -241,8 +235,7 @@ var handlers = {
     executor.upsert();
   },
 
-  SparkListenerTaskGettingResult: function(e) {
-    var app = getApp(e);
+  SparkListenerTaskGettingResult: function(app, e) {
     var stageAttempt = stage.getAttempt(e);
 
     var ti = e['Task Info'];
@@ -251,8 +244,7 @@ var handlers = {
     stageAttempt.getTaskAttempt(taskId).fromTaskInfo(ti).upsert();
   },
 
-  SparkListenerTaskEnd: function(e) {
-    var app = getApp(e);
+  SparkListenerTaskEnd: function(app, e) {
     var stage = app.getStage(e);
     var job = app.getJobByStageId(stage.id);
     var stageAttempt = stage.getAttempt(e);
@@ -353,7 +345,7 @@ var handlers = {
     rdds.forEach(function(rdd) { rdd.upsert(); });
   },
 
-  SparkListenerEnvironmentUpdate: function(e) {
+  SparkListenerEnvironmentUpdate: function(app, e) {
     colls.Environment.findOneAndUpdate(
           { appId: e['appId'] },
           {
@@ -368,8 +360,7 @@ var handlers = {
           upsertCb("Environment")
     );
   },
-  SparkListenerBlockManagerAdded: function(e) {
-    var app = getApp(e);
+  SparkListenerBlockManagerAdded: function(app, e) {
     app
           .getExecutor(e)
           .set({
@@ -381,8 +372,7 @@ var handlers = {
           .upsert();
     app.inc('maxMem', e['Maximum Memory']).upsert();
   },
-  SparkListenerBlockManagerRemoved: function(e) {
-    var app = getApp(e);
+  SparkListenerBlockManagerRemoved: function(app, e) {
     var executor =
           app
                 .getExecutor(e)
@@ -396,8 +386,7 @@ var handlers = {
     app.dec('maxMem', executor.get('maxMem')).upsert();
   },
 
-  SparkListenerUnpersistRDD: function(e) {
-    var app = getApp(e);
+  SparkListenerUnpersistRDD: function(app, e) {
     var rddId = e['RDD ID'];
     app.getRDD(rddId).set({ unpersisted: true }).upsert();
     for (var eid in app.executors) {
@@ -419,8 +408,7 @@ var handlers = {
     app.upsert();
   },
 
-  SparkListenerExecutorAdded: function(e) {
-    var app = getApp(e);
+  SparkListenerExecutorAdded: function(app, e) {
     var ei = e['Executor Info'];
     app.getExecutor(e).set({
       'time.start': processTime(e['Timestamp']),
@@ -430,8 +418,7 @@ var handlers = {
     }).upsert();
   },
 
-  SparkListenerExecutorRemoved: function(e) {
-    var app = getApp(e);
+  SparkListenerExecutorRemoved: function(app, e) {
     app
           .getExecutor(e)
           .set({
@@ -442,10 +429,10 @@ var handlers = {
           .upsert();
   },
 
-  SparkListenerLogStart: function(e) {
+  SparkListenerLogStart: function(app, e) {
 
   },
-  SparkListenerExecutorMetricsUpdate: function(e) {
+  SparkListenerExecutorMetricsUpdate: function(app, e) {
 
   }
 };
@@ -453,7 +440,9 @@ var handlers = {
 function handleEvent(e) {
   l.debug('Got data: ', e);
   if ('Event' in e) {
-    handlers[e['Event']](e);
+    getApp(e, function(app) {
+      handlers[e['Event']](app, e);
+    });
   }
 }
 

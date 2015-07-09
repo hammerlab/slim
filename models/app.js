@@ -1,4 +1,8 @@
 
+var colls = require('../mongo/collections');
+
+var l = require('../utils/log').l;
+
 var utils = require("../utils/utils");
 var processTime = utils.processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
@@ -38,14 +42,83 @@ App.prototype.fromEvent = function(e) {
   });
 };
 
-function getApp(id) {
+function appFromMongoRecord(app, cb) {
+  var a = new App(app.id);
+  for (var k in app) {
+    if (k != 'id' && k != '_id') {
+      a.propsObj[k] = app[k];
+    }
+  }
+  a.syncExecutors(cb);
+}
+
+App.prototype.syncExecutors = function(cb) {
+  colls.Executors.find({ appId: this.id }).toArray(function(err, executors) {
+    if (err) {
+      l.error("Error fetching executors for app %s: %s", this.id, JSON.stringify(err));
+    } else {
+      var keys = [];
+      for (var k in executors) {
+        keys.push([k, executors[k]]);
+      }
+      executors.map(function(e) {
+        this.executors[e.id] = this.executorFromMongoRecord(e);
+      }.bind(this));
+      cb(this);
+    }
+  }.bind(this));
+};
+
+App.prototype.executorFromMongoRecord = function(executor) {
+  var e = new Executor(this.id, executor.id);
+  for (var k in executor) {
+    if (k != 'id' && k != 'appId' && k != '_id') {
+      e.propsObj[k] = executor[k];
+    }
+  }
+  return e;
+};
+
+var appsInFlight = {};
+
+function getApp(id, cb) {
   if (typeof id == 'object') {
     id = id['appId'];
   }
   if (!(id in apps)) {
-    apps[id] = new App(id);
+    if (id in appsInFlight) {
+      appsInFlight[id].push(cb);
+    } else {
+      appsInFlight[id] = [cb];
+      l.info("Fetching app: ", id);
+      colls.Applications.findOne({ id: id }, function(err, val) {
+        if (err) {
+          l.error("Error fetching app %s: %s", id, JSON.stringify(err));
+        } else {
+          var a = val;
+          l.info("Got app %s", id, JSON.stringify(a));
+          if (a) {
+            appFromMongoRecord(a, function (app) {
+              apps[id] = app;
+              appsInFlight[id].map(function(appCb) {
+                appCb(app);
+              });
+              delete appsInFlight[id];
+            })
+          } else {
+            var app = new App(id);
+            apps[id] = app;
+            appsInFlight[id].map(function(appCb) {
+              appCb(app);
+            });
+            delete appsInFlight[id];
+          }
+        }
+      });
+    }
+  } else {
+    cb(apps[id]);
   }
-  return apps[id];
 }
 
 App.prototype.getJob = function(jobId) {
@@ -104,5 +177,6 @@ App.prototype.getExecutor = function(executorId) {
   return this.executors[executorId];
 };
 
+module.exports.apps = apps;
 module.exports.App = App;
 module.exports.getApp = getApp;

@@ -1,8 +1,10 @@
 
 var argv = require('minimist')(process.argv.slice(2));
 
+var l = require("../utils/log").l;
 var subRecord = !!argv.s;
 
+var apps = null;
 var processTime = require("../utils/utils").processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
@@ -46,31 +48,32 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
   }).setDuration().setHostPort();
 };
 
-var execsById = {};
-var Executors = null;
-
 TaskAttempt.prototype.setHostPort = function() {
   var eid = this.get('execId');
   if (eid && (!this.get('host') || !this.get('port'))) {
-    if (!(this.appId in execsById)) {
-      execsById[this.appId] = {};
+    if (!apps) {
+      apps = require("./app").apps;
     }
-    var appExecsById = execsById[this.appId];
-    if (eid in appExecsById) {
-      var e = appExecsById[eid];
-      this.set({ host: e.host, port: e.port });
+    var app = apps[this.appId];
+    if (!app) {
+      l.error(
+            "App %s not found for task attempt %d (stage %d.%d, task idx %d.%d): ",
+            this.appId,
+            this.id,
+            this.stageId,
+            this.stageAttemptId,
+            this.get('index'),
+            this.get('attempt')
+      );
     } else {
-      if (!Executors) {
-        Executors = require("../mongo/collections").Executors;
+      var e = app.getExecutor(eid);
+      var host = e.get('host');
+      var port = e.get('port');
+      if (!host || !port) {
+        l.error("Executor %s in app %s missing host/port: %s:%s. %s", eid, this.appId, host, port, JSON.stringify(e));
+      } else {
+        this.set({ host: host, port: port });
       }
-      Executors.findOne({ appId: this.appId, id: eid }, function(err, e) {
-        if (err) {
-          l.error("Failed to fetch executor %s in app %s: ", eid, this.appId, err);
-        } else {
-          appExecsById[eid] = { host: e.host, port: e.port };
-          this.set({ host: e.host, port: e.port }).upsert();
-        }
-      }.bind(this));
     }
   }
   return this;
