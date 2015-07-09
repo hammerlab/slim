@@ -23,23 +23,62 @@ var upsertStats = new UpsertStats();
 
 var useRealInc = !argv.f && !argv['fake-inc'];
 
+function getProp(root, key, create) {
+  var segments = key.split('.');
+  var parentObj = segments.reduce(function(obj, segment, idx) {
+    if (!obj || idx + 1 == segments.length) {
+      return obj;
+    }
+    if (!(segment in obj)) {
+      if (create) {
+        obj[segment] = {};
+      } else {
+        return null;
+      }
+    }
+    return obj[segment];
+  }, root);
+  var name = segments[segments.length - 1];
+  var exists = parentObj && (name in parentObj);
+  return {
+    obj: parentObj,
+    name: name,
+    val: parentObj && parentObj[name],
+    exists: exists,
+    set: function(val) {
+      if (parentObj) {
+        parentObj[name] = val;
+      }
+    },
+    delete: function() {
+      if (exists) {
+        delete parentObj[name];
+      }
+    }
+  };
+}
+
 function addSetProp(clazz, className) {
+  clazz.prototype.getProp = function(key, create) {
+    return getProp(this.propsObj, key, create);
+  };
   clazz.prototype.set = function(key, val, allowExtant) {
     if (typeof key == 'string') {
       if (val === undefined) return this;
-      if (key in this.propsObj) {
-        if (!deq(this.propsObj[key], val)) {
+      var prop = this.getProp(key, true);
+      if (prop.exists) {
+        if (!deq(prop.val, val)) {
           if (!allowExtant) {
             throw new Error(
-                  "Attempting to set " + key + " to " + val + " on " + className + " with existing val " + this.propsObj[key]
+                  "Attempting to set " + key + " to " + val + " on " + className + " with existing val " + prop.val
             );
           }
-          this.propsObj[key] = val;
+          prop.set(val);
           this.toSyncObj[key] = val;
           this.dirty = true;
         }
       } else {
-        this.propsObj[key] = val;
+        prop.set(val);
         this.toSyncObj[key] = val;
         this.dirty = true;
       }
@@ -56,10 +95,12 @@ function addSetProp(clazz, className) {
 
 function addUnset(clazz) {
   clazz.prototype.unset = function(key) {
-    if (key in this.propsObj) {
+    var prop = this.getProp(key);
+    if (prop.exists) {
       this.unsetKeys = this.unsetKeys || [];
       this.unsetKeys.push(key);
-      delete this.propsObj[key];
+      prop.delete();
+      getProp(this.toSyncObj, key).delete();
       delete this.toSyncObj[key];
       this.dirty = true;
     }
@@ -76,7 +117,8 @@ function addIncProp(clazz) {
     if (useRealInc) {
       if (!this.incObj) this.incObj = {};
       this.incObj[key] = (this.incObj[key] || 0) + i;
-      this.propsObj[key] = (this.propsObj[key] || 0) + i;
+      var prop = this.getProp(key, true);
+      prop.set((prop.val || 0) + i);
       this.dirty = true;
       return this;
     } else {
@@ -106,7 +148,7 @@ function addSetDuration(clazz) {
 
 function addGetProp(clazz) {
   clazz.prototype.get = function(key) {
-    return this.propsObj[key];
+    return this.getProp(key).val;
   }
 }
 
