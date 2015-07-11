@@ -3,6 +3,7 @@ var l = require('./log').l;
 
 function toSeq(m) {
   var ret = [];
+  if (!m) return ret;
   for (k in m) {
     ret.push([k, m[k]]);
   }

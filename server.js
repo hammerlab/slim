@@ -84,7 +84,7 @@ var handlers = {
       stageIDs: e['Stage IDs'],
       'taskCounts.num': numTasks,
       'stageCounts.num': e['Stage IDs'].length,
-      properties: e['Properties']
+      properties: toSeq(e['Properties'])
     }).upsert();
 
   },
@@ -130,7 +130,7 @@ var handlers = {
 
     app.getJobByStageId(stage.id).inc('stageCounts.running').upsert();
 
-    stage.fromStageInfo(si).set({ properties: e['Properties'] }).inc('attempts.num').inc('attempts.running').upsert();
+    stage.fromStageInfo(si).set({ properties: toSeq(e['Properties']) }).inc('attempts.num').inc('attempts.running').upsert();
   },
 
   SparkListenerStageCompleted: function(app, e) {
