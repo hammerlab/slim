@@ -328,12 +328,20 @@ var handlers = {
         if (!blockIsCached) {
           if (blockWasCached) {
             executor.dec('numBlocks').dec(rddKey + '.numBlocks');
-            if (rdd) rdd.dec("numCachedPartitions")
+            if (rdd) {
+              rdd
+                    .dec("numCachedPartitions")
+                    .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+            }
           }
         } else {
           if (!blockWasCached) {
             executor.inc('numBlocks').inc(rddKey + '.numBlocks');
-            if (rdd) rdd.inc("numCachedPartitions")
+            if (rdd) {
+              rdd
+                    .inc("numCachedPartitions")
+                    .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+            }
           }
         }
         if (rdd) {
