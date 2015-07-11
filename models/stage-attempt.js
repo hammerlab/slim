@@ -25,6 +25,7 @@ StageAttempt.prototype.fromStageInfo = function(si) {
     'time.start': processTime(si['Submission Time']),
     'time.end': processTime(si['Completion Time']),
     'taskCounts.num': si['Number of Tasks'],
+    'taskIdxCounts.num': si['Number of Tasks'],
     failureReason: si['Failure Reason']
   }).set('accumulables', removeKeyDots(si['Accumulables']), true).setDuration();
 };
