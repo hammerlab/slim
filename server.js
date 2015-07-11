@@ -271,15 +271,20 @@ var handlers = {
     taskAttempt.set('metrics', newTaskAttemptMetrics);
 
     var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
-    executor.set("metrics", addObjs(executor.get('metrics'), taskAttemptMetricsDiff), true);
-    executor.set(executorStageKey + "metrics", addObjs(executor.get(executorStageKey + 'metrics'), taskAttemptMetricsDiff), true);
-    stageAttempt.set("metrics", addObjs(stageAttempt.get('metrics'), taskAttemptMetricsDiff), true);
-    job.set("metrics", addObjs(job.get("metrics"), taskAttemptMetricsDiff), true);
+
+    executor.inc({ metrics: taskAttemptMetricsDiff });
+    var executorStageMetricsKey = executorStageKey + "metrics";
+    var executorStageMetricsObj = {};
+    executorStageMetricsObj[executorStageMetricsKey] = taskAttemptMetricsDiff;
+    executor.inc(executorStageMetricsObj);
+
+    stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
+    job.inc({ metrics: taskAttemptMetricsDiff });
 
     var newTaskMetrics = maxObjs(prevTaskMetrics, newTaskAttemptMetrics);
     var taskMetricsDiff = subObjs(newTaskMetrics, prevTaskMetrics);
     task.set("metrics", newTaskMetrics, true);
-    stage.set("metrics", addObjs(stage.get("metrics"), taskMetricsDiff), true);
+    stage.inc({ metrics: taskMetricsDiff });
 
     var updatedBlocks = taskMetrics['UpdatedBlocks'];
     var rdds = [];
