@@ -4,6 +4,8 @@ var argv = require('minimist')(process.argv.slice(2));
 var l = require('../utils/log').l;
 var m = require('moment');
 
+var flattenObj = require('../utils/objs').flattenObj;
+
 var colls = require('./collections');
 var deq = require('deep-equal');
 
@@ -120,6 +122,13 @@ function addUnset(clazz) {
 
 function addIncProp(clazz) {
   clazz.prototype.inc = function(key, i) {
+    if (typeof key === 'object') {
+      var flattened = flattenObj(key);
+      for (var k in flattened) {
+        this.inc(k, flattened[k]);
+      }
+      return this;
+    }
     if (i === undefined) {
       i = 1;
     }

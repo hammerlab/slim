@@ -45,8 +45,6 @@ function combineObjKey(ret, a, b, k, combineFn) {
     } else {
       ret[k] = combineObjs(a[k], b && b[k] || {}, combineFn);
     }
-  } else {
-    ret[k] = a[k];
   }
 }
 
@@ -82,12 +80,15 @@ function maxObjs(a, b) {
 }
 
 function flattenObj(o, prefix, ret) {
-  if (typeof o != 'object') return o;
   ret = ret || {};
+  if (typeof o != 'object') {
+    ret[prefix] = o;
+    return ret;
+  }
   prefix = prefix || '';
   var prefixDot = prefix ? (prefix + '.') : '';
   for (k in o) {
-    ret[prefixDot] = flattenObj(o[k], prefixDot + k, ret);
+    flattenObj(o[k], prefixDot + k, ret);
   }
   return ret;
 }
