@@ -1,4 +1,5 @@
 
+var removeKeyDots = require("../utils/objs").removeKeyDots;
 var utils = require("../utils/utils");
 
 var StageAttempt = require('./stage-attempt').StageAttempt;
@@ -32,13 +33,11 @@ Stage.prototype.fromStageInfo = function(si) {
     name: si['Stage Name'],
     'taskCounts.num': si['Number of Tasks'],
     rddIDs: si['RDD Info'].map(function (ri) {
-      //console.log("rdd id: " + ri["RDD ID"])
       return ri['RDD ID'];
     }),
     parents: si['Parent IDs'],
-    details: si['Details'],
-    accumulables: si['Accumulables']
-  });
+    details: si['Details']
+  }).set('accumulables', removeKeyDots(si['Accumulables']), true);
 };
 
 Stage.prototype.getAttempt = function(attemptId) {

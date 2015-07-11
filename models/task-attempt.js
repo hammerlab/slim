@@ -6,6 +6,7 @@ var subRecord = !!argv.s;
 
 var apps = null;
 var processTime = require("../utils/utils").processTime;
+var removeKeyDots = require("../utils/objs").removeKeyDots;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
@@ -41,10 +42,9 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     locality: ti['Locality'],
     speculative: ti['Speculative'],
     gettingResultTime: processTime(ti['Getting Result Time']),
-    accumulables: ti['Accumulables'],
     index: ti['Index'],
     attempt: ti['Attempt']
-  }).setDuration();
+  }).set('accumulables', removeKeyDots(ti['Accumulables']), true).setDuration();
 };
 
 if (subRecord) {

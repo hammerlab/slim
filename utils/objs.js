@@ -10,13 +10,21 @@ function toSeq(m) {
 }
 
 function removeKeySpaces(obj) {
+  return transformKeys(obj, / /g, '');
+}
+
+function removeKeyDots(obj) {
+  return transformKeys(obj, /\./g, '-');
+}
+
+function transformKeys(obj, find, replace) {
   if (obj instanceof Array) {
-    return obj.map(removeKeySpaces);
+    return obj.map(function(o) { return transformKeys(o, find, replace); });
   }
   if (typeof obj === 'object') {
     var ret = {};
     for (k in obj) {
-      ret[k.replace(/ /g, '')] = removeKeySpaces(obj[k]);
+      ret[k.replace(find, replace)] = transformKeys(obj[k], find, replace);
     }
     return ret;
   }
@@ -86,6 +94,8 @@ function flattenObj(o, prefix, ret) {
 module.exports = {
   toSeq: toSeq,
   removeKeySpaces: removeKeySpaces,
+  transformKeys: transformKeys,
+  removeKeyDots: removeKeyDots,
   flattenObj: flattenObj,
   addObjs: addObjs,
   subObjs: subObjs,

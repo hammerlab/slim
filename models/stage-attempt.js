@@ -1,6 +1,7 @@
 
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
+var removeKeyDots = require("../utils/objs").removeKeyDots;
 var processTime = require("../utils/utils").processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
@@ -25,7 +26,7 @@ StageAttempt.prototype.fromStageInfo = function(si) {
     'time.end': processTime(si['Completion Time']),
     'taskCounts.num': si['Number of Tasks'],
     failureReason: si['Failure Reason']
-  }).setDuration();
+  }).set('accumulables', removeKeyDots(si['Accumulables']), true).setDuration();
 };
 
 StageAttempt.prototype.getTaskAttempt = function(taskId) {
