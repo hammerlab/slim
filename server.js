@@ -288,7 +288,7 @@ var handlers = {
     task.set("metrics", newTaskMetrics, true);
     stage.inc({ metrics: taskMetricsDiff });
 
-    var updatedBlocks = taskMetrics['UpdatedBlocks'];
+    var updatedBlocks = taskMetrics && taskMetrics['UpdatedBlocks'];
     var rdds = [];
     var blocks = [];
     if (updatedBlocks) {
