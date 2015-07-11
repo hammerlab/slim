@@ -37,7 +37,7 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     'time.start': processTime(ti['Launch Time']),
     'time.end': processTime(ti['Finish Time']),
     execId: ti['Executor ID'],
-    //host: ti['Host'],  // redundant with exec ID...
+    host: ti['Host'],
     locality: ti['Locality'],
     speculative: ti['Speculative'],
     gettingResultTime: processTime(ti['Getting Result Time']),
@@ -45,38 +45,7 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     accumulables: ti['Accumulables'],
     index: ti['Index'],
     attempt: ti['Attempt']
-  }).setDuration().setHostPort();
-};
-
-TaskAttempt.prototype.setHostPort = function() {
-  var eid = this.get('execId');
-  if (eid && (!this.get('host') || !this.get('port'))) {
-    if (!apps) {
-      apps = require("./app").apps;
-    }
-    var app = apps[this.appId];
-    if (!app) {
-      l.error(
-            "App %s not found for task attempt %d (stage %d.%d, task idx %d.%d): ",
-            this.appId,
-            this.id,
-            this.stageId,
-            this.stageAttemptId,
-            this.get('index'),
-            this.get('attempt')
-      );
-    } else {
-      var e = app.getExecutor(eid);
-      var host = e.get('host');
-      var port = e.get('port');
-      if (!host || !port) {
-        l.error("Executor %s in app %s missing host/port: %s:%s. %s", eid, this.appId, host, port, JSON.stringify(e));
-      } else {
-        this.set({ host: host, port: port });
-      }
-    }
-  }
-  return this;
+  }).setDuration();
 };
 
 if (subRecord) {
