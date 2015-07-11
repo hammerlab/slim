@@ -41,7 +41,6 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     locality: ti['Locality'],
     speculative: ti['Speculative'],
     gettingResultTime: processTime(ti['Getting Result Time']),
-    failed: ti['Failed'],
     accumulables: ti['Accumulables'],
     index: ti['Index'],
     attempt: ti['Attempt']
