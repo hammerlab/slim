@@ -43,7 +43,7 @@ var upsertCb = recordUtils.upsertCb;
 var upsertOpts = recordUtils.upsertOpts;
 
 function maybeAddTotalShuffleReadBytes(metrics) {
-  if (!('ShuffleReadMetrics' in metrics)) return metrics;
+  if (!metrics || !('ShuffleReadMetrics' in metrics)) return metrics;
   var srm = metrics['ShuffleReadMetrics'];
   srm['TotalBytesRead'] = srm['LocalBytesRead'] + srm['RemoteBytesRead'];
   return metrics;
