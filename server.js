@@ -126,7 +126,6 @@ var handlers = {
       );
     }
 
-    // Crashes if extant status found.
     attempt.fromStageInfo(si).set({ started: true, status: RUNNING }).upsert();
 
     app.getJobByStageId(stage.id).inc('stageCounts.running').upsert();

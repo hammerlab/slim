@@ -69,8 +69,13 @@ function addSetProp(clazz, className) {
       if (prop.exists) {
         if (!deq(prop.val, val)) {
           if (!allowExtant) {
-            throw new Error(
-                  "Attempting to set " + key + " to " + val + " on " + className + " with existing val " + prop.val
+            l.error(
+                  "%s(%s) overwriting %s: %s -> %s",
+                  className,
+                  JSON.stringify(this.findObj),
+                  key,
+                  JSON.stringify(prop.val),
+                  JSON.stringify(val)
             );
           }
           prop.set(val);
@@ -87,7 +92,12 @@ function addSetProp(clazz, className) {
         this.set(k, key[k], !!val);
       }
     } else {
-      throw new Error("Invalid " + className + ".set() argument: " + key);
+      l.error(
+            "%s(%s): Invalid .set() argument: %s",
+            className,
+            JSON.stringify(this.findObj),
+            JSON.stringify(key)
+      );
     }
     return this;
   }
