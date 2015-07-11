@@ -171,6 +171,9 @@ App.prototype.getExecutor = function(executorId) {
     }
     executorId = executorId['Executor ID'];
   }
+  if (executorId.match(/^[0-9]+$/)) {
+    executorId = parseInt(executorId);
+  }
   if (!(executorId in this.executors)) {
     this.executors[executorId] = new Executor(this.id, executorId);
   }
