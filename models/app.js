@@ -23,8 +23,6 @@ function App(id) {
   this.stages = {};
   this.rdds = {};
   this.executors = {};
-
-  this.stageIDstoJobIDs = {};
 }
 
 mixinMongoMethods(App, "Application", "Applications");

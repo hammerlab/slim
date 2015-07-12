@@ -68,7 +68,6 @@ var handlers = {
     stageInfos.forEach(function(si) {
 
       var stage = app.getStage(si['Stage ID']).fromStageInfo(si).set('jobId', job.id).upsert();
-      app.stageIDstoJobIDs[si['Stage ID']] = job.id;
 
       var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).upsert();
 
