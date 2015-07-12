@@ -1,4 +1,5 @@
 
+var async = require('async');
 var colls = require('../mongo/collections');
 
 var l = require('../utils/log').l;
@@ -42,44 +43,150 @@ App.prototype.fromEvent = function(e) {
   });
 };
 
-function appFromMongoRecord(app, cb) {
-  var a = new App(app.id);
-  for (var k in app) {
-    if (k != 'id' && k != '_id') {
-      a.propsObj[k] = app[k];
-    }
-  }
-  a.syncExecutors(cb);
-}
-
-App.prototype.syncExecutors = function(cb) {
-  colls.Executors.find({ appId: this.id }).toArray(function(err, executors) {
-    if (err) {
-      l.error("Error fetching executors for app %s: %s", this.id, JSON.stringify(err));
-    } else {
-      var keys = [];
-      for (var k in executors) {
-        keys.push([k, executors[k]]);
-      }
-      executors.map(function(e) {
-        this.executors[e.id] = this.executorFromMongoRecord(e);
-      }.bind(this));
-      cb(this);
-    }
-  }.bind(this));
-};
-
-App.prototype.executorFromMongoRecord = function(executor) {
-  var e = new Executor(this.id, executor.id);
-  for (var k in executor) {
-    if (k != 'id' && k != 'appId' && k != '_id') {
-      e.propsObj[k] = executor[k];
-    }
-  }
-  return e;
-};
-
 var appsInFlight = {};
+
+App.prototype.hydrate = function(cb) {
+  function fetch(collName) {
+    return function (cb) {
+      colls[collName].find({appId: id}).toArray(cb);
+    };
+  }
+
+  var self = this;
+  var id = self.id;
+
+  async.parallel(
+        {
+          jobs: fetch('Jobs'),
+          stages: fetch('Stages'),
+          stageAttempts: fetch('StageAttempts'),
+          executors: fetch('Executors'),
+          rdds: fetch('RDDs'),
+          tasks: fetch('Tasks'),
+          taskAttempts: fetch('TaskAttempts'),
+          rddBlocks: fetch('RddBlocks'),
+          nonRddBlocks: fetch('NonRddBlocks')
+        },
+        function(err, r) {
+          if (err) {
+            l.error("Failed to fetch records for app %s:", id, JSON.stringify(err));
+          } else {
+            r.jobs.forEach(function(job) {
+              self.jobs[job.id] = new Job(id, job.id).fromMongo(job);
+            });
+            r.stages.forEach(function(stage) {
+              self.stages[stage.id] = new Stage(id, stage.id).fromMongo(stage);
+            });
+            r.rdds.forEach(function(rdd) {
+              self.rdds[rdd.id] = new RDD(id, rdd.id).fromMongo(rdd);
+            });
+            r.executors.forEach(function(executor) {
+              self.executors[executor.id] = new Executor(id, executor.id).fromMongo(executor);
+            });
+
+            l.info(
+                  "App %s: found %d jobs, %d stages, %d stage attempts, %d executors, %d rdds, %d tasks, %d task attempts, %d rdd blocks, and %d non-rdd blocks",
+                  id,
+                  r.jobs.length,
+                  r.stages.length,
+                  r.stageAttempts.length,
+                  r.executors.length,
+                  r.rdds.length,
+                  r.tasks.length,
+                  r.taskAttempts.length,
+                  r.rddBlocks.length,
+                  r.nonRddBlocks.length
+            );
+
+            r.stageAttempts.forEach(function (stageAttempt) {
+              if (!(stageAttempt.stageId in self.stages)) {
+                l.error(
+                      "StageAttempt %s's stageId %d not found in app %s's stages",
+                      stageAttempt.id,
+                      stageAttempt.stageId,
+                      id,
+                      r.stages.map(function (e) {
+                        return e.id;
+                      }).join(',')
+                );
+              } else {
+                self.stages[stageAttempt.stageId].getAttempt(stageAttempt.id).fromMongo(stageAttempt);
+              }
+            });
+
+            r.tasks.forEach(function (task) {
+              if (!(task.stageId in self.stages) ||
+                    !(task.stageAttemptId in self.stages[task.stageId].attempts)) {
+                l.error(
+                      "Task %d's stageAttept %d.%d not found in app %s's stages: %s",
+                      task.id,
+                      task.stageId,
+                      task.stageAttemptId,
+                      id,
+                      r.stages.map(function (e) { return e.id; }).join(',')
+                );
+              } else {
+                self
+                      .stages[task.stageId]
+                      .attempts[task.stageAttemptId]
+                      .getTask(task.id)
+                      .fromMongo(task);
+              }
+            });
+
+            r.taskAttempts.forEach(function (taskAttempt) {
+              if (!(taskAttempt.stageId in self.stages) ||
+                    !(taskAttempt.stageAttemptId in self.stages[taskAttempt.stageId].attempts)) {
+                l.error(
+                      "TaskAttempt %d's stageAttempt %d.%d not found in app %s's stages: %s",
+                      taskAttempt.id,
+                      taskAttempt.stageId,
+                      taskAttempt.stageAttemptId,
+                      id,
+                      r.stages.map(function (e) { return e.id; }).join(',')
+                );
+              } else {
+                self
+                      .stages[taskAttempt.stageId]
+                      .attempts[taskAttempt.stageAttemptId]
+                      .getTaskAttempt(taskAttempt.id)
+                      .fromMongo(taskAttempt);
+              }
+            });
+
+            r.rddBlocks.forEach(function(block) {
+              if (!(block.execId in self.executors)) {
+                l.error(
+                      "Block %s's execId %s not found in app %s's executors: %s",
+                      block.id,
+                      block.execId,
+                      id,
+                      r.executors.map(function(e) { return e.id; }).join(',')
+                );
+              } else {
+                self.executors[block.execId].getBlock(block.id).fromMongo(block);
+              }
+            });
+
+            r.nonRddBlocks.forEach(function(block) {
+              if (!(block.rddId in self.rdds)) {
+                l.error(
+                      "Block %s's rddId %d not found in app %s's RDDs: %s",
+                      block.id,
+                      block.rddId,
+                      id,
+                      r.rdds.map(function(e) { return e.id; }).join(',')
+                );
+              } else {
+                self.rdds[block.rddId].getBlock(block.id).fromMongo(block);
+              }
+            });
+          }
+
+          cb();
+        }
+  );
+};
 
 function getApp(id, cb) {
   if (typeof id == 'object') {
@@ -89,30 +196,25 @@ function getApp(id, cb) {
     if (id in appsInFlight) {
       appsInFlight[id].push(cb);
     } else {
+      // A new Spark application! "Stop the world" and page in all records that
+      // have anything to do with it; when this is done we will go forth
+      // recklessly in write-only mode to Mongo.
       appsInFlight[id] = [cb];
       l.info("Fetching app: ", id);
-      colls.Applications.findOne({ id: id }, function(err, val) {
+      var self = this;
+      colls.Applications.findOne({ id: id }, function(err, appRecord) {
         if (err) {
           l.error("Error fetching app %s: %s", id, JSON.stringify(err));
         } else {
-          var a = val;
-          l.info("Got app %s", id, JSON.stringify(a));
-          if (a) {
-            appFromMongoRecord(a, function (app) {
-              apps[id] = app;
-              appsInFlight[id].map(function(appCb) {
-                appCb(app);
-              });
-              delete appsInFlight[id];
-            })
-          } else {
-            var app = new App(id);
+          l.info("Got app record: %s", id, JSON.stringify(appRecord));
+          var app = new App(id).fromMongo(appRecord);
+          app.hydrate(function() {
+            while (appsInFlight[id].length) {
+              appsInFlight[id].shift()(app);
+            }
             apps[id] = app;
-            appsInFlight[id].map(function(appCb) {
-              appCb(app);
-            });
             delete appsInFlight[id];
-          }
+          });
         }
       });
     }
@@ -132,10 +234,21 @@ App.prototype.getJob = function(jobId) {
 };
 
 App.prototype.getJobByStageId = function(stageId) {
-  if (!(stageId in this.stageIDstoJobIDs)) {
-    throw new Error("No job found for stage " + stageId);
+  if (!(stageId in this.stages)) {
+    l.error("Stage %d not found.", stageId);
+    return;
   }
-  return this.jobs[this.stageIDstoJobIDs[stageId]];
+  var stage = this.stages[stageId];
+  if (!stage.has('jobId')) {
+    l.error("Stage %d has no jobId set.", stageId);
+    return;
+  }
+  var jobId = stage.get('jobId');
+  if (!(jobId in this.jobs)) {
+    l.error("Job %d not found for stage %d", jobId, stageId);
+    return;
+  }
+  return this.jobs[jobId];
 };
 
 App.prototype.getStage = function(stageId) {

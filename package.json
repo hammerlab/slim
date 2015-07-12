@@ -5,6 +5,7 @@
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
   "main": "server.js",
   "dependencies": {
+    "async": "1.3.0",
     "minimist": "1.1.1",
     "moment": "2.10.3",
     "mongodb": "2.0.33",

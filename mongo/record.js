@@ -297,7 +297,20 @@ function addUpsert(clazz, className, collectionName) {
   };
 }
 
+function addFromMongo(clazz) {
+  clazz.prototype.fromMongo = function(mongoRecord) {
+    if (!mongoRecord) return this;
+    for (var k in mongoRecord) {
+      if (!(k in this.findObj) && k != '_id') {
+        this.propsObj[k] = mongoRecord[k];
+      }
+    }
+    return this;
+  };
+}
+
 function mixinMongoMethods(clazz, className, collectionName) {
+  addFromMongo(clazz);
   addSetProp(clazz, className);
   addUnset(clazz);
   addIncProp(clazz);

@@ -1,4 +1,5 @@
 
+var Task = require('./task').Task;
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
 var removeKeyDots = require("../utils/objs").removeKeyDots;
