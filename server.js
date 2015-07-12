@@ -192,7 +192,7 @@ var handlers = {
     var executorStageKey = ['stages', stage.id, stageAttempt.id, 'taskCounts', ''].join('.');
 
     var taskIndex = ti['Index'];
-    var task = stage.getTask(taskIndex);
+    var task = stageAttempt.getTask(taskIndex);
     var prevTaskStatus = task.get('status');
 
     var taskAttempt = stageAttempt.getTaskAttempt(taskId);
@@ -258,7 +258,7 @@ var handlers = {
     var executor = app.getExecutor(ti);
     var executorStageKey = 'stages.' + stage.id + '.' + stageAttempt.id + '.';
 
-    var task = stage.getTask(taskIndex).set({ type: e['Task Type'] });
+    var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
     var prevTaskMetrics = task.get('metrics');
 

@@ -16,6 +16,8 @@ function StageAttempt(appId, stageId, id) {
   this.key = [ 'app', appId, 'stage', stageId, 'attempt', id ].join('-');
   this.applyRateLimit = true;
 
+
+  this.tasks = {};
   this.task_attempts = {};
 }
 
@@ -28,6 +30,16 @@ StageAttempt.prototype.fromStageInfo = function(si) {
     'taskIdxCounts.num': si['Number of Tasks'],
     failureReason: si['Failure Reason']
   }).set('accumulables', removeKeyDots(si['Accumulables']), true).setDuration();
+};
+
+StageAttempt.prototype.getTask = function(taskIndex) {
+  if (typeof taskIndex == 'object') {
+    taskIndex = taskIndex['Index'];
+  }
+  if (!(taskIndex in this.tasks)) {
+    this.tasks[taskIndex] = new Task(this.appId, this, taskIndex);
+  }
+  return this.tasks[taskIndex];
 };
 
 StageAttempt.prototype.getTaskAttempt = function(taskId) {
