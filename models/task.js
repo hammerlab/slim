@@ -6,8 +6,8 @@ var subRecord = !!argv.s;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
-function Task(appId, stageAttempt, id) {
-  this.appId = appId;
+function Task(stageAttempt, id) {
+  this.appId = stageAttempt.appId;
   this.stageId = stageAttempt.stageId;
   this.stageAttemptId = stageAttempt.id;
   this.id = id;
@@ -18,7 +18,7 @@ function Task(appId, stageAttempt, id) {
     this.set('id', id);
   } else {
     this.applyRateLimit = true;
-    this.findObj = {appId: appId, stageId: this.stageId, stageAttemptId: this.stageAttemptId, id: id};
+    this.findObj = { appId: this.appId, stageId: this.stageId, stageAttemptId: this.stageAttemptId, id: id };
     this.propsObj = {};
     this.toSyncObj = {};
     this.dirty = true;

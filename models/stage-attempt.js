@@ -5,12 +5,12 @@ var removeKeyDots = require("../utils/objs").removeKeyDots;
 var processTime = require("../utils/utils").processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
-function StageAttempt(appId, stageId, id) {
-  this.appId = appId;
-  this.stageId = stageId;
+function StageAttempt(stage, id) {
+  this.appId = stage.appId;
+  this.stageId = stage.id;
   this.id = id;
   this.dirty = true;
-  this.findObj = { appId: appId, stageId: this.stageId, id: id };
+  this.findObj = { appId: this.appId, stageId: this.stageId, id: this.id };
   this.propsObj = {};
   this.toSyncObj = {};
   this.key = [ 'app', appId, 'stage', stageId, 'attempt', id ].join('-');
@@ -37,7 +37,7 @@ StageAttempt.prototype.getTask = function(taskIndex) {
     taskIndex = taskIndex['Index'];
   }
   if (!(taskIndex in this.tasks)) {
-    this.tasks[taskIndex] = new Task(this.appId, this, taskIndex);
+    this.tasks[taskIndex] = new Task(this, taskIndex);
   }
   return this.tasks[taskIndex];
 };
@@ -47,7 +47,7 @@ StageAttempt.prototype.getTaskAttempt = function(taskId) {
     taskId = taskId['Task ID'];
   }
   if (!(taskId in this.task_attempts)) {
-    this.task_attempts[taskId] = new TaskAttempt(this.appId, this, taskId);
+    this.task_attempts[taskId] = new TaskAttempt(this, taskId);
   }
   return this.task_attempts[taskId];
 };

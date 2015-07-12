@@ -44,7 +44,7 @@ Stage.prototype.getAttempt = function(attemptId) {
     attemptId = attemptId['Stage Attempt ID'];
   }
   if (!(attemptId in this.attempts)) {
-    this.attempts[attemptId] = new StageAttempt(this.appId, this.id, attemptId);
+    this.attempts[attemptId] = new StageAttempt(this, attemptId);
   }
   return this.attempts[attemptId];
 };

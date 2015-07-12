@@ -2,12 +2,12 @@
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 
-function RddBlock(appId, rddId, id) {
-  this.appId = appId;
-  this.rddId = rddId;
+function RddBlock(rdd, id) {
+  this.appId = rdd.appId;
+  this.rddId = rdd.id;
   this.id = id;
 
-  this.findObj = { appId: appId, rddId: rddId, id: id };
+  this.findObj = { appId: this.appId, rddId: this.rddId, id: this.id };
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;
@@ -21,12 +21,12 @@ RddBlock.prototype.isCached = function() {
 mixinMongoMethods(RddBlock, "RddBlock", "RddBlocks");
 
 
-function NonRddBlock(appId, execId, id) {
-  this.appId = appId;
-  this.execId = execId;
+function NonRddBlock(executor, id) {
+  this.appId = executor.appId;
+  this.execId = executor.id;
   this.id = id;
 
-  this.findObj = { appId: appId, execId: execId, id: id };
+  this.findObj = { appId: this.appId, execId: this.execId, id: this.id };
   this.propsObj = {};
   this.toSyncObj = {};
   this.dirty = true;

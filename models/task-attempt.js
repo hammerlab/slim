@@ -10,8 +10,8 @@ var removeKeyDots = require("../utils/objs").removeKeyDots;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
-function TaskAttempt(appId, stageAttempt, id) {
-  this.appId = appId;
+function TaskAttempt(stageAttempt, id) {
+  this.appId = stageAttempt.appId;
   this.stageId = stageAttempt.stageId;
   this.stageAttemptId = stageAttempt.id;
   this.id = id;
@@ -22,7 +22,7 @@ function TaskAttempt(appId, stageAttempt, id) {
     this.set('id', id);
   } else {
     this.applyRateLimit = true;
-    this.findObj = {appId: appId, id: id};
+    this.findObj = { appId: this.appId, id: this.id };
     this.propsObj = {};
     this.toSyncObj = {};
     this.set({

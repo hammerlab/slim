@@ -18,7 +18,7 @@ mixinMongoMethods(Executor, "Executor", "Executors");
 
 Executor.prototype.getBlock = function(blockId) {
   if (!(blockId in this.blocks)) {
-    this.blocks[blockId] = new NonRddBlock(this.appId, this.id, blockId);
+    this.blocks[blockId] = new NonRddBlock(this, blockId);
   }
   return this.blocks[blockId];
 };

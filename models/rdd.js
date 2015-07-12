@@ -35,7 +35,7 @@ RDD.prototype.fromRDDInfo = function(ri) {
 
 RDD.prototype.getBlock = function(blockIndex) {
   if (!(blockIndex in this.blocks)) {
-    this.blocks[blockIndex] = new RddBlock(this.appId, this.id, blockIndex);
+    this.blocks[blockIndex] = new RddBlock(this, blockIndex);
   }
   return this.blocks[blockIndex];
 };
