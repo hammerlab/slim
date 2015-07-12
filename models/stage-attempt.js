@@ -10,13 +10,8 @@ function StageAttempt(stage, id) {
   this.appId = stage.appId;
   this.stageId = stage.id;
   this.id = id;
-  this.dirty = true;
-  this.findObj = { appId: this.appId, stageId: this.stageId, id: this.id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.key = [ 'app', appId, 'stage', stageId, 'attempt', id ].join('-');
-  this.applyRateLimit = true;
 
+  this.init([ 'appId', 'stageId', 'id' ]);
 
   this.tasks = {};
   this.task_attempts = {};

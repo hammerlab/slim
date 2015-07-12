@@ -7,11 +7,7 @@ function RddBlock(rdd, id) {
   this.rddId = rdd.id;
   this.id = id;
 
-  this.findObj = { appId: this.appId, rddId: this.rddId, id: this.id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.dirty = true;
-  this.applyRateLimit = true;
+  this.init(['appId', 'rddId', 'id']);
 }
 
 RddBlock.prototype.isCached = function() {
@@ -26,11 +22,7 @@ function NonRddBlock(executor, id) {
   this.execId = executor.id;
   this.id = id;
 
-  this.findObj = { appId: this.appId, execId: this.execId, id: this.id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.dirty = true;
-  this.applyRateLimit = true;
+  this.init([ 'appId', 'execId', 'id' ]);
 }
 
 mixinMongoMethods(NonRddBlock, "NonRddBlock", "NonRddBlocks");

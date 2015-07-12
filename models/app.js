@@ -17,12 +17,7 @@ var apps = {};
 
 function App(id) {
   this.id = id;
-  this.findObj = { id: id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.dirty = true;
-  this.key = [ "app", id ].join('-');
-  this.applyRateLimit = true;
+  this.init(['id']);
 
   this.jobs = {};
   this.stages = {};

@@ -14,13 +14,8 @@ var SUCCEEDED = utils.SUCCEEDED;
 function Stage(appId, id) {
   this.appId = appId;
   this.id = id;
-  this.dirty = true;
 
-  this.findObj = { appId: appId, id: id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.key = [ 'app', appId, 'stage', id ].join('-');
-  this.applyRateLimit = true;
+  this.init([ 'appId', 'id' ]);
 
   this.attempts = {};
 }

@@ -7,12 +7,8 @@ var RddBlock = require('./block').RddBlock;
 function RDD(appId, id) {
   this.appId = appId;
   this.id = id;
-  this.findObj = { appId: appId, id: id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.dirty = true;
 
-  this.applyRateLimit = true;
+  this.init([ 'appId', 'id' ]);
 
   this.blocks = {};
 }

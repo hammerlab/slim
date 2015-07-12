@@ -5,11 +5,7 @@ var NonRddBlock = require("./block").NonRddBlock;
 function Executor(appId, id) {
   this.appId = appId;
   this.id = id;
-  this.findObj = { appId: appId, id: id };
-  this.propsObj = {};
-  this.toSyncObj = {};
-  this.dirty = true;
-  this.applyRateLimit = true;
+  this.init([ 'appId', 'id' ]);
 
   this.blocks = {};
 }

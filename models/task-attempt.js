@@ -21,15 +21,7 @@ function TaskAttempt(stageAttempt, id) {
     this.superKey = ['tasks', id, ''].join('.');
     this.set('id', id);
   } else {
-    this.applyRateLimit = true;
-    this.findObj = { appId: this.appId, id: this.id };
-    this.propsObj = {};
-    this.toSyncObj = {};
-    this.set({
-      stageId: this.stageId,
-      stageAttemptId: this.stageAttemptId
-    });
-    this.dirty = true;
+    this.init([ 'appId', 'stageId', 'stageAttemptId', 'id' ]);
   }
 }
 

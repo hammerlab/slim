@@ -297,6 +297,30 @@ function addUpsert(clazz, className, collectionName) {
   };
 }
 
+function addInit(clazz, className) {
+  clazz.prototype.init = function(findKeys) {
+    this.findObj = {};
+    this.findKeys = findKeys;
+
+    if (!findKeys || !findKeys.length) {
+      l.error('%s: no findKeys set', className);
+    }
+
+    findKeys.forEach(function(key) {
+      if (!(key in this)) {
+        l.error("%s: missing findKey %s.", className, key, JSON.stringify(this));
+      } else {
+        this.findObj[key] = this[key];
+      }
+    }.bind(this));
+
+    this.propsObj = {};
+    this.toSyncObj = {};
+    this.dirty = true;
+    this.applyRateLimit = true;
+  };
+}
+
 function addFromMongo(clazz) {
   clazz.prototype.fromMongo = function(mongoRecord) {
     if (!mongoRecord) return this;
@@ -310,6 +334,7 @@ function addFromMongo(clazz) {
 }
 
 function mixinMongoMethods(clazz, className, collectionName) {
+  addInit(clazz, className);
   addFromMongo(clazz);
   addSetProp(clazz, className);
   addUnset(clazz);
