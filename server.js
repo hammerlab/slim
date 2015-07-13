@@ -49,6 +49,102 @@ function maybeAddTotalShuffleReadBytes(metrics) {
   return metrics;
 }
 
+function handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecutor, taskAttempt) {
+  var prevTaskAttemptMetrics = taskAttempt.get('metrics');
+  var newTaskAttemptMetrics = taskMetrics;
+
+  taskAttempt.set('metrics', newTaskAttemptMetrics, true);
+
+  var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
+
+  executor.inc({ metrics: taskAttemptMetricsDiff });
+  stageExecutor.inc({ metrics: taskAttemptMetricsDiff });
+
+  stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
+  job.inc({ metrics: taskAttemptMetricsDiff });
+}
+
+function handleBlockUpdates(taskMetrics, app, executor) {
+  var updatedBlocks = taskMetrics && taskMetrics['UpdatedBlocks'];
+  var rdds = [];
+  var rddExecutors = [];
+  var blocks = [];
+  if (updatedBlocks) {
+    updatedBlocks.forEach(function (blockInfo) {
+      var blockId = blockInfo['BlockID'];
+
+      var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
+      var rdd = null;
+      var rddExecutor = null;
+      var block = null;
+      var blockWasCached = false;
+      if (rddIdMatch) {
+        var rddId = parseInt(rddIdMatch[1]);
+        var blockIndex = parseInt(rddIdMatch[2]);
+
+        rdd = app.getRDD(rddId);
+        rdds.push(rdd);
+
+        rddExecutor = rdd.getExecutor(executor.id).set({ host: executor.get('host'), port: executor.get('port') });
+        rddExecutors.push(rddExecutor);
+
+        block = rdd.getBlock(blockIndex).set('execId', executor.id, true).addToSet('execIds', executor.id);
+        blocks.push(block);
+
+        if (block.isCached()) {
+          blockWasCached = true;
+        }
+      } else {
+        block = executor.getBlock(blockId);
+      }
+
+      var status = blockInfo['Status'];
+      var blockIsCached = false;
+      ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
+        if (status[key] && rdd) {
+          blockIsCached = true;
+        }
+        var delta = status[key] - (block.get(key) || 0);
+        executor.inc(key, delta);
+        app.inc(key, delta);
+        if (rdd) {
+          rdd.inc(key, delta);
+          rddExecutor.inc(key, delta);
+        }
+        block.set(key, status[key], true);
+      });
+      if (!blockIsCached) {
+        if (blockWasCached) {
+          executor.dec('numBlocks');
+          if (rdd) {
+            rdd
+                  .dec("numCachedPartitions")
+                  .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+            rddExecutor.dec('numBlocks');
+          }
+        }
+      } else {
+        if (!blockWasCached) {
+          executor.inc('numBlocks');
+          if (rdd) {
+            rdd
+                  .inc("numCachedPartitions")
+                  .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+            rddExecutor.inc('numBlocks');
+          }
+        }
+      }
+      if (rdd) {
+        block.set('StorageLevel', status['StorageLevel'], true);
+      }
+      block.set({ host: executor.get('host'), port: executor.get('port') }, true);
+    });
+  }
+  rdds.forEach(function(rdd) { rdd.upsert(); });
+  rddExecutors.forEach(function(rddExecutor) { rddExecutor.upsert(); });
+  blocks.forEach(function(block) { block.upsert(); });
+}
+
 var handlers = {
 
   SparkListenerApplicationStart: function(app, e) {
@@ -342,96 +438,11 @@ var handlers = {
     var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
     var prevTaskAttemptStatus = taskAttempt.get('status');
 
-    var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
     taskAttempt.fromTaskInfo(ti);
-    var prevTaskAttemptMetrics = taskAttempt.get('metrics');
-    var newTaskAttemptMetrics = taskMetrics;
 
-    taskAttempt.set('metrics', newTaskAttemptMetrics);
-
-    var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
-
-    executor.inc({ metrics: taskAttemptMetricsDiff });
-    stageExecutor.inc({ metrics: taskAttemptMetricsDiff });
-
-    stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
-    job.inc({ metrics: taskAttemptMetricsDiff });
-
-    var updatedBlocks = taskMetrics && taskMetrics['UpdatedBlocks'];
-    var rdds = [];
-    var rddExecutors = [];
-    var blocks = [];
-    if (updatedBlocks) {
-      updatedBlocks.forEach(function (blockInfo) {
-        var blockId = blockInfo['BlockID'];
-
-        var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
-        var rdd = null;
-        var rddExecutor = null;
-        var block = null;
-        var blockWasCached = false;
-        if (rddIdMatch) {
-          var rddId = parseInt(rddIdMatch[1]);
-          var blockIndex = parseInt(rddIdMatch[2]);
-
-          rdd = app.getRDD(rddId);
-          rdds.push(rdd);
-
-          rddExecutor = rdd.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
-          rddExecutors.push(rddExecutor);
-
-          block = rdd.getBlock(blockIndex).set('execId', executor.id, true).addToSet('execIds', executor.id);
-          blocks.push(block);
-
-          if (block.isCached()) {
-            blockWasCached = true;
-          }
-        } else {
-          block = executor.getBlock(blockId);
-        }
-
-        var status = blockInfo['Status'];
-        var blockIsCached = false;
-        ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
-          if (status[key] && rdd) {
-            blockIsCached = true;
-          }
-          var delta = status[key] - (block.get(key) || 0);
-          executor.inc(key, delta);
-          app.inc(key, delta);
-          if (rdd) {
-            rdd.inc(key, delta);
-            rddExecutor.inc(key, delta);
-          }
-          block.set(key, status[key], true);
-        });
-        if (!blockIsCached) {
-          if (blockWasCached) {
-            executor.dec('numBlocks');
-            if (rdd) {
-              rdd
-                    .dec("numCachedPartitions")
-                    .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
-              rddExecutor.dec('numBlocks');
-            }
-          }
-        } else {
-          if (!blockWasCached) {
-            executor.inc('numBlocks');
-            if (rdd) {
-              rdd
-                    .inc("numCachedPartitions")
-                    .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
-              rddExecutor.inc('numBlocks');
-            }
-          }
-        }
-        if (rdd) {
-          block.set('StorageLevel', status['StorageLevel'], true);
-        }
-        block.set({ host: executor.get('host'), port: executor.get('port') }, true);
-      });
-    }
+    var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
+    handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecutor, taskAttempt);
+    handleBlockUpdates(taskMetrics, app, executor);
 
     var succeeded = !ti['Failed'];
     var status = succeeded ? SUCCEEDED : FAILED;
@@ -494,9 +505,6 @@ var handlers = {
     executor.upsert();
     job.upsert();
     app.upsert();
-    rdds.forEach(function(rdd) { rdd.upsert(); });
-    rddExecutors.forEach(function(rddExecutor) { rddExecutor.upsert(); });
-    blocks.forEach(function(block) { block.upsert(); });
   },
 
   SparkListenerEnvironmentUpdate: function(app, e) {
@@ -583,7 +591,22 @@ var handlers = {
 
   },
   SparkListenerExecutorMetricsUpdate: function(app, e) {
-
+    var executor = app.getExecutor(e);
+    l.debug("processing %d metrics updates..", e.Metrics.length);
+    e.Metrics.map(function(m) {
+      var stage = app.getStage(m);
+      var job = app.getJob(stage.get('jobId'));
+      var stageAttempt = stage.getAttempt(m);
+      var taskAttempt = stageAttempt.getTaskAttempt(m);
+      var stageExecutor = stageAttempt.getExecutor(e);
+      var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
+      handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecutor, taskAttempt);
+      job.upsert();
+      stageAttempt.upsert();
+      executor.upsert();
+      stageExecutor.upsert();
+      taskAttempt.upsert();
+    });
   }
 };
 
