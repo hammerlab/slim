@@ -82,7 +82,9 @@ var handlers = {
       'time.start': processTime(e['Submission Time']),
       stageIDs: e['Stage IDs'],
       'taskCounts.num': numTasks,
+      'taskIdxCounts.num': numTasks,
       'stageCounts.num': e['Stage IDs'].length,
+      'stageIdxCounts.num': e['Stage IDs'].length,
       properties: toSeq(e['Properties'])
     }).upsert();
 
@@ -118,18 +120,38 @@ var handlers = {
 
     var stage = app.getStage(si);
     var attempt = stage.getAttempt(si);
-    var prevStatus = attempt.get('status');
-    if (prevStatus) {
+    var job = app.getJobByStageId(stage.id);
+
+    var prevStageStatus = stage.get('status');
+    var prevAttemptStatus = attempt.get('status');
+
+    if (prevAttemptStatus) {
       l.err(
-            "Stage " + stage.id + " marking attempt " + attempt.id + " as RUNNING despite extant status " + prevStatus
+            "Stage attempt %d.%d being marked as RUNNING despite extant status %s",
+            attempt.stageId,
+            attempt.id,
+            statusStr[prevAttemptStatus]
       );
     }
 
-    attempt.fromStageInfo(si).set({ started: true, status: RUNNING }).upsert();
+    stage.fromStageInfo(si).set({ properties: toSeq(e['Properties']) }).inc('attempts.num').inc('attempts.running');
+    attempt.fromStageInfo(si).set({ started: true, status: RUNNING });
+    job.inc('stageCounts.running');
 
-    app.getJobByStageId(stage.id).inc('stageCounts.running').upsert();
+    if (prevStageStatus == SUCCEEDED || prevStageStatus == SKIPPED) {
+      l.error("Stage %d marked as %s but attempt %d submitted", stage.id, statusStr[prevStageStatus], attempt.id);
+    } else if (prevStageStatus == FAILED) {
+      stage.set('status', RUNNING);
+      job.dec('stageIdxCounts.failed').inc('stageIdxCounts.running')
+    } else if (prevStageStatus == PENDING) {
+      stage.set('status', RUNNING);
+      job.inc('stageIdxCounts.running');
+    }
 
-    stage.fromStageInfo(si).set({ properties: toSeq(e['Properties']) }).inc('attempts.num').inc('attempts.running').upsert();
+    app.upsert();
+    job.upsert();
+    stage.upsert();
+    attempt.upsert();
   },
 
   SparkListenerStageCompleted: function(app, e) {
@@ -144,7 +166,7 @@ var handlers = {
     var prevAttemptStatus = attempt.get('status');
     var newAttemptStatus = si['Failure Reason'] ? FAILED : SUCCEEDED;
 
-    attempt.fromStageInfo(si).set({ ended: true }).set('status', newAttemptStatus, true).upsert();
+    attempt.fromStageInfo(si).set({ ended: true }).set('status', newAttemptStatus, true);
 
     var job = app.getJobByStageId(stage.id);
 
@@ -153,23 +175,80 @@ var handlers = {
       job.dec('stageCounts.running');
     } else {
       l.err(
-            "Got status " + newAttemptStatus + " for stage " + stage.id + " attempt " + attempt.id + " with existing status " + prevAttemptStatus
+            "Got status %s for stage attempt %d.%d with existing status %s",
+            statusStr[newAttemptStatus],
+            stage.id,
+            attempt.id,
+            statusStr[prevAttemptStatus]
       );
     }
+
     if (newAttemptStatus == SUCCEEDED) {
+
+      stage.inc('attempts.succeeded');
+      job.inc('stageCounts.succeeded');
+
       if (prevStageStatus == SUCCEEDED) {
-        l.info("Ignoring attempt " + attempt.id + " SUCCEEDED in stage " + stage.id + " that is already SUCCEEDED");
+        l.info(
+              "Ignoring stage attempt %d.%d success; stage already marked SUCCEEDED",
+              attempt.stageId,
+              attempt.id
+        );
       } else {
-        stage.set('status', newAttemptStatus, true).inc('attempts.succeeded');
-        job.inc('stageCounts.succeeded');
+        if (prevStageStatus == RUNNING) {
+          job.dec('stageIdxCounts.running');
+        } else {
+          l.error(
+                "Stage attempt %d.%d FAILED when stage was previously %s, not RUNNING",
+                stage.id,
+                attempt.id,
+                statusStr[prevStageStatus]
+          );
+          if (prevStageStatus == FAILED) {
+            job.dec('stageIdxCounts.failed');
+          }
+        }
+        stage.set('status', SUCCEEDED, true);
+        job.inc('stageIdxCounts.succeeded');
       }
     } else {
-      // FAILED
+      // attempt FAILED
+      stage.inc('attempts.failed');
+      job.inc('stageCounts.failed');
+
       if (prevStageStatus == SUCCEEDED) {
-        l.info("Ignoring attempt " + attempt.id + " FAILED in stage " + stage.id + " that is already SUCCEEDED");
+        l.info(
+              "Ignoring stage attempt %d.%d failure; stage already marked SUCCEEDED",
+              attempt.stageId,
+              attempt.id
+        );
       } else {
-        stage.set('status', newAttemptStatus, true).inc('attempts.failed');
-        job.inc('stageCounts.failed');
+        if (prevStageStatus == RUNNING) {
+          job.dec('stageIdxCounts.running');
+        } else {
+          l.error(
+                "Stage attempt %d.%d FAILED when stage was previously %s, not RUNNING",
+                stage.id,
+                attempt.id,
+                statusStr[prevStageStatus]
+          )
+        }
+        stage.set('status', FAILED, true);
+        job.inc('stageIdxCounts.failed');
+
+        ['num', 'running', 'succeeded', 'failed'].forEach(function(key) {
+          var jobKey = ['taskIdxCounts', key].join('.');
+          var resetValue =
+                job.stageIDs.reduce(function(sum, stageId) {
+                  return sum + (app.getStage(stageId).get('taskIdxCounts')[key] || 0);
+                }, 0);
+          l.info(
+                "Resetting job %d 'taskIdxCounts.%s' on stage attempt %d.%d failure: %d -> %d",
+                job.id, key, stage.id, attempt.id, job.get(jobKey), resetValue
+          );
+          job.set(jobKey, resetValue);
+        });
+        job.get('taskIdxCounts');
       }
     }
 
@@ -204,32 +283,30 @@ var handlers = {
       l.error(
             "Unexpected TaskStart for %d (%s:%s), status: %s (%d) -> %s (%d)",
             taskId,
-            stage.id + "." + stageAttempt.id,
+            stageAttempt.stageId + "." + stageAttempt.id,
             taskIndex + "." + taskAttemptId,
             statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
             "RUNNING", RUNNING
       );
     } else {
       taskAttempt.set('status', RUNNING);
+      job.inc('taskCounts.running');
       stageAttempt.inc('taskCounts.running');
       executor.inc('taskCounts.running').inc('taskCounts.num');
       stageExecutor.inc('taskCounts.running').inc('taskCounts.num');
 
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
-        stage.inc('taskCounts.running');
         stageAttempt.inc('taskIdxCounts.running');
-        job.inc('taskCounts.running');
+        job.inc('taskIdxCounts.running');
       } else if (prevTaskStatus == FAILED) {
         task.set('status', RUNNING, true);
-        stage.dec('taskCounts.failed').inc('taskCounts.running');
         stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
-        job.dec('taskCounts.failed').inc('taskCounts.running');
+        job.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
       }
     }
 
     job.upsert();
-    stage.upsert();
     stageAttempt.upsert();
     stageExecutor.upsert();
     task.upsert();
@@ -261,7 +338,6 @@ var handlers = {
 
     var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
-    var prevTaskMetrics = task.get('metrics');
 
     var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
     var prevTaskAttemptStatus = taskAttempt.get('status');
@@ -280,11 +356,6 @@ var handlers = {
 
     stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
     job.inc({ metrics: taskAttemptMetricsDiff });
-
-    var newTaskMetrics = maxObjs(prevTaskMetrics, newTaskAttemptMetrics);
-    var taskMetricsDiff = subObjs(newTaskMetrics, prevTaskMetrics);
-    task.set("metrics", newTaskMetrics, true);
-    stage.inc({ metrics: taskMetricsDiff });
 
     var updatedBlocks = taskMetrics && taskMetrics['UpdatedBlocks'];
     var rdds = [];
@@ -369,6 +440,7 @@ var handlers = {
 
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
+      job.dec('taskCounts.running').inc(taskCountKey);
       stageAttempt.dec('taskCounts.running').inc(taskCountKey);
       executor.dec('taskCounts.running').inc(taskCountKey);
       stageExecutor.dec('taskCounts.running').inc(taskCountKey);
@@ -377,23 +449,21 @@ var handlers = {
         l.error(
               "Got TaskEnd for %d (%s:%s) with previous task status %s",
               taskId,
-              stage.id + "." + stageAttempt.id,
+              stageAttempt.stageId + "." + stageAttempt.id,
               taskIndex + "." + taskAttemptId,
               statusStr[prevTaskStatus]
         );
       } else {
         if (prevTaskStatus == RUNNING) {
           task.set('status', status, true);
-          stage.dec('taskCounts.running').inc(taskCountKey);
           stageAttempt.dec('taskIdxCounts.running').inc(taskIdxCountKey);
-          job.dec('taskCounts.running').inc(taskCountKey);
+          job.dec('taskIdxCounts.running').inc(taskIdxCountKey);
 
         } else if (prevTaskStatus == FAILED) {
           if (succeeded) {
             task.set('status', status, true);
-            stage.dec('taskCounts.failed').inc('taskCount.succeeded');
             stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.succeeded');
-            job.dec('taskCounts.failed').inc('taskCount.succeeded');
+            job.dec('taskIdxCounts.failed').inc('taskCount.succeeded');
           }
         } else {
           var logFn = succeeded ? l.info : l.warn;
@@ -401,7 +471,7 @@ var handlers = {
                 "Ignoring status %s for task %d (%s:%s) because existing status is SUCCEEDED",
                 statusStr[status],
                 taskId,
-                stage.id + "." + stageAttempt.id,
+                stageAttempt.stageId + "." + stageAttempt.id,
                 taskIndex + "." + taskAttemptId
           )
         }
@@ -410,14 +480,13 @@ var handlers = {
       l.error(
             "Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
             taskId,
-            stage.id + "." + stageAttempt.id,
+            stageAttempt.stageId + "." + stageAttempt.id,
             taskIndex + "." + taskAttemptId,
             statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
             statusStr[status], status
       )
     }
 
-    stage.upsert();
     stageAttempt.upsert();
     stageExecutor.upsert();
     task.upsert();
