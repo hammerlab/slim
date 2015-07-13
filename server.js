@@ -288,6 +288,7 @@ var handlers = {
 
     var updatedBlocks = taskMetrics && taskMetrics['UpdatedBlocks'];
     var rdds = [];
+    var rddExecutors = [];
     var blocks = [];
     if (updatedBlocks) {
       updatedBlocks.forEach(function (blockInfo) {
@@ -295,16 +296,18 @@ var handlers = {
 
         var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
         var rdd = null;
+        var rddExecutor = null;
         var block = null;
         var blockWasCached = false;
-        var rddKey = null;
         if (rddIdMatch) {
           var rddId = parseInt(rddIdMatch[1]);
           var blockIndex = parseInt(rddIdMatch[2]);
-          rddKey = ['blocks', 'rdd', rddId].join('.');
 
           rdd = app.getRDD(rddId);
           rdds.push(rdd);
+
+          rddExecutor = rdd.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
+          rddExecutors.push(rddExecutor);
 
           block = rdd.getBlock(blockIndex).set('execId', executor.id, true).addToSet('execIds', executor.id);
           blocks.push(block);
@@ -323,29 +326,32 @@ var handlers = {
             blockIsCached = true;
           }
           var delta = status[key] - (block.get(key) || 0);
-          executor.inc(key, delta).inc(rddKey + '.' + key, delta);
+          executor.inc(key, delta);
           app.inc(key, delta);
           if (rdd) {
             rdd.inc(key, delta);
+            rddExecutor.inc(key, delta);
           }
           block.set(key, status[key], true);
         });
         if (!blockIsCached) {
           if (blockWasCached) {
-            executor.dec('numBlocks').dec(rddKey + '.numBlocks');
+            executor.dec('numBlocks');
             if (rdd) {
               rdd
                     .dec("numCachedPartitions")
                     .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+              rddExecutor.dec('numBlocks');
             }
           }
         } else {
           if (!blockWasCached) {
-            executor.inc('numBlocks').inc(rddKey + '.numBlocks');
+            executor.inc('numBlocks');
             if (rdd) {
               rdd
                     .inc("numCachedPartitions")
                     .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+              rddExecutor.inc('numBlocks');
             }
           }
         }
@@ -420,6 +426,7 @@ var handlers = {
     job.upsert();
     app.upsert();
     rdds.forEach(function(rdd) { rdd.upsert(); });
+    rddExecutors.forEach(function(rddExecutor) { rddExecutor.upsert(); });
     blocks.forEach(function(block) { block.upsert(); });
   },
 
@@ -466,24 +473,20 @@ var handlers = {
 
   SparkListenerUnpersistRDD: function(app, e) {
     var rddId = e['RDD ID'];
-    app.getRDD(rddId).set({ unpersisted: true }).upsert();
+    var rdd = app.getRDD(rddId).set({ unpersisted: true });
     for (var eid in app.executors) {
       var executor = app.executors[eid];
-      var rddKey = ['blocks', 'rdd', rddId].join('.');
-      app
-            .dec('numBlocks', executor.get(rddKey + '.numBlocks') || 0)
-            .dec('MemorySize', executor.get(rddKey + '.MemorySize') || 0)
-            .dec('DiskSize', executor.get(rddKey + '.DiskSize') || 0)
-            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize') || 0);
-      executor
-            .dec('numBlocks', executor.get(rddKey + '.numBlocks') || 0)
-            .dec('MemorySize', executor.get(rddKey + '.MemorySize') || 0)
-            .dec('DiskSize', executor.get(rddKey + '.DiskSize') || 0)
-            .dec('ExternalBlockStoreSize', executor.get(rddKey + '.ExternalBlockStoreSize') || 0)
-            .unset(rddKey)
-            .upsert();
+      var rddExecutor = rdd.getExecutor(eid).set({ host: executor.get('host'), port: executor.get('port') });
+
+      ['numBlocks', 'MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function(key) {
+        var extant = rddExecutor.get(key) || 0;
+        app.dec(key, extant);
+        executor.dec(key, extant).upsert();
+      });
+      rddExecutor.set('unpersisted', true).upsert();
     }
     app.upsert();
+    rdd.upsert();
   },
 
   SparkListenerExecutorAdded: function(app, e) {

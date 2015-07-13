@@ -3,6 +3,8 @@ var objUtils = require('../utils/objs');
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var removeKeySpaces = objUtils.removeKeySpaces;
 var RddBlock = require('./block').RddBlock;
+var RDDExecutor = require('./rdd-executor').RDDExecutor;
+var getExecutorId = require('./executor').getExecutorId;
 
 function RDD(appId, id) {
   this.appId = appId;
@@ -11,6 +13,7 @@ function RDD(appId, id) {
   this.init([ 'appId', 'id' ]);
 
   this.blocks = {};
+  this.executors = {};
 }
 
 mixinMongoMethods(RDD, "RDD", "RDDs");
@@ -34,6 +37,14 @@ RDD.prototype.getBlock = function(blockIndex) {
     this.blocks[blockIndex] = new RddBlock(this, blockIndex);
   }
   return this.blocks[blockIndex];
+};
+
+RDD.prototype.getExecutor = function(execId) {
+  execId = getExecutorId(execId);
+  if (!(execId in this.executors)) {
+    this.executors[execId] = new RDDExecutor(this, execId);
+  }
+  return this.executors[execId];
 };
 
 module.exports.RDD = RDD;

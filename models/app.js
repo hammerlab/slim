@@ -57,6 +57,7 @@ App.prototype.hydrate = function(cb) {
           executors: fetch('Executors'),
           stageExecutors: fetch('StageExecutors'),
           rdds: fetch('RDDs'),
+          rddExecutors: fetch('RDDExecutors'),
           tasks: fetch('Tasks'),
           taskAttempts: fetch('TaskAttempts'),
           rddBlocks: fetch('RddBlocks'),
@@ -88,6 +89,7 @@ App.prototype.hydrate = function(cb) {
                     "%d executors",
                     "%d stage-executors",
                     "%d rdds",
+                    "%d rdd-executors",
                     "%d tasks",
                     "%d task attempts",
                     "%d rdd blocks",
@@ -100,6 +102,7 @@ App.prototype.hydrate = function(cb) {
                   r.executors.length,
                   r.stageExecutors.length,
                   r.rdds.length,
+                  r.rddExecutors.length,
                   r.tasks.length,
                   r.taskAttempts.length,
                   r.rddBlocks.length,
@@ -209,6 +212,20 @@ App.prototype.hydrate = function(cb) {
                       .attempts[stageExecutor.stageAttemptId]
                       .getExecutor(stageExecutor.execId)
                       .fromMongo(stageExecutor);
+              }
+            });
+
+            r.rddExecutors.forEach(function(rddExecutor) {
+              if (!(rddExecutor.rddId in self.rdds)) {
+                l.error(
+                      "RDDExecutor %s's rddId %d not found in app %s's RDDs: %s",
+                      rddExecutor.id,
+                      rddExecutor.rddId,
+                      id,
+                      r.rdds.map(function(e) { return e.id; }).join(',')
+                );
+              } else {
+                self.rdds[rddExecutor.rddId].getExecutor(rddExecutor.execId).fromMongo(rddExecutor);
               }
             });
           }
