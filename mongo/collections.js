@@ -1,5 +1,6 @@
 
 var assert = require('assert');
+var async = require('async');
 
 var MongoClient = require('mongodb').MongoClient;
 
@@ -53,21 +54,23 @@ module.exports.init = function(url, cb) {
       [ 'Environment', { appId: 1 } ]
     ];
 
-    collNamesAndIndices.forEach(function(collNameAndIndex) {
-      var name = collNameAndIndex[0];
-      var fields = collNameAndIndex[1];
-      module.exports[name].ensureIndex(fields, function(err) {
-        if (err) {
-          l.error("Error creating index %O for collection %s: %O", fields, name, err);
-        } else {
-          l.warn("Created index %O for collection %s", fields, name);
-        }
-      });
-    });
-
-    // TODO(ryan): wait until all ensureIndex() calls have returned before calling the callback.
-    cb(db);
-
+    async.parallel(
+          collNamesAndIndices.map(function(collNameAndIndex) {
+            return function(callback) {
+              var name = collNameAndIndex[0];
+              var fields = collNameAndIndex[1];
+              module.exports[name].ensureIndex(fields, callback);
+            };
+          }),
+          function(err) {
+            if (err) {
+              l.error("Error creating mongo indexes:", JSON.stringify(err));
+            } else {
+              l.info("Mongo indexes created successfully.");
+            }
+            cb(db);
+          }
+    );
   });
 };
 
