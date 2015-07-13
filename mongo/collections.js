@@ -12,6 +12,7 @@ module.exports = {
   Jobs: null,
   Stages: null,
   StageAttempts: null,
+  StageExecutors: null,
   RDDs: null,
   NonRddBlocks: null,
   RddBlocks: null,
@@ -33,6 +34,7 @@ module.exports.init = function(url, cb) {
     module.exports.Jobs = db.collection('jobs');
     module.exports.Stages = db.collection('stages');
     module.exports.StageAttempts = db.collection('stage_attempts');
+    module.exports.StageExecutors = db.collection('stage_executors');
     module.exports.RDDs = db.collection('rdds');
     module.exports.Executors = db.collection('executors');
     module.exports.Tasks = db.collection('tasks');
@@ -47,6 +49,7 @@ module.exports.init = function(url, cb) {
       [ 'Stages', { appId: 1, id: 1 } ],
       [ 'Stages', { appId: 1, jobId: 1 } ],
       [ 'StageAttempts', { appId: 1, stageId: 1, id: 1 } ],
+      [ 'StageExecutors', { appId: 1, stageId: 1, execId: 1 } ],
       [ 'RDDs', { appId: 1, id: 1 } ],
       [ 'Executors', { appId: 1, id: 1 } ],
       [ 'Tasks', { appId: 1, stageId: 1, id: 1 } ],

@@ -12,6 +12,7 @@ var Job = require('./job').Job;
 var Stage = require('./stage').Stage;
 var RDD = require('./rdd').RDD;
 var Executor = require('./executor').Executor;
+var getExecutorId = require('./executor').getExecutorId;
 
 var apps = {};
 
@@ -54,6 +55,7 @@ App.prototype.hydrate = function(cb) {
           stages: fetch('Stages'),
           stageAttempts: fetch('StageAttempts'),
           executors: fetch('Executors'),
+          stageExecutors: fetch('StageExecutors'),
           rdds: fetch('RDDs'),
           tasks: fetch('Tasks'),
           taskAttempts: fetch('TaskAttempts'),
@@ -78,12 +80,25 @@ App.prototype.hydrate = function(cb) {
             });
 
             l.info(
-                  "App %s: found %d jobs, %d stages, %d stage attempts, %d executors, %d rdds, %d tasks, %d task attempts, %d rdd blocks, and %d non-rdd blocks",
+                  [
+                    "Found app %s:",
+                    "%d jobs",
+                    "%d stages",
+                    "%d stage attempts",
+                    "%d executors",
+                    "%d stage-executors",
+                    "%d rdds",
+                    "%d tasks",
+                    "%d task attempts",
+                    "%d rdd blocks",
+                    "%d non-rdd blocks"
+                  ].join('\n\t'),
                   id,
                   r.jobs.length,
                   r.stages.length,
                   r.stageAttempts.length,
                   r.executors.length,
+                  r.stageExecutors.length,
                   r.rdds.length,
                   r.tasks.length,
                   r.taskAttempts.length,
@@ -136,7 +151,9 @@ App.prototype.hydrate = function(cb) {
                       taskAttempt.stageId,
                       taskAttempt.stageAttemptId,
                       id,
-                      r.stages.map(function (e) { return e.id; }).join(',')
+                      r.stages.map(function (e) {
+                        return e.id;
+                      }).join(',')
                 );
               } else {
                 self
@@ -172,6 +189,26 @@ App.prototype.hydrate = function(cb) {
                 );
               } else {
                 self.rdds[block.rddId].getBlock(block.id).fromMongo(block);
+              }
+            });
+
+            r.stageExecutors.forEach(function(stageExecutor) {
+              if (!(stageExecutor.stageId in self.stages) ||
+                    !(stageExecutor.stageAttemptId in self.stages[stageExecutor.stageId].attempts)) {
+                l.error(
+                      "StageExecutor %s's stageId %d.%d not found in app %s's stages: %s",
+                      stageExecutor.id,
+                      stageExecutor.stageId,
+                      stageExecutor.stageAttemptId,
+                      id,
+                      r.stages.map(function(e) { return e.id; }).join(',')
+                );
+              } else {
+                self
+                      .stages[stageExecutor.stageId]
+                      .attempts[stageExecutor.stageAttemptId]
+                      .getExecutor(stageExecutor.execId)
+                      .fromMongo(stageExecutor);
               }
             });
           }
@@ -271,15 +308,7 @@ App.prototype.getRDD = function(rddId) {
 };
 
 App.prototype.getExecutor = function(executorId) {
-  if (typeof executorId == 'object') {
-    if ('Block Manager ID' in executorId) {
-      executorId = executorId['Block Manager ID'];
-    }
-    executorId = executorId['Executor ID'];
-  }
-  if (executorId.match(/^[0-9]+$/)) {
-    executorId = parseInt(executorId);
-  }
+  executorId = getExecutorId(executorId);
   if (!(executorId in this.executors)) {
     this.executors[executorId] = new Executor(this.id, executorId);
   }

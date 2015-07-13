@@ -188,7 +188,7 @@ var handlers = {
     var taskId = ti['Task ID'];
 
     var executor = app.getExecutor(ti);
-    var executorStageKey = ['stages', stage.id, stageAttempt.id, 'taskCounts', ''].join('.');
+    var stageExecutor = stageAttempt.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
 
     var taskIndex = ti['Index'];
     var task = stageAttempt.getTask(taskIndex);
@@ -212,7 +212,8 @@ var handlers = {
     } else {
       taskAttempt.set('status', RUNNING);
       stageAttempt.inc('taskCounts.running');
-      executor.inc('taskCounts.running').inc('taskCounts.num').inc(executorStageKey + 'running').inc(executorStageKey + 'num');
+      executor.inc('taskCounts.running').inc('taskCounts.num');
+      stageExecutor.inc('taskCounts.running').inc('taskCounts.num');
 
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
@@ -230,6 +231,7 @@ var handlers = {
     job.upsert();
     stage.upsert();
     stageAttempt.upsert();
+    stageExecutor.upsert();
     task.upsert();
     taskAttempt.upsert();
     executor.upsert();
@@ -255,7 +257,7 @@ var handlers = {
     var taskAttemptId = ti['Attempt'];
 
     var executor = app.getExecutor(ti);
-    var executorStageKey = 'stages.' + stage.id + '.' + stageAttempt.id + '.';
+    var stageExecutor = stageAttempt.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
 
     var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
@@ -274,10 +276,7 @@ var handlers = {
     var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
 
     executor.inc({ metrics: taskAttemptMetricsDiff });
-    var executorStageMetricsKey = executorStageKey + "metrics";
-    var executorStageMetricsObj = {};
-    executorStageMetricsObj[executorStageMetricsKey] = taskAttemptMetricsDiff;
-    executor.inc(executorStageMetricsObj);
+    stageExecutor.inc({ metrics: taskAttemptMetricsDiff });
 
     stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
     job.inc({ metrics: taskAttemptMetricsDiff });
@@ -365,7 +364,8 @@ var handlers = {
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
       stageAttempt.dec('taskCounts.running').inc(taskCountKey);
-      executor.dec('taskCounts.running').inc(taskCountKey).dec(executorStageKey + 'taskCounts.running').inc(executorStageKey + taskCountKey);
+      executor.dec('taskCounts.running').inc(taskCountKey);
+      stageExecutor.dec('taskCounts.running').inc(taskCountKey);
 
       if (!prevTaskStatus) {
         l.error(
@@ -413,6 +413,7 @@ var handlers = {
 
     stage.upsert();
     stageAttempt.upsert();
+    stageExecutor.upsert();
     task.upsert();
     taskAttempt.upsert();
     executor.upsert();

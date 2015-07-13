@@ -1,10 +1,13 @@
 
+var StageExecutor = require('./stage-executor').StageExecutor;
 var Task = require('./task').Task;
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
 var removeKeyDots = require("../utils/objs").removeKeyDots;
 var processTime = require("../utils/utils").processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
+
+var getExecutorId = require('./executor').getExecutorId;
 
 function StageAttempt(stage, id) {
   this.appId = stage.appId;
@@ -15,6 +18,8 @@ function StageAttempt(stage, id) {
 
   this.tasks = {};
   this.task_attempts = {};
+
+  this.executors = {};
 }
 
 StageAttempt.prototype.fromStageInfo = function(si) {
@@ -48,6 +53,13 @@ StageAttempt.prototype.getTaskAttempt = function(taskId) {
   return this.task_attempts[taskId];
 };
 
+StageAttempt.prototype.getExecutor = function(execId) {
+  execId = getExecutorId(execId);
+  if (!(execId in this.executors)) {
+    this.executors[execId] = new StageExecutor(this, execId);
+  }
+  return this.executors[execId];
+};
 
 mixinMongoMethods(StageAttempt, "StageAttempt", "StageAttempts");
 
