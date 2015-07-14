@@ -62,6 +62,8 @@ function handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecut
 
   stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
   job.inc({ metrics: taskAttemptMetricsDiff });
+
+  // TODO(ryan): update durations
 }
 
 function handleBlockUpdates(taskMetrics, app, executor) {
