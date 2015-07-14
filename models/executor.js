@@ -26,7 +26,7 @@ function getExecutorId(executorId) {
     }
     executorId = executorId['Executor ID'];
   }
-  if (executorId.match(/^[0-9]+$/)) {
+  if (typeof executorId === 'string' && executorId.match(/^[0-9]+$/)) {
     executorId = parseInt(executorId);
   }
   return executorId;
