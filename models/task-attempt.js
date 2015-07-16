@@ -11,6 +11,10 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
 function TaskAttempt(stageAttempt, id) {
+  this.app = stageAttempt.app;
+  this.stageAttempt = stageAttempt;
+  this.job = stageAttempt.job;
+
   this.appId = stageAttempt.appId;
   this.stageId = stageAttempt.stageId;
   this.stageAttemptId = stageAttempt.id;
@@ -21,22 +25,40 @@ function TaskAttempt(stageAttempt, id) {
     this.superKey = ['tasks', id, ''].join('.');
     this.set('id', id);
   } else {
-    this.init([ 'appId', 'stageId', 'stageAttemptId', 'id' ]);
+    this.init(
+          [ 'appId', 'stageId', 'stageAttemptId', 'id' ],
+          'totalTaskDuration',
+          [ this.stageAttempt, this.job, this.app ]
+    );
   }
 }
+
+var getExecutorId = require('./executor').getExecutorId;
 
 TaskAttempt.prototype.fromTaskInfo = function(ti) {
   this.set({
     'time.start': processTime(ti['Launch Time']),
     'time.end': processTime(ti['Finish Time']),
-    execId: ti['Executor ID'],
+    execId: getExecutorId(ti),
     host: ti['Host'],
     locality: ti['Locality'],
     speculative: ti['Speculative'],
     gettingResultTime: processTime(ti['Getting Result Time']),
     index: ti['Index'],
     attempt: ti['Attempt']
-  }).set('accumulables', removeKeyDots(ti['Accumulables']), true).setDuration();
+  }).set('accumulables', removeKeyDots(ti['Accumulables']), true).setExecutors();
+  return this;
+};
+
+TaskAttempt.prototype.setExecutors = function() {
+  if (!this.executor && this.has('execId')) {
+    var execId = this.get('execId');
+    this.executor = this.app.getExecutor(execId);
+    this.stageExecutor = this.stageAttempt.getExecutor(execId);
+    this.durationAggregationObjs.push(this.executor);
+    this.durationAggregationObjs.push(this.stageExecutor);
+  }
+  return this;
 };
 
 if (subRecord) {

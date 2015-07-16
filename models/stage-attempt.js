@@ -1,4 +1,6 @@
 
+var moment = require('moment');
+
 var StageExecutor = require('./stage-executor').StageExecutor;
 var Task = require('./task').Task;
 var TaskAttempt = require('./task-attempt').TaskAttempt;
@@ -10,6 +12,7 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var getExecutorId = require('./executor').getExecutorId;
 
 function StageAttempt(stage, id) {
+  this.app = stage.app;
   this.appId = stage.appId;
   this.stageId = stage.id;
   this.id = id;
@@ -22,15 +25,24 @@ function StageAttempt(stage, id) {
   this.executors = {};
 }
 
+StageAttempt.prototype.setJob = function(job) {
+  this.job = job;
+  this.set('jobId', job.id);
+  return this;
+};
+
 StageAttempt.prototype.fromStageInfo = function(si) {
-  return this.set({
-    name: si['Stage Name'],
-    'time.start': processTime(si['Submission Time']),
-    'time.end': processTime(si['Completion Time']),
-    'taskCounts.num': si['Number of Tasks'],
-    'taskIdxCounts.num': si['Number of Tasks'],
-    failureReason: si['Failure Reason']
-  }).set('accumulables', removeKeyDots(si['Accumulables']), true).setDuration();
+  return this
+        .set('time.start', si['Submission Time'] || (moment().unix() * 1000), true)
+        .set({
+          name: si['Stage Name'],
+          'time.end': processTime(si['Completion Time']),
+          'taskCounts.num': si['Number of Tasks'],
+          'taskIdxCounts.num': si['Number of Tasks'],
+          failureReason: si['Failure Reason']
+        })
+        .set('accumulables', removeKeyDots(si['Accumulables']), true)
+        .setDuration();
 };
 
 StageAttempt.prototype.getTask = function(taskIndex) {

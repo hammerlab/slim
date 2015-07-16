@@ -49,21 +49,20 @@ function maybeAddTotalShuffleReadBytes(metrics) {
   return metrics;
 }
 
-function handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecutor, taskAttempt) {
+function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt) {
   var prevTaskAttemptMetrics = taskAttempt.get('metrics');
   var newTaskAttemptMetrics = taskMetrics;
 
   taskAttempt.set('metrics', newTaskAttemptMetrics, true);
+  job.setDuration('totalJobDuration', app);
 
-  var taskAttemptMetricsDiff = subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics);
+  var taskAttemptMetricsDiff = { metrics: subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics) };
 
-  executor.inc({ metrics: taskAttemptMetricsDiff });
-  stageExecutor.inc({ metrics: taskAttemptMetricsDiff });
-
-  stageAttempt.inc({ metrics: taskAttemptMetricsDiff });
-  job.inc({ metrics: taskAttemptMetricsDiff });
-
-  // TODO(ryan): update durations
+  app.inc(taskAttemptMetricsDiff);
+  executor.inc(taskAttemptMetricsDiff);
+  stageExecutor.inc(taskAttemptMetricsDiff);
+  stageAttempt.inc(taskAttemptMetricsDiff);
+  job.inc(taskAttemptMetricsDiff);
 }
 
 function handleBlockUpdates(taskMetrics, app, executor) {
@@ -154,7 +153,7 @@ var handlers = {
   },
 
   SparkListenerApplicationEnd: function(app, e) {
-    app.set('time.end', processTime(e['Timestamp'])).setDuration().upsert();
+    app.set('time.end', processTime(e['Timestamp'])).upsert();
   },
 
   SparkListenerJobStart: function(app, e) {
@@ -167,7 +166,7 @@ var handlers = {
 
       var stage = app.getStage(si['Stage ID']).fromStageInfo(si).set('jobId', job.id).upsert();
 
-      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).upsert();
+      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).setJob(job).upsert();
 
       si['RDD Info'].forEach(function(ri) {
         app.getRDD(ri).fromRDDInfo(ri).upsert();
@@ -198,7 +197,6 @@ var handlers = {
             succeeded: e['Job Result']['Result'] == 'JobSucceeded',
             ended: true
           })
-          .setDuration()
           .upsert();
 
     job.get('stageIDs').map(function(sid) {
@@ -207,7 +205,7 @@ var handlers = {
       if (status == RUNNING || status == FAILED) {
         l.err("Found unexpected status " + status + " for stage " + stage.id + " when marking job " + job.id + " complete.");
       } else if (!status) {
-        // Will fail if a status exists for this stage
+        // Will log an error if a status exists for this stage
         stage.set('status', SKIPPED).upsert();
       }
     });
@@ -246,10 +244,10 @@ var handlers = {
       job.inc('stageIdxCounts.running');
     }
 
-    app.upsert();
-    job.upsert();
     stage.upsert();
     attempt.upsert();
+    job.upsert();
+    app.upsert();
   },
 
   SparkListenerStageCompleted: function(app, e) {
@@ -443,13 +441,34 @@ var handlers = {
     taskAttempt.fromTaskInfo(ti);
 
     var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
-    handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecutor, taskAttempt);
+    handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt);
     handleBlockUpdates(taskMetrics, app, executor);
 
     var succeeded = !ti['Failed'];
     var status = succeeded ? SUCCEEDED : FAILED;
     var taskCountKey = succeeded ? 'taskCounts.succeeded' : 'taskCounts.failed';
     var taskIdxCountKey = succeeded ? 'taskIdxCounts.succeeded' : 'taskIdxCounts.failed';
+
+    var prevNumFailed = task.get('failed') || 0;
+    if (succeeded) {
+      if (prevNumFailed) {
+        stageAttempt.dec('failing.' + prevNumFailed);
+        job.dec('failing.' + prevNumFailed);
+      }
+    } else {
+      var numFailed = prevNumFailed + 1;
+      task.inc('failed');
+      if (prevNumFailed) {
+        stageAttempt.dec('failed.' + prevNumFailed);
+        job.dec('failed.' + prevNumFailed);
+        if (task.get('status') != SUCCEEDED) {
+          stageAttempt.dec('failing.' + prevNumFailed);
+          job.dec('failing.' + prevNumFailed);
+        }
+      }
+      stageAttempt.inc('failed.' + numFailed).inc('failing.' + numFailed);
+      job.inc('failed.' + numFailed).inc('failing.' + numFailed);
+    }
 
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
@@ -500,10 +519,10 @@ var handlers = {
       )
     }
 
+    taskAttempt.upsert();
+    task.upsert();
     stageAttempt.upsert();
     stageExecutor.upsert();
-    task.upsert();
-    taskAttempt.upsert();
     executor.upsert();
     job.upsert();
     app.upsert();
@@ -545,7 +564,6 @@ var handlers = {
                   host: e['Block Manager ID']['Host'],
                   port: e['Block Manager ID']['Port']
                 }, true)
-                .setDuration()
                 .upsert();
     app.dec('maxMem', executor.get('maxMem')).upsert();
   },
@@ -564,8 +582,8 @@ var handlers = {
       });
       rddExecutor.set('unpersisted', true).upsert();
     }
-    app.upsert();
     rdd.upsert();
+    app.upsert();
   },
 
   SparkListenerExecutorAdded: function(app, e) {
@@ -585,7 +603,6 @@ var handlers = {
             'time.end': processTime(e['Timestamp']),
             reason: e['Removed Reason']
           })
-          .setDuration()
           .upsert();
   },
 
@@ -602,12 +619,13 @@ var handlers = {
       var taskAttempt = stageAttempt.getTaskAttempt(m);
       var stageExecutor = stageAttempt.getExecutor(e);
       var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
-      handleTaskMetrics(taskMetrics, job, stageAttempt, executor, stageExecutor, taskAttempt);
-      job.upsert();
+      handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt);
+      taskAttempt.upsert();
       stageAttempt.upsert();
       executor.upsert();
       stageExecutor.upsert();
-      taskAttempt.upsert();
+      job.upsert();
+      app.upsert();
     });
   }
 };

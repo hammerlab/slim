@@ -11,8 +11,9 @@ var RUNNING = utils.RUNNING;
 var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 
-function Stage(appId, id) {
-  this.appId = appId;
+function Stage(app, id) {
+  this.app = app;
+  this.appId = app.id;
   this.id = id;
 
   this.init([ 'appId', 'id' ]);

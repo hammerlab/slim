@@ -178,9 +178,30 @@ function addAddToSetProp(clazz) {
 }
 
 function addSetDuration(clazz) {
+  clazz.prototype.maybeIncrementAggregatedDurations = function(delta) {
+    if (this.durationAggregationKey) {
+      (this.durationAggregationObjs || []).forEach(function (obj) {
+        var before = obj.get(this.durationAggregationKey);
+        obj.inc(this.durationAggregationKey, delta);
+      }.bind(this));
+    }
+  };
   clazz.prototype.setDuration = function() {
-    if (!this.get('duration') && this.get('time.start') && this.get('time.end')) {
-      this.set('duration', this.get('time.end') - this.get('time.start'));
+    var start = this.get('time.start');
+    if (start) {
+      var end = this.get('time.end');
+      if (end) {
+        if (!this.get('duration')) {
+          this.set('duration', end - start, true);
+          this.maybeIncrementAggregatedDurations(end - start);
+        }
+      } else {
+        var newDuration = Math.max(0, (m().unix() * 1000) - start);
+        var prevDuration = this.get('duration') || 0;
+        var delta = newDuration - prevDuration;
+        this.set('duration', newDuration, true);
+        this.maybeIncrementAggregatedDurations(delta);
+      }
     }
     return this;
   }
@@ -215,7 +236,8 @@ function addUpsert(clazz, className, collectionName) {
       }
     }
 
-    var upsertObj = { };
+    this.setDuration();
+    var upsertObj = {};
     if (!isEmptyObject(this.toSyncObj)) {
       upsertObj['$set'] = this.toSyncObj;
     }
@@ -298,9 +320,12 @@ function addUpsert(clazz, className, collectionName) {
 }
 
 function addInit(clazz, className) {
-  clazz.prototype.init = function(findKeys) {
+  clazz.prototype.init = function(findKeys, durationAggregationKey, durationAggregationObjs) {
     this.findObj = {};
     this.findKeys = findKeys;
+    this.durationAggregationKey = durationAggregationKey;
+    this.durationAggregationObjs = durationAggregationObjs;
+    this.clazz = className;
 
     if (!findKeys || !findKeys.length) {
       l.error('%s: no findKeys set', className);

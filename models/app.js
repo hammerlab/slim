@@ -68,10 +68,10 @@ App.prototype.hydrate = function(cb) {
             l.error("Failed to fetch records for app %s:", id, JSON.stringify(err));
           } else {
             r.jobs.forEach(function(job) {
-              self.jobs[job.id] = new Job(id, job.id).fromMongo(job);
+              self.jobs[job.id] = new Job(self, job.id).fromMongo(job);
             });
             r.stages.forEach(function(stage) {
-              self.stages[stage.id] = new Stage(id, stage.id).fromMongo(stage);
+              self.stages[stage.id] = new Stage(self, stage.id).fromMongo(stage);
             });
             r.rdds.forEach(function(rdd) {
               self.rdds[rdd.id] = new RDD(id, rdd.id).fromMongo(rdd);
@@ -121,7 +121,22 @@ App.prototype.hydrate = function(cb) {
                       }).join(',')
                 );
               } else {
-                self.stages[stageAttempt.stageId].getAttempt(stageAttempt.id).fromMongo(stageAttempt);
+                var sa = self.stages[stageAttempt.stageId].getAttempt(stageAttempt.id).fromMongo(stageAttempt);
+                if (!('jobId' in stageAttempt)) {
+                  l.error("No jobId in stageAttempt mongo record:", JSON.stringify(stageAttempt));
+                } else {
+                  var jobId = stageAttempt.jobId;
+                  if (!(jobId in self.jobs)) {
+                    l.error(
+                          "Job id %d from stageAttempt %s not found in app.jobs: %s",
+                          jobId,
+                          JSON.stringify(stageAttempt),
+                          self.jobs.map(function(j) { return j.id; }).join(',')
+                    );
+                  } else {
+                    sa.setJob(self.jobs[jobId]);
+                  }
+                }
               }
             });
 
@@ -163,7 +178,8 @@ App.prototype.hydrate = function(cb) {
                       .stages[taskAttempt.stageId]
                       .attempts[taskAttempt.stageAttemptId]
                       .getTaskAttempt(taskAttempt.id)
-                      .fromMongo(taskAttempt);
+                      .fromMongo(taskAttempt)
+                      .setExecutors();
               }
             });
 
@@ -275,7 +291,7 @@ App.prototype.getJob = function(jobId) {
     jobId = jobId['Job ID'];
   }
   if (!(jobId in this.jobs)) {
-    this.jobs[jobId] = new Job(this.id, jobId);
+    this.jobs[jobId] = new Job(this, jobId);
   }
   return this.jobs[jobId];
 };
@@ -309,7 +325,7 @@ App.prototype.getStage = function(stageId) {
     }
   }
   if (!(stageId in this.stages)) {
-    this.stages[stageId] = new Stage(this.id, stageId);
+    this.stages[stageId] = new Stage(this, stageId);
   }
   return this.stages[stageId];
 };
