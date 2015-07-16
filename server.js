@@ -29,6 +29,7 @@ var RUNNING = utils.RUNNING;
 var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
+var REMOVED = utils.REMOVED;
 
 var objUtils = require("./utils/objs");
 var subObjs = objUtils.subObjs;
@@ -117,6 +118,7 @@ function handleBlockUpdates(taskMetrics, app, executor) {
       if (!blockIsCached) {
         if (blockWasCached) {
           executor.dec('numBlocks');
+          app.dec('numBlocks');
           if (rdd) {
             rdd
                   .dec("numCachedPartitions")
@@ -127,6 +129,7 @@ function handleBlockUpdates(taskMetrics, app, executor) {
       } else {
         if (!blockWasCached) {
           executor.inc('numBlocks');
+          app.inc('numBlocks');
           if (rdd) {
             rdd
                   .inc("numCachedPartitions")
@@ -558,8 +561,13 @@ var handlers = {
             host: e['Block Manager ID']['Host'],
             port: e['Block Manager ID']['Port']
           }, true)
+          .set('status', RUNNING, true)
           .upsert();
-    app.inc('maxMem', e['Maximum Memory']).upsert();
+    app
+          .inc('maxMem', e['Maximum Memory'])
+          .inc('blockManagerCounts.num')
+          .inc('blockManagerCounts.running')
+          .upsert();
   },
   SparkListenerBlockManagerRemoved: function(app, e) {
     var executor =
@@ -570,8 +578,13 @@ var handlers = {
                   host: e['Block Manager ID']['Host'],
                   port: e['Block Manager ID']['Port']
                 }, true)
+                .set('status', REMOVED, true)
                 .upsert();
-    app.dec('maxMem', executor.get('maxMem')).upsert();
+    app
+          .dec('maxMem', executor.get('maxMem'))
+          .dec('blockManagerCounts.running')
+          .inc('blockManagerCounts.removed')
+          .upsert();
   },
 
   SparkListenerUnpersistRDD: function(app, e) {
@@ -594,12 +607,20 @@ var handlers = {
 
   SparkListenerExecutorAdded: function(app, e) {
     var ei = e['Executor Info'];
-    app.getExecutor(e).set({
-      'time.start': processTime(e['Timestamp']),
-      host: ei['Host'],
-      cores: ei['Total Cores'],
-      urls: ei['Log Urls']
-    }).upsert();
+    app
+          .getExecutor(e)
+          .set({
+            'time.start': processTime(e['Timestamp']),
+            host: ei['Host'],
+            cores: ei['Total Cores'],
+            urls: ei['Log Urls']
+          })
+          .set('status', RUNNING, true)
+          .upsert();
+    app
+          .inc('executorCounts.num')
+          .inc('executorCounts.running')
+          .upsert();
   },
 
   SparkListenerExecutorRemoved: function(app, e) {
@@ -609,7 +630,13 @@ var handlers = {
             'time.end': processTime(e['Timestamp']),
             reason: e['Removed Reason']
           })
+          .set('status', REMOVED, true)
           .upsert();
+    app
+          .dec('executorCounts.running')
+          .inc('executorCounts.removed')
+          .upsert();
+
   },
 
   SparkListenerLogStart: function(app, e) {

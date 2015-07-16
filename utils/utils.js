@@ -8,7 +8,8 @@ module.exports = {
   RUNNING: 1,
   SUCCEEDED: 2,
   FAILED: 3,
-  SKIPPED: 4
+  SKIPPED: 4,
+  REMOVED: 5
 };
 
 module.exports.status = {};
@@ -17,5 +18,6 @@ module.exports.status[module.exports.RUNNING] = "RUNNING";
 module.exports.status[module.exports.FAILED] = "FAILED";
 module.exports.status[module.exports.SUCCEEDED] = "SUCCEEDED";
 module.exports.status[module.exports.SKIPPED] = "SKIPPED";
+module.exports.status[module.exports.REMOVED] = "REMOVED";
 
 module.exports.processTime = processTime;
