@@ -162,6 +162,7 @@ var handlers = {
 
     var stageInfos = e['Stage Infos'];
 
+    var stageNames = [];
     stageInfos.forEach(function(si) {
 
       var stage = app.getStage(si['Stage ID']).fromStageInfo(si).set('jobId', job.id).upsert();
@@ -173,11 +174,14 @@ var handlers = {
       }.bind(this));
 
       numTasks += si['Number of Tasks'];
+      stageNames.push(stage.get('name'));
     });
 
     job.set({
       'time.start': processTime(e['Submission Time']),
       stageIDs: e['Stage IDs'],
+      stageNames: stageNames,
+      status: RUNNING,
       'taskCounts.num': numTasks,
       'taskIdxCounts.num': numTasks,
       'stageCounts.num': e['Stage IDs'].length,
@@ -190,13 +194,15 @@ var handlers = {
   SparkListenerJobEnd: function(app, e) {
     var job = app.getJob(e);
 
+    var succeeded = e['Job Result']['Result'] == 'JobSucceeded';
     job
           .set({
             'time.end': processTime(e['Completion Time']),
             result: e['Job Result'],
-            succeeded: e['Job Result']['Result'] == 'JobSucceeded',
+            succeeded: succeeded,
             ended: true
           })
+          .set('status', succeeded ? SUCCEEDED : FAILED, true)
           .upsert();
 
     job.get('stageIDs').map(function(sid) {
