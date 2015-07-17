@@ -9,6 +9,7 @@ function Executor(appId, id) {
   this.init([ 'appId', 'id' ]);
 
   this.blocks = {};
+  this.upsertHooks = [ this.updateMemUsedPercent ];
 }
 
 mixinMongoMethods(Executor, "Executor", "Executors");
@@ -18,6 +19,12 @@ Executor.prototype.getBlock = function(blockId) {
     this.blocks[blockId] = new NonRddBlock(this, blockId);
   }
   return this.blocks[blockId];
+};
+
+Executor.prototype.updateMemUsedPercent = function() {
+  if (this.get('MemorySize') && this.get('maxMem')) {
+    this.set('MemPercent', this.get('MemorySize') / this.get('maxMem'), true);
+  }
 };
 
 function getExecutorId(executorId) {

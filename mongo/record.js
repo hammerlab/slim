@@ -237,6 +237,11 @@ function addUpsert(clazz, className, collectionName) {
     }
 
     this.setDuration();
+    if (this.upsertHooks) {
+      this.upsertHooks.forEach(function(hook) {
+        hook.bind(this)();
+      }.bind(this));
+    }
     var upsertObj = {};
     if (!isEmptyObject(this.toSyncObj)) {
       upsertObj['$set'] = this.toSyncObj;
