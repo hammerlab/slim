@@ -3,6 +3,13 @@ function processTime(t) {
   return t ? t : undefined;
 }
 
+function maybeParseInt(n) {
+  if (typeof n === 'string' && n.match(/^[0-9]+$/)) {
+    return parseInt(n);
+  }
+  return n;
+}
+
 module.exports = {
   PENDING: undefined,
   RUNNING: 1,
@@ -21,3 +28,4 @@ module.exports.status[module.exports.SKIPPED] = "SKIPPED";
 module.exports.status[module.exports.REMOVED] = "REMOVED";
 
 module.exports.processTime = processTime;
+module.exports.maybeParseInt = maybeParseInt;

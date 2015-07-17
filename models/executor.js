@@ -1,4 +1,5 @@
 
+var maybeParseInt = require("../utils/utils").maybeParseInt;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var NonRddBlock = require("./block").NonRddBlock;
 
@@ -26,10 +27,7 @@ function getExecutorId(executorId) {
     }
     executorId = executorId['Executor ID'];
   }
-  if (typeof executorId === 'string' && executorId.match(/^[0-9]+$/)) {
-    executorId = parseInt(executorId);
-  }
-  return executorId;
+  return maybeParseInt(executorId);
 }
 
 module.exports.Executor = Executor;
