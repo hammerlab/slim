@@ -273,9 +273,15 @@ function addUpsert(clazz, className, collectionName) {
       upsertObj['$addToSet'] = addToSetObj;
     }
 
+    var now = m();
+    if (!upsertObj['$set']) {
+      upsertObj['$set'] = {};
+    }
+    upsertObj['$set'].l = now.unix() * 1000;
+
     upsertStats.inc();
     var b = {
-      t: m(),
+      t: now,
       started: upsertStats.started,
       ended: upsertStats.ended
     };
