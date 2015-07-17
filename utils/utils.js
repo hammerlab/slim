@@ -1,4 +1,6 @@
 
+var removeKeySpaces = require('./objs').removeKeySpaces;
+
 function processTime(t) {
   return t ? t : undefined;
 }
@@ -20,6 +22,21 @@ function accumulablesObj(accumulables) {
   return o;
 }
 
+function taskEndObjRec(o) {
+  if (typeof o !== 'object') return o;
+  for (var k in o) {
+    if (k === 'Executor ID') {
+      o[k] = maybeParseInt(o[k]);
+    } else {
+      taskEndObjRec(o[k]);
+    }
+  }
+  return o;
+}
+function taskEndObj(o) {
+  return removeKeySpaces(taskEndObjRec(o));
+}
+
 module.exports = {
   PENDING: undefined,
   RUNNING: 1,
@@ -39,4 +56,5 @@ module.exports.status[module.exports.REMOVED] = "REMOVED";
 
 module.exports.processTime = processTime;
 module.exports.accumulablesObj = accumulablesObj;
+module.exports.taskEndObj = taskEndObj;
 module.exports.maybeParseInt = maybeParseInt;

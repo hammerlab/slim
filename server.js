@@ -30,6 +30,7 @@ var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
 var REMOVED = utils.REMOVED;
+var taskEndObj = utils.taskEndObj;
 
 var objUtils = require("./utils/objs");
 var subObjs = objUtils.subObjs;
@@ -444,7 +445,7 @@ var handlers = {
     var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
 
-    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: removeKeySpaces(e['Task End Reason']) });
+    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: taskEndObj(e['Task End Reason']) });
     var prevTaskAttemptStatus = taskAttempt.get('status');
 
     taskAttempt.fromTaskInfo(ti);
