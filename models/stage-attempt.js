@@ -5,7 +5,9 @@ var StageExecutor = require('./stage-executor').StageExecutor;
 var Task = require('./task').Task;
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
-var processTime = require("../utils/utils").processTime;
+var utils= require("../utils/utils");
+var processTime = utils.processTime;
+var accumulablesObj = utils.accumulablesObj;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var getExecutorId = require('./executor').getExecutorId;
@@ -40,7 +42,7 @@ StageAttempt.prototype.fromStageInfo = function(si) {
           'taskIdxCounts.num': si['Number of Tasks'],
           failureReason: si['Failure Reason']
         })
-        .set('accumulables', si['Accumulables'], true)
+        .set('accumulables', accumulablesObj(si['Accumulables']), true)
         .setDuration();
 };
 

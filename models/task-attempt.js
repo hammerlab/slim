@@ -5,7 +5,9 @@ var l = require("../utils/log").l;
 var subRecord = !!argv.s;
 
 var apps = null;
-var processTime = require("../utils/utils").processTime;
+var utils = require("../utils/utils");
+var processTime = utils.processTime;
+var accumulablesObj = utils.accumulablesObj;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
@@ -45,7 +47,7 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     gettingResultTime: processTime(ti['Getting Result Time']),
     index: ti['Index'],
     attempt: ti['Attempt']
-  }).set('accumulables', ti['Accumulables'], true).setExecutors();
+  }).set('accumulables', accumulablesObj(ti['Accumulables']), true).setExecutors();
   return this;
 };
 

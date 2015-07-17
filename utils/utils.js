@@ -10,6 +10,16 @@ function maybeParseInt(n) {
   return n;
 }
 
+function accumulablesObj(accumulables) {
+  var o = {};
+  accumulables.forEach(function(a) {
+    a.Update = maybeParseInt(a.Update);
+    a.Value = maybeParseInt(a.Value);
+    o[a.ID] = a;
+  });
+  return o;
+}
+
 module.exports = {
   PENDING: undefined,
   RUNNING: 1,
@@ -28,4 +38,5 @@ module.exports.status[module.exports.SKIPPED] = "SKIPPED";
 module.exports.status[module.exports.REMOVED] = "REMOVED";
 
 module.exports.processTime = processTime;
+module.exports.accumulablesObj = accumulablesObj;
 module.exports.maybeParseInt = maybeParseInt;
