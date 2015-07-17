@@ -5,7 +5,6 @@ var StageExecutor = require('./stage-executor').StageExecutor;
 var Task = require('./task').Task;
 var TaskAttempt = require('./task-attempt').TaskAttempt;
 
-var removeKeyDots = require("../utils/objs").removeKeyDots;
 var processTime = require("../utils/utils").processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
@@ -41,7 +40,7 @@ StageAttempt.prototype.fromStageInfo = function(si) {
           'taskIdxCounts.num': si['Number of Tasks'],
           failureReason: si['Failure Reason']
         })
-        .set('accumulables', removeKeyDots(si['Accumulables']), true)
+        .set('accumulables', si['Accumulables'], true)
         .setDuration();
 };
 
