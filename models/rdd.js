@@ -14,6 +14,8 @@ function RDD(appId, id) {
 
   this.blocks = {};
   this.executors = {};
+
+  this.upsertHooks = [ this.updateFractionCached ];
 }
 
 mixinMongoMethods(RDD, "RDD", "RDDs");
@@ -45,6 +47,13 @@ RDD.prototype.getExecutor = function(execId) {
     this.executors[execId] = new RDDExecutor(this, execId);
   }
   return this.executors[execId];
+};
+
+RDD.prototype.updateFractionCached = function() {
+  if (this.get('numCachedPartitions') && this.get('numPartitions')) {
+    this.set('fractionCached', this.get('numCachedPartitions') / this.get('numPartitions'), true);
+  }
+  return this;
 };
 
 module.exports.RDD = RDD;

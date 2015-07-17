@@ -25,6 +25,7 @@ Executor.prototype.updateMemUsedPercent = function() {
   if (this.get('MemorySize') && this.get('maxMem')) {
     this.set('MemPercent', this.get('MemorySize') / this.get('maxMem'), true);
   }
+  return this;
 };
 
 function getExecutorId(executorId) {

@@ -121,9 +121,7 @@ function handleBlockUpdates(taskMetrics, app, executor) {
           executor.dec('numBlocks');
           app.dec('numBlocks');
           if (rdd) {
-            rdd
-                  .dec("numCachedPartitions")
-                  .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+            rdd.dec("numCachedPartitions");
             rddExecutor.dec('numBlocks');
           }
         }
@@ -132,9 +130,7 @@ function handleBlockUpdates(taskMetrics, app, executor) {
           executor.inc('numBlocks');
           app.inc('numBlocks');
           if (rdd) {
-            rdd
-                  .inc("numCachedPartitions")
-                  .set('fractionCached', (rdd.get('numCachedPartitions') || 0) / rdd.get('numPartitions'), true);
+            rdd.inc("numCachedPartitions");
             rddExecutor.inc('numBlocks');
           }
         }
@@ -558,11 +554,13 @@ var handlers = {
           .getExecutor(e)
           .set({
             maxMem: e['Maximum Memory'],
-            'time.start': processTime(e['Timestamp']),
             host: e['Block Manager ID']['Host'],
             port: e['Block Manager ID']['Port']
           }, true)
-          .set('status', RUNNING, true)
+          .set({
+            'time.start': processTime(e['Timestamp']),
+            'status': RUNNING
+          }, true)
           .upsert();
     app
           .inc('maxMem', e['Maximum Memory'])
@@ -611,12 +609,14 @@ var handlers = {
     app
           .getExecutor(e)
           .set({
-            'time.start': processTime(e['Timestamp']),
             host: ei['Host'],
             cores: ei['Total Cores'],
             urls: ei['Log Urls']
           })
-          .set('status', RUNNING, true)
+          .set({
+            'time.start': processTime(e['Timestamp']),
+            'status': RUNNING
+          }, true)
           .upsert();
     app
           .inc('executorCounts.num')
@@ -627,11 +627,11 @@ var handlers = {
   SparkListenerExecutorRemoved: function(app, e) {
     app
           .getExecutor(e)
+          .set('reason', e['Removed Reason'])
           .set({
-            'time.end': processTime(e['Timestamp']),
-            reason: e['Removed Reason']
-          })
-          .set('status', REMOVED, true)
+            'status': REMOVED,
+            'time.end': processTime(e['Timestamp'])
+          }, true)
           .upsert();
     app
           .dec('executorCounts.running')
