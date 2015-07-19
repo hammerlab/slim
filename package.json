@@ -17,5 +17,10 @@
     "deep-equal": "1.0.0",
     "oboe": "2.1.2",
     "tracer": "0.7.4"
+  },
+  "scripts": {
+    "pretest": "mongod --dbpath test/db --fork --logpath /dev/null",
+    "test": "mocha test",
+    "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   }
 }
