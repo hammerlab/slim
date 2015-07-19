@@ -1,6 +1,6 @@
 
 var async = require('async');
-var colls = require('../mongo/collections');
+var colls = require('../mongo/collections').collections;
 
 var l = require('../utils/log').l;
 

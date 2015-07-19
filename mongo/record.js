@@ -1,12 +1,13 @@
 
 var argv = require('minimist')(process.argv.slice(2));
+var extend = require('extend');
 
 var l = require('../utils/log').l;
 var m = require('moment');
 
 var flattenObj = require('../utils/objs').flattenObj;
 
-var colls = require('./collections');
+var colls = require('./collections').collections;
 var deq = require('deep-equal');
 
 var upsertOpts = { upsert: true, returnOriginal: false };
@@ -191,9 +192,12 @@ function addSetDuration(clazz) {
     if (start) {
       var end = this.get('time.end');
       if (end) {
-        if (!this.get('duration')) {
-          this.set('duration', end - start, true);
-          this.maybeIncrementAggregatedDurations(end - start);
+        var curDur = this.get('duration') || 0;
+        var newDur = end - start;
+        if (curDur != newDur) {
+          var durationInc = newDur - curDur;
+          this.set('duration', newDur, true);
+          this.maybeIncrementAggregatedDurations(durationInc);
         }
       } else {
         var newDuration = Math.max(0, (m().unix() * 1000) - start);
@@ -224,19 +228,35 @@ function isEmptyObject(o) {
   return true;
 }
 
+function addPull(clazz) {
+  clazz.prototype.pull = function(key, val) {
+    if (!this.pullObj) {
+      this.pullObj = {};
+    }
+    this.pullObj[key] = val;
+  };
+}
+
+var numBlocked = 0;
+
 function addUpsert(clazz, className, collectionName) {
-  clazz.prototype.upsert = function() {
-    if (!this.dirty) return this;
+  clazz.prototype.upsert = function(cb) {
+    if (!this.dirty) {
+      return this;
+    }
+    this.setDuration();
     if (this.applyRateLimit) {
       if (this.blocking) {
-        this.blocked = true;
+        if (!this.blocked) {
+          numBlocked++;
+          this.blocked = true;
+        }
         return this;
       } else {
         this.blocking = true;
       }
     }
 
-    this.setDuration();
     if (this.upsertHooks) {
       this.upsertHooks.forEach(function(hook) {
         hook.bind(this)();
@@ -244,7 +264,8 @@ function addUpsert(clazz, className, collectionName) {
     }
     var upsertObj = {};
     if (!isEmptyObject(this.toSyncObj)) {
-      upsertObj['$set'] = this.toSyncObj;
+      upsertObj['$set'] = extend({}, this.toSyncObj);
+      this.toSyncObj = {};
     }
     if (this.unsetKeys) {
       upsertObj['$unset'] = {};
@@ -254,7 +275,8 @@ function addUpsert(clazz, className, collectionName) {
       this.unsetKeys = null;
     }
     if (this.incObj && !isEmptyObject(this.incObj)) {
-      upsertObj['$inc'] = this.incObj;
+      upsertObj['$inc'] = extend({}, this.incObj);
+      this.incObj = {};
     }
     if (!upsertObj['$inc']) {
       upsertObj['$inc'] = {};
@@ -276,6 +298,12 @@ function addUpsert(clazz, className, collectionName) {
         }
       }
       upsertObj['$addToSet'] = addToSetObj;
+      this.addToSetObj = {};
+    }
+
+    if (this.pullObj && !isEmptyObject(this.pullObj)) {
+      upsertObj['$pull'] = extend({}, this.pullObj);
+      this.pullObj = {};
     }
 
     var now = m();
@@ -290,6 +318,7 @@ function addUpsert(clazz, className, collectionName) {
       started: upsertStats.started,
       ended: upsertStats.ended
     };
+    this.dirty = false;
     colls[collectionName].findOneAndUpdate(
           this.findObj,
           upsertObj,
@@ -317,15 +346,16 @@ function addUpsert(clazz, className, collectionName) {
               }
               if (this.blocked) {
                 this.blocked = false;
+                numBlocked--;
                 this.upsert();
+              } else {
+                if (!numBlocked && !upsertStats.inFlight && module.exports.emptyQueueCb) {
+                  module.exports.emptyQueueCb();
+                }
               }
             }
           }.bind(this)
     );
-    this.toSyncObj = {};
-    this.addToSetObj = {};
-    this.incObj = {};
-    this.dirty = false;
     return this;
   };
 }

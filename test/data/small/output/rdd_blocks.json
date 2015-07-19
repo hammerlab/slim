@@ -1,0 +1,90 @@
+[
+  {
+    "appId": "local-1437323845748",
+    "id": 0,
+    "rddId": 1,
+    "execId": "driver",
+    "MemorySize": 7176,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "localhost",
+    "port": 50944,
+    "n": 1,
+    "execIds": [
+      "driver"
+    ]
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 1,
+    "rddId": 1,
+    "execId": "driver",
+    "MemorySize": 7176,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "localhost",
+    "port": 50944,
+    "n": 1,
+    "execIds": [
+      "driver"
+    ]
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 2,
+    "rddId": 1,
+    "execId": "driver",
+    "MemorySize": 7176,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "localhost",
+    "port": 50944,
+    "n": 1,
+    "execIds": [
+      "driver"
+    ]
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 3,
+    "rddId": 1,
+    "execId": "driver",
+    "MemorySize": 7176,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "localhost",
+    "port": 50944,
+    "n": 1,
+    "execIds": [
+      "driver"
+    ]
+  }
+]

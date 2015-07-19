@@ -6,77 +6,66 @@ var MongoClient = require('mongodb').MongoClient;
 
 var l = require('../utils/log').l;
 
-module.exports = {
-  // Mongo collection placeholders.
-  Applications: null,
-  Jobs: null,
-  Stages: null,
-  StageAttempts: null,
-  StageExecutors: null,
-  RDDs: null,
-  RDDExecutors: null,
-  NonRddBlocks: null,
-  RddBlocks: null,
-  Executors: null,
-  Tasks: null,
-  TaskAttempts: null,
-  Environment: null
-};
+var colls = module.exports.colls = [
+  [ 'Applications', 'apps', [{ id: 1 }] ],
+  [ 'Jobs', 'jobs', [{ appId: 1, id: 1 }] ],
+  [ 'Stages', 'stages', [{ appId: 1, id: 1 }, { appId: 1, jobId: 1 }] ],
+  [ 'StageAttempts', 'stage_attempts', [{ appId: 1, stageId: 1, id: 1 }] ],
+  [ 'StageExecutors', 'stage_executors', [{ appId: 1, stageId: 1, execId: 1 }] ],
+  [ 'RDDs', 'rdds', [{ appId: 1, id: 1 }] ],
+  [ 'RDDExecutors', 'rdd_executors', [{ appId: 1, rddId: 1, execId: 1 }] ],
+  [ 'NonRddBlocks', 'non_rdd_blocks', [{ appId: 1, execId: 1, id: 1 }] ],
+  [ 'RddBlocks', 'rdd_blocks', [{ appId: 1, rddId: 1, id: 1 }] ],
+  [ 'Executors', 'executors', [{ appId: 1, id: 1 }] ],
+  [ 'Tasks', 'tasks', [{ appId: 1, stageId: 1, id: 1 }] ],
+  [ 'TaskAttempts', 'task_attempts', [{ appId: 1, stageId: 1, stageAttemptId: 1, id: 1 }] ],
+  [ 'Environment', 'environment', [{ appId: 1 }] ]
+];
 
+var collections = module.exports.collections = {};
+var collectionsArr = module.exports.collectionsArr = [];
+
+var collNamesAndIndices = [];
+colls.forEach(function(coll) {
+  collections[coll[0]] = null;
+  coll[2].forEach(function(index) {
+    collNamesAndIndices.push({ collName: coll[0], index: index });
+  });
+}.bind(this));
+
+var db = null;
+function dropDatabase(cb) {
+  db.dropDatabase(cb);
+}
+
+function initColls() {
+  colls.forEach(function(coll) {
+    collections[coll[0]] = db.collection(coll[1]);
+    collectionsArr.push(collections[coll[0]]);
+  }.bind(this));
+}
+
+function ensureIndexes(cb) {
+  async.parallel(
+        collNamesAndIndices.map(function(o) {
+          return function(callback) {
+            collections[o.collName].ensureIndex(o.index, callback);
+          }.bind(this);
+        }.bind(this)),
+        cb
+  );
+}
 
 module.exports.init = function(url, cb) {
-  MongoClient.connect(url, function(err, db) {
+  var isTest = !!url.match(/\/test$/);
+  if (isTest) {
+    module.exports.dropDatabase = dropDatabase;
+  }
+  MongoClient.connect(url, function(err, d) {
     assert.equal(null, err);
     l.warn("Connected to Mongo");
-
-    module.exports.Applications = db.collection('apps');
-    module.exports.RddBlocks = db.collection('rdd_blocks');
-    module.exports.NonRddBlocks = db.collection('non_rdd_blocks');
-    module.exports.Jobs = db.collection('jobs');
-    module.exports.Stages = db.collection('stages');
-    module.exports.StageAttempts = db.collection('stage_attempts');
-    module.exports.StageExecutors = db.collection('stage_executors');
-    module.exports.RDDs = db.collection('rdds');
-    module.exports.RDDExecutors = db.collection('rdd_executors');
-    module.exports.Executors = db.collection('executors');
-    module.exports.Tasks = db.collection('tasks');
-    module.exports.TaskAttempts = db.collection('task_attempts');
-    module.exports.Environment = db.collection('environment');
-
-    collNamesAndIndices = [
-      [ 'Applications', { id: 1 } ],
-      [ 'RddBlocks', { appId: 1, rddId: 1, id: 1 } ],
-      [ 'NonRddBlocks', { appId: 1, execId: 1, id: 1 } ],
-      [ 'Jobs', { appId: 1, id: 1 } ],
-      [ 'Stages', { appId: 1, id: 1 } ],
-      [ 'Stages', { appId: 1, jobId: 1 } ],
-      [ 'StageAttempts', { appId: 1, stageId: 1, id: 1 } ],
-      [ 'StageExecutors', { appId: 1, stageId: 1, execId: 1 } ],
-      [ 'RDDs', { appId: 1, id: 1 } ],
-      [ 'RDDExecutors', { appId: 1, rddId: 1, execId: 1 } ],
-      [ 'Executors', { appId: 1, id: 1 } ],
-      [ 'Tasks', { appId: 1, stageId: 1, id: 1 } ],
-      [ 'TaskAttempts', { appId: 1, stageId: 1, stageAttemptId: 1, id: 1 } ],
-      [ 'Environment', { appId: 1 } ]
-    ];
-
-    async.parallel(
-          collNamesAndIndices.map(function(collNameAndIndex) {
-            return function(callback) {
-              var name = collNameAndIndex[0];
-              var fields = collNameAndIndex[1];
-              module.exports[name].ensureIndex(fields, callback);
-            };
-          }),
-          function(err) {
-            if (err) {
-              l.error("Error creating mongo indexes:", JSON.stringify(err));
-            } else {
-              l.info("Mongo indexes created successfully.");
-            }
-            cb(db);
-          }
-    );
+    db = d;
+    initColls();
+    ensureIndexes(cb);
   });
 };
-

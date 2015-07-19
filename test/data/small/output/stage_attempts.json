@@ -1,0 +1,110 @@
+[
+  {
+    "appId": "local-1437323845748",
+    "id": 0,
+    "stageId": 0,
+    "time": {
+      "start": 1437323863803,
+      "end": 1437323864320
+    },
+    "name": "map at <console>:26",
+    "taskCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "taskIdxCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "accumulables": {
+      "1": {
+        "ID": 1,
+        "Name": "foo",
+        "Value": 500500,
+        "Update": null
+      },
+      "2": {
+        "ID": 2,
+        "Name": "bar",
+        "Value": 960,
+        "Update": null
+      }
+    },
+    "duration": 517,
+    "jobId": 0,
+    "started": true,
+    "status": 2,
+    "ended": true,
+    "totalTaskDuration": 1938,
+    "metrics": {
+      "ExecutorDeserializeTime": 109,
+      "ExecutorRunTime": 1706,
+      "ResultSize": 6268,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 2000,
+        "ShuffleWriteTime": 24855000,
+        "ShuffleRecordsWritten": 40
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 4
+            },
+            "MemorySize": 28704
+          }
+        }
+      },
+      "ResultSerializationTime": 1
+    }
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 0,
+    "stageId": 1,
+    "time": {
+      "start": 1437323864337,
+      "end": 1437323864432
+    },
+    "name": "count at <console>:26",
+    "taskCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "taskIdxCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "accumulables": {
+      "2": {
+        "ID": 2,
+        "Name": "bar",
+        "Value": 990,
+        "Update": null
+      }
+    },
+    "duration": 95,
+    "jobId": 0,
+    "started": true,
+    "status": 2,
+    "ended": true,
+    "totalTaskDuration": 318,
+    "metrics": {
+      "ExecutorDeserializeTime": 81,
+      "ExecutorRunTime": 199,
+      "ResultSize": 4116,
+      "ResultSerializationTime": 1,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 16,
+        "LocalBytesRead": 2000,
+        "TotalRecordsRead": 40,
+        "TotalBytesRead": 2000,
+        "FetchWaitTime": 4
+      }
+    }
+  }
+]

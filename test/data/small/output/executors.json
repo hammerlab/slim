@@ -1,0 +1,50 @@
+[
+  {
+    "appId": "local-1437323845748",
+    "id": "driver",
+    "maxMem": 278302556,
+    "host": "localhost",
+    "port": 50944,
+    "time": {
+      "start": 1437323845896
+    },
+    "status": 1,
+    "MemPercent": 0.00010313954859976206,
+    "taskCounts": {
+      "running": 0,
+      "num": 8,
+      "succeeded": 8
+    },
+    "totalTaskDuration": 2256,
+    "metrics": {
+      "ExecutorDeserializeTime": 190,
+      "ExecutorRunTime": 1905,
+      "ResultSize": 10384,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 2000,
+        "ShuffleWriteTime": 24855000,
+        "ShuffleRecordsWritten": 40
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 4
+            },
+            "MemorySize": 28704
+          }
+        }
+      },
+      "ResultSerializationTime": 2,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 16,
+        "LocalBytesRead": 2000,
+        "TotalRecordsRead": 40,
+        "TotalBytesRead": 2000,
+        "FetchWaitTime": 4
+      }
+    },
+    "MemorySize": 28704,
+    "numBlocks": 4
+  }
+]

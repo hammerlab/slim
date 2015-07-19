@@ -4,6 +4,7 @@ var l = require('../utils/log').l;
 var UpsertStats = function() {
   this.started = 0;
   this.ended = 0;
+  this.inFlight = 0;
 
   var thresholds = [0, 10, 20, 50];
   var thresholdMinIdx = 0;
@@ -15,14 +16,16 @@ var UpsertStats = function() {
 
   this.inc = function() {
     this.started++;
+    this.inFlight++;
     this.maybeWarn();
   };
   this.dec = function() {
     this.ended++;
+    this.inFlight--;
     this.maybeWarn();
   };
   this.maybeWarn = function() {
-    var d = this.started - this.ended;
+    var d = this.inFlight;
     if (d == max || d == min) {
       if (d != lastWarned) {
         l.warn("Upsert backlog: %d (%d started, %d finished)", d, this.started, this.ended);

@@ -1,0 +1,74 @@
+[
+  {
+    "appId": "local-1437323845748",
+    "id": 0,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "status": 2,
+    "n": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 1,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "status": 2,
+    "n": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 2,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "status": 2,
+    "n": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 3,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "status": 2,
+    "n": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "status": 2,
+    "n": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 1,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "status": 2,
+    "n": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 2,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "status": 2,
+    "n": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": 3,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "status": 2,
+    "n": 2,
+    "type": "ResultTask"
+  }
+]
