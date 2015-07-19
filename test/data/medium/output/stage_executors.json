@@ -1,0 +1,170 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 1,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "taskCounts": {
+      "running": 0,
+      "num": 100,
+      "succeeded": 100
+    },
+    "totalTaskDuration": 55068,
+    "metrics": {
+      "ExecutorDeserializeTime": 9290,
+      "ExecutorRunTime": 41344,
+      "ResultSize": 154200,
+      "ResultSerializationTime": 82,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 283600,
+        "ShuffleWriteTime": 114207675,
+        "ShuffleRecordsWritten": 10000
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 100
+            },
+            "MemorySize": 3152067200
+          }
+        }
+      },
+      "JVMGCTime": 10668
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 1,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "taskCounts": {
+      "running": 0,
+      "num": 94,
+      "succeeded": 94
+    },
+    "totalTaskDuration": 5380,
+    "metrics": {
+      "ExecutorDeserializeTime": 321,
+      "ExecutorRunTime": 2647,
+      "ResultSize": 82156,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 9400,
+        "LocalBytesRead": 266200,
+        "TotalRecordsRead": 9400,
+        "TotalBytesRead": 266200,
+        "FetchWaitTime": 48
+      },
+      "ResultSerializationTime": 80
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 3,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
+    "taskCounts": {
+      "running": 0,
+      "num": 3,
+      "succeeded": 3
+    },
+    "totalTaskDuration": 9450,
+    "port": 34099,
+    "metrics": {
+      "ExecutorDeserializeTime": 7238,
+      "ExecutorRunTime": 1086,
+      "ResultSize": 2619,
+      "ResultSerializationTime": 8,
+      "ShuffleReadMetrics": {
+        "RemoteBlocksFetched": 300,
+        "FetchWaitTime": 453,
+        "RemoteBytesRead": 8700,
+        "TotalRecordsRead": 300,
+        "TotalBytesRead": 8700
+      }
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 5,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
+    "taskCounts": {
+      "running": 0,
+      "num": 3,
+      "succeeded": 3
+    },
+    "totalTaskDuration": 7940,
+    "port": 54440,
+    "metrics": {
+      "ExecutorDeserializeTime": 6275,
+      "ExecutorRunTime": 1086,
+      "ResultSize": 2619,
+      "ResultSerializationTime": 8,
+      "ShuffleReadMetrics": {
+        "RemoteBlocksFetched": 300,
+        "FetchWaitTime": 444,
+        "RemoteBytesRead": 8700,
+        "TotalRecordsRead": 300,
+        "TotalBytesRead": 8700
+      }
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 8,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
+    "taskCounts": {
+      "running": 0,
+      "num": 3,
+      "succeeded": 3
+    },
+    "totalTaskDuration": 8171,
+    "port": 42347,
+    "metrics": {
+      "ExecutorDeserializeTime": 6622,
+      "ExecutorRunTime": 520,
+      "ResultSize": 2622,
+      "ResultSerializationTime": 6,
+      "ShuffleReadMetrics": {
+        "RemoteBlocksFetched": 300,
+        "FetchWaitTime": 180,
+        "RemoteBytesRead": 8700,
+        "TotalRecordsRead": 300,
+        "TotalBytesRead": 8700
+      }
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 11,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
+    "taskCounts": {
+      "running": 3,
+      "num": 3
+    },
+    "totalTaskDuration": 7420
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "execId": 20,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
+    "taskCounts": {
+      "running": 3,
+      "num": 3
+    },
+    "totalTaskDuration": 7425
+  }
+]

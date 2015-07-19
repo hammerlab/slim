@@ -1,0 +1,58 @@
+[
+  {
+    "id": "application_1432740718700_3049",
+    "maxMem": 20375352114,
+    "blockManagerCounts": {
+      "num": 21,
+      "running": 3,
+      "removed": 18
+    },
+    "name": "Spark shell",
+    "time": {
+      "start": 1437343869007,
+      "end": 1437343979934
+    },
+    "user": "willir31",
+    "duration": 110927,
+    "executorCounts": {
+      "num": 20,
+      "running": 2,
+      "removed": 18
+    },
+    "totalJobDuration": 22705,
+    "totalTaskDuration": 100854,
+    "metrics": {
+      "ExecutorDeserializeTime": 29746,
+      "ExecutorRunTime": 46683,
+      "ResultSize": 244216,
+      "ResultSerializationTime": 184,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 283600,
+        "ShuffleWriteTime": 114207675,
+        "ShuffleRecordsWritten": 10000
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 100
+            },
+            "MemorySize": 3152067200
+          }
+        }
+      },
+      "JVMGCTime": 10668,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 9400,
+        "LocalBytesRead": 266200,
+        "TotalRecordsRead": 10300,
+        "TotalBytesRead": 292300,
+        "FetchWaitTime": 1125,
+        "RemoteBlocksFetched": 900,
+        "RemoteBytesRead": 26100
+      }
+    },
+    "MemorySize": 0,
+    "numBlocks": 100
+  }
+]

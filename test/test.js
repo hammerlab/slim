@@ -56,3 +56,4 @@ function verifyMongoDir(dir, findObjs) {
 }
 
 verifyMongoDir('test/data/small');
+verifyMongoDir('test/data/medium');
