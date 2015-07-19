@@ -707,14 +707,10 @@ function Server(mongoUrl) {
       var setupOboe = function () {
         l.debug("Registering oboe");
         oboe(c).node('!', function (e) {
-          handleEvent(e);
           if (logFd) {
-            fs.write(logFd, JSON.stringify(e) + '\n', function(err) {
-              if (err) {
-                l.error("Error writing to log file %s:", argv.log, JSON.stringify(e), JSON.stringify(err));
-              }
-            });
+            fs.writeSync(logFd, JSON.stringify(e) + '\n');
           }
+          handleEvent(e);
         }).fail(function (e) {
           throw e.thrown;
         });
