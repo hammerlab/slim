@@ -37,7 +37,6 @@
     "ExternalBlockStoreSize": 0,
     "DiskSize": 0,
     "scope": "{\"id\":\"1\",\"name\":\"map\"}",
-    "n": 2,
     "fractionCached": 1,
     "MemorySize": 28704
   },
