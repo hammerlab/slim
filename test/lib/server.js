@@ -16,8 +16,6 @@ function Server(mongoUrl, eventLogFile, cb) {
       function doneCb() {
         if (done) {
           cb();
-        } else {
-          console.log("Mongo queue drained, but events not done replaying");
         }
       }
 
