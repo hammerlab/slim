@@ -1,0 +1,4 @@
+language: node_js
+services: mongo
+node_js: "0_12"
+
