@@ -385,6 +385,13 @@ function addInit(clazz, className) {
     this.dirty = true;
     this.applyRateLimit = true;
   };
+
+  clazz.prototype.toString = function() {
+    if (!this.toString_) {
+      this.toString_ = this.clazz + "(" + JSON.stringify(this.findObj) + ")";
+    }
+    return this.toString_;
+  }
 }
 
 function addFromMongo(clazz) {
