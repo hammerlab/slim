@@ -1,6 +1,6 @@
 
 var argv = require('minimist')(process.argv.slice(2));
-var extend = require('extend');
+var extend = require('node.extend');
 
 var l = require('../utils/log').l;
 var m = require('moment');
