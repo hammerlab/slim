@@ -1,0 +1,93 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 0,
+    "stageId": 0,
+    "time": {
+      "start": 1437343913154,
+      "end": 1437343931064
+    },
+    "name": "map at <console>:22",
+    "taskCounts": {
+      "num": 100,
+      "running": 0,
+      "succeeded": 100
+    },
+    "taskIdxCounts": {
+      "num": 100,
+      "running": 0,
+      "succeeded": 100
+    },
+    "accumulables": {},
+    "duration": 17910,
+    "jobId": 0,
+    "started": true,
+    "status": 2,
+    "totalTaskDuration": 55068,
+    "metrics": {
+      "ExecutorDeserializeTime": 9290,
+      "ExecutorRunTime": 41344,
+      "ResultSize": 154200,
+      "ResultSerializationTime": 82,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 283600,
+        "ShuffleWriteTime": 114207675,
+        "ShuffleRecordsWritten": 10000
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 100
+            },
+            "MemorySize": 3152067200
+          }
+        }
+      },
+      "JVMGCTime": 10668
+    },
+    "ended": true
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 0,
+    "stageId": 1,
+    "time": {
+      "start": 1437343931102,
+      "end": 1437343935364
+    },
+    "name": "count at <console>:22",
+    "taskCounts": {
+      "num": 100,
+      "running": 6,
+      "succeeded": 103
+    },
+    "taskIdxCounts": {
+      "num": 100,
+      "running": 0,
+      "succeeded": 100
+    },
+    "accumulables": {},
+    "duration": 4262,
+    "jobId": 0,
+    "started": true,
+    "status": 2,
+    "totalTaskDuration": 45786,
+    "metrics": {
+      "ExecutorDeserializeTime": 20456,
+      "ExecutorRunTime": 5339,
+      "ResultSize": 90016,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 9400,
+        "LocalBytesRead": 266200,
+        "TotalRecordsRead": 10300,
+        "TotalBytesRead": 292300,
+        "FetchWaitTime": 1125,
+        "RemoteBlocksFetched": 900,
+        "RemoteBytesRead": 26100
+      },
+      "ResultSerializationTime": 102
+    },
+    "ended": true
+  }
+]

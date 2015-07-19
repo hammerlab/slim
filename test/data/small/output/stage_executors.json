@@ -1,0 +1,66 @@
+[
+  {
+    "appId": "local-1437323845748",
+    "execId": "driver",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "host": "localhost",
+    "port": 50944,
+    "taskCounts": {
+      "running": 0,
+      "num": 4,
+      "succeeded": 4
+    },
+    "totalTaskDuration": 1938,
+    "n": 2,
+    "metrics": {
+      "ExecutorDeserializeTime": 109,
+      "ExecutorRunTime": 1706,
+      "ResultSize": 6268,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 2000,
+        "ShuffleWriteTime": 24855000,
+        "ShuffleRecordsWritten": 40
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 4
+            },
+            "MemorySize": 28704
+          }
+        }
+      },
+      "ResultSerializationTime": 1
+    }
+  },
+  {
+    "appId": "local-1437323845748",
+    "execId": "driver",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "host": "localhost",
+    "port": 50944,
+    "taskCounts": {
+      "running": 0,
+      "num": 4,
+      "succeeded": 4
+    },
+    "totalTaskDuration": 318,
+    "n": 2,
+    "metrics": {
+      "ExecutorDeserializeTime": 81,
+      "ExecutorRunTime": 199,
+      "ResultSize": 4116,
+      "ResultSerializationTime": 1,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 16,
+        "LocalBytesRead": 2000,
+        "TotalRecordsRead": 40,
+        "TotalBytesRead": 2000,
+        "FetchWaitTime": 4
+      }
+    }
+  }
+]

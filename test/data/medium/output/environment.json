@@ -1,0 +1,677 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "jvm": [
+      [
+        "Java Home",
+        "/demeter/users/willir31/jdk1.7.0_79/jre"
+      ],
+      [
+        "Java Version",
+        "1.7.0_79 (Oracle Corporation)"
+      ],
+      [
+        "Scala Version",
+        "version 2.10.4"
+      ]
+    ],
+    "spark": [
+      [
+        "spark.akka.timeout",
+        "120"
+      ],
+      [
+        "spark.serializer",
+        "org.apache.spark.serializer.KryoSerializer"
+      ],
+      [
+        "spark.speculation",
+        "true"
+      ],
+      [
+        "spark.driver.host",
+        "172.29.46.14"
+      ],
+      [
+        "spark.kryoserializer.buffer.mb",
+        "4"
+      ],
+      [
+        "spark.eventLog.enabled",
+        "true"
+      ],
+      [
+        "spark.shuffle.manager",
+        "SORT"
+      ],
+      [
+        "spark.driver.port",
+        "40409"
+      ],
+      [
+        "spark.shuffle.service.enabled",
+        "true"
+      ],
+      [
+        "spark.extraListeners",
+        "org.apache.spark.JsonRelay"
+      ],
+      [
+        "spark.kryo.registrator",
+        "org.bdgenomics.adam.serialization.ADAMKryoRegistrator"
+      ],
+      [
+        "spark.repl.class.uri",
+        "http://172.29.46.14:51418"
+      ],
+      [
+        "spark.jars",
+        "file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-cli/commons-cli/1.2/commons-cli-1.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-codec/commons-codec/1.4/commons-codec-1.4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/log4j/log4j/1.2.17/log4j-1.2.17.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/xerial/snappy/snappy-java/1.1.1.6/snappy-java-1.1.1.6.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-io_2.10/0.2.1/utils-io_2.10-0.2.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-misc_2.10/0.2.1/utils-misc_2.10-0.2.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-avro/1.6.0rc4/parquet-avro-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-column/1.6.0rc4/parquet-column-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-common/1.6.0rc4/parquet-common-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-encoding/1.6.0rc4/parquet-encoding-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-generator/1.6.0rc4/parquet-generator-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-hadoop/1.6.0rc4/parquet-hadoop-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-jackson/1.6.0rc4/parquet-jackson-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-format/2.2.0-rc1/parquet-format-2.2.0-rc1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/httpcomponents/httpclient/4.3.2/httpclient-4.3.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/httpcomponents/httpcore/4.3.1/httpcore-4.3.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-cli_2.10/0.2.1/utils-cli_2.10-0.2.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-metrics_2.10/0.2.1/utils-metrics_2.10-0.2.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/netflix/servo/servo-core/0.5.5/servo-core-0.5.5.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/scoverage/scalac-scoverage-plugin_2.10/0.99.2/scalac-scoverage-plugin_2.10-0.99.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/bdg-formats/bdg-formats/0.4.0/bdg-formats-0.4.0.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/avro/avro/1.7.6/avro-1.7.6.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/adam/adam-core_2.10/0.17.1-SNAPSHOT/adam-core_2.10-0.17.1-SNAPSHOT.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-shaded.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/ow2/asm/asm/4.0/asm-4.0.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/objenesis/objenesis/1.2/objenesis-1.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/it/unimi/dsi/fastutil/6.4.4/fastutil-6.4.4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-scala_2.10/1.6.0rc4/parquet-scala_2.10-1.6.0rc4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/seqdoop/hadoop-bam/7.0.0/hadoop-bam-7.0.0.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/github/samtools/htsjdk/1.133/htsjdk-1.133.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/commons/commons-jexl/2.1.1/commons-jexl-2.1.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/tukaani/xz/1.5/xz-1.5.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/ant/ant/1.8.2/ant-1.8.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/testng/testng/6.8.8/testng-6.8.8.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/beust/jcommander/1.27/jcommander-1.27.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/google/guava/guava/14.0.1/guava-14.0.1.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/adam/adam-apis_2.10/0.17.1-SNAPSHOT/adam-apis_2.10-0.17.1-SNAPSHOT.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/args4j/args4j/2.0.23/args4j-2.0.23.jar,file:/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/adam/adam-cli_2.10/0.17.1-SNAPSHOT/adam-cli_2.10-0.17.1-SNAPSHOT.jar,file:/hpc/users/willir31/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar,file:/hpc/users/willir31/c/pageant/target/pageant-with-dependencies-1.0-SNAPSHOT.jar"
+      ],
+      [
+        "spark.app.name",
+        "Spark shell"
+      ],
+      [
+        "spark.file.transferTo",
+        "false"
+      ],
+      [
+        "spark.dynamicAllocation.schedulerBacklogTimeout",
+        "1"
+      ],
+      [
+        "spark.speculation.interval",
+        "1000"
+      ],
+      [
+        "spark.scheduler.mode",
+        "FIFO"
+      ],
+      [
+        "spark.storage.memoryFraction",
+        "0.5"
+      ],
+      [
+        "spark.driver.memory",
+        "10g"
+      ],
+      [
+        "spark.kryo.referenceTracking",
+        "true"
+      ],
+      [
+        "spark.speculation.multiplier",
+        "2"
+      ],
+      [
+        "spark.default.parallelism",
+        "1000"
+      ],
+      [
+        "spark.dynamicAllocation.maxExecutors",
+        "300"
+      ],
+      [
+        "spark.executor.id",
+        "driver"
+      ],
+      [
+        "spark.driver.extraJavaOptions",
+        "-Dyarn.resourcemanager.am.max-attempts=1"
+      ],
+      [
+        "spark.master",
+        "yarn-client"
+      ],
+      [
+        "spark.ui.filters",
+        "org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter"
+      ],
+      [
+        "spark.executor.memory",
+        "17g"
+      ],
+      [
+        "spark.driver.extraClassPath",
+        "/hpc/users/willir31/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar"
+      ],
+      [
+        "spark.eventLog.dir",
+        "hdfs://demeter-nn1.demeter.hpc.mssm.edu:/spark/tmp/logs/willir31"
+      ],
+      [
+        "spark.dynamicAllocation.enabled",
+        "true"
+      ],
+      [
+        "spark.executor.cores",
+        "3"
+      ],
+      [
+        "spark.fileserver.uri",
+        "http://172.29.46.14:49910"
+      ],
+      [
+        "spark.driver.appUIAddress",
+        "http://172.29.46.14:4040"
+      ],
+      [
+        "spark.yarn.executor.memoryOverhead",
+        "1024"
+      ],
+      [
+        "spark.externalBlockStore.folderName",
+        "spark-71abd0fe-5cad-467d-bf47-d77dfedb42d6"
+      ],
+      [
+        "spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_HOSTS",
+        "demeter-mgmt1.demeter.hpc.mssm.edu"
+      ],
+      [
+        "spark.dynamicAllocation.minExecutors",
+        "1"
+      ],
+      [
+        "spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_URI_BASES",
+        "http://demeter-mgmt1.demeter.hpc.mssm.edu:8088/proxy/application_1432740718700_3049"
+      ],
+      [
+        "spark.shuffle.memoryFraction",
+        "0.4"
+      ],
+      [
+        "spark.dynamicAllocation.executorIdleTimeout",
+        "30"
+      ],
+      [
+        "spark.core.connection.ack.wait.timeout",
+        "120"
+      ],
+      [
+        "spark.app.id",
+        "application_1432740718700_3049"
+      ],
+      [
+        "spark.akka.frameSize",
+        "12"
+      ]
+    ],
+    "system": [
+      [
+        "java.io.tmpdir",
+        "/tmp"
+      ],
+      [
+        "line.separator",
+        "\n"
+      ],
+      [
+        "path.separator",
+        ":"
+      ],
+      [
+        "sun.management.compiler",
+        "HotSpot 64-Bit Tiered Compilers"
+      ],
+      [
+        "SPARK_SUBMIT",
+        "true"
+      ],
+      [
+        "sun.cpu.endian",
+        "little"
+      ],
+      [
+        "java.specification.version",
+        "1.7"
+      ],
+      [
+        "java.vm.specification.name",
+        "Java Virtual Machine Specification"
+      ],
+      [
+        "yarn.resourcemanager.am.max-attempts",
+        "1"
+      ],
+      [
+        "java.vendor",
+        "Oracle Corporation"
+      ],
+      [
+        "java.vm.specification.version",
+        "1.7"
+      ],
+      [
+        "user.home",
+        "/hpc/users/willir31"
+      ],
+      [
+        "file.encoding.pkg",
+        "sun.io"
+      ],
+      [
+        "sun.nio.ch.bugLevel",
+        ""
+      ],
+      [
+        "sun.arch.data.model",
+        "64"
+      ],
+      [
+        "sun.boot.library.path",
+        "/demeter/users/willir31/jdk1.7.0_79/jre/lib/amd64"
+      ],
+      [
+        "user.dir",
+        "/demeter/users/willir31/c/spree/slim"
+      ],
+      [
+        "java.library.path",
+        "/hpc/users/willir31/.local/lib:/hpc/users/willir31/lib64:/hpc/users/willir31/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"
+      ],
+      [
+        "sun.cpu.isalist",
+        ""
+      ],
+      [
+        "os.arch",
+        "amd64"
+      ],
+      [
+        "java.vm.version",
+        "24.79-b02"
+      ],
+      [
+        "java.endorsed.dirs",
+        "/demeter/users/willir31/jdk1.7.0_79/jre/lib/endorsed"
+      ],
+      [
+        "java.runtime.version",
+        "1.7.0_79-b15"
+      ],
+      [
+        "java.vm.info",
+        "mixed mode"
+      ],
+      [
+        "java.ext.dirs",
+        "/demeter/users/willir31/jdk1.7.0_79/jre/lib/ext:/usr/java/packages/lib/ext"
+      ],
+      [
+        "java.runtime.name",
+        "Java(TM) SE Runtime Environment"
+      ],
+      [
+        "file.separator",
+        "/"
+      ],
+      [
+        "java.class.version",
+        "51.0"
+      ],
+      [
+        "SPARK_YARN_MODE",
+        "true"
+      ],
+      [
+        "scala.usejavacp",
+        "true"
+      ],
+      [
+        "java.specification.name",
+        "Java Platform API Specification"
+      ],
+      [
+        "sun.boot.class.path",
+        "/demeter/users/willir31/jdk1.7.0_79/jre/lib/resources.jar:/demeter/users/willir31/jdk1.7.0_79/jre/lib/rt.jar:/demeter/users/willir31/jdk1.7.0_79/jre/lib/sunrsasign.jar:/demeter/users/willir31/jdk1.7.0_79/jre/lib/jsse.jar:/demeter/users/willir31/jdk1.7.0_79/jre/lib/jce.jar:/demeter/users/willir31/jdk1.7.0_79/jre/lib/charsets.jar:/demeter/users/willir31/jdk1.7.0_79/jre/lib/jfr.jar:/demeter/users/willir31/jdk1.7.0_79/jre/classes"
+      ],
+      [
+        "file.encoding",
+        "UTF-8"
+      ],
+      [
+        "user.timezone",
+        "UTC"
+      ],
+      [
+        "java.specification.vendor",
+        "Oracle Corporation"
+      ],
+      [
+        "sun.java.launcher",
+        "SUN_STANDARD"
+      ],
+      [
+        "os.version",
+        "2.6.32-504.1.3.el6.x86_64"
+      ],
+      [
+        "sun.os.patch.level",
+        "unknown"
+      ],
+      [
+        "java.vm.specification.vendor",
+        "Oracle Corporation"
+      ],
+      [
+        "user.country",
+        "US"
+      ],
+      [
+        "sun.jnu.encoding",
+        "UTF-8"
+      ],
+      [
+        "user.language",
+        "en"
+      ],
+      [
+        "java.vendor.url",
+        "http://java.oracle.com/"
+      ],
+      [
+        "java.awt.printerjob",
+        "sun.print.PSPrinterJob"
+      ],
+      [
+        "java.awt.graphicsenv",
+        "sun.awt.X11GraphicsEnvironment"
+      ],
+      [
+        "awt.toolkit",
+        "sun.awt.X11.XToolkit"
+      ],
+      [
+        "os.name",
+        "Linux"
+      ],
+      [
+        "java.vm.vendor",
+        "Oracle Corporation"
+      ],
+      [
+        "java.vendor.url.bug",
+        "http://bugreport.sun.com/bugreport/"
+      ],
+      [
+        "user.name",
+        "willir31"
+      ],
+      [
+        "java.vm.name",
+        "Java HotSpot(TM) 64-Bit Server VM"
+      ],
+      [
+        "sun.java.command",
+        "org.apache.spark.deploy.SparkSubmit --master yarn --deploy-mode client --conf spark.extraListeners=org.apache.spark.JsonRelay --conf spark.speculation.interval=1000 --conf spark.dynamicAllocation.maxExecutors=300 --conf spark.shuffle.memoryFraction=0.4 --conf spark.speculation=true --conf spark.dynamicAllocation.schedulerBacklogTimeout=1 --conf spark.kryo.referenceTracking=true --conf spark.driver.extraClassPath=/hpc/users/willir31/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar --conf spark.executor.memory=4g --conf spark.file.transferTo=false --conf spark.eventLog.enabled=true --conf spark.dynamicAllocation.executorIdleTimeout=30 --conf spark.shuffle.manager=SORT --conf spark.driver.memory=10g --conf spark.akka.frameSize=12 --conf spark.yarn.executor.memoryOverhead=1024 --conf spark.kryo.registrator=org.bdgenomics.adam.serialization.ADAMKryoRegistrator --conf spark.kryoserializer.buffer.mb=4 --conf spark.serializer=org.apache.spark.serializer.KryoSerializer --conf spark.core.connection.ack.wait.timeout=120 --conf spark.dynamicAllocation.minExecutors=1 --conf spark.speculation.multiplier=2 --conf spark.default.parallelism=1000 --conf spark.driver.extraJavaOptions=-Dyarn.resourcemanager.am.max-attempts=1 --conf spark.storage.memoryFraction=0.5 --conf spark.dynamicAllocation.enabled=true --conf spark.akka.timeout=120 --conf spark.eventLog.dir=hdfs://demeter-nn1.demeter.hpc.mssm.edu:/spark/tmp/logs/willir31 --conf spark.shuffle.service.enabled=true --class org.apache.spark.repl.Main --executor-cores 6 --executor-memory 17g --executor-memory 17g --executor-cores 3 --jars /hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-cli/commons-cli/1.2/commons-cli-1.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-codec/commons-codec/1.4/commons-codec-1.4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/log4j/log4j/1.2.17/log4j-1.2.17.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/xerial/snappy/snappy-java/1.1.1.6/snappy-java-1.1.1.6.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-io_2.10/0.2.1/utils-io_2.10-0.2.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-misc_2.10/0.2.1/utils-misc_2.10-0.2.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-avro/1.6.0rc4/parquet-avro-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-column/1.6.0rc4/parquet-column-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-common/1.6.0rc4/parquet-common-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-encoding/1.6.0rc4/parquet-encoding-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-generator/1.6.0rc4/parquet-generator-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-hadoop/1.6.0rc4/parquet-hadoop-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-jackson/1.6.0rc4/parquet-jackson-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-format/2.2.0-rc1/parquet-format-2.2.0-rc1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/httpcomponents/httpclient/4.3.2/httpclient-4.3.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/httpcomponents/httpcore/4.3.1/httpcore-4.3.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-cli_2.10/0.2.1/utils-cli_2.10-0.2.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/utils/utils-metrics_2.10/0.2.1/utils-metrics_2.10-0.2.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/netflix/servo/servo-core/0.5.5/servo-core-0.5.5.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/scoverage/scalac-scoverage-plugin_2.10/0.99.2/scalac-scoverage-plugin_2.10-0.99.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/bdg-formats/bdg-formats/0.4.0/bdg-formats-0.4.0.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/avro/avro/1.7.6/avro-1.7.6.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/adam/adam-core_2.10/0.17.1-SNAPSHOT/adam-core_2.10-0.17.1-SNAPSHOT.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-shaded.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/ow2/asm/asm/4.0/asm-4.0.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/objenesis/objenesis/1.2/objenesis-1.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/it/unimi/dsi/fastutil/6.4.4/fastutil-6.4.4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/twitter/parquet-scala_2.10/1.6.0rc4/parquet-scala_2.10-1.6.0rc4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/seqdoop/hadoop-bam/7.0.0/hadoop-bam-7.0.0.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/github/samtools/htsjdk/1.133/htsjdk-1.133.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/commons/commons-jexl/2.1.1/commons-jexl-2.1.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/tukaani/xz/1.5/xz-1.5.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/ant/ant/1.8.2/ant-1.8.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/testng/testng/6.8.8/testng-6.8.8.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/beust/jcommander/1.27/jcommander-1.27.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/com/google/guava/guava/14.0.1/guava-14.0.1.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/adam/adam-apis_2.10/0.17.1-SNAPSHOT/adam-apis_2.10-0.17.1-SNAPSHOT.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/args4j/args4j/2.0.23/args4j-2.0.23.jar,/hpc/users/willir31/c/adam/adam-cli/target/appassembler/repo/org/bdgenomics/adam/adam-cli_2.10/0.17.1-SNAPSHOT/adam-cli_2.10-0.17.1-SNAPSHOT.jar,/hpc/users/willir31/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar,/hpc/users/willir31/c/pageant/target/pageant-with-dependencies-1.0-SNAPSHOT.jar spark-shell"
+      ],
+      [
+        "java.home",
+        "/demeter/users/willir31/jdk1.7.0_79/jre"
+      ],
+      [
+        "java.version",
+        "1.7.0_79"
+      ],
+      [
+        "sun.io.unicode.encoding",
+        "UnicodeLittle"
+      ]
+    ],
+    "classpath": [
+      [
+        "http://172.29.46.14:49910/jars/htsjdk-1.133.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-cli-1.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/asm-4.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/ant-launcher-1.8.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-compress-1.4.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/annotations-2.0.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/bsh-2.0b4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/bdg-formats-0.4.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/paranamer-2.3.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/httpclient-4.3.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/scala-library-2.10.4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-jexl-2.1.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/scalac-scoverage-plugin_2.10-0.99.2.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/c/spark/conf/",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/kryo-2.21.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-hadoop-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/servo-core-0.5.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/objenesis-1.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/utils-io_2.10-0.2.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/snappy-java-1.1.1.6.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-common-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "/etc/hadoop/conf/",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-format-2.2.0-rc1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/fastutil-6.4.4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/avro-1.7.6.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/slf4j-log4j12-1.7.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-scala_2.10-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-httpclient-3.1.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/adam-apis_2.10-0.17.1-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/slf4j-api-1.7.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/hadoop-bam-7.0.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-codec-1.4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/adam-core_2.10-0.17.1-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/c/spark/lib_managed/jars/datanucleus-api-jdo-3.2.6.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/json-relay-client-with-deps-1.0-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-io-1.3.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/commons-logging-1.1.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-avro-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/minlog-1.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/jackson-mapper-asl-1.9.13.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/adam-cli_2.10-0.17.1-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/reflectasm-1.07-shaded.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/guava-14.0.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/jackson-core-asl-1.9.13.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/utils-cli_2.10-0.2.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/httpcore-4.3.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-column-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/args4j-2.0.23.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/utils-misc_2.10-0.2.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/xz-1.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/jcommander-1.27.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/ant-1.8.2.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/c/spark/lib_managed/jars/datanucleus-core-3.2.10.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/pageant-with-dependencies-1.0-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-jackson-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/c/spark/lib_managed/jars/datanucleus-rdbms-3.2.9.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/testng-6.8.8.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/c/spark/assembly/target/scala-2.10/spark-assembly-901dbd0-hadoop2.4.0.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/log4j-1.2.17.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-encoding-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/parquet-generator-1.6.0rc4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.14:49910/jars/utils-metrics_2.10-0.2.1.jar",
+        "Added By User"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,2102 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 0,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 1,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 2,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 3,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 4,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 5,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 6,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 7,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 8,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 9,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 10,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 11,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 12,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 13,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 14,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 15,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 16,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 17,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 18,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 19,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 20,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 21,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 22,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 23,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 24,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 25,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 26,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 27,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 28,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 29,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 30,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 31,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 32,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 33,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 34,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 35,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 36,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 37,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 38,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 39,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 40,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 41,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 42,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 43,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 44,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 45,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 46,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 47,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 48,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 49,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 50,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 51,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 52,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 53,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 54,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 55,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 56,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 57,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 58,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 59,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 60,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 61,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 62,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 63,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 64,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 65,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 66,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 67,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 68,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 69,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 70,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 71,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 72,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 73,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 74,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 75,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 76,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 77,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 78,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 79,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 80,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 81,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 82,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 83,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 84,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 85,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 86,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 87,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 88,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 89,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 90,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 91,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 92,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 93,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 94,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 95,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 96,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 97,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 98,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": 99,
+    "rddId": 1,
+    "execId": 1,
+    "MemorySize": 31520672,
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "port": 32947,
+    "execIds": [
+      "1"
+    ]
+  }
+]

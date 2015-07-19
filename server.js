@@ -1,17 +1,13 @@
 
+var fs = require('fs');
 var http = require('http');
+var mkdirp = require('mkdirp');
 var net = require('net');
 var oboe = require('oboe');
 
 var extend = require('node.extend');
 
 var argv = require('minimist')(process.argv.slice(2));
-
-var mongoPort = argv.p || argv['mongo-port'] || 3001;
-var mongoHost = argv.h || argv['mongo-host'] || 'localhost';
-var mongoDb = argv.d || argv['mongo-db'] || 'meteor';
-var mongoUrl = argv.m || argv['mongo-url'] || ('mongodb://' + mongoHost + ':' + mongoPort + '/' + mongoDb);
-var url = 'mongodb://localhost:27017/spree';
 
 var port = argv.P || argv.port || 8123;
 
@@ -189,6 +185,7 @@ var handlers = {
       properties: toSeq(e['Properties'])
     }).upsert();
 
+    app.upsert();
   },
 
   SparkListenerJobEnd: function(app, e) {
@@ -202,19 +199,21 @@ var handlers = {
             succeeded: succeeded,
             ended: true
           })
-          .set('status', succeeded ? SUCCEEDED : FAILED, true)
-          .upsert();
+          .set('status', succeeded ? SUCCEEDED : FAILED, true);
 
     job.get('stageIDs').map(function(sid) {
       var stage = app.getStage(sid);
       var status = stage.get('status');
       if (status == RUNNING || status == FAILED) {
-        l.err("Found unexpected status " + status + " for stage " + stage.id + " when marking job " + job.id + " complete.");
+        l.error("Found unexpected status " + status + " for stage " + stage.id + " when marking job " + job.id + " complete.");
       } else if (!status) {
         // Will log an error if a status exists for this stage
         stage.set('status', SKIPPED).upsert();
       }
     });
+
+    job.upsert();
+    app.upsert();
   },
 
   SparkListenerStageSubmitted: function(app, e) {
@@ -228,7 +227,7 @@ var handlers = {
     var prevAttemptStatus = attempt.get('status');
 
     if (prevAttemptStatus) {
-      l.err(
+      l.error(
             "Stage attempt %d.%d being marked as RUNNING despite extant status %s",
             attempt.stageId,
             attempt.id,
@@ -250,8 +249,8 @@ var handlers = {
       job.inc('stageIdxCounts.running');
     }
 
-    stage.upsert();
     attempt.upsert();
+    stage.upsert();
     job.upsert();
     app.upsert();
   },
@@ -269,6 +268,26 @@ var handlers = {
     var newAttemptStatus = si['Failure Reason'] ? FAILED : SUCCEEDED;
 
     attempt.fromStageInfo(si).set({ ended: true }).set('status', newAttemptStatus, true);
+    var endTime = attempt.get('time.end');
+
+    // Set tasks' end times now just in case; allow them to be overwritten if we actually end up
+    // seeing a TaskEnd event for them. cf. SPARK-9308.
+    var durationAggregationsObjs = {};
+    var durationAggregationsObjsArr = [];
+    for (var tid in attempt.task_attempts) {
+      var task = attempt.task_attempts[tid];
+      if (task.get('status') === RUNNING) {
+        if (!task.get('time.end')) {
+          task.set('time.end', endTime, true).upsert();
+          task.durationAggregationObjs.forEach(function(obj) {
+            if (!(obj.toString() in durationAggregationsObjs)) {
+              durationAggregationsObjs[obj.toString()] = obj;
+              durationAggregationsObjsArr.push(obj);
+            }
+          });
+        }
+      }
+    }
 
     var job = app.getJobByStageId(stage.id);
 
@@ -276,7 +295,7 @@ var handlers = {
       stage.dec('attempts.running');
       job.dec('stageCounts.running');
     } else {
-      l.err(
+      l.error(
             "Got status %s for stage attempt %d.%d with existing status %s",
             statusStr[newAttemptStatus],
             stage.id,
@@ -354,10 +373,14 @@ var handlers = {
       }
     }
 
-    stage.upsert();
-    attempt.upsert();
-    job.upsert();
+    durationAggregationsObjsArr.forEach(function(obj) {
+      obj.upsert();
+    });
 
+    attempt.upsert();
+    stage.upsert();
+    job.upsert();
+    app.upsert();
   },
 
   SparkListenerTaskStart: function(app, e) {
@@ -408,12 +431,13 @@ var handlers = {
       }
     }
 
-    job.upsert();
+    taskAttempt.upsert();
+    task.upsert();
     stageAttempt.upsert();
     stageExecutor.upsert();
-    task.upsert();
-    taskAttempt.upsert();
     executor.upsert();
+    job.upsert();
+    app.upsert();
   },
 
   SparkListenerTaskGettingResult: function(app, e) {
@@ -535,7 +559,7 @@ var handlers = {
   },
 
   SparkListenerEnvironmentUpdate: function(app, e) {
-    colls.Environment.findOneAndUpdate(
+    colls.collections.Environment.findOneAndUpdate(
           { appId: e['appId'] },
           {
             $set: {
@@ -577,13 +601,27 @@ var handlers = {
                   host: e['Block Manager ID']['Host'],
                   port: e['Block Manager ID']['Port']
                 }, true)
-                .set('status', REMOVED, true)
-                .upsert();
+                .set('status', REMOVED, true);
     app
           .dec('maxMem', executor.get('maxMem'))
           .dec('blockManagerCounts.running')
-          .inc('blockManagerCounts.removed')
-          .upsert();
+          .inc('blockManagerCounts.removed');
+
+    ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
+      app.dec(key, executor.get(key) || 0);
+    });
+
+    //for (var rddId in app.rdds) {
+    //  var rdd = app.rdds[rddId];
+    //  var rddExecutor = rdd.handleExecutorRemoved(e);
+    //  if (rddExecutor) {
+    //    rddExecutor.upsert();
+    //  }
+    //  rdd.upsert();
+    //}
+
+    executor.upsert();
+    app.upsert();
   },
 
   SparkListenerUnpersistRDD: function(app, e) {
@@ -673,24 +711,45 @@ function handleEvent(e) {
   }
 }
 
-colls.init(mongoUrl, function(db) {
-  var server = net.createServer(function(c) {
-    l.warn("client connected");
-    var setupOboe = function() {
-      l.debug("Registering oboe");
-      oboe(c).node('!', function(e) {
-        handleEvent(e);
-      }).fail(function(e) {
-        throw e.thrown;
-      });
-    };
-    setupOboe();
+function Server(mongoUrl) {
+  if (argv.log) {
+    var lastSlashIdx = argv.log.lastIndexOf('/');
+    if (lastSlashIdx >= 0) {
+      var dir = argv.log.substr(0, lastSlashIdx);
+      console.log("Creating directory:", dir);
+      mkdirp.sync(dir);
+    }
+  }
+  var logFd = argv.log && fs.openSync(argv.log, 'wx');
 
-    c.on('end', function() {
-      l.warn("client disconnected");
-    })
+  colls.init(mongoUrl, function(err) {
+    if (err) {
+      throw new Error("Failed to initialize Mongo:", JSON.stringify(err));
+    }
+    var server = net.createServer(function (c) {
+      l.warn("client connected");
+      var setupOboe = function () {
+        l.debug("Registering oboe");
+        oboe(c).node('!', function (e) {
+          if (logFd) {
+            fs.writeSync(logFd, JSON.stringify(e) + '\n');
+          }
+          handleEvent(e);
+        }).fail(function (e) {
+          throw e.thrown;
+        });
+      };
+      setupOboe();
+
+      c.on('end', function () {
+        l.warn("client disconnected");
+      })
+    });
+    server.listen(port, function () {
+      l.warn("Server listening on: http://localhost:%s", port);
+    });
   });
-  server.listen(port, function() {
-    l.warn("Server listening on: http://localhost:%s", port);
-  });
-});
+}
+
+module.exports.Server = Server;
+module.exports.handleEvent = handleEvent;

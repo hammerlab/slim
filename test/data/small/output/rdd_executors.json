@@ -1,0 +1,12 @@
+[
+  {
+    "appId": "local-1437323845748",
+    "execId": "driver",
+    "rddId": 1,
+    "host": "localhost",
+    "port": 50944,
+    "MemorySize": 28704,
+    "numBlocks": 4,
+    "n": 2
+  }
+]

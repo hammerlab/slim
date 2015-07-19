@@ -1,17 +1,26 @@
 {
-  "name": "spark-mongo-writer",
+  "name": "spark-listener-mongo-writer",
   "version": "1.0.0",
   "description": "A simple http server that listens to SparkListener events, computes aggregate statistics about the Spark applications that generated them (similar to Spark's JobProgressListener), and writes those statistics to MongoDB.",
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
   "main": "server.js",
   "dependencies": {
     "async": "1.3.0",
+    "chai": "2.1.0",
+    "chai-subset": "1.0.1",
+    "line-reader": "0.2.4",
     "minimist": "1.1.1",
+    "mkdirp": "0.5.1",
     "moment": "2.10.3",
     "mongodb": "2.0.33",
     "node.extend": "1.1.5",
     "deep-equal": "1.0.0",
     "oboe": "2.1.2",
     "tracer": "0.7.4"
+  },
+  "scripts": {
+    "pretest": "mongod --dbpath test/db --fork --logpath /dev/null",
+    "test": "mocha test",
+    "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   }
 }
