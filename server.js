@@ -268,6 +268,26 @@ var handlers = {
     var newAttemptStatus = si['Failure Reason'] ? FAILED : SUCCEEDED;
 
     attempt.fromStageInfo(si).set({ ended: true }).set('status', newAttemptStatus, true);
+    var endTime = attempt.get('time.end');
+
+    // Set tasks' end times now just in case; allow them to be overwritten if we actually end up
+    // seeing a TaskEnd event for them. cf. SPARK-9308.
+    var durationAggregationsObjs = {};
+    var durationAggregationsObjsArr = [];
+    for (var tid in attempt.task_attempts) {
+      var task = attempt.task_attempts[tid];
+      if (task.get('status') === RUNNING) {
+        if (!task.get('time.end')) {
+          task.set('time.end', endTime, true).upsert();
+          task.durationAggregationObjs.forEach(function(obj) {
+            if (!(obj.toString() in durationAggregationsObjs)) {
+              durationAggregationsObjs[obj.toString()] = obj;
+              durationAggregationsObjsArr.push(obj);
+            }
+          });
+        }
+      }
+    }
 
     var job = app.getJobByStageId(stage.id);
 
@@ -352,6 +372,10 @@ var handlers = {
         job.get('taskIdxCounts');
       }
     }
+
+    durationAggregationsObjsArr.forEach(function(obj) {
+      obj.upsert();
+    });
 
     attempt.upsert();
     stage.upsert();

@@ -39,7 +39,6 @@ var getExecutorId = require('./executor').getExecutorId;
 TaskAttempt.prototype.fromTaskInfo = function(ti) {
   this.set({
     'time.start': processTime(ti['Launch Time']),
-    'time.end': processTime(ti['Finish Time']),
     execId: getExecutorId(ti),
     host: ti['Host'],
     locality: ti['Locality'],
@@ -47,7 +46,12 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     gettingResultTime: processTime(ti['Getting Result Time']),
     index: ti['Index'],
     attempt: ti['Attempt']
-  }).set('accumulables', accumulablesObj(ti['Accumulables']), true).setExecutors();
+  }).set({
+    // This may have been set by metrics updates.
+    'accumulables': accumulablesObj(ti['Accumulables']),
+    // This may have been already set by a StageCompleted event.
+    'time.end': processTime(ti['Finish Time'])
+  }, true).setExecutors();
   return this;
 };
 
