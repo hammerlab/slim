@@ -11,6 +11,7 @@
     "line-reader": "0.2.4",
     "minimist": "1.1.1",
     "mkdirp": "0.5.1",
+    "mocha": "2.2.5",
     "moment": "2.10.3",
     "mongodb": "2.0.33",
     "node.extend": "1.1.5",
@@ -19,8 +20,6 @@
     "tracer": "0.7.4"
   },
   "scripts": {
-    "pretest": "mongod --dbpath test/db --fork --logpath /dev/null",
-    "test": "mocha test",
-    "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
+    "test": "./node_modules/mocha/bin/mocha"
   }
 }
