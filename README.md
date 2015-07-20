@@ -1,21 +1,23 @@
 # `slim`
-`slim` is a Node server that:
+`slim` is a [Node][] server that:
 
 * listens to [Spark][] events (as emitted by [`spark-json-relay`][]), 
 * aggregates various statistics about Spark applications described by those events, and 
-* writes those statistics to Mongo for consumption by [`spree`][].
+* writes those statistics to Mongo for consumption by [Spree][].
 
-[The `spree` documentation][`spree`] has lots more information about using these components together, which is the intended use case.
+[The Spree documentation][Spree] has lots more information about using these components together, which is the intended use case.
 
 If you're just interested in running `slim`, e.g. to persist Spark events to Mongo, you can:
-* run a `mongod` process
-* run `slim`:
+* Run a `mongod` process.
+  * By default, `slim` will look for one at http://localhost:3001/meteor (which is where Spree starts it by default).
+* Download `slim` ([`slim.js` on NPM][slim.js]) and run it:
 
   ```
-  $ node slim.js
+  $ npm install -g slim.js
+  $ slim
   ```
 
-* run a Spark application with a [`JsonRelay`][] registered as a listener
+* Build a `JsonRelay` JAR per and run a Spark application with it registered as a listener:
 
   ```
   $ $SPARK_HOME/bin/spark-{submit,shell} \
@@ -23,11 +25,14 @@ If you're just interested in running `slim`, e.g. to persist Spark events to Mon
       --conf spark.extraListeners=org.apache.spark.JsonRelay
   ```
 
+All events emitted by your Spark application will be written to Mongo by `slim`!
+
 ## Cmdline Options
 * `-h`/`--mongo-host`; default `localhost`.
 * `-p`/`--mongo-port`; default `3001`.
 * `-d`/`--mongo-db`; default `meteor`.
 * `-u`/`--mongo-url`: full Mongo URL, starting with `mongodb://`; overrides the above three options if present.
+* `-m`/`--meteor-url`: URL of a Meteor server running Spree, whose Mongo `slim` should write to.
 * `-P`/`--port`: default `8123`; port to listen for `JsonRelay` clients on.
   * Should match `--conf spark.slim.port` arg passed to Spark (which also defaults to `8123`, conveniently).
 * `--log`: if present, all events received from `JsonRelay` clients will be written to this file.
@@ -35,6 +40,11 @@ If you're just interested in running `slim`, e.g. to persist Spark events to Mon
   * See [`test/data/small/input/events.json`][] for an example.
 * `-l`: default `info`; log-level passed to [`tracer`][] logging utility.
   * Can be `debug`, `info`, `warn`, `error`.
+
+## Development Utilities and Notes
+
+### At a glance
+Probably the easiest way to grok `slim`'s record types and schemas is to peek at the [`test/data/small/output`][] directory.
 
 ## Mongo Collections / Schemas
 `slim` writes out 13 (!) types of records, each of which corresponds to a noun from the Spark universe (or a "join" of two such nouns):
@@ -74,11 +84,6 @@ The nesting above indicates which records are stored and accessed via instances 
 
 …it first looks up the [`App`][] with `appId` equal to `"local-1437323845748"` (this field is [added to every event by `JsonRelay`](https://github.com/hammerlab/spark-json-relay/blob/abfea947334a6185cfd43e64a552806094c4c584/client/src/main/scala/org/apache/spark/JsonRelay.scala#L61)), then asks that `App` for a [`Stage`][] matching the `"Stage ID"` field, etc.
 
-### At a glance
-Probably the easiest way to grok `slim`'s record types and schemas is to peek at the [`test/data/small/output`][] directory.
-
-## Other utilities
-
 ### [`dump-records.js`][]
 This script reads in a file, specified by the `--in` flag, that contains logged `slim` events (see the `--log` option above).
 
@@ -90,8 +95,6 @@ $ node test/lib/dump-records.js --in test/data/small
 ```
 
 This script was used to generate the `test/data/*/output` directories (modulo a few manual tweaks to the resulting JSON).
-
-## Implementation Details
 
 ### [`record.js`][]
 This file defines a simple Mongo ORM for the classes defined in the [`models`][] directory. 
@@ -122,9 +125,10 @@ Two other notable examples are memory/disk/tachyon usage (stored on blocks, deno
 
 Please file issues if you have any trouble using `slim` or have any questions!
 
+[Node]: https://nodejs.org/
 [Spark]: https://spark.apache.org/
 [`spark-json-relay`]: https://github.com/hammerlab/spark-json-relay
-[`spree`]: https://github.com/hammerlab/spree
+[Spree]: https://github.com/hammerlab/spree
 [`JsonRelay`]: https://github.com/hammerlab/spark-json-relay/blob/abfea947334a6185cfd43e64a552806094c4c584/client/src/main/scala/org/apache/spark/JsonRelay.scala
 [`tracer`]: https://github.com/baryon/tracer
 [`dump-records.js`]: https://github.com/hammerlab/slim/blob/69307377f9f5f8534e5385b530fd60be3be48e5d/test/lib/dump-records.js
@@ -134,3 +138,4 @@ Please file issues if you have any trouble using `slim` or have any questions!
 [`test/data/small/output`]: https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/data/small/output
 [`record.js`]: https://github.com/hammerlab/slim/blob/69307377f9f5f8534e5385b530fd60be3be48e5d/mongo/record.js
 [`models`]: https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/models
+[slim.js]: https://www.npmjs.com/package/slim.js
