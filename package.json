@@ -1,12 +1,12 @@
 {
   "name": "slim.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A server that listens to Spark events, computes aggregate statistics about the Spark applications that generated them (similar to Spark's JobProgressListener), and writes those statistics to MongoDB.",
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
   "repository" :
   {
     "type" : "git",
-    "url" : "git://github.com:hammerlab/slim.git"
+    "url" : "http://github.com/hammerlab/slim.git"
   },
   "main": "server.js",
   "dependencies": {
