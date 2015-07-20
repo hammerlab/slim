@@ -12,6 +12,11 @@ function maybeParseInt(n) {
   return n;
 }
 
+function isEmptyObject(o) {
+  for (k in o) return false;
+  return true;
+}
+
 function accumulablesObj(accumulables) {
   var o = {};
   accumulables.forEach(function(a) {
@@ -58,3 +63,4 @@ module.exports.processTime = processTime;
 module.exports.accumulablesObj = accumulablesObj;
 module.exports.taskEndObj = taskEndObj;
 module.exports.maybeParseInt = maybeParseInt;
+module.exports.isEmptyObject = isEmptyObject;

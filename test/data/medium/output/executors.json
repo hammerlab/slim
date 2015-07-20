@@ -53,7 +53,7 @@
       }
     },
     "MemorySize": 3152067200,
-    "numBlocks": 100,
+    "numBlocks": 0,
     "reason": "remote Rpc client disassociated"
   },
   {

@@ -593,32 +593,36 @@ var handlers = {
           .upsert();
   },
   SparkListenerBlockManagerRemoved: function(app, e) {
-    var executor =
-          app
-                .getExecutor(e)
+    var executor = app.getExecutor(e);
+    var numBlocks = executor.get('numBlocks') || 0;
+    executor
                 .set({
-                  'time.end': processTime(e['Timestamp']),
                   host: e['Block Manager ID']['Host'],
                   port: e['Block Manager ID']['Port']
                 }, true)
-                .set('status', REMOVED, true);
+                .set({
+                  'time.end': processTime(e['Timestamp']),
+                  'status': REMOVED
+                }, true)
+                .dec('numBlocks', numBlocks);
     app
           .dec('maxMem', executor.get('maxMem'))
           .dec('blockManagerCounts.running')
-          .inc('blockManagerCounts.removed');
+          .inc('blockManagerCounts.removed')
+          .dec('numBlocks', numBlocks);
 
     ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
       app.dec(key, executor.get(key) || 0);
     });
 
-    //for (var rddId in app.rdds) {
-    //  var rdd = app.rdds[rddId];
-    //  var rddExecutor = rdd.handleExecutorRemoved(e);
-    //  if (rddExecutor) {
-    //    rddExecutor.upsert();
-    //  }
-    //  rdd.upsert();
-    //}
+    for (var rddId in app.rdds) {
+      var rdd = app.rdds[rddId];
+      var rddExecutor = rdd.handleExecutorRemoved(e);
+      if (rddExecutor) {
+        rddExecutor.upsert();
+      }
+      rdd.upsert();
+    }
 
     executor.upsert();
     app.upsert();

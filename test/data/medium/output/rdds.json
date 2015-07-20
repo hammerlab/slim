@@ -32,12 +32,12 @@
       "Replication": 1
     },
     "numPartitions": 100,
-    "numCachedPartitions": 100,
+    "numCachedPartitions": 0,
     "ExternalBlockStoreSize": 0,
     "DiskSize": 0,
     "scope": "{\"id\":\"1\",\"name\":\"map\"}",
     "fractionCached": 1,
-    "MemorySize": 3152067200
+    "MemorySize": 0
   },
   {
     "appId": "application_1432740718700_3049",

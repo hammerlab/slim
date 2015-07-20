@@ -6,6 +6,7 @@ var l = require('../utils/log').l;
 var m = require('moment');
 
 var flattenObj = require('../utils/objs').flattenObj;
+var isEmptyObject = require('../utils/utils').isEmptyObject;
 
 var colls = require('./collections').collections;
 var deq = require('deep-equal');
@@ -161,17 +162,16 @@ function addAddToSetProp(clazz) {
   clazz.prototype.addToSet = function(key, val) {
     var prop = this.getProp(key, true);
     if (!prop.exists || !prop.val) {
-      prop.obj[prop.name] = {};
+      prop.obj[prop.name] = [];
     }
     if (!(val in prop.obj[prop.name])) {
-      prop.obj[prop.name][val] = true;
+      prop.obj[prop.name].push(val);
 
       this.addToSetObj = this.addToSetObj || {};
       if (!(key in this.addToSetObj)) {
-        this.addToSetObj[key] = {};
+        this.addToSetObj[key] = [];
       }
-      this.addToSetObj[key][val] = true;
-
+      this.addToSetObj[key].push(val);
       this.dirty = true;
     }
     return this;
@@ -223,17 +223,26 @@ function addHasProp(clazz) {
   }
 }
 
-function isEmptyObject(o) {
-  for (k in o) return false;
-  return true;
-}
-
 function addPull(clazz) {
   clazz.prototype.pull = function(key, val) {
     if (!this.pullObj) {
       this.pullObj = {};
     }
     this.pullObj[key] = val;
+    if (key in this.propsObj) {
+      var vals = this.propsObj[key];
+      var idx = vals.indexOf(val);
+      if (idx >= 0) {
+        this.propsObj[key].splice(idx, 1);
+      }
+    }
+    if (key in this.toSyncObj) {
+      var vals = this.toSyncObj[key];
+      var idx = vals.indexOf(val);
+      if (idx >= 0) {
+        this.toSyncObj[key].splice(idx, 1);
+      }
+    }
   };
 }
 
@@ -286,15 +295,11 @@ function addUpsert(clazz, className, collectionName) {
     if (this.addToSetObj && !isEmptyObject(this.addToSetObj)) {
       var addToSetObj = {};
       for (var k in this.addToSetObj) {
-        var keyObj = this.addToSetObj[k];
-        var elems = [];
-        for (var ok in keyObj) {
-          elems.push(ok);
-        }
-        if (elems.length == 1) {
-          addToSetObj[k] = elems[0];
+        var vals = this.addToSetObj[k];
+        if (vals.length == 1) {
+          addToSetObj[k] = vals[0];
         } else if (elems.length > 1) {
-          addToSetObj[k] = { $each: elems }
+          addToSetObj[k] = { $each: vals }
         }
       }
       upsertObj['$addToSet'] = addToSetObj;
@@ -415,6 +420,7 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addDecProp(clazz);
   addGetProp(clazz);
   addHasProp(clazz);
+  addPull(clazz);
   addUpsert(clazz, className, collectionName);
   addSetDuration(clazz);
   addAddToSetProp(clazz);
