@@ -4,6 +4,7 @@ var http = require('http');
 var mkdirp = require('mkdirp');
 var net = require('net');
 var oboe = require('oboe');
+var path = require('path');
 
 var extend = require('node.extend');
 
@@ -719,7 +720,7 @@ function Server(mongoUrl) {
   if (argv.log) {
     var lastSlashIdx = argv.log.lastIndexOf('/');
     if (lastSlashIdx >= 0) {
-      var dir = argv.log.substr(0, lastSlashIdx);
+      var dir = path.dirname(argv.log);
       console.log("Creating directory:", dir);
       mkdirp.sync(dir);
     }

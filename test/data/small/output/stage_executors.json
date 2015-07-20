@@ -12,7 +12,6 @@
       "succeeded": 4
     },
     "totalTaskDuration": 1938,
-    "n": 2,
     "metrics": {
       "ExecutorDeserializeTime": 109,
       "ExecutorRunTime": 1706,
@@ -48,7 +47,6 @@
       "succeeded": 4
     },
     "totalTaskDuration": 318,
-    "n": 2,
     "metrics": {
       "ExecutorDeserializeTime": 81,
       "ExecutorRunTime": 199,
