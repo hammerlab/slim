@@ -16,7 +16,6 @@
     },
     "host": "localhost",
     "port": 50944,
-    "n": 1,
     "execIds": [
       "driver"
     ]
@@ -38,7 +37,6 @@
     },
     "host": "localhost",
     "port": 50944,
-    "n": 1,
     "execIds": [
       "driver"
     ]
@@ -60,7 +58,6 @@
     },
     "host": "localhost",
     "port": 50944,
-    "n": 1,
     "execIds": [
       "driver"
     ]
@@ -82,7 +79,6 @@
     },
     "host": "localhost",
     "port": 50944,
-    "n": 1,
     "execIds": [
       "driver"
     ]
