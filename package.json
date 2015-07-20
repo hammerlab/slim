@@ -1,17 +1,19 @@
 {
-  "name": "spark-listener-mongo-writer",
+  "name": "slim.js",
   "version": "1.0.0",
-  "description": "A simple http server that listens to SparkListener events, computes aggregate statistics about the Spark applications that generated them (similar to Spark's JobProgressListener), and writes those statistics to MongoDB.",
+  "description": "A server that listens to Spark events, computes aggregate statistics about the Spark applications that generated them (similar to Spark's JobProgressListener), and writes those statistics to MongoDB.",
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "git@github.com:hammerlab/slim.git"
+  },
   "main": "server.js",
   "dependencies": {
     "async": "1.3.0",
-    "chai": "2.1.0",
-    "chai-subset": "1.0.1",
     "line-reader": "0.2.4",
     "minimist": "1.1.1",
     "mkdirp": "0.5.1",
-    "mocha": "2.2.5",
     "moment": "2.10.3",
     "mongodb": "2.0.33",
     "node.extend": "1.1.5",
@@ -19,7 +21,14 @@
     "oboe": "2.1.2",
     "tracer": "0.7.4"
   },
+  "devDependencies": {
+    "chai": "2.1.0",
+    "chai-subset": "1.0.1",
+    "mocha": "2.2.5"
+  },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "pretest": "nc -z localhost 27017 > /dev/null || mongod --dbpath test/db --fork --logpath /dev/null",
+    "test": "./node_modules/mocha/bin/mocha",
+    "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   }
 }
