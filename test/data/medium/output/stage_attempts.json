@@ -44,6 +44,7 @@
           }
         }
       },
+      "SchedulerDelayTime": 4352,
       "JVMGCTime": 10668
     },
     "ended": true
@@ -86,6 +87,7 @@
         "RemoteBlocksFetched": 900,
         "RemoteBytesRead": 26100
       },
+      "SchedulerDelayTime": 5044,
       "ResultSerializationTime": 102
     },
     "ended": true

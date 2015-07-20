@@ -41,6 +41,7 @@
           }
         }
       },
+      "SchedulerDelayTime": 9396,
       "JVMGCTime": 10668,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 9400,
