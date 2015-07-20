@@ -6,7 +6,7 @@
   "repository" :
   {
     "type" : "git",
-    "url" : "git@github.com:hammerlab/slim.git"
+    "url" : "git://github.com:hammerlab/slim.git"
   },
   "main": "server.js",
   "dependencies": {
@@ -19,12 +19,24 @@
     "node.extend": "1.1.5",
     "deep-equal": "1.0.0",
     "oboe": "2.1.2",
+    "shelljs": "0.5.1",
     "tracer": "0.7.4"
   },
   "devDependencies": {
     "chai": "2.1.0",
     "chai-subset": "1.0.1",
     "mocha": "2.2.5"
+  },
+  "keywords": [
+    "spark",
+    "mongo",
+    "spree"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "bin": {
+    "slim": "slim"
   },
   "scripts": {
     "pretest": "nc -z localhost 27017 > /dev/null || mongod --dbpath test/db --fork --logpath /dev/null",

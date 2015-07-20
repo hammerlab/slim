@@ -52,7 +52,12 @@ function ensureIndexes(cb) {
             collections[o.collName].ensureIndex(o.index, callback);
           }.bind(this);
         }.bind(this)),
-        cb
+        function(err) {
+          if (err) {
+            l.error("Failed to create Mongo indexes");
+          }
+          cb();
+        }
   );
 }
 
@@ -61,6 +66,7 @@ module.exports.init = function(url, cb) {
   if (isTest) {
     module.exports.dropDatabase = dropDatabase;
   }
+  l.info("Connecting to Mongo:", url);
   MongoClient.connect(url, function(err, d) {
     assert.equal(null, err);
     l.warn("Connected to Mongo");
