@@ -63,7 +63,8 @@
             "DiskSize": 0
           }
         }
-      ]
+      ],
+      "SchedulerDelayTime": 50
     }
   },
   {
@@ -130,7 +131,8 @@
             "DiskSize": 0
           }
         }
-      ]
+      ],
+      "SchedulerDelayTime": 24
     }
   },
   {
@@ -197,7 +199,8 @@
             "DiskSize": 0
           }
         }
-      ]
+      ],
+      "SchedulerDelayTime": 24
     }
   },
   {
@@ -264,7 +267,8 @@
             "DiskSize": 0
           }
         }
-      ]
+      ],
+      "SchedulerDelayTime": 24
     }
   },
   {
@@ -312,7 +316,8 @@
         "LocalBytesRead": 516,
         "TotalRecordsRead": 12,
         "TotalBytesRead": 516
-      }
+      },
+      "SchedulerDelayTime": 13
     }
   },
   {
@@ -360,7 +365,8 @@
         "LocalBytesRead": 516,
         "TotalRecordsRead": 12,
         "TotalBytesRead": 516
-      }
+      },
+      "SchedulerDelayTime": 8
     }
   },
   {
@@ -408,7 +414,8 @@
         "LocalBytesRead": 484,
         "TotalRecordsRead": 8,
         "TotalBytesRead": 484
-      }
+      },
+      "SchedulerDelayTime": 7
     }
   },
   {
@@ -456,7 +463,8 @@
         "LocalBytesRead": 484,
         "TotalRecordsRead": 8,
         "TotalBytesRead": 484
-      }
+      },
+      "SchedulerDelayTime": 9
     }
   }
 ]

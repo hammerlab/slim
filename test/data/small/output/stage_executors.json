@@ -31,6 +31,7 @@
           }
         }
       },
+      "SchedulerDelayTime": 122,
       "ResultSerializationTime": 1
     }
   },
@@ -58,7 +59,8 @@
         "TotalRecordsRead": 40,
         "TotalBytesRead": 2000,
         "FetchWaitTime": 4
-      }
+      },
+      "SchedulerDelayTime": 37
     }
   }
 ]
