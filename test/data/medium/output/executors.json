@@ -43,6 +43,7 @@
           }
         }
       },
+      "SchedulerDelayTime": 6684,
       "JVMGCTime": 10668,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 9400,
@@ -109,7 +110,8 @@
         "RemoteBytesRead": 8700,
         "TotalRecordsRead": 300,
         "TotalBytesRead": 8700
-      }
+      },
+      "SchedulerDelayTime": 1118
     },
     "reason": "remote Rpc client disassociated"
   },
@@ -166,7 +168,8 @@
         "RemoteBytesRead": 8700,
         "TotalRecordsRead": 300,
         "TotalBytesRead": 8700
-      }
+      },
+      "SchedulerDelayTime": 571
     },
     "reason": "remote Rpc client disassociated"
   },
@@ -242,7 +245,8 @@
         "RemoteBytesRead": 8700,
         "TotalRecordsRead": 300,
         "TotalBytesRead": 8700
-      }
+      },
+      "SchedulerDelayTime": 1023
     },
     "reason": "remote Rpc client disassociated"
   },

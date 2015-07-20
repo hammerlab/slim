@@ -15,8 +15,7 @@
     "numCachedPartitions": 0,
     "ExternalBlockStoreSize": 0,
     "DiskSize": 0,
-    "scope": "{\"id\":\"0\",\"name\":\"parallelize\"}",
-    "n": 1
+    "scope": "{\"id\":\"0\",\"name\":\"parallelize\"}"
   },
   {
     "appId": "local-1437323845748",
@@ -58,7 +57,6 @@
     "numCachedPartitions": 0,
     "ExternalBlockStoreSize": 0,
     "DiskSize": 0,
-    "scope": "{\"id\":\"2\",\"name\":\"reduceByKey\"}",
-    "n": 1
+    "scope": "{\"id\":\"2\",\"name\":\"reduceByKey\"}"
   }
 ]

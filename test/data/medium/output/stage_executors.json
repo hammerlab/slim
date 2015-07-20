@@ -32,6 +32,7 @@
           }
         }
       },
+      "SchedulerDelayTime": 4352,
       "JVMGCTime": 10668
     }
   },
@@ -59,6 +60,7 @@
         "TotalBytesRead": 266200,
         "FetchWaitTime": 48
       },
+      "SchedulerDelayTime": 2332,
       "ResultSerializationTime": 80
     }
   },
@@ -86,7 +88,8 @@
         "RemoteBytesRead": 8700,
         "TotalRecordsRead": 300,
         "TotalBytesRead": 8700
-      }
+      },
+      "SchedulerDelayTime": 1118
     }
   },
   {
@@ -113,7 +116,8 @@
         "RemoteBytesRead": 8700,
         "TotalRecordsRead": 300,
         "TotalBytesRead": 8700
-      }
+      },
+      "SchedulerDelayTime": 571
     }
   },
   {
@@ -140,7 +144,8 @@
         "RemoteBytesRead": 8700,
         "TotalRecordsRead": 300,
         "TotalBytesRead": 8700
-      }
+      },
+      "SchedulerDelayTime": 1023
     }
   },
   {

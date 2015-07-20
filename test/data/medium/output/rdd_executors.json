@@ -6,6 +6,7 @@
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "port": 32947,
     "MemorySize": 3152067200,
-    "numBlocks": 100
+    "numBlocks": 100,
+    "status": 5
   }
 ]

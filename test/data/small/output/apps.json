@@ -34,6 +34,7 @@
           }
         }
       },
+      "SchedulerDelayTime": 159,
       "ResultSerializationTime": 2,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 16,
