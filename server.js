@@ -52,6 +52,19 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   var prevTaskAttemptMetrics = taskAttempt.get('metrics');
   var newTaskAttemptMetrics = taskMetrics;
 
+  taskAttempt.setDuration();
+  var grt = taskAttempt.get('gettingResultTime') || 0;
+  if (grt) {
+    var end = taskAttempt.get('time.end') || (moment().unix()*1000);
+    newTaskAttemptMetrics.GettingResultTime = end - grt;
+  }
+  var duration = taskAttempt.get('duration') || 0;
+  var runTime = newTaskAttemptMetrics.ExecutorRunTime || 0;
+  var resultSerTime = newTaskAttemptMetrics.ResultSerializationTime || 0;
+  var deserTime = newTaskAttemptMetrics.ExecutorDeserializeTime || 0;
+  var schedulerDelayTime = duration - runTime - resultSerTime - deserTime - grt;
+  newTaskAttemptMetrics.SchedulerDelayTime = schedulerDelayTime;
+
   taskAttempt.set('metrics', newTaskAttemptMetrics, true);
   job.setDuration('totalJobDuration', app);
 
