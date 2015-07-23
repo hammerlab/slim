@@ -52,6 +52,9 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   var prevTaskAttemptMetrics = taskAttempt.get('metrics');
   var newTaskAttemptMetrics = taskMetrics;
 
+  if (!newTaskAttemptMetrics) {
+    return;
+  }
   taskAttempt.setDuration();
   var grt = taskAttempt.get('gettingResultTime') || 0;
   if (grt) {
