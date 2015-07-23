@@ -18,7 +18,40 @@ var colls = module.exports.colls = [
   [ 'RddBlocks', 'rdd_blocks', [{ appId: 1, rddId: 1, id: 1 }] ],
   [ 'Executors', 'executors', [{ appId: 1, id: 1 }] ],
   [ 'Tasks', 'tasks', [{ appId: 1, stageId: 1, id: 1 }] ],
-  [ 'TaskAttempts', 'task_attempts', [{ appId: 1, stageId: 1, stageAttemptId: 1, id: 1 }] ],
+  [
+    'TaskAttempts',
+    'task_attempts',
+    [
+      'id',
+      'metrics.JVMGCTime',
+      'metrics.ShuffleReadMetrics.TotalBytesRead',
+      'metrics.ShuffleReadMetrics.TotalRecordsRead',
+      'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
+      'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
+      'metrics.InputMetrics.BytesRead',
+      'metrics.InputMetrics.RecordsRead',
+      'metrics.OutputMetrics.BytesWritten',
+      'metrics.OutputMetrics.RecordsWritten',
+      'metrics.ExecutorRunTime.Bytes',
+      'time.start',
+      'metrics.HostName',
+      'status',
+      'index',
+      'execId',
+      'time.end',
+      'metrics.MemoryBytesSpilled',
+      'metrics.DiskBytesSpilled',
+      'metrics.ResultSize',
+      'metrics.GettingResultTime',
+      'metrics.SchedulerDelayTime',
+      'duration'
+    ].map(function(key) {
+            var o = {appId: 1, stageId: 1, stageAttemptId: 1};
+            o[key] = 1;
+            return o;
+          }
+    )
+  ],
   [ 'Environment', 'environment', [{ appId: 1 }] ]
 ];
 
@@ -46,6 +79,7 @@ function initColls() {
 }
 
 function ensureIndexes(cb) {
+  l.info("Creating indexes...");
   async.parallel(
         collNamesAndIndices.map(function(o) {
           return function(callback) {
@@ -55,7 +89,10 @@ function ensureIndexes(cb) {
         function(err) {
           if (err) {
             l.error("Failed to create Mongo indexes");
+          } else {
+            l.info("Done creating indexes");
           }
+
           cb();
         }
   );
