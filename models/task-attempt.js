@@ -40,7 +40,6 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
   this.set({
     'time.start': processTime(ti['Launch Time']),
     execId: getExecutorId(ti),
-    host: ti['Host'],
     locality: ti['Locality'],
     speculative: ti['Speculative'],
     gettingResultTime: processTime(ti['Getting Result Time']),
