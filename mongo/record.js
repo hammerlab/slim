@@ -179,12 +179,14 @@ function addAddToSetProp(clazz) {
 }
 
 function addSetDuration(clazz) {
-  clazz.prototype.maybeIncrementAggregatedDurations = function(delta) {
+  clazz.prototype.maybeIncrementAggregatedDurations = function(delta, before, after) {
     if (this.durationAggregationKey) {
       (this.durationAggregationObjs || []).forEach(function (obj) {
-        var before = obj.get(this.durationAggregationKey);
         obj.inc(this.durationAggregationKey, delta);
       }.bind(this));
+      (this.durationCallbackObjs || []).forEach(function(obj) {
+        obj.handleTaskDurationChange(delta, before, after);
+      });
     }
   };
   clazz.prototype.setDuration = function() {
@@ -197,14 +199,14 @@ function addSetDuration(clazz) {
         if (curDur != newDur) {
           var durationInc = newDur - curDur;
           this.set('duration', newDur, true);
-          this.maybeIncrementAggregatedDurations(durationInc);
+          this.maybeIncrementAggregatedDurations(durationInc, curDur, newDur);
         }
       } else {
         var newDuration = Math.max(0, (m().unix() * 1000) - start);
         var prevDuration = this.get('duration') || 0;
         var delta = newDuration - prevDuration;
         this.set('duration', newDuration, true);
-        this.maybeIncrementAggregatedDurations(delta);
+        this.maybeIncrementAggregatedDurations(delta, prevDuration, newDuration);
       }
     }
     return this;
@@ -366,11 +368,12 @@ function addUpsert(clazz, className, collectionName) {
 }
 
 function addInit(clazz, className) {
-  clazz.prototype.init = function(findKeys, durationAggregationKey, durationAggregationObjs) {
+  clazz.prototype.init = function(findKeys, durationAggregationKey, durationAggregationObjs, durationCallbackObjs) {
     this.findObj = {};
     this.findKeys = findKeys;
     this.durationAggregationKey = durationAggregationKey;
     this.durationAggregationObjs = durationAggregationObjs;
+    this.durationCallbackObjs = durationCallbackObjs;
     this.clazz = className;
 
     if (!findKeys || !findKeys.length) {
