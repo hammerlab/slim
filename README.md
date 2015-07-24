@@ -17,11 +17,12 @@ If you're just interested in running `slim`, e.g. to persist Spark events to Mon
   $ slim
   ```
 
-* Build a `JsonRelay` JAR per and run a Spark application with it registered as a listener:
+* Per [the instructions on the  `JsonRelay` repo](https://github.com/hammerlab/spark-json-relay), download a `JsonRelay` JAR and run a Spark application with it registered as a listener:
 
   ```
+  $ wget https://repo1.maven.org/maven2/org/hammerlab/spark-json-relay/1.0.0/spark-json-relay-1.0.0.jar
   $ $SPARK_HOME/bin/spark-{submit,shell} \
-      --driver-class-path /path/to/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar \
+      --driver-class-path spark-json-relay-1.0.0.jar \
       --conf spark.extraListeners=org.apache.spark.JsonRelay
   ```
 
@@ -56,6 +57,7 @@ Probably the easiest way to grok `slim`'s record types and schemas is to peek at
       * Tasks
       * Task Attempts
       * {Stage-attempt, Executor} joins
+      * Stage Summary Metrics (quartiles about various task metrics, over all tasks in a stage attempt)
   * Executors
     * Non-RDD blocks
   * RDDs
