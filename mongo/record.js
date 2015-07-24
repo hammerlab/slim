@@ -300,7 +300,7 @@ function addUpsert(clazz, className, collectionName) {
         var vals = this.addToSetObj[k];
         if (vals.length == 1) {
           addToSetObj[k] = vals[0];
-        } else if (elems.length > 1) {
+        } else if (vals.length > 1) {
           addToSetObj[k] = { $each: vals }
         }
       }
