@@ -183,6 +183,13 @@ App.prototype.hydrate = function(cb) {
               }
             });
 
+            for (var sid in self.stages) {
+              var stage = self.stages[sid];
+              for (var said in stage.attempts) {
+                stage.attempts[said].initMetrics();
+              }
+            }
+
             r.rddBlocks.forEach(function(block) {
               if (!(block.execId in self.executors)) {
                 l.error(

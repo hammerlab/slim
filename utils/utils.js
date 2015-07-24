@@ -42,6 +42,22 @@ function taskEndObj(o) {
   return removeKeySpaces(taskEndObjRec(o));
 }
 
+function identity(x) { return x; }
+function acc(key) {
+  if (!key) {
+    return identity;
+  }
+  if (typeof key == 'string') {
+    return acc(key.split('.'));
+  }
+  return key.reduce(function(soFar, next) {
+    return function(x) {
+      var sf = soFar(x);
+      return sf ? sf[next] : undefined;
+    };
+  }, function(x) { return x; });
+}
+
 module.exports = {
   PENDING: undefined,
   RUNNING: 1,
@@ -64,3 +80,4 @@ module.exports.accumulablesObj = accumulablesObj;
 module.exports.taskEndObj = taskEndObj;
 module.exports.maybeParseInt = maybeParseInt;
 module.exports.isEmptyObject = isEmptyObject;
+module.exports.acc = acc;

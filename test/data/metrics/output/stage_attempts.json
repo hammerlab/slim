@@ -1,0 +1,111 @@
+[
+  {
+    "appId": "local-1437677504186",
+    "id": 0,
+    "stageId": 40,
+    "time": {
+      "start": 1437681807824,
+      "end": 1437681808898
+    },
+    "name": "map at <console>:27",
+    "taskCounts": {
+      "num": 20,
+      "running": 0,
+      "succeeded": 20
+    },
+    "taskIdxCounts": {
+      "num": 20,
+      "running": 0,
+      "succeeded": 20
+    },
+    "accumulables": {
+      "41": {
+        "ID": 41,
+        "Name": "foo",
+        "Value": 1784293664,
+        "Update": null
+      },
+      "42": {
+        "ID": 42,
+        "Name": "bar",
+        "Value": 999800,
+        "Update": null
+      }
+    },
+    "duration": 1074,
+    "jobId": 20,
+    "started": true,
+    "status": 2,
+    "totalTaskDuration": 4204,
+    "metrics": {
+      "ExecutorDeserializeTime": 141,
+      "ExecutorRunTime": 3730,
+      "ResultSize": 43760,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21400,
+        "ShuffleWriteTime": 108488000,
+        "ShuffleRecordsWritten": 200
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 20
+            },
+            "MemorySize": 28003520
+          }
+        }
+      },
+      "SchedulerDelayTime": 333,
+      "JVMGCTime": 486
+    },
+    "ended": true
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 0,
+    "stageId": 41,
+    "time": {
+      "start": 1437681808906,
+      "end": 1437681809000
+    },
+    "name": "count at <console>:27",
+    "taskCounts": {
+      "num": 20,
+      "running": 0,
+      "succeeded": 20
+    },
+    "taskIdxCounts": {
+      "num": 20,
+      "running": 0,
+      "succeeded": 20
+    },
+    "accumulables": {
+      "42": {
+        "ID": 42,
+        "Name": "bar",
+        "Value": 999990,
+        "Update": null
+      }
+    },
+    "duration": 94,
+    "jobId": 20,
+    "started": true,
+    "status": 2,
+    "totalTaskDuration": 320,
+    "metrics": {
+      "ExecutorDeserializeTime": 144,
+      "ExecutorRunTime": 99,
+      "ResultSize": 32530,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 200,
+        "LocalBytesRead": 21400,
+        "TotalRecordsRead": 200,
+        "TotalBytesRead": 21400,
+        "FetchWaitTime": 1
+      },
+      "SchedulerDelayTime": 77
+    },
+    "ended": true
+  }
+]

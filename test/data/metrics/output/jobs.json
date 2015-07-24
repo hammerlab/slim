@@ -1,0 +1,76 @@
+[
+  {
+    "appId": "local-1437677504186",
+    "id": 20,
+    "time": {
+      "start": 1437681807808,
+      "end": 1437681809000
+    },
+    "stageIDs": [
+      40,
+      41
+    ],
+    "stageNames": [
+      "map at <console>:27",
+      "count at <console>:27"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 40,
+      "running": 0,
+      "succeeded": 40
+    },
+    "taskIdxCounts": {
+      "num": 40,
+      "running": 0,
+      "succeeded": 40
+    },
+    "stageCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "stageIdxCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "properties": [],
+    "duration": 1192,
+    "totalTaskDuration": 4524,
+    "metrics": {
+      "ExecutorDeserializeTime": 285,
+      "ExecutorRunTime": 3829,
+      "ResultSize": 76290,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21400,
+        "ShuffleWriteTime": 108488000,
+        "ShuffleRecordsWritten": 200
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 20
+            },
+            "MemorySize": 28003520
+          }
+        }
+      },
+      "SchedulerDelayTime": 410,
+      "JVMGCTime": 486,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 200,
+        "LocalBytesRead": 21400,
+        "TotalRecordsRead": 200,
+        "TotalBytesRead": 21400,
+        "FetchWaitTime": 1
+      }
+    },
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true
+  }
+]

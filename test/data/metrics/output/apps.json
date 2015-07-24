@@ -1,0 +1,38 @@
+[
+  {
+    "id": "local-1437677504186",
+    "totalJobDuration": 1192,
+    "totalTaskDuration": 4524,
+    "metrics": {
+      "ExecutorDeserializeTime": 285,
+      "ExecutorRunTime": 3829,
+      "ResultSize": 76290,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21400,
+        "ShuffleWriteTime": 108488000,
+        "ShuffleRecordsWritten": 200
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 20
+            },
+            "MemorySize": 28003520
+          }
+        }
+      },
+      "SchedulerDelayTime": 410,
+      "JVMGCTime": 486,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 200,
+        "LocalBytesRead": 21400,
+        "TotalRecordsRead": 200,
+        "TotalBytesRead": 21400,
+        "FetchWaitTime": 1
+      }
+    },
+    "MemorySize": 28003520,
+    "numBlocks": 20
+  }
+]

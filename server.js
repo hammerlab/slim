@@ -78,6 +78,11 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   stageExecutor.inc(taskAttemptMetricsDiff);
   stageAttempt.inc(taskAttemptMetricsDiff);
   job.inc(taskAttemptMetricsDiff);
+
+  stageAttempt.updateMetrics(
+        { metrics: prevTaskAttemptMetrics },
+        { metrics: newTaskAttemptMetrics }
+  );
 }
 
 function handleBlockUpdates(taskMetrics, app, executor) {

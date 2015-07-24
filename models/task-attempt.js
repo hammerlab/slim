@@ -29,7 +29,8 @@ function TaskAttempt(stageAttempt, id) {
     this.init(
           [ 'appId', 'stageId', 'stageAttemptId', 'id' ],
           'totalTaskDuration',
-          [ this.stageAttempt, this.job, this.app ]
+          [ this.stageAttempt, this.job, this.app ],
+          [ this.stageAttempt.metricsMap['duration'] ]
     );
   }
 }

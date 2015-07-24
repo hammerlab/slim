@@ -1,0 +1,62 @@
+[
+  {
+    "appId": "local-1437677504186",
+    "id": 60,
+    "name": "ParallelCollectionRDD",
+    "parentIDs": [],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 20,
+    "numCachedPartitions": 0,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"120\",\"name\":\"parallelize\"}"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 61,
+    "name": "tmp-1437681807788",
+    "parentIDs": [
+      60
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": true,
+      "UseExternalBlockStore": false,
+      "Deserialized": true,
+      "Replication": 1
+    },
+    "numPartitions": 20,
+    "numCachedPartitions": 20,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"121\",\"name\":\"map\"}",
+    "fractionCached": 1,
+    "MemorySize": 28003520
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 62,
+    "name": "ShuffledRDD",
+    "parentIDs": [
+      61
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 20,
+    "numCachedPartitions": 0,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"122\",\"name\":\"reduceByKey\"}"
+  }
+]

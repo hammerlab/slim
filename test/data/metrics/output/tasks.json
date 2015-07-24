@@ -1,0 +1,322 @@
+[
+  {
+    "appId": "local-1437677504186",
+    "id": 0,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 1,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 2,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 3,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 4,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 5,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 6,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 7,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 8,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 9,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 10,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 11,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 12,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 13,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 14,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 15,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 16,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 17,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 18,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 19,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "type": "ShuffleMapTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 0,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 1,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 2,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 3,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 4,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 5,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 6,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 7,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 8,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 9,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 10,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 11,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 12,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 13,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 14,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 15,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 16,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 17,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 18,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  },
+  {
+    "appId": "local-1437677504186",
+    "id": 19,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "type": "ResultTask"
+  }
+]

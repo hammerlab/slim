@@ -12,5 +12,6 @@ module.exports.sortObjs = {
   Executors: { appId: 1, id: 1 },
   Tasks: { appId: 1, stageId: 1, stageAttemptId: 1, id: 1 },
   TaskAttempts: { appId: 1, id: 1 },
-  Environment: { appId: 1 }
+  Environment: { appId: 1 },
+  StageSummaryMetrics: { appId: 1, stageId: 1, stageAttemptId: 1, id: 1 }
 };

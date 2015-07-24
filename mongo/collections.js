@@ -52,6 +52,7 @@ var colls = module.exports.colls = [
           }
     )
   ],
+  [ 'StageSummaryMetrics', 'stage_summary_metrics', [{ appId: 1, stageId: 1, stageAttemptId: 1, id: 1 }] ],
   [ 'Environment', 'environment', [{ appId: 1 }] ]
 ];
 

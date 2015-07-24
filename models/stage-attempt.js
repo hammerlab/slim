@@ -4,13 +4,31 @@ var moment = require('moment');
 var StageExecutor = require('./stage-executor').StageExecutor;
 var Task = require('./task').Task;
 var TaskAttempt = require('./task-attempt').TaskAttempt;
-
+var StageSummaryMetric = require('./stage-summary-metric').StageSummaryMetric;
 var utils= require("../utils/utils");
 var processTime = utils.processTime;
 var accumulablesObj = utils.accumulablesObj;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var getExecutorId = require('./executor').getExecutorId;
+
+var metricIds = [
+  'duration',
+  'metrics.ExecutorRunTime',
+  'metrics.ExecutorDeserializeTime',
+  'metrics.GettingResultTime',
+  'metrics.SchedulerDelayTime',
+  'metrics.ResultSerializationTime',
+  'metrics.JVMGCTime',
+  'metrics.InputMetrics.BytesRead',
+  'metrics.InputMetrics.RecordsRead',
+  'metrics.OutputMetrics.BytesWritten',
+  'metrics.OutputMetrics.RecordsWritten',
+  'metrics.ShuffleReadMetrics.TotalBytesRead',
+  'metrics.ShuffleReadMetrics.TotalRecordsRead',
+  'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
+  'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten'
+];
 
 function StageAttempt(stage, id) {
   this.app = stage.app;
@@ -24,7 +42,24 @@ function StageAttempt(stage, id) {
   this.task_attempts = {};
 
   this.executors = {};
+
+  this.metrics = metricIds.map(function(id) {
+    return new StageSummaryMetric(this, id);
+  }.bind(this));
+
+  this.metricsMap = {};
+  this.metrics.forEach(function(metric) {
+    this.metricsMap[metric.id] = metric;
+  }.bind(this));
+
+  this.upsertHooks = [ this.syncMetrics ];
 }
+
+StageAttempt.prototype.initMetrics = function() {
+  this.metrics.forEach(function(metric) {
+    metric.initTree();
+  });
+};
 
 StageAttempt.prototype.setJob = function(job) {
   this.job = job;
@@ -44,6 +79,19 @@ StageAttempt.prototype.fromStageInfo = function(si) {
         })
         .set('accumulables', accumulablesObj(si['Accumulables']), true)
         .setDuration();
+};
+
+StageAttempt.prototype.updateMetrics = function(prevMetrics, nextMetrics) {
+  this.metrics.forEach(function(metric) {
+    metric.handleMetrics(prevMetrics, nextMetrics);
+  });
+};
+
+StageAttempt.prototype.syncMetrics = function() {
+  this.metrics.forEach(function(metric) {
+    metric.syncChanges();
+    metric.upsert();
+  });
 };
 
 StageAttempt.prototype.getTask = function(taskIndex) {

@@ -1,0 +1,61 @@
+[
+  {
+    "appId": "local-1437677504186",
+    "execId": "driver",
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "taskCounts": {
+      "running": 0,
+      "num": 20,
+      "succeeded": 20
+    },
+    "totalTaskDuration": 4204,
+    "metrics": {
+      "ExecutorDeserializeTime": 141,
+      "ExecutorRunTime": 3730,
+      "ResultSize": 43760,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21400,
+        "ShuffleWriteTime": 108488000,
+        "ShuffleRecordsWritten": 200
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "StorageLevel": {
+              "Replication": 20
+            },
+            "MemorySize": 28003520
+          }
+        }
+      },
+      "SchedulerDelayTime": 333,
+      "JVMGCTime": 486
+    }
+  },
+  {
+    "appId": "local-1437677504186",
+    "execId": "driver",
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "taskCounts": {
+      "running": 0,
+      "num": 20,
+      "succeeded": 20
+    },
+    "totalTaskDuration": 320,
+    "metrics": {
+      "ExecutorDeserializeTime": 144,
+      "ExecutorRunTime": 99,
+      "ResultSize": 32530,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 200,
+        "LocalBytesRead": 21400,
+        "TotalRecordsRead": 200,
+        "TotalBytesRead": 21400,
+        "FetchWaitTime": 1
+      },
+      "SchedulerDelayTime": 77
+    }
+  }
+]

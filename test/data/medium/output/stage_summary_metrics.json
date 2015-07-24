@@ -1,0 +1,262 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "duration",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 239,
+    "tf": 253,
+    "median": 294,
+    "sf": 455,
+    "max": 4425
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ExecutorDeserializeTime",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 4,
+    "tf": 6,
+    "median": 8,
+    "sf": 11,
+    "max": 2818
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ExecutorRunTime",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 206,
+    "tf": 218,
+    "median": 254,
+    "sf": 376,
+    "max": 1681
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.GettingResultTime",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.InputMetrics.BytesRead",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.InputMetrics.RecordsRead",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 0,
+    "tf": 0,
+    "median": 0,
+    "sf": 0,
+    "max": 1359
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.OutputMetrics.BytesWritten",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.OutputMetrics.RecordsWritten",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ResultSerializationTime",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 0,
+    "tf": 0,
+    "median": 1,
+    "sf": 1,
+    "max": 2
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.SchedulerDelayTime",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 18,
+    "tf": 30,
+    "median": 32,
+    "sf": 57,
+    "max": 165
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.TotalBytesRead",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.TotalRecordsRead",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleWriteMetrics.ShuffleBytesWritten",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 2836,
+    "tf": 2836,
+    "median": 2836,
+    "sf": 2836,
+    "max": 2836
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleWriteMetrics.ShuffleRecordsWritten",
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "min": 100,
+    "tf": 100,
+    "median": 100,
+    "sf": 100,
+    "max": 100
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "duration",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 29,
+    "tf": 42,
+    "median": 49,
+    "sf": 102,
+    "max": 3194
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ExecutorDeserializeTime",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 1,
+    "tf": 2,
+    "median": 3,
+    "sf": 4,
+    "max": 2413
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ExecutorRunTime",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 12,
+    "tf": 22,
+    "median": 26,
+    "sf": 42,
+    "max": 416
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.GettingResultTime",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.InputMetrics.BytesRead",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.InputMetrics.RecordsRead",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 0,
+    "tf": 0,
+    "median": 0,
+    "sf": 0,
+    "max": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.OutputMetrics.BytesWritten",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.OutputMetrics.RecordsWritten",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ResultSerializationTime",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 0,
+    "tf": 1,
+    "median": 1,
+    "sf": 1,
+    "max": 5
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.SchedulerDelayTime",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 13,
+    "tf": 16,
+    "median": 18,
+    "sf": 20,
+    "max": 384
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.TotalBytesRead",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 2800,
+    "tf": 2800,
+    "median": 2800,
+    "sf": 2900,
+    "max": 2900
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.TotalRecordsRead",
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "min": 100,
+    "tf": 100,
+    "median": 100,
+    "sf": 100,
+    "max": 100
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleWriteMetrics.ShuffleBytesWritten",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleWriteMetrics.ShuffleRecordsWritten",
+    "stageAttemptId": 0,
+    "stageId": 1
+  }
+]
