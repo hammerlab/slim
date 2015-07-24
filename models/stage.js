@@ -26,13 +26,15 @@ mixinMongoMethods(Stage, "Stage", "Stages");
 Stage.prototype.fromStageInfo = function(si) {
   return this.set({
     name: si['Stage Name'],
-    'taskCounts.num': si['Number of Tasks'],
     rddIDs: si['RDD Info'].map(function (ri) {
       return ri['RDD ID'];
     }),
     parents: si['Parent IDs'],
     details: si['Details']
-  }).set('accumulables', removeKeyDots(si['Accumulables']), true);
+  }).set({
+    'accumulables': removeKeyDots(si['Accumulables']),
+    'taskCounts.num': si['Number of Tasks']
+  }, true);
 };
 
 Stage.prototype.getAttempt = function(attemptId) {
@@ -43,6 +45,12 @@ Stage.prototype.getAttempt = function(attemptId) {
     this.attempts[attemptId] = new StageAttempt(this, attemptId);
   }
   return this.attempts[attemptId];
+};
+
+Stage.prototype.setJob = function(job) {
+  this.job = job;
+  this.set('jobId', job.id);
+  return this;
 };
 
 module.exports.Stage = Stage;

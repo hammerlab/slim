@@ -1,4 +1,7 @@
 
+var argv = require('minimist')(process.argv.slice(2));
+
+var l = require("../utils/log").l;
 var moment = require('moment');
 
 var StageExecutor = require('./stage-executor').StageExecutor;
@@ -38,6 +41,13 @@ function StageAttempt(stage, id) {
 
   this.init([ 'appId', 'stageId', 'id' ]);
 
+  if (!stage.job) {
+    l.error("%s: stage missing job (stage %s)", this.toString(), stage.toString());
+  } else {
+    this.job = stage.job;
+    this.set('jobId', this.job.id);
+  }
+
   this.tasks = {};
   this.task_attempts = {};
 
@@ -59,12 +69,6 @@ StageAttempt.prototype.initMetrics = function() {
   this.metrics.forEach(function(metric) {
     metric.initTree();
   });
-};
-
-StageAttempt.prototype.setJob = function(job) {
-  this.job = job;
-  this.set('jobId', job.id);
-  return this;
 };
 
 StageAttempt.prototype.fromStageInfo = function(si) {

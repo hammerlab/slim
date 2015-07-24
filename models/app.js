@@ -73,6 +73,19 @@ App.prototype.hydrate = function(cb) {
             r.stages.forEach(function(stage) {
               self.stages[stage.id] = new Stage(self, stage.id).fromMongo(stage);
             });
+            for (var jobId in self.jobs) {
+              var job = self.jobs(jobId);
+              (job.stageIDs || []).forEach(function(sid) {
+                if (!(sid in self.stages)) {
+                  l.error("Missing stage %d in job %d", sid, job.id);
+                } else {
+                  var stage = self.stages[sid];
+                  stage.job = job;
+                  stage.set('jobId', job.id);
+                }
+              });
+            };
+
             r.rdds.forEach(function(rdd) {
               self.rdds[rdd.id] = new RDD(id, rdd.id).fromMongo(rdd);
             });
@@ -121,22 +134,7 @@ App.prototype.hydrate = function(cb) {
                       }).join(',')
                 );
               } else {
-                var sa = self.stages[stageAttempt.stageId].getAttempt(stageAttempt.id).fromMongo(stageAttempt);
-                if (!('jobId' in stageAttempt)) {
-                  l.error("No jobId in stageAttempt mongo record:", JSON.stringify(stageAttempt));
-                } else {
-                  var jobId = stageAttempt.jobId;
-                  if (!(jobId in self.jobs)) {
-                    l.error(
-                          "Job id %d from stageAttempt %s not found in app.jobs: %s",
-                          jobId,
-                          JSON.stringify(stageAttempt),
-                          self.jobs.map(function(j) { return j.id; }).join(',')
-                    );
-                  } else {
-                    sa.setJob(self.jobs[jobId]);
-                  }
-                }
+                self.stages[stageAttempt.stageId].getAttempt(stageAttempt.id).fromMongo(stageAttempt);
               }
             });
 

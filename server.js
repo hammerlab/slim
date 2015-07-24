@@ -183,9 +183,8 @@ var handlers = {
     var stageNames = [];
     stageInfos.forEach(function(si) {
 
-      var stage = app.getStage(si['Stage ID']).fromStageInfo(si).set('jobId', job.id).upsert();
-
-      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).setJob(job).upsert();
+      var stage = app.getStage(si['Stage ID']).fromStageInfo(si).setJob(job).upsert();
+      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).upsert();
 
       si['RDD Info'].forEach(function(ri) {
         app.getRDD(ri).fromRDDInfo(ri).upsert();
@@ -226,7 +225,7 @@ var handlers = {
     job.get('stageIDs').map(function(sid) {
       var stage = app.getStage(sid);
       var status = stage.get('status');
-      if (status == RUNNING || status == FAILED) {
+      if (status == RUNNING) {
         l.error("Found unexpected status " + status + " for stage " + stage.id + " when marking job " + job.id + " complete.");
       } else if (!status) {
         // Will log an error if a status exists for this stage
@@ -262,12 +261,12 @@ var handlers = {
     job.inc('stageCounts.running');
 
     if (prevStageStatus == SUCCEEDED || prevStageStatus == SKIPPED) {
-      l.error("Stage %d marked as %s but attempt %d submitted", stage.id, statusStr[prevStageStatus], attempt.id);
+      l.warn("Stage %d marked as %s but attempt %d submitted", stage.id, statusStr[prevStageStatus], attempt.id);
     } else if (prevStageStatus == FAILED) {
-      stage.set('status', RUNNING);
+      stage.set('status', RUNNING, true);
       job.dec('stageIdxCounts.failed').inc('stageIdxCounts.running')
     } else if (prevStageStatus == PENDING) {
-      stage.set('status', RUNNING);
+      stage.set('status', RUNNING, true);
       job.inc('stageIdxCounts.running');
     }
 
@@ -382,14 +381,14 @@ var handlers = {
         ['num', 'running', 'succeeded', 'failed'].forEach(function(key) {
           var jobKey = ['taskIdxCounts', key].join('.');
           var resetValue =
-                job.stageIDs.reduce(function(sum, stageId) {
+                (job.stageIDs || []).reduce(function(sum, stageId) {
                   return sum + (app.getStage(stageId).get('taskIdxCounts')[key] || 0);
                 }, 0);
           l.info(
                 "Resetting job %d 'taskIdxCounts.%s' on stage attempt %d.%d failure: %d -> %d",
                 job.id, key, stage.id, attempt.id, job.get(jobKey), resetValue
           );
-          job.set(jobKey, resetValue);
+          job.set(jobKey, resetValue, true);
         });
         job.get('taskIdxCounts');
       }

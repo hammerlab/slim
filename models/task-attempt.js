@@ -12,9 +12,21 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
 function TaskAttempt(stageAttempt, id) {
-  this.app = stageAttempt.app;
+  if (!stageAttempt) {
+    l.error("TaskAttempt(%d): missing stageAttempt", id);
+  } else {
+    if (!stageAttempt.app) {
+      l.error("TaskAttempt(%d): missing app, stageAttempt: %s", id, stageAttempt.toString());
+    }
+    if (!stageAttempt.job) {
+      l.error("TaskAttempt(%d): missing job, stageAttempt: %s", id, stageAttempt.toString());
+    }
+  }
+
   this.stageAttempt = stageAttempt;
+  this.app = stageAttempt.app;
   this.job = stageAttempt.job;
+
 
   this.appId = stageAttempt.appId;
   this.stageId = stageAttempt.stageId;
@@ -59,9 +71,18 @@ TaskAttempt.prototype.setExecutors = function() {
   if (!this.executor && this.has('execId')) {
     var execId = this.get('execId');
     this.executor = this.app.getExecutor(execId);
+    if (this.executor) {
+      this.durationAggregationObjs.push(this.executor);
+    } else {
+      l.error("%s: empty executor %s", this.toString(), execId);
+    }
+
     this.stageExecutor = this.stageAttempt.getExecutor(execId);
-    this.durationAggregationObjs.push(this.executor);
-    this.durationAggregationObjs.push(this.stageExecutor);
+    if (this.stageExecutor) {
+      this.durationAggregationObjs.push(this.stageExecutor);
+    } else {
+      l.error("%s: empty stageExecutor %s", this.toString(), execId);
+    }
   }
   return this;
 };
