@@ -91,6 +91,6 @@ if (inputFile) {
 } else {
   mongo.init(mongoUrl, function (err) {
     assert.equal(null, err);
-    dumpMongoToOutputDir(dir);
+    dumpMongoToOutputDir(outputDir);
   });
 }
