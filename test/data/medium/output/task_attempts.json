@@ -9,7 +9,6 @@
       "end": 1437343917584
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 0,
@@ -64,7 +63,6 @@
       "end": 1437343917598
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 1,
@@ -119,7 +117,6 @@
       "end": 1437343917522
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 2,
@@ -174,7 +171,6 @@
       "end": 1437343917952
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 3,
@@ -229,7 +225,6 @@
       "end": 1437343918135
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 4,
@@ -284,7 +279,6 @@
       "end": 1437343918155
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 5,
@@ -339,7 +333,6 @@
       "end": 1437343918403
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 6,
@@ -394,7 +387,6 @@
       "end": 1437343918579
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 7,
@@ -449,7 +441,6 @@
       "end": 1437343918596
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 8,
@@ -504,7 +495,6 @@
       "end": 1437343918987
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 9,
@@ -559,7 +549,6 @@
       "end": 1437343919004
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 10,
@@ -614,7 +603,6 @@
       "end": 1437343919017
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 11,
@@ -669,7 +657,6 @@
       "end": 1437343919347
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 12,
@@ -724,7 +711,6 @@
       "end": 1437343919359
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 13,
@@ -779,7 +765,6 @@
       "end": 1437343919525
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 14,
@@ -834,7 +819,6 @@
       "end": 1437343919677
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 15,
@@ -889,7 +873,6 @@
       "end": 1437343919689
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 16,
@@ -944,7 +927,6 @@
       "end": 1437343919974
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 17,
@@ -999,7 +981,6 @@
       "end": 1437343920008
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 18,
@@ -1054,7 +1035,6 @@
       "end": 1437343920007
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 19,
@@ -1109,7 +1089,6 @@
       "end": 1437343920261
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 20,
@@ -1164,7 +1143,6 @@
       "end": 1437343920272
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 21,
@@ -1219,7 +1197,6 @@
       "end": 1437343920409
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 22,
@@ -1274,7 +1251,6 @@
       "end": 1437343920538
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 23,
@@ -1329,7 +1305,6 @@
       "end": 1437343920549
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 24,
@@ -1384,7 +1359,6 @@
       "end": 1437343920779
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 25,
@@ -1439,7 +1413,6 @@
       "end": 1437343920793
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 26,
@@ -1494,7 +1467,6 @@
       "end": 1437343920803
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 27,
@@ -1549,7 +1521,6 @@
       "end": 1437343921042
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 28,
@@ -1604,7 +1575,6 @@
       "end": 1437343921053
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 29,
@@ -1659,7 +1629,6 @@
       "end": 1437343921122
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 30,
@@ -1714,7 +1683,6 @@
       "end": 1437343922042
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 31,
@@ -1769,7 +1737,6 @@
       "end": 1437343922082
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 32,
@@ -1824,7 +1791,6 @@
       "end": 1437343922356
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 33,
@@ -1879,7 +1845,6 @@
       "end": 1437343922399
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 34,
@@ -1934,7 +1899,6 @@
       "end": 1437343922463
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 35,
@@ -1989,7 +1953,6 @@
       "end": 1437343922778
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 36,
@@ -2044,7 +2007,6 @@
       "end": 1437343922761
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 37,
@@ -2099,7 +2061,6 @@
       "end": 1437343922831
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 38,
@@ -2154,7 +2115,6 @@
       "end": 1437343923095
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 39,
@@ -2209,7 +2169,6 @@
       "end": 1437343923154
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 40,
@@ -2264,7 +2223,6 @@
       "end": 1437343923158
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 41,
@@ -2319,7 +2277,6 @@
       "end": 1437343923382
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 42,
@@ -2374,7 +2331,6 @@
       "end": 1437343923456
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 43,
@@ -2429,7 +2385,6 @@
       "end": 1437343923437
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 44,
@@ -2484,7 +2439,6 @@
       "end": 1437343923648
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 45,
@@ -2539,7 +2493,6 @@
       "end": 1437343923702
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 46,
@@ -2594,7 +2547,6 @@
       "end": 1437343923730
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 47,
@@ -2649,7 +2601,6 @@
       "end": 1437343923888
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 48,
@@ -2704,7 +2655,6 @@
       "end": 1437343923940
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 49,
@@ -2759,7 +2709,6 @@
       "end": 1437343924037
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 50,
@@ -2814,7 +2763,6 @@
       "end": 1437343924164
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 51,
@@ -2869,7 +2817,6 @@
       "end": 1437343924218
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 52,
@@ -2924,7 +2871,6 @@
       "end": 1437343924291
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 53,
@@ -2979,7 +2925,6 @@
       "end": 1437343924401
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 54,
@@ -3034,7 +2979,6 @@
       "end": 1437343924455
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 55,
@@ -3089,7 +3033,6 @@
       "end": 1437343924542
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 56,
@@ -3144,7 +3087,6 @@
       "end": 1437343924637
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 57,
@@ -3199,7 +3141,6 @@
       "end": 1437343924703
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 58,
@@ -3254,7 +3195,6 @@
       "end": 1437343926177
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 59,
@@ -3309,7 +3249,6 @@
       "end": 1437343926234
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 60,
@@ -3364,7 +3303,6 @@
       "end": 1437343926307
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 61,
@@ -3419,7 +3357,6 @@
       "end": 1437343926415
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 62,
@@ -3474,7 +3411,6 @@
       "end": 1437343926471
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 63,
@@ -3529,7 +3465,6 @@
       "end": 1437343926547
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 64,
@@ -3584,7 +3519,6 @@
       "end": 1437343926650
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 65,
@@ -3639,7 +3573,6 @@
       "end": 1437343926706
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 66,
@@ -3694,7 +3627,6 @@
       "end": 1437343926786
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 67,
@@ -3749,7 +3681,6 @@
       "end": 1437343926883
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 68,
@@ -3804,7 +3735,6 @@
       "end": 1437343926984
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 69,
@@ -3859,7 +3789,6 @@
       "end": 1437343927023
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 70,
@@ -3914,7 +3843,6 @@
       "end": 1437343927115
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 71,
@@ -3969,7 +3897,6 @@
       "end": 1437343927224
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 72,
@@ -4024,7 +3951,6 @@
       "end": 1437343927265
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 73,
@@ -4079,7 +4005,6 @@
       "end": 1437343927610
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 74,
@@ -4134,7 +4059,6 @@
       "end": 1437343927498
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 75,
@@ -4189,7 +4113,6 @@
       "end": 1437343927540
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 76,
@@ -4244,7 +4167,6 @@
       "end": 1437343927734
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 77,
@@ -4299,7 +4221,6 @@
       "end": 1437343927778
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 78,
@@ -4354,7 +4275,6 @@
       "end": 1437343928098
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 79,
@@ -4409,7 +4329,6 @@
       "end": 1437343928009
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 80,
@@ -4464,7 +4383,6 @@
       "end": 1437343928015
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 81,
@@ -4519,7 +4437,6 @@
       "end": 1437343928252
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 82,
@@ -4574,7 +4491,6 @@
       "end": 1437343928246
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 83,
@@ -4629,7 +4545,6 @@
       "end": 1437343928502
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 84,
@@ -4684,7 +4599,6 @@
       "end": 1437343928483
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 85,
@@ -4739,7 +4653,6 @@
       "end": 1437343928528
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 86,
@@ -4794,7 +4707,6 @@
       "end": 1437343928730
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 87,
@@ -4849,7 +4761,6 @@
       "end": 1437343930208
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 88,
@@ -4904,7 +4815,6 @@
       "end": 1437343928767
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 89,
@@ -4959,7 +4869,6 @@
       "end": 1437343930351
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 90,
@@ -5014,7 +4923,6 @@
       "end": 1437343930357
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 91,
@@ -5069,7 +4977,6 @@
       "end": 1437343930481
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 92,
@@ -5124,7 +5031,6 @@
       "end": 1437343930587
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 93,
@@ -5179,7 +5085,6 @@
       "end": 1437343930593
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 94,
@@ -5234,7 +5139,6 @@
       "end": 1437343930719
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 95,
@@ -5289,7 +5193,6 @@
       "end": 1437343930823
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 96,
@@ -5344,7 +5247,6 @@
       "end": 1437343930829
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 97,
@@ -5399,7 +5301,6 @@
       "end": 1437343930947
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 98,
@@ -5454,7 +5355,6 @@
       "end": 1437343931062
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 99,
@@ -5509,7 +5409,6 @@
       "end": 1437343931233
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 0,
@@ -5551,7 +5450,6 @@
       "end": 1437343931246
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 1,
@@ -5593,7 +5491,6 @@
       "end": 1437343931244
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 2,
@@ -5635,7 +5532,6 @@
       "end": 1437343931261
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 3,
@@ -5677,7 +5573,6 @@
       "end": 1437343931307
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 4,
@@ -5719,7 +5614,6 @@
       "end": 1437343931309
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 5,
@@ -5761,7 +5655,6 @@
       "end": 1437343931295
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 6,
@@ -5803,7 +5696,6 @@
       "end": 1437343931323
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 7,
@@ -5845,7 +5737,6 @@
       "end": 1437343931368
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 8,
@@ -5887,7 +5778,6 @@
       "end": 1437343931369
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 9,
@@ -5929,7 +5819,6 @@
       "end": 1437343931358
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 10,
@@ -5971,7 +5860,6 @@
       "end": 1437343931389
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 11,
@@ -6013,7 +5901,6 @@
       "end": 1437343931428
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 12,
@@ -6055,7 +5942,6 @@
       "end": 1437343931431
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 13,
@@ -6097,7 +5983,6 @@
       "end": 1437343931425
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 14,
@@ -6139,7 +6024,6 @@
       "end": 1437343931485
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 15,
@@ -6181,7 +6065,6 @@
       "end": 1437343931488
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 16,
@@ -6223,7 +6106,6 @@
       "end": 1437343931466
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 17,
@@ -6265,7 +6147,6 @@
       "end": 1437343931497
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 18,
@@ -6307,7 +6188,6 @@
       "end": 1437343931545
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 19,
@@ -6349,7 +6229,6 @@
       "end": 1437343931548
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 20,
@@ -6391,7 +6270,6 @@
       "end": 1437343931532
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 21,
@@ -6433,7 +6311,6 @@
       "end": 1437343931563
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 22,
@@ -6475,7 +6352,6 @@
       "end": 1437343931605
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 23,
@@ -6517,7 +6393,6 @@
       "end": 1437343931608
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 24,
@@ -6559,7 +6434,6 @@
       "end": 1437343931600
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 25,
@@ -6601,7 +6475,6 @@
       "end": 1437343931659
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 26,
@@ -6643,7 +6516,6 @@
       "end": 1437343931662
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 27,
@@ -6685,7 +6557,6 @@
       "end": 1437343931643
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 28,
@@ -6727,7 +6598,6 @@
       "end": 1437343931671
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 29,
@@ -6769,7 +6639,6 @@
       "end": 1437343931709
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 30,
@@ -6811,7 +6680,6 @@
       "end": 1437343931711
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 31,
@@ -6853,7 +6721,6 @@
       "end": 1437343931701
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 32,
@@ -6895,7 +6762,6 @@
       "end": 1437343931764
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 33,
@@ -6937,7 +6803,6 @@
       "end": 1437343931759
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 34,
@@ -6979,7 +6844,6 @@
       "end": 1437343931742
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 35,
@@ -7021,7 +6885,6 @@
       "end": 1437343931768
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 36,
@@ -7063,7 +6926,6 @@
       "end": 1437343931808
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 37,
@@ -7105,7 +6967,6 @@
       "end": 1437343931789
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 38,
@@ -7147,7 +7008,6 @@
       "end": 1437343931817
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 39,
@@ -7189,7 +7049,6 @@
       "end": 1437343931818
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 40,
@@ -7231,7 +7090,6 @@
       "end": 1437343931853
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 41,
@@ -7273,7 +7131,6 @@
       "end": 1437343931843
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 42,
@@ -7315,7 +7172,6 @@
       "end": 1437343931862
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 43,
@@ -7357,7 +7213,6 @@
       "end": 1437343931866
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 44,
@@ -7399,7 +7254,6 @@
       "end": 1437343931898
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 45,
@@ -7441,7 +7295,6 @@
       "end": 1437343931887
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 46,
@@ -7483,7 +7336,6 @@
       "end": 1437343931909
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 47,
@@ -7525,7 +7377,6 @@
       "end": 1437343931912
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 48,
@@ -7567,7 +7418,6 @@
       "end": 1437343931942
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 49,
@@ -7609,7 +7459,6 @@
       "end": 1437343931934
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 50,
@@ -7651,7 +7500,6 @@
       "end": 1437343931956
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 51,
@@ -7693,7 +7541,6 @@
       "end": 1437343931957
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 52,
@@ -7735,7 +7582,6 @@
       "end": 1437343931983
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 53,
@@ -7777,7 +7623,6 @@
       "end": 1437343931978
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 54,
@@ -7819,7 +7664,6 @@
       "end": 1437343931996
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 55,
@@ -7861,7 +7705,6 @@
       "end": 1437343932017
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 56,
@@ -7903,7 +7746,6 @@
       "end": 1437343932007
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 57,
@@ -7945,7 +7787,6 @@
       "end": 1437343932037
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 58,
@@ -7987,7 +7828,6 @@
       "end": 1437343932031
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 59,
@@ -8029,7 +7869,6 @@
       "end": 1437343932057
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 60,
@@ -8071,7 +7910,6 @@
       "end": 1437343932069
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 61,
@@ -8113,7 +7951,6 @@
       "end": 1437343932059
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 62,
@@ -8155,7 +7992,6 @@
       "end": 1437343932170
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 63,
@@ -8197,7 +8033,6 @@
       "end": 1437343932179
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 64,
@@ -8239,7 +8074,6 @@
       "end": 1437343932186
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 65,
@@ -8281,7 +8115,6 @@
       "end": 1437343932184
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 66,
@@ -8323,7 +8156,6 @@
       "end": 1437343935276
     },
     "execId": 3,
-    "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 67,
@@ -8365,7 +8197,6 @@
       "end": 1437343935314
     },
     "execId": 3,
-    "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 68,
@@ -8407,7 +8238,6 @@
       "end": 1437343935363
     },
     "execId": 3,
-    "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 69,
@@ -8449,7 +8279,6 @@
       "end": 1437343932219
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 70,
@@ -8491,7 +8320,6 @@
       "end": 1437343932227
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 71,
@@ -8533,7 +8361,6 @@
       "end": 1437343932226
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 72,
@@ -8575,7 +8402,6 @@
       "end": 1437343932318
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 73,
@@ -8617,7 +8443,6 @@
       "end": 1437343932322
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 74,
@@ -8659,7 +8484,6 @@
       "end": 1437343932323
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 75,
@@ -8701,7 +8525,6 @@
       "end": 1437343935020
     },
     "execId": 8,
-    "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 76,
@@ -8743,7 +8566,6 @@
       "end": 1437343935008
     },
     "execId": 8,
-    "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 77,
@@ -8785,7 +8607,6 @@
       "end": 1437343935069
     },
     "execId": 8,
-    "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 78,
@@ -8827,7 +8648,6 @@
       "end": 1437343932357
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 79,
@@ -8869,7 +8689,6 @@
       "end": 1437343932359
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 80,
@@ -8911,7 +8730,6 @@
       "end": 1437343932363
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 81,
@@ -8953,7 +8771,6 @@
       "end": 1437343932399
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 82,
@@ -8995,7 +8812,6 @@
       "end": 1437343932397
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 83,
@@ -9037,7 +8853,6 @@
       "end": 1437343932400
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 84,
@@ -9079,7 +8894,6 @@
       "end": 1437343932435
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 85,
@@ -9121,7 +8935,6 @@
       "end": 1437343932442
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 86,
@@ -9163,7 +8976,6 @@
       "end": 1437343932438
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 87,
@@ -9205,7 +9017,6 @@
       "end": 1437343932475
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 88,
@@ -9247,7 +9058,6 @@
       "end": 1437343932479
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 89,
@@ -9289,7 +9099,6 @@
       "end": 1437343932483
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 90,
@@ -9331,7 +9140,6 @@
       "end": 1437343932510
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 91,
@@ -9373,7 +9181,6 @@
       "end": 1437343932516
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 92,
@@ -9415,7 +9222,6 @@
       "end": 1437343932519
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 93,
@@ -9457,7 +9263,6 @@
       "end": 1437343932624
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 94,
@@ -9499,7 +9304,6 @@
       "end": 1437343932625
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 95,
@@ -9541,7 +9345,6 @@
       "end": 1437343932628
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 96,
@@ -9583,7 +9386,6 @@
       "end": 1437343935220
     },
     "execId": 5,
-    "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 97,
@@ -9625,7 +9427,6 @@
       "end": 1437343935252
     },
     "execId": 5,
-    "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 98,
@@ -9667,7 +9468,6 @@
       "end": 1437343935309
     },
     "execId": 5,
-    "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": false,
     "index": 99,
@@ -9709,7 +9509,6 @@
       "end": 1437343935364
     },
     "execId": 20,
-    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 99,
@@ -9728,7 +9527,6 @@
       "end": 1437343935364
     },
     "execId": 11,
-    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 78,
@@ -9747,7 +9545,6 @@
       "end": 1437343932936
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 67,
@@ -9789,7 +9586,6 @@
       "end": 1437343935364
     },
     "execId": 20,
-    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 68,
@@ -9808,7 +9604,6 @@
       "end": 1437343935364
     },
     "execId": 11,
-    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 69,
@@ -9827,7 +9622,6 @@
       "end": 1437343932939
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 97,
@@ -9869,7 +9663,6 @@
       "end": 1437343935364
     },
     "execId": 20,
-    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 76,
@@ -9888,7 +9681,6 @@
       "end": 1437343935364
     },
     "execId": 11,
-    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 98,
@@ -9907,7 +9699,6 @@
       "end": 1437343932940
     },
     "execId": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "locality": "PROCESS_LOCAL",
     "speculative": true,
     "index": 77,
