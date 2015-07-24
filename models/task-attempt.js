@@ -42,7 +42,7 @@ TaskAttempt.prototype.fromTaskInfo = function(ti) {
     execId: getExecutorId(ti),
     locality: ti['Locality'],
     speculative: ti['Speculative'],
-    gettingResultTime: processTime(ti['Getting Result Time']),
+    GettingResultTime: processTime(ti['Getting Result Time']),
     index: ti['Index'],
     attempt: ti['Attempt']
   }).set({

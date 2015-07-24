@@ -56,7 +56,7 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
     return;
   }
   taskAttempt.setDuration();
-  var grt = taskAttempt.get('gettingResultTime') || 0;
+  var grt = taskAttempt.get('GettingResultTime') || 0;
   if (grt) {
     var end = taskAttempt.get('time.end') || (moment().unix()*1000);
     newTaskAttemptMetrics.GettingResultTime = end - grt;
