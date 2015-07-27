@@ -229,17 +229,17 @@ function addSetDuration(clazz) {
     if (start) {
       var end = this.get('time.end');
       if (end) {
-        var curDur = this.get('duration') || 0;
+        var curDur = this.get('duration');
         var newDur = end - start;
         if (curDur != newDur) {
-          var durationInc = newDur - curDur;
+          var durationInc = newDur - (curDur || 0);
           this.set('duration', newDur, true);
           this.maybeIncrementAggregatedDurations(durationInc, curDur, newDur);
         }
       } else {
         var newDuration = Math.max(0, (m().unix() * 1000) - start);
-        var prevDuration = this.get('duration') || 0;
-        var delta = newDuration - prevDuration;
+        var prevDuration = this.get('duration');
+        var delta = newDuration - (prevDuration || 0);
         this.set('duration', newDuration, true);
         this.maybeIncrementAggregatedDurations(delta, prevDuration, newDuration);
       }

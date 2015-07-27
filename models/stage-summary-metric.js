@@ -31,7 +31,6 @@ function StageSummaryMetric(stageAttempt, id) {
 
   if (this.id === 'duration') {
     this.handleTaskDurationChange = function(delta, before, after) {
-      if (!before) before = undefined;
       this.handleValueChange(before, after);
     };
   }
