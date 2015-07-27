@@ -80,8 +80,8 @@ App.prototype.hydrate = function(cb) {
               self.stages[stage.id] = new Stage(self, stage.id).fromMongo(stage);
             });
             for (var jobId in self.jobs) {
-              var job = self.jobs(jobId);
-              (job.stageIDs || []).forEach(function(sid) {
+              var job = self.jobs[jobId];
+              (job.get('stageIDs') || []).forEach(function(sid) {
                 if (!(sid in self.stages)) {
                   l.error("Missing stage %d in job %d", sid, job.id);
                 } else {
