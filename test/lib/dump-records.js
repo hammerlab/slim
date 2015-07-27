@@ -3,12 +3,16 @@ var argv = require('minimist')(process.argv.slice(2));
 var assert = require('assert');
 var async = require('async');
 
+var l = require('../../utils/log').l;
+
 var mongoPort = argv.p || argv['mongo-port'] || 27017;
 var mongoHost = argv.h || argv['mongo-host'] || 'localhost';
 var mongoDb = argv.d || argv['mongo-db'] || 'test';
 var mongoUrl = argv.m || argv['mongo-url'] || ('mongodb://' + mongoHost + ':' + mongoPort + '/' + mongoDb);
 
 var inputFile = argv.in;
+var turnInFileIntoDirectory = !!argv.i || !!argv['in-place'];
+var noOutputDir = !!argv.n || !!argv['no-output'] || !!argv['dry-run']
 
 var mongo = require('../../mongo/collections');
 var colls = mongo.colls;
@@ -19,7 +23,9 @@ var Server = require('./server').Server;
 
 if (argv._.length !== 1 && !inputFile) {
   throw new Error(
-        "Specify either an argument (where to write JSON files) or an --in option (where to read from; output paths automatically inferred in this case)"
+        "Specify either an argument (where to write JSON files read from DB)" +
+        "or an --in option (where to read from; output paths automatically " +
+        "inferred in this case)"
   );
 }
 var outputDir = null;
@@ -34,6 +40,10 @@ var path = require('path');
 var sortObjs = require('./utils').sortObjs;
 
 function dumpMongoToOutputDir(dir) {
+  if (noOutputDir) {
+    l.info("Dry run; skipping outputting to %s", dir);
+    return;
+  }
   mkdirp.sync(dir);
   async.parallel(
         colls.map(function (c) {
@@ -80,8 +90,19 @@ if (inputFile) {
         }
       }
     } else {
-      inputDir = path.dirname(inputFile);
-      rootDir = path.dirname(inputDir);
+      if (turnInFileIntoDirectory) {
+        var bakFile = inputFile + '.bak';
+        fs.renameSync(inputFile, bakFile);
+        rootDir = inputFile;
+        inputDir = path.join(rootDir, 'input');
+        mkdirp.sync(inputDir);
+        basename = 'events.json';
+        inputFile = path.join(inputDir, basename);
+        fs.renameSync(bakFile, inputFile);
+      } else {
+        inputDir = path.dirname(inputFile);
+        rootDir = path.dirname(inputDir);
+      }
     }
     outputDir = path.join(rootDir, 'output');
   }
