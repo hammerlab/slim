@@ -563,7 +563,8 @@ var handlers = {
       }
     } else {
       l.error(
-            "Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
+            "%s: Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
+            taskAttempt.toString(),
             taskId,
             stageAttempt.stageId + "." + stageAttempt.id,
             taskIndex + "." + taskAttemptId,
