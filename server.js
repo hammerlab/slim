@@ -260,8 +260,10 @@ var handlers = {
     attempt.fromStageInfo(si).set({ started: true, status: RUNNING });
     job.inc('stageCounts.running');
 
-    if (prevStageStatus == SUCCEEDED || prevStageStatus == SKIPPED) {
+    if (prevStageStatus == SKIPPED) {
       l.warn("Stage %d marked as %s but attempt %d submitted", stage.id, statusStr[prevStageStatus], attempt.id);
+    } else if (prevStageStatus == SUCCEEDED) {
+      l.info("Previously succeeded stage %d starting new attempt: %d", stage.id, attempt.id);
     } else if (prevStageStatus == FAILED) {
       stage.set('status', RUNNING, true);
       job.dec('stageIdxCounts.failed').inc('stageIdxCounts.running')
