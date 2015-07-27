@@ -123,9 +123,19 @@ Two other notable examples are memory/disk/tachyon usage (stored on blocks, deno
 
 [`slim`'s test cases](https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/data) and [attendant tooling](https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/lib) provide a good way to check assumptions about what it will do with various Spark-event input data; checking them out is recommended.
 
-## Contributing
+### Spark Version Compatibility
+`slim` has been tested pretty heavily against Spark 1.4.1. It's been tested less heavily, but should Just Work™, on Sparks from 1.3.0, when the `spark.extraListeners` conf option was added, which `JsonRelay` uses to hook in to the driver.
+
+## Contributing, Reporting Issues
 
 Please file issues if you have any trouble using `slim` or have any questions!
+
+In particular, if you see error messages being logged, or if `slim` throws and halts, I'd like to know about it. Three really useful pieces of information for debugging, in rough order of decreasing usefulness, are:
+
+* Run `slim` with the `--log` option, passing a file, and `slim` will log all the events it is receiving to that file. 
+  * This is especially useful because it gets a superset of the events that are written to the regular Spark "event log" file.
+* `slim`'s stdout.
+* The Spark "event log" file for the application that crashed `slim`.
 
 [Node]: https://nodejs.org/
 [Spark]: https://spark.apache.org/
