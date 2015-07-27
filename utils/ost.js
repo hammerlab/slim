@@ -210,7 +210,7 @@ var OST = function () {
 
   this.str = function(delim) {
     var arr = [];
-    var nodes = [root];
+    var nodes = root ? [root] : [];
     var seenKeys = {};
     while (nodes.length) {
       var cur = nodes.pop();
