@@ -376,7 +376,7 @@ function addUpsert(clazz, className, collectionName) {
             upsertStats.dec();
             this.blocking = false;
             if (err) {
-              l.error("ERROR (%s): %O", className, err);
+              l.error("%s, upserting:", this.toString(), upsertObj, err);
             } else {
               l.debug("Added %s: %O", className, val);
               if (className == 'Stage') {
