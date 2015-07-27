@@ -1,6 +1,6 @@
 {
   "name": "slim.js",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A server that listens to Spark events, computes aggregate statistics about the Spark applications that generated them (similar to Spark's JobProgressListener), and writes those statistics to MongoDB.",
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
   "repository" :
