@@ -299,6 +299,13 @@ function addUpsert(clazz, className, collectionName) {
     }
     if (this.incObj && !isEmptyObject(this.incObj)) {
       upsertObj['$inc'] = extend({}, this.incObj);
+      if (upsertObj['$set']) {
+        for (var k in upsertObj['$inc']) {
+          if (k in upsertObj['$set']) {
+            delete upsertObj['$set'][k];
+          }
+        }
+      }
       this.incObj = {};
     }
     if (!upsertObj['$inc']) {
