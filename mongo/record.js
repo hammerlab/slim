@@ -178,6 +178,41 @@ function addAddToSetProp(clazz) {
   };
 }
 
+function addPull(clazz) {
+  clazz.prototype.pull = function(key, val) {
+    if (!this.pullObj) {
+      this.pullObj = {};
+    }
+    if (key in this.propsObj) {
+      var vals = this.propsObj[key];
+      var idx = vals.indexOf(val);
+      if (idx >= 0) {
+        this.propsObj[key].splice(idx, 1);
+      }
+    }
+    var foundUncommittedValue = false;
+    if (key in this.toSyncObj) {
+      var vals = this.toSyncObj[key];
+      var idx = vals.indexOf(val);
+      if (idx >= 0) {
+        foundUncommittedValue = true;
+        this.toSyncObj[key].splice(idx, 1);
+      }
+    }
+    if (key in this.addToSetObj) {
+      var vals = this.addToSetObj[key];
+      var idx = vals.indexOf(val);
+      if (idx >= 0) {
+        foundUncommittedValue = true;
+        this.addToSetObj[key].splice(idx, 1);
+      }
+    }
+    if (!foundUncommittedValue) {
+      this.pullObj[key] = val;
+    }
+  };
+}
+
 function addSetDuration(clazz) {
   clazz.prototype.maybeIncrementAggregatedDurations = function(delta, before, after) {
     if (this.durationAggregationKey) {
@@ -223,29 +258,6 @@ function addHasProp(clazz) {
   clazz.prototype.has = function(key) {
     return this.getProp(key).exists;
   }
-}
-
-function addPull(clazz) {
-  clazz.prototype.pull = function(key, val) {
-    if (!this.pullObj) {
-      this.pullObj = {};
-    }
-    this.pullObj[key] = val;
-    if (key in this.propsObj) {
-      var vals = this.propsObj[key];
-      var idx = vals.indexOf(val);
-      if (idx >= 0) {
-        this.propsObj[key].splice(idx, 1);
-      }
-    }
-    if (key in this.toSyncObj) {
-      var vals = this.toSyncObj[key];
-      var idx = vals.indexOf(val);
-      if (idx >= 0) {
-        this.toSyncObj[key].splice(idx, 1);
-      }
-    }
-  };
 }
 
 var numBlocked = 0;
@@ -304,13 +316,35 @@ function addUpsert(clazz, className, collectionName) {
           addToSetObj[k] = { $each: vals }
         }
       }
-      upsertObj['$addToSet'] = addToSetObj;
+      if (!isEmptyObject(addToSetObj)) {
+        upsertObj['$addToSet'] = addToSetObj;
+      }
       this.addToSetObj = {};
     }
 
     if (this.pullObj && !isEmptyObject(this.pullObj)) {
       upsertObj['$pull'] = extend({}, this.pullObj);
       this.pullObj = {};
+    }
+
+    if (upsertObj['$addToSet'] && upsertObj['$pull']) {
+      var dupedKeys = [];
+      for (var k in upsertObj['$addToSet']) {
+        if (k in upsertObj['$pull']) {
+          dupedKeys.push(k);
+          upsertObj['$set'][k] = this.propsObj[k];
+          delete upsertObj['$pull'][k];
+        }
+      }
+      dupedKeys.forEach(function(k) {
+        delete upsertObj['$addToSet'][k];
+      });
+      if (isEmptyObject(upsertObj['$addToSet'])) {
+        delete upsertObj['$addToSet'];
+      }
+      if (isEmptyObject(upsertObj['$pull'])) {
+        delete upsertObj['$pull'];
+      }
     }
 
     var now = m();
