@@ -113,7 +113,25 @@ StageAttempt.prototype.getTaskAttempt = function(taskId) {
     taskId = taskId['Task ID'];
   }
   if (!(taskId in this.task_attempts)) {
-    this.task_attempts[taskId] = new TaskAttempt(this, taskId);
+    if (!(taskId in this.app.task_attempts)) {
+      var task = new TaskAttempt(this, taskId);
+      this.task_attempts[taskId] = task;
+      this.app.task_attempts[taskId] = task;
+    } else {
+      var task = this.app.task_attempts[taskId];
+      l.warn(
+            "In app %s: looking for task %d from stage-attempt %d.%d in " +
+            "stage-attempt %d.%d; this is likely due to a Spark bug (see " +
+            "SPARK-9366) where the latest attempt for a stage is used in " +
+            "the TaskEnd event, instead of the attempt that the task " +
+            "actually belongs to.",
+            this.appId,
+            taskId,
+            task.stageId, task.stageAttemptId,
+            this.stageId, this.id
+      );
+      return task;
+    }
   }
   return this.task_attempts[taskId];
 };

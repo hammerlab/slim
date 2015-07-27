@@ -24,6 +24,12 @@ function App(id) {
   this.stages = {};
   this.rdds = {};
   this.executors = {};
+
+  // Map of all task attempts in this app, redundant with stage-attempts' maps,
+  // to work around a bug in Spark where a TaskEnd will imply that a task
+  // belongs to a different (newer) attempt of its stage than it does / was
+  // `TaskStart`ed with.
+  this.task_attempts = {};
 }
 
 mixinMongoMethods(App, "Application", "Applications");

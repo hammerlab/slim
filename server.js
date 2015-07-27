@@ -482,16 +482,26 @@ var handlers = {
     var taskIndex = ti['Index'];
     var taskAttemptId = ti['Attempt'];
 
+    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: taskEndObj(e['Task End Reason']) });
+    var prevTaskAttemptStatus = taskAttempt.get('status');
+
+    taskAttempt.fromTaskInfo(ti);
+
+    if (taskAttempt.stageAttemptId != stageAttempt.id) {
+      l.warn(
+            "Task %d found for attempt %d, not %d; using the former",
+            taskAttempt.id,
+            taskAttempt.stageAttemptId,
+            stageAttempt.id
+      );
+      stageAttempt = stage.getAttempt(taskAttempt.stageAttemptId);
+    }
+
     var executor = app.getExecutor(ti);
     var stageExecutor = stageAttempt.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
 
     var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
-
-    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: taskEndObj(e['Task End Reason']) });
-    var prevTaskAttemptStatus = taskAttempt.get('status');
-
-    taskAttempt.fromTaskInfo(ti);
 
     var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
     handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt);
