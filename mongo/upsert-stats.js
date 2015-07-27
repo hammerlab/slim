@@ -6,7 +6,7 @@ var UpsertStats = function() {
   this.ended = 0;
   this.inFlight = 0;
 
-  var thresholds = [0, 10, 20, 50];
+  var thresholds = [0, 100, 200, 500];
   var thresholdMinIdx = 0;
   var thresholdMaxIdx = 1;
   var lastWarned = 0;
@@ -29,7 +29,6 @@ var UpsertStats = function() {
     if (d == max || d == min) {
       if (d != lastWarned) {
         l.warn("Upsert backlog: %d (%d started, %d finished)", d, this.started, this.ended);
-      } else {
         lastWarned = d;
       }
       if (d == max) {
