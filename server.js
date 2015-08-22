@@ -164,6 +164,23 @@ function handleBlockUpdates(taskMetrics, app, executor) {
   blocks.forEach(function(block) { block.upsert(); });
 }
 
+// NOTE(ryan): this is called with Stage and StageAttempt records.
+function maybeSetSkipped(job, stage, stageCountsKey, taskCountsKey) {
+  var status = stage.get('status');
+  if (status == RUNNING) {
+    l.error(
+          "Found unexpected status %s for %s when marking job %d complete.",
+          statusStr[status],
+          stage.toString(),
+          job.id
+    );
+  } else if (!status) {
+    // Will log an error if a status exists for this stage
+    stage.set('status', SKIPPED).upsert();
+    job.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', stage.get('taskCounts.num') || 0);
+  }
+}
+
 var handlers = {
 
   SparkListenerApplicationStart: function(app, e) {
@@ -222,14 +239,13 @@ var handlers = {
           })
           .set('status', succeeded ? SUCCEEDED : FAILED, true);
 
+    // Mark job's stages, and any relevant "pending" attempts, as "skipped".
     job.get('stageIDs').map(function(sid) {
       var stage = app.getStage(sid);
-      var status = stage.get('status');
-      if (status == RUNNING) {
-        l.error("Found unexpected status " + status + " for stage " + stage.id + " when marking job " + job.id + " complete.");
-      } else if (!status) {
-        // Will log an error if a status exists for this stage
-        stage.set('status', SKIPPED).upsert();
+      maybeSetSkipped(job, stage, 'stageIdxCounts', 'taskIdxCounts');
+      for (var attemptId in stage.attempts) {
+        var attempt = stage.attempts[attemptId];
+        maybeSetSkipped(job, attempt, 'stageCounts', 'taskCounts');
       }
     });
 

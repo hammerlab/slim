@@ -1,0 +1,43 @@
+[
+  {
+    "id": "local-1440276596119",
+    "maxMem": 2778778828,
+    "blockManagerCounts": {
+      "num": 1,
+      "running": 1
+    },
+    "name": "adam: transform",
+    "time": {
+      "start": 1440276594023,
+      "end": 1440276630092
+    },
+    "user": "willir31",
+    "duration": 36069,
+    "totalJobDuration": 29841,
+    "totalTaskDuration": 161473,
+    "metrics": {
+      "ExecutorDeserializeTime": 9680,
+      "ExecutorRunTime": 129741,
+      "ResultSize": 914452,
+      "JVMGCTime": 23166,
+      "InputMetrics": {
+        "BytesRead": 106305750,
+        "RecordsRead": 1470848
+      },
+      "SchedulerDelayTime": 21770,
+      "ResultSerializationTime": 282,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 431496851,
+        "ShuffleWriteTime": 2201190244,
+        "ShuffleRecordsWritten": 735122
+      },
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 977,
+        "LocalBytesRead": 1213656051,
+        "TotalBytesRead": 1213656051,
+        "TotalRecordsRead": 737106,
+        "FetchWaitTime": 43
+      }
+    }
+  }
+]

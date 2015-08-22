@@ -1,0 +1,620 @@
+[
+  {
+    "appId": "local-1440276596119",
+    "id": 0,
+    "name": "stripped.sam",
+    "parentIDs": [],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 1,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"0\",\"name\":\"newAPIHadoopFile\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 1,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      0
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 1,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"1\",\"name\":\"map\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 2,
+    "name": "/hpc/users/willir31/data/chr22.fa",
+    "parentIDs": [],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"2\",\"name\":\"newAPIHadoopFile\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 3,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      2
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"3\",\"name\":\"map\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 4,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      3
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"4\",\"name\":\"map\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 5,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      4
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"5\",\"name\":\"filter\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 6,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      5
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"6\",\"name\":\"filter\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 7,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      5
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"13\",\"name\":\"filter\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 8,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      7
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"14\",\"name\":\"keyBy\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 9,
+    "name": "ShuffledRDD",
+    "parentIDs": [
+      8
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"15\",\"name\":\"groupByKey\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 10,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      9
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"16\",\"name\":\"flatMap\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 11,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      10
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"17\",\"name\":\"flatMap\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 12,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      1
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 1,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"18\",\"name\":\"filter\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 13,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      1
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 1,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"22\",\"name\":\"flatMap\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 14,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      1
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 1,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"23\",\"name\":\"mapPartitions\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 15,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      13
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 1,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"27\",\"name\":\"flatMap\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 16,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      11
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 2,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"28\",\"name\":\"flatMap\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 17,
+    "name": "ShuffledRDD",
+    "parentIDs": [
+      15
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"29\",\"name\":\"repartitionAndSortWithinPartitions\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 18,
+    "name": "ShuffledRDD",
+    "parentIDs": [
+      16
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"30\",\"name\":\"repartitionAndSortWithinPartitions\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 19,
+    "name": "ZippedPartitionsRDD2",
+    "parentIDs": [
+      17,
+      18
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"31\",\"name\":\"zipPartitions\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 20,
+    "name": "ShuffledRDD",
+    "parentIDs": [
+      19
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"32\",\"name\":\"groupByKey\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 21,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      20
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"33\",\"name\":\"mapValues\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 22,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      21
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"34\",\"name\":\"filter\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 23,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      22
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 162,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"35\",\"name\":\"map\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 24,
+    "name": "UnionRDD",
+    "parentIDs": [
+      23,
+      12
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"36\",\"name\":\"$plus$plus\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 25,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      24
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"37\",\"name\":\"mapPartitions\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 26,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      24
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"59\",\"name\":\"flatMap\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 27,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      26
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"60\",\"name\":\"distinct\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 28,
+    "name": "ShuffledRDD",
+    "parentIDs": [
+      27
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"60\",\"name\":\"distinct\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 29,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      28
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"60\",\"name\":\"distinct\"}",
+    "numCachedPartitions": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 33,
+    "name": "MapPartitionsRDD",
+    "parentIDs": [
+      24
+    ],
+    "StorageLevel": {
+      "UseDisk": false,
+      "UseMemory": false,
+      "UseExternalBlockStore": false,
+      "Deserialized": false,
+      "Replication": 1
+    },
+    "numPartitions": 163,
+    "ExternalBlockStoreSize": 0,
+    "DiskSize": 0,
+    "scope": "{\"id\":\"70\",\"name\":\"mapPartitionsWithIndex\"}",
+    "numCachedPartitions": 0
+  }
+]

@@ -1,0 +1,427 @@
+[
+  {
+    "appId": "local-1440276596119",
+    "id": 0,
+    "time": {
+      "start": 1440276599555,
+      "end": 1440276601662
+    },
+    "stageIDs": [
+      0
+    ],
+    "stageNames": [
+      "collect at FastaConverter.scala:118"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "taskIdxCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "stageCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "stageIdxCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "properties": [
+      [
+        "spark.rdd.scope.noOverride",
+        "true"
+      ],
+      [
+        "spark.rdd.scope",
+        "{\"id\":\"7\",\"name\":\"collect\"}"
+      ]
+    ],
+    "duration": 2107,
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true,
+    "totalTaskDuration": 3691,
+    "metrics": {
+      "ExecutorDeserializeTime": 1740,
+      "ExecutorRunTime": 1831,
+      "ResultSize": 3687,
+      "JVMGCTime": 166,
+      "InputMetrics": {
+        "BytesRead": 52037580,
+        "RecordsRead": 732924
+      },
+      "SchedulerDelayTime": 120
+    }
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 1,
+    "time": {
+      "start": 1440276601862,
+      "end": 1440276603296
+    },
+    "stageIDs": [
+      1
+    ],
+    "stageNames": [
+      "count at MDTagging.scala:132"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "taskIdxCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "stageCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "stageIdxCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "properties": [],
+    "duration": 1434,
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true,
+    "totalTaskDuration": 1390,
+    "metrics": {
+      "ExecutorDeserializeTime": 33,
+      "ExecutorRunTime": 1322,
+      "ResultSize": 1805,
+      "InputMetrics": {
+        "BytesRead": 371765,
+        "RecordsRead": 1000
+      },
+      "SchedulerDelayTime": 35
+    }
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 2,
+    "time": {
+      "start": 1440276603354,
+      "end": 1440276603902
+    },
+    "stageIDs": [
+      2
+    ],
+    "stageNames": [
+      "reduce at ADAMRDDFunctions.scala:125"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "taskIdxCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "stageCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "stageIdxCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "properties": [
+      [
+        "spark.rdd.scope.noOverride",
+        "true"
+      ],
+      [
+        "spark.rdd.scope",
+        "{\"id\":\"24\",\"name\":\"reduce\"}"
+      ]
+    ],
+    "duration": 548,
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true,
+    "totalTaskDuration": 516,
+    "metrics": {
+      "ExecutorDeserializeTime": 24,
+      "ExecutorRunTime": 436,
+      "ResultSize": 2071,
+      "ResultSerializationTime": 15,
+      "InputMetrics": {
+        "BytesRead": 371765,
+        "RecordsRead": 1000
+      },
+      "SchedulerDelayTime": 41
+    }
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 3,
+    "time": {
+      "start": 1440276604135,
+      "end": 1440276626510
+    },
+    "stageIDs": [
+      5,
+      6,
+      3,
+      7,
+      4
+    ],
+    "stageNames": [
+      "flatMap at ShuffleRegionJoin.scala:69",
+      "zipPartitions at ShuffleRegionJoin.scala:104",
+      "flatMap at ShuffleRegionJoin.scala:62",
+      "reduce at ADAMRDDFunctions.scala:125",
+      "keyBy at FastaConverter.scala:86"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 330,
+      "running": 0,
+      "succeeded": 330
+    },
+    "taskIdxCounts": {
+      "num": 330,
+      "running": 0,
+      "succeeded": 330
+    },
+    "stageCounts": {
+      "num": 5,
+      "running": 0,
+      "succeeded": 5
+    },
+    "stageIdxCounts": {
+      "num": 5,
+      "running": 0,
+      "succeeded": 5
+    },
+    "properties": [
+      [
+        "spark.rdd.scope.noOverride",
+        "true"
+      ],
+      [
+        "spark.rdd.scope",
+        "{\"id\":\"38\",\"name\":\"reduce\"}"
+      ]
+    ],
+    "duration": 22375,
+    "totalTaskDuration": 81727,
+    "metrics": {
+      "ExecutorDeserializeTime": 4916,
+      "ExecutorRunTime": 65469,
+      "ResultSize": 385088,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 431471423,
+        "ShuffleWriteTime": 2152319628,
+        "ShuffleRecordsWritten": 734959
+      },
+      "InputMetrics": {
+        "BytesRead": 52781110,
+        "RecordsRead": 734924
+      },
+      "SchedulerDelayTime": 11220,
+      "JVMGCTime": 8953,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 490,
+        "LocalBytesRead": 431471423,
+        "TotalBytesRead": 431471423,
+        "TotalRecordsRead": 734959
+      },
+      "ResultSerializationTime": 122
+    },
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 4,
+    "time": {
+      "start": 1440276626587,
+      "end": 1440276628880
+    },
+    "stageIDs": [
+      12,
+      9,
+      13,
+      10,
+      11,
+      8
+    ],
+    "stageNames": [
+      "distinct at AlignmentRecordRDDFunctions.scala:224",
+      "keyBy at FastaConverter.scala:86",
+      "collect at AlignmentRecordRDDFunctions.scala:225",
+      "flatMap at ShuffleRegionJoin.scala:69",
+      "zipPartitions at ShuffleRegionJoin.scala:104",
+      "flatMap at ShuffleRegionJoin.scala:62"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 493,
+      "running": 0,
+      "succeeded": 326,
+      "skipped": 167
+    },
+    "taskIdxCounts": {
+      "num": 493,
+      "running": 0,
+      "succeeded": 326,
+      "skipped": 167
+    },
+    "stageCounts": {
+      "num": 6,
+      "running": 0,
+      "succeeded": 2,
+      "skipped": 4
+    },
+    "stageIdxCounts": {
+      "num": 6,
+      "running": 0,
+      "succeeded": 2,
+      "skipped": 4
+    },
+    "properties": [
+      [
+        "spark.rdd.scope.noOverride",
+        "true"
+      ],
+      [
+        "spark.rdd.scope",
+        "{\"id\":\"61\",\"name\":\"collect\"}"
+      ]
+    ],
+    "duration": 2293,
+    "totalTaskDuration": 49066,
+    "metrics": {
+      "ExecutorDeserializeTime": 1821,
+      "ExecutorRunTime": 41893,
+      "ResultSize": 361942,
+      "JVMGCTime": 9720,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 325,
+        "LocalBytesRead": 391105028,
+        "TotalRecordsRead": 1155,
+        "TotalBytesRead": 391105028,
+        "FetchWaitTime": 5
+      },
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 25428,
+        "ShuffleWriteTime": 48870616,
+        "ShuffleRecordsWritten": 163
+      },
+      "SchedulerDelayTime": 5211,
+      "ResultSerializationTime": 141,
+      "InputMetrics": {
+        "BytesRead": 371765,
+        "RecordsRead": 1000
+      }
+    },
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": 5,
+    "time": {
+      "start": 1440276628978,
+      "end": 1440276630062
+    },
+    "stageIDs": [
+      15,
+      16,
+      17,
+      18,
+      14
+    ],
+    "stageNames": [
+      "keyBy at FastaConverter.scala:86",
+      "flatMap at ShuffleRegionJoin.scala:69",
+      "zipPartitions at ShuffleRegionJoin.scala:104",
+      "count at AlignmentRecordRDDFunctions.scala:162",
+      "flatMap at ShuffleRegionJoin.scala:62"
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 330,
+      "running": 0,
+      "succeeded": 163,
+      "skipped": 167
+    },
+    "taskIdxCounts": {
+      "num": 330,
+      "running": 0,
+      "succeeded": 163,
+      "skipped": 167
+    },
+    "stageCounts": {
+      "num": 5,
+      "running": 0,
+      "succeeded": 1,
+      "skipped": 4
+    },
+    "stageIdxCounts": {
+      "num": 5,
+      "running": 0,
+      "succeeded": 1,
+      "skipped": 4
+    },
+    "properties": [],
+    "duration": 1084,
+    "totalTaskDuration": 25083,
+    "metrics": {
+      "ExecutorDeserializeTime": 1146,
+      "ExecutorRunTime": 18790,
+      "ResultSize": 159859,
+      "JVMGCTime": 4327,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalRecordsRead": 992,
+        "TotalBytesRead": 391079600,
+        "FetchWaitTime": 38
+      },
+      "SchedulerDelayTime": 5143,
+      "ResultSerializationTime": 4,
+      "InputMetrics": {
+        "BytesRead": 371765
+      }
+    },
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "succeeded": true,
+    "ended": true
+  }
+]
