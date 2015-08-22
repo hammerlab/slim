@@ -40,7 +40,7 @@
   },
   "scripts": {
     "pretest": "nc -z localhost 27017 > /dev/null || mongod --dbpath test/db --fork --logpath /dev/null",
-    "test": "./node_modules/mocha/bin/mocha --timeout 5000",
+    "test": "./node_modules/mocha/bin/mocha --timeout 10000",
     "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   }
 }
