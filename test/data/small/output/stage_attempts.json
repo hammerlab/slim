@@ -22,14 +22,12 @@
       "1": {
         "ID": 1,
         "Name": "foo",
-        "Value": 500500,
-        "Update": null
+        "Value": 500500
       },
       "2": {
         "ID": 2,
         "Name": "bar",
-        "Value": 960,
-        "Update": null
+        "Value": 960
       }
     },
     "duration": 517,
@@ -84,8 +82,7 @@
       "2": {
         "ID": 2,
         "Name": "bar",
-        "Value": 990,
-        "Update": null
+        "Value": 990
       }
     },
     "duration": 95,
