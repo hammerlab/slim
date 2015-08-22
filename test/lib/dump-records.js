@@ -12,7 +12,7 @@ var mongoUrl = argv.m || argv['mongo-url'] || ('mongodb://' + mongoHost + ':' + 
 
 var inputFile = argv.in;
 var turnInFileIntoDirectory = !!argv.i || !!argv['in-place'];
-var noOutputDir = !!argv.n || !!argv['no-output'] || !!argv['dry-run']
+var noOutputDir = !!argv.n || !!argv['no-output'] || !!argv['dry-run'];
 
 var mongo = require('../../mongo/collections');
 var colls = mongo.colls;

@@ -38,7 +38,7 @@ All events emitted by your Spark application will be written to Mongo by `slim`!
   * Should match `--conf spark.slim.port` arg passed to Spark (which also defaults to `8123`, conveniently).
 * `--log`: if present, all events received from `JsonRelay` clients will be written to this file.
   * Enclosing directory is created if it doesn't exist.
-  * See [`test/data/small/input/events.json`][] for an example.
+  * See [`test/data/small/input/events.json`][] for an example file generated in this way.
 * `-l`: default `info`; log-level passed to [`tracer`][] logging utility.
   * Can be `debug`, `info`, `warn`, `error`.
 
