@@ -738,8 +738,8 @@ var handlers = {
   },
   SparkListenerExecutorMetricsUpdate: function(app, e) {
     var executor = app.getExecutor(e);
-    l.debug("processing %d metrics updates..", e.Metrics.length);
-    e.Metrics.map(function(m) {
+    l.debug("processing %d metrics updates..", e['Metrics Updated'].length);
+    e['Metrics Updated'].map(function(m) {
       var stage = app.getStage(m);
       var job = app.getJob(stage.get('jobId'));
       var stageAttempt = stage.getAttempt(m);
