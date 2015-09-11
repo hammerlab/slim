@@ -18,7 +18,7 @@ module.exports.l = require('tracer').colorConsole({
       error: "{{timestamp}} {{title}} {{file}}:{{line}}: {{message}}\nCall Stack:\n{{stack}}"
     }
   ],
-  dateformat : "HH:MM:ss.L",
+  dateformat : "yyyy/mm/dd HH:MM:ss",
   preprocess: function(data) {
     data.title = pad(data.title.toUpperCase(), 5);
     var spaces = '';
