@@ -27,13 +27,18 @@ RDD.prototype.fromRDDInfo = function(ri) {
   return this.set({
     name: ri['Name'],
     parentIDs: ri['Parent IDs'],
-    StorageLevel: removeKeySpaces(ri['Storage Level']),
     numPartitions: ri['Number of Partitions'],
-    MemorySize: ri['MemorySize'],
-    ExternalBlockStoreSize: ri['ExternalBlockStore Size'],
-    DiskSize: ri['Disk Size'],
     scope: ri['Scope']
-  }).set('numCachedPartitions', ri['Number of Cached Partitions'], true);
+  }).set(
+        {
+          StorageLevel: removeKeySpaces(ri['Storage Level']),
+          MemorySize: ri['MemorySize'],
+          ExternalBlockStoreSize: ri['ExternalBlockStore Size'],
+          DiskSize: ri['Disk Size'],
+          'numCachedPartitions': ri['Number of Cached Partitions']
+        },
+        true
+  );
 };
 
 RDD.prototype.getBlock = function(blockIndex) {
