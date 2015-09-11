@@ -480,6 +480,7 @@ var handlers = {
   },
 
   SparkListenerTaskGettingResult: function(app, e) {
+    var stage = app.getStage(e);
     var stageAttempt = stage.getAttempt(e);
 
     var ti = e['Task Info'];
