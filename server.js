@@ -791,7 +791,7 @@ function Server(mongoUrl) {
           }
           handleEvent(e);
         }).fail(function (e) {
-          l.error("Oboe caught error:", e.thrown);
+          l.error("Oboe caught error:", e.thrown.stack);
         });
       };
       setupOboe();
