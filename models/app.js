@@ -74,6 +74,9 @@ App.prototype.hydrate = function(cb) {
             l.error("Failed to fetch records for app %s:", id, JSON.stringify(err));
           } else {
             r.jobs.forEach(function(job) {
+              if (job.id === null) {
+                log.error("job.id === null when fetching records for app %s: %s", id, job.toString());
+              }
               self.jobs[job.id] = new Job(self, job.id).fromMongo(job);
             });
             r.stages.forEach(function(stage) {
