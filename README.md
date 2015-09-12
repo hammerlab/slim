@@ -5,7 +5,7 @@
 * aggregates various statistics about Spark applications described by those events, and 
 * writes those statistics to Mongo for consumption by [Spree][].
 
-[The Spree documentation][Spree] has lots more information about using these components together, which is the intended use case.
+[The Spree documentation][Spree] has lots more information about using these components together, **which is the intended use case for `slim`**. Go there to learn more!
 
 If you're just interested in running `slim`, e.g. to persist Spark events to Mongo, you can:
 * Run a `mongod` process.
@@ -17,15 +17,25 @@ If you're just interested in running `slim`, e.g. to persist Spark events to Mon
   $ slim
   ```
 
-* Per [the instructions on the  `JsonRelay` repo](https://github.com/hammerlab/spark-json-relay), download a `JsonRelay` JAR and run a Spark application with it registered as a listener:
+* Per [the instructions on the  `JsonRelay` repo](https://github.com/hammerlab/spark-json-relay), register `JsonRelay` as a listener in your `spark-shell` or `spark-submit` commands:
+ * **In Spark >= 1.5.0**, use spark-packages:
 
-  ```
-  $ wget https://repo1.maven.org/maven2/org/hammerlab/spark-json-relay/1.0.0/spark-json-relay-1.0.0.jar
-  $ $SPARK_HOME/bin/spark-{submit,shell} \
-      --driver-class-path spark-json-relay-1.0.0.jar \
-      --conf spark.extraListeners=org.apache.spark.JsonRelay
-  ```
+   ```
+   --packages org.hammerlab:spark-json-relay:2.0.0
+   --conf spark.extraListeners=org.apache.spark.JsonRelay
+   ```
+   
+ * **In Spark < 1.5.0**, first download the JAR:
 
+   ```
+   $ wget https://repo1.maven.org/maven2/org/hammerlab/spark-json-relay/2.0.0/spark-json-relay-2.0.0.jar
+   ```
+    …then add these flags to your `spark-{shell-submit}` commands:
+     ```
+     --driver-class-path spark-json-relay-2.0.0.jar
+     --conf spark.extraListeners=org.apache.spark.JsonRelay
+     ```
+   
 All events emitted by your Spark application will be written to Mongo by `slim`!
 
 ## Cmdline Options
@@ -124,7 +134,7 @@ Two other notable examples are memory/disk/tachyon usage (stored on blocks, deno
 [`slim`'s test cases](https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/data) and [attendant tooling](https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/lib) provide a good way to check assumptions about what it will do with various Spark-event input data; checking them out is recommended.
 
 ### Spark Version Compatibility
-`slim` has been tested pretty heavily against Spark 1.4.1. It's been tested less heavily, but should Just Work™, on Sparks from 1.3.0, when the `spark.extraListeners` conf option was added, which `JsonRelay` uses to hook in to the driver.
+`slim` 1.2.0 is the latest version and necessary for Spark >= 1.5.0. It has been tested pretty heavily against Spark 1.5.0 and 1.4.*. It's been tested less heavily, but should Just Work™, on Sparks from 1.3.0, when the `spark.extraListeners` conf option was added, which `JsonRelay` uses to hook in to the driver.
 
 ## Contributing, Reporting Issues
 
