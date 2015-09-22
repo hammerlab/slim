@@ -15,7 +15,7 @@
     "minimist": "1.1.1",
     "mkdirp": "0.5.1",
     "moment": "2.10.3",
-    "mongodb": "2.0.33",
+    "mongodb": "2.0.42",
     "node.extend": "1.1.5",
     "deep-equal": "1.0.0",
     "oboe": "2.1.2",
