@@ -738,7 +738,11 @@ var handlers = {
   },
   SparkListenerExecutorMetricsUpdate: function(app, e) {
     var executor = app.getExecutor(e);
-    l.debug("processing %d metrics updates..", e['Metrics Updated'].length);
+    if (!e['Metrics Updated']) {
+      // Depend on JsonRelay to filter out empty MetricsUpdate events.
+      l.error("Got SparkListenerExecutorMetricsUpdate event with empty 'Metrics Updated': ", JSON.stringify(e));
+      return;
+    }
     e['Metrics Updated'].map(function(m) {
       var stage = app.getStage(m);
       var job = app.getJob(stage.get('jobId'));
@@ -767,11 +771,12 @@ function handleEvent(e) {
 }
 
 function Server(mongoUrl) {
+  l.info("Starting slim v1.2.1");
   if (argv.log) {
     var lastSlashIdx = argv.log.lastIndexOf('/');
     if (lastSlashIdx >= 0) {
       var dir = path.dirname(argv.log);
-      console.log("Creating directory:", dir);
+      l.info("Creating event-log directory:", dir);
       mkdirp.sync(dir);
     }
   }
