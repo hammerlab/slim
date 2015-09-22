@@ -134,7 +134,7 @@ Two other notable examples are memory/disk/tachyon usage (stored on blocks, deno
 [`slim`'s test cases](https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/data) and [attendant tooling](https://github.com/hammerlab/slim/tree/69307377f9f5f8534e5385b530fd60be3be48e5d/test/lib) provide a good way to check assumptions about what it will do with various Spark-event input data; checking them out is recommended.
 
 ### Spark Version Compatibility
-`slim` 1.2.0 is the latest version and necessary for Spark >= 1.5.0. It has been tested pretty heavily against Spark 1.5.0 and 1.4.*. It's been tested less heavily, but should Just Work™, on Sparks from 1.3.0, when the `spark.extraListeners` conf option was added, which `JsonRelay` uses to hook in to the driver.
+`slim >= 1.2.0` is necessary for Spark >= 1.5.0. It has been tested pretty heavily against Spark 1.5.0 and 1.4.*. It's been tested less heavily, but should Just Work™, on Sparks from 1.3.0, when the `spark.extraListeners` conf option was added, which `JsonRelay` uses to hook in to the driver.
 
 ## Contributing, Reporting Issues
 
