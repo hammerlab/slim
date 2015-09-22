@@ -35,7 +35,7 @@ RDD.prototype.fromRDDInfo = function(ri) {
           MemorySize: ri['MemorySize'],
           ExternalBlockStoreSize: ri['ExternalBlockStore Size'],
           DiskSize: ri['Disk Size'],
-          'numCachedPartitions': ri['Number of Cached Partitions']
+          numCachedPartitions: ri['Number of Cached Partitions']
         },
         true
   );

@@ -767,11 +767,12 @@ function handleEvent(e) {
 }
 
 function Server(mongoUrl) {
+  l.info("Starting slim v1.2.0");
   if (argv.log) {
     var lastSlashIdx = argv.log.lastIndexOf('/');
     if (lastSlashIdx >= 0) {
       var dir = path.dirname(argv.log);
-      console.log("Creating directory:", dir);
+      l.info("Creating event-log directory:", dir);
       mkdirp.sync(dir);
     }
   }
