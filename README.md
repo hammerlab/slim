@@ -1,4 +1,6 @@
 # `slim`
+
+[![Join the chat at https://gitter.im/hammerlab/slim](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/hammerlab/slim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 `slim` is a [Node][] server that:
 
 * listens to [Spark][] events (as emitted by [`spark-json-relay`][]), 
