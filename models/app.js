@@ -5,6 +5,8 @@ var colls = require('../mongo/collections').collections;
 var l = require('../utils/log').l;
 
 var utils = require("../utils/utils");
+var RUNNING = utils.RUNNING;
+
 var processTime = utils.processTime;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
@@ -300,6 +302,15 @@ function getApp(id, cb) {
   }
 }
 
+function evictApp(id) {
+  if (!(id in apps)) {
+    l.error("Failed to evict missing app: %s", id);
+    return;
+  }
+  l.info("Evicting app: %s", id);
+  delete apps[id];
+}
+
 App.prototype.getJob = function(jobId) {
   if (typeof jobId == 'object') {
     jobId = jobId['Job ID'];
@@ -365,3 +376,4 @@ App.prototype.getExecutor = function(executorId) {
 module.exports.apps = apps;
 module.exports.App = App;
 module.exports.getApp = getApp;
+module.exports.evictApp = evictApp;

@@ -12,8 +12,11 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var port = argv.P || argv.port || 8123;
 
+var appEvictionDelay = argv.e || argv['eviction-delay'] || 10;
+
 var colls = require('./mongo/collections');
 var getApp = require('./models/app').getApp;
+var evictApp = require('./models/app').evictApp;
 
 var utils = require("./utils/utils");
 var statusStr = utils.status;
@@ -184,11 +187,19 @@ function maybeSetSkipped(job, stage, stageCountsKey, taskCountsKey) {
 var handlers = {
 
   SparkListenerApplicationStart: function(app, e) {
-    app.fromEvent(e).upsert();
+    app.fromEvent(e).set('status', RUNNING).upsert();
   },
 
   SparkListenerApplicationEnd: function(app, e) {
-    app.set('time.end', processTime(e['Timestamp'])).upsert();
+    app
+          .set('time.end', processTime(e['Timestamp']))
+          // NOTE(ryan): we don't get actual success/failure info via the JSON API today.
+          .set('status', SUCCEEDED, true)
+          .upsert();
+
+    setTimeout(function() {
+      evictApp(app.id);
+    }, appEvictionDelay * 1000);
   },
 
   SparkListenerJobStart: function(app, e) {
