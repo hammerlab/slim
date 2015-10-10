@@ -1,18 +1,5 @@
 [
   {
-    "appId": "local-1437677504186",
-    "id": 800,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681807824,
-      "end": 1437681808176
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 0,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -27,59 +14,58 @@
         "Value": 149970
       }
     },
-    "status": 2,
-    "duration": 352,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 800,
+    "index": 0,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 11,
       "ExecutorRunTime": 337,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 77,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 4,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 428000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 428000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_0",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 4
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808176,
+      "start": 1437681807824
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 801,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681807825,
-      "end": 1437681808195
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 1,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -94,59 +80,58 @@
         "Value": 199960
       }
     },
-    "status": 2,
-    "duration": 370,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 801,
+    "index": 1,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 10,
       "ExecutorRunTime": 357,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 77,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 3,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 665000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 665000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_1",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 3
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808195,
+      "start": 1437681807825
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 802,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681807825,
-      "end": 1437681808092
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 2,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -161,59 +146,58 @@
         "Value": 99980
       }
     },
-    "status": 2,
-    "duration": 267,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 802,
+    "index": 2,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 10,
       "ExecutorRunTime": 254,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 77,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 3,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 481000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 481000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_2",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 3
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808092,
+      "start": 1437681807825
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 803,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681807825,
-      "end": 1437681808085
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 3,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -228,59 +212,58 @@
         "Value": 49990
       }
     },
-    "status": 2,
-    "duration": 260,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 803,
+    "index": 3,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 10,
       "ExecutorRunTime": 146,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 104,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 512000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 512000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_3",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 104
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808085,
+      "start": 1437681807825
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 804,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681807984,
-      "end": 1437681808276
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 4,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -295,59 +278,58 @@
         "Value": 249950
       }
     },
-    "status": 2,
-    "duration": 292,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 804,
+    "index": 4,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 6,
       "ExecutorRunTime": 183,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 103,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 1176000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 1176000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_4",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 103
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808276,
+      "start": 1437681807984
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 805,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808092,
-      "end": 1437681808280
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 5,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -362,59 +344,58 @@
         "Value": 299940
       }
     },
-    "status": 2,
-    "duration": 188,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 805,
+    "index": 5,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 5,
       "ExecutorRunTime": 182,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 1,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 783000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 783000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_5",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 1
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808280,
+      "start": 1437681808092
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 806,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808175,
-      "end": 1437681808397
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 6,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -429,59 +410,58 @@
         "Value": 399920
       }
     },
-    "status": 2,
-    "duration": 222,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 806,
+    "index": 6,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 186,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 32,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 1611000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 1611000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_6",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 32
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808397,
+      "start": 1437681808175
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 807,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808195,
-      "end": 1437681808350
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 7,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -496,59 +476,58 @@
         "Value": 349930
       }
     },
-    "status": 2,
-    "duration": 155,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 807,
+    "index": 7,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 12,
       "ExecutorRunTime": 140,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 3,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 1695000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 1695000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_7",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 3
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808350,
+      "start": 1437681808195
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 808,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808275,
-      "end": 1437681808448
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 8,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -563,59 +542,58 @@
         "Value": 499900
       }
     },
-    "status": 2,
-    "duration": 173,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 808,
+    "index": 8,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 167,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 25,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 3,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 726000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 726000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_8",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 3
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808448,
+      "start": 1437681808275
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 809,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808279,
-      "end": 1437681808429
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 9,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -630,59 +608,58 @@
         "Value": 449910
       }
     },
-    "status": 2,
-    "duration": 150,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 809,
+    "index": 9,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 9,
       "ExecutorRunTime": 139,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 25,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 2,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 970000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 970000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_9",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 2
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808429,
+      "start": 1437681808279
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 810,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808349,
-      "end": 1437681808548
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 10,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -697,59 +674,58 @@
         "Value": 649870
       }
     },
-    "status": 2,
-    "duration": 199,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 810,
+    "index": 10,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 7,
       "ExecutorRunTime": 189,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 25,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 3,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 2764000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 2764000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_10",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 3
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808548,
+      "start": 1437681808349
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 811,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808367,
-      "end": 1437681808463
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 11,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -764,59 +740,58 @@
         "Value": 549890
       }
     },
-    "status": 2,
-    "duration": 96,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 811,
+    "index": 11,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 60,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 32,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 4488000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 4488000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_11",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 32
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808463,
+      "start": 1437681808367
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 812,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808429,
-      "end": 1437681808640
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 12,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -831,59 +806,58 @@
         "Value": 699860
       }
     },
-    "status": 2,
-    "duration": 211,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 812,
+    "index": 12,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 14,
       "ExecutorRunTime": 196,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 1,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 3783000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 3783000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_12",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 1
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808640,
+      "start": 1437681808429
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 813,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808448,
-      "end": 1437681808505
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 13,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -898,59 +872,58 @@
         "Value": 599880
       }
     },
-    "status": 2,
-    "duration": 57,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 813,
+    "index": 13,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 52,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 2,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 1262000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 1262000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_13",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 2
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808505,
+      "start": 1437681808448
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 814,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808463,
-      "end": 1437681808790
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 14,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -965,59 +938,58 @@
         "Value": 799840
       }
     },
-    "status": 2,
-    "duration": 327,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 814,
+    "index": 14,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 7,
       "ExecutorRunTime": 318,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 45,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 2,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 874000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 874000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_14",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 2
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808790,
+      "start": 1437681808463
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 815,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808505,
-      "end": 1437681808641
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 15,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -1032,59 +1004,58 @@
         "Value": 749850
       }
     },
-    "status": 2,
-    "duration": 136,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 815,
+    "index": 15,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 128,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 5,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 822000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 822000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_15",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 5
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808641,
+      "start": 1437681808505
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 816,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808547,
-      "end": 1437681808833
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 16,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -1099,59 +1070,58 @@
         "Value": 949810
       }
     },
-    "status": 2,
-    "duration": 286,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 816,
+    "index": 16,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 274,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 45,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 8,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 80837000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 80837000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_16",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 8
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808833,
+      "start": 1437681808547
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 817,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808639,
-      "end": 1437681808830
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 17,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -1166,59 +1136,58 @@
         "Value": 899820
       }
     },
-    "status": 2,
-    "duration": 191,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 817,
+    "index": 17,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 184,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 45,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 4,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 403000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 403000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_17",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 4
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808830,
+      "start": 1437681808639
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 818,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808640,
-      "end": 1437681808804
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 18,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -1233,59 +1202,58 @@
         "Value": 849830
       }
     },
-    "status": 2,
-    "duration": 164,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 818,
+    "index": 18,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 147,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 45,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 13,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 975000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 975000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_18",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 13
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808804,
+      "start": 1437681808640
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 819,
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "time": {
-      "start": 1437681808789,
-      "end": 1437681808897
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 19,
-    "attempt": 0,
     "accumulables": {
       "41": {
         "ID": 41,
@@ -1300,59 +1268,58 @@
         "Value": 999800
       }
     },
-    "status": 2,
-    "duration": 108,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 819,
+    "index": 19,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 12,
       "ExecutorRunTime": 91,
-      "ResultSize": 2188,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 2188,
+      "SchedulerDelayTime": 5,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 1070,
-        "ShuffleWriteTime": 3233000,
-        "ShuffleRecordsWritten": 10
+        "ShuffleRecordsWritten": 10,
+        "ShuffleWriteTime": 3233000
       },
       "UpdatedBlocks": [
         {
           "BlockID": "rdd_61_19",
           "Status": {
-            "StorageLevel": {
-              "UseDisk": false,
-              "UseMemory": true,
-              "UseExternalBlockStore": false,
-              "Deserialized": true,
-              "Replication": 1
-            },
-            "MemorySize": 1400176,
+            "DiskSize": 0,
             "ExternalBlockStoreSize": 0,
-            "DiskSize": 0
+            "MemorySize": 1400176,
+            "StorageLevel": {
+              "Deserialized": true,
+              "Replication": 1,
+              "UseDisk": false,
+              "UseExternalBlockStore": false,
+              "UseMemory": true
+            }
           }
         }
-      ],
-      "SchedulerDelayTime": 5
+      ]
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "status": 2,
+    "time": {
+      "end": 1437681808897,
+      "start": 1437681808789
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 820,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808906,
-      "end": 1437681808999
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 0,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1361,46 +1328,45 @@
         "Value": 999990
       }
     },
-    "status": 2,
-    "duration": 93,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 820,
+    "index": 0,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 71,
       "ExecutorRunTime": 21,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 1,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 1
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808999,
+      "start": 1437681808906
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 821,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808907,
-      "end": 1437681808917
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 1,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1409,46 +1375,45 @@
         "Value": 999819
       }
     },
-    "status": 2,
-    "duration": 10,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 821,
+    "index": 1,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 5,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 1,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 1
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808917,
+      "start": 1437681808907
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 822,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808907,
-      "end": 1437681808919
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 2,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1457,46 +1422,45 @@
         "Value": 999838
       }
     },
-    "status": 2,
-    "duration": 12,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 822,
+    "index": 2,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 5,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 3,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 3
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808919,
+      "start": 1437681808907
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 823,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808907,
-      "end": 1437681808922
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 3,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1505,46 +1469,45 @@
         "Value": 999857
       }
     },
-    "status": 2,
-    "duration": 15,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 823,
+    "index": 3,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 8,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 3,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 3
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808922,
+      "start": 1437681808907
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 824,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808917,
-      "end": 1437681808927
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 4,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1553,46 +1516,45 @@
         "Value": 999876
       }
     },
-    "status": 2,
-    "duration": 10,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 824,
+    "index": 4,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 5,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 1,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 1
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808927,
+      "start": 1437681808917
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 825,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808918,
-      "end": 1437681808959
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 5,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1601,46 +1563,45 @@
         "Value": 999952
       }
     },
-    "status": 2,
-    "duration": 41,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 825,
+    "index": 5,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 22,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 16,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 16
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808959,
+      "start": 1437681808918
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 826,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808921,
-      "end": 1437681808930
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 6,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1649,87 +1610,86 @@
         "Value": 999895
       }
     },
-    "status": 2,
-    "duration": 9,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 826,
+    "index": 6,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 4,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 2,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 1,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 2
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808930,
+      "start": 1437681808921
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 827,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808926,
-      "end": 1437681808944
+    "accumulables": {
     },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 7,
+    "appId": "local-1437677504186",
     "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 18,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 827,
+    "index": 7,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 5,
       "ExecutorRunTime": 9,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 4,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 4
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808944,
+      "start": 1437681808926
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 828,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808929,
-      "end": 1437681808945
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 8,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1738,46 +1698,45 @@
         "Value": 999933
       }
     },
-    "status": 2,
-    "duration": 16,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 828,
+    "index": 8,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 8,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 5,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 5
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808945,
+      "start": 1437681808929
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 829,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808942,
-      "end": 1437681808964
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 9,
-    "attempt": 0,
     "accumulables": {
       "42": {
         "ID": 42,
@@ -1786,440 +1745,452 @@
         "Value": 999971
       }
     },
-    "status": 2,
-    "duration": 22,
+    "appId": "local-1437677504186",
+    "attempt": 0,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 829,
+    "index": 9,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 10,
       "ExecutorRunTime": 6,
-      "ResultSize": 1629,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1629,
+      "SchedulerDelayTime": 6,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 20,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 20,
         "LocalBytesRead": 2140,
-        "TotalRecordsRead": 20,
-        "TotalBytesRead": 2140
-      },
-      "SchedulerDelayTime": 6
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 2140,
+        "TotalRecordsRead": 20
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808964,
+      "start": 1437681808942
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 830,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808943,
-      "end": 1437681808958
+    "accumulables": {
     },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 10,
+    "appId": "local-1437677504186",
     "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 15,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 830,
+    "index": 10,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 0,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 11,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 11
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808958,
+      "start": 1437681808943
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 831,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808950,
-      "end": 1437681808965
+    "accumulables": {
     },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 11,
+    "appId": "local-1437677504186",
     "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 15,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 831,
+    "index": 11,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 5,
       "ExecutorRunTime": 1,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 9,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 9
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808965,
+      "start": 1437681808950
     }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1437677504186",
+    "attempt": 0,
+    "end": {
+      "Reason": "Success"
+    },
+    "execId": "driver",
     "id": 832,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808958,
-      "end": 1437681808966
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
     "index": 12,
-    "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 8,
-    "end": {
-      "Reason": "Success"
-    },
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 1,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 4,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 4
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808966,
+      "start": 1437681808958
     }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1437677504186",
+    "attempt": 0,
+    "end": {
+      "Reason": "Success"
+    },
+    "execId": "driver",
     "id": 833,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808964,
-      "end": 1437681808971
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
     "index": 13,
-    "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 7,
-    "end": {
-      "Reason": "Success"
-    },
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 1,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 3,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 3
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808971,
+      "start": 1437681808964
     }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1437677504186",
+    "attempt": 0,
+    "end": {
+      "Reason": "Success"
+    },
+    "execId": "driver",
     "id": 834,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808965,
-      "end": 1437681808969
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
     "index": 14,
-    "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 4,
-    "end": {
-      "Reason": "Success"
-    },
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 0,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 1,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 1
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808969,
+      "start": 1437681808965
     }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1437677504186",
+    "attempt": 0,
+    "end": {
+      "Reason": "Success"
+    },
+    "execId": "driver",
     "id": 835,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808966,
-      "end": 1437681808972
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
     "index": 15,
-    "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 6,
-    "end": {
-      "Reason": "Success"
-    },
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 0,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 3,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 3
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808972,
+      "start": 1437681808966
     }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1437677504186",
+    "attempt": 0,
+    "end": {
+      "Reason": "Success"
+    },
+    "execId": "driver",
     "id": 836,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808969,
-      "end": 1437681808973
-    },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
     "index": 16,
-    "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 4,
-    "end": {
-      "Reason": "Success"
-    },
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 0,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 1,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 1
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808973,
+      "start": 1437681808969
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 837,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808971,
-      "end": 1437681808977
+    "accumulables": {
     },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 17,
+    "appId": "local-1437677504186",
     "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 6,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 837,
+    "index": 17,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 4,
       "ExecutorRunTime": 1,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 1,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 1
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808977,
+      "start": 1437681808971
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 838,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808971,
-      "end": 1437681808977
+    "accumulables": {
     },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 18,
+    "appId": "local-1437677504186",
     "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 6,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 838,
+    "index": 18,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 3,
       "ExecutorRunTime": 1,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 2,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 2
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808977,
+      "start": 1437681808971
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 839,
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "time": {
-      "start": 1437681808973,
-      "end": 1437681808976
+    "accumulables": {
     },
-    "execId": "driver",
-    "locality": "PROCESS_LOCAL",
-    "speculative": false,
-    "index": 19,
+    "appId": "local-1437677504186",
     "attempt": 0,
-    "accumulables": {},
-    "status": 2,
-    "duration": 3,
     "end": {
       "Reason": "Success"
     },
+    "execId": "driver",
+    "id": 839,
+    "index": 19,
+    "locality": "PROCESS_LOCAL",
     "metrics": {
-      "HostName": "localhost",
+      "DiskBytesSpilled": 0,
       "ExecutorDeserializeTime": 2,
       "ExecutorRunTime": 1,
-      "ResultSize": 1624,
+      "HostName": "localhost",
       "JVMGCTime": 0,
-      "ResultSerializationTime": 0,
       "MemoryBytesSpilled": 0,
-      "DiskBytesSpilled": 0,
+      "ResultSerializationTime": 0,
+      "ResultSize": 1624,
+      "SchedulerDelayTime": 0,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 0,
-        "LocalBlocksFetched": 0,
         "FetchWaitTime": 0,
-        "RemoteBytesRead": 0,
+        "LocalBlocksFetched": 0,
         "LocalBytesRead": 0,
-        "TotalRecordsRead": 0,
-        "TotalBytesRead": 0
-      },
-      "SchedulerDelayTime": 0
+        "RemoteBlocksFetched": 0,
+        "RemoteBytesRead": 0,
+        "TotalBytesRead": 0,
+        "TotalRecordsRead": 0
+      }
+    },
+    "speculative": false,
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "status": 2,
+    "time": {
+      "end": 1437681808976,
+      "start": 1437681808973
     }
   }
 ]

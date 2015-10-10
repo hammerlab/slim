@@ -1,6 +1,32 @@
 [
   {
     "appId": "local-1437323845748",
+    "classpath": [
+      [
+        "/Users/ryan/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar",
+        "System Classpath"
+      ],
+      [
+        "/Users/ryan/c/spark/conf/",
+        "System Classpath"
+      ],
+      [
+        "/Users/ryan/c/spark/lib_managed/jars/datanucleus-api-jdo-3.2.6.jar",
+        "System Classpath"
+      ],
+      [
+        "/Users/ryan/c/spark/lib_managed/jars/datanucleus-core-3.2.10.jar",
+        "System Classpath"
+      ],
+      [
+        "/Users/ryan/c/spark/lib_managed/jars/datanucleus-rdbms-3.2.9.jar",
+        "System Classpath"
+      ],
+      [
+        "/Users/ryan/c/spark/assembly/target/scala-2.10/spark-assembly-8196a83-hadoop2.2.0.jar",
+        "System Classpath"
+      ]
+    ],
     "jvm": [
       [
         "Java Home",
@@ -305,32 +331,6 @@
       [
         "sun.io.unicode.encoding",
         "UnicodeBig"
-      ]
-    ],
-    "classpath": [
-      [
-        "/Users/ryan/c/spree/json-relay/client/target/json-relay-client-with-deps-1.0-SNAPSHOT.jar",
-        "System Classpath"
-      ],
-      [
-        "/Users/ryan/c/spark/conf/",
-        "System Classpath"
-      ],
-      [
-        "/Users/ryan/c/spark/lib_managed/jars/datanucleus-api-jdo-3.2.6.jar",
-        "System Classpath"
-      ],
-      [
-        "/Users/ryan/c/spark/lib_managed/jars/datanucleus-core-3.2.10.jar",
-        "System Classpath"
-      ],
-      [
-        "/Users/ryan/c/spark/lib_managed/jars/datanucleus-rdbms-3.2.9.jar",
-        "System Classpath"
-      ],
-      [
-        "/Users/ryan/c/spark/assembly/target/scala-2.10/spark-assembly-8196a83-hadoop2.2.0.jar",
-        "System Classpath"
       ]
     ]
   }

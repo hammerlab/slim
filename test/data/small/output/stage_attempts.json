@@ -1,73 +1,49 @@
 [
   {
-    "appId": "local-1437323845748",
-    "id": 0,
-    "stageId": 0,
-    "time": {
-      "start": 1437323863803,
-      "end": 1437323864320
-    },
-    "name": "map at <console>:26",
-    "taskCounts": {
-      "num": 4,
-      "running": 0,
-      "succeeded": 4
-    },
-    "taskIdxCounts": {
-      "num": 4,
-      "running": 0,
-      "succeeded": 4
-    },
     "accumulables": {
       "1": {
         "ID": 1,
         "Name": "foo",
+        "Update": null,
         "Value": 500500
       },
       "2": {
         "ID": 2,
         "Name": "bar",
+        "Update": null,
         "Value": 960
       }
     },
-    "duration": 517,
-    "jobId": 0,
-    "started": true,
-    "status": 2,
+    "appId": "local-1437323845748",
     "ended": true,
-    "totalTaskDuration": 1938,
+    "id": 0,
+    "jobId": 0,
     "metrics": {
       "ExecutorDeserializeTime": 109,
       "ExecutorRunTime": 1706,
+      "ResultSerializationTime": 1,
       "ResultSize": 6268,
+      "SchedulerDelayTime": 122,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 2000,
-        "ShuffleWriteTime": 24855000,
-        "ShuffleRecordsWritten": 40
+        "ShuffleRecordsWritten": 40,
+        "ShuffleWriteTime": 24855000
       },
       "UpdatedBlocks": {
         "0": {
           "Status": {
+            "MemorySize": 28704,
             "StorageLevel": {
               "Replication": 4
-            },
-            "MemorySize": 28704
+            }
           }
         }
-      },
-      "SchedulerDelayTime": 122,
-      "ResultSerializationTime": 1
-    }
-  },
-  {
-    "appId": "local-1437323845748",
-    "id": 0,
-    "stageId": 1,
-    "time": {
-      "start": 1437323864337,
-      "end": 1437323864432
+      }
     },
-    "name": "count at <console>:26",
+    "name": "map at <console>:26",
+    "stageId": 0,
+    "started": true,
+    "status": 2,
     "taskCounts": {
       "num": 4,
       "running": 0,
@@ -78,32 +54,57 @@
       "running": 0,
       "succeeded": 4
     },
+    "time": {
+      "end": 1437323864320,
+      "start": 1437323863803
+    },
+    "totalTaskDuration": 1938
+  },
+  {
     "accumulables": {
       "2": {
         "ID": 2,
         "Name": "bar",
+        "Update": null,
         "Value": 990
       }
     },
-    "duration": 95,
-    "jobId": 0,
-    "started": true,
-    "status": 2,
+    "appId": "local-1437323845748",
     "ended": true,
-    "totalTaskDuration": 318,
+    "id": 0,
+    "jobId": 0,
     "metrics": {
       "ExecutorDeserializeTime": 81,
       "ExecutorRunTime": 199,
-      "ResultSize": 4116,
       "ResultSerializationTime": 1,
+      "ResultSize": 4116,
+      "SchedulerDelayTime": 37,
       "ShuffleReadMetrics": {
+        "FetchWaitTime": 4,
         "LocalBlocksFetched": 16,
         "LocalBytesRead": 2000,
-        "TotalRecordsRead": 40,
         "TotalBytesRead": 2000,
-        "FetchWaitTime": 4
-      },
-      "SchedulerDelayTime": 37
-    }
+        "TotalRecordsRead": 40
+      }
+    },
+    "name": "count at <console>:26",
+    "stageId": 1,
+    "started": true,
+    "status": 2,
+    "taskCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "taskIdxCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "time": {
+      "end": 1437323864432,
+      "start": 1437323864337
+    },
+    "totalTaskDuration": 318
   }
 ]

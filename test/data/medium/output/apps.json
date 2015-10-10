@@ -1,59 +1,58 @@
 [
   {
-    "id": "application_1432740718700_3049",
-    "maxMem": 20375352114,
+    "MemorySize": 0,
     "blockManagerCounts": {
       "num": 21,
-      "running": 3,
-      "removed": 18
+      "removed": 18,
+      "running": 3
     },
-    "name": "Spark shell",
-    "time": {
-      "start": 1437343869007,
-      "end": 1437343979934
-    },
-    "user": "willir31",
-    "duration": 110927,
     "executorCounts": {
       "num": 20,
-      "running": 2,
-      "removed": 18
+      "removed": 18,
+      "running": 2
     },
-    "totalJobDuration": 22705,
-    "totalTaskDuration": 100854,
+    "id": "application_1432740718700_3049",
+    "maxMem": 20375352114,
     "metrics": {
       "ExecutorDeserializeTime": 29746,
       "ExecutorRunTime": 46683,
-      "ResultSize": 244216,
+      "JVMGCTime": 10668,
       "ResultSerializationTime": 184,
+      "ResultSize": 244216,
+      "SchedulerDelayTime": 9396,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 1125,
+        "LocalBlocksFetched": 9400,
+        "LocalBytesRead": 266200,
+        "RemoteBlocksFetched": 900,
+        "RemoteBytesRead": 26100,
+        "TotalBytesRead": 292300,
+        "TotalRecordsRead": 10300
+      },
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 283600,
-        "ShuffleWriteTime": 114207675,
-        "ShuffleRecordsWritten": 10000
+        "ShuffleRecordsWritten": 10000,
+        "ShuffleWriteTime": 114207675
       },
       "UpdatedBlocks": {
         "0": {
           "Status": {
+            "MemorySize": 3152067200,
             "StorageLevel": {
               "Replication": 100
-            },
-            "MemorySize": 3152067200
+            }
           }
         }
-      },
-      "SchedulerDelayTime": 9396,
-      "JVMGCTime": 10668,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 9400,
-        "LocalBytesRead": 266200,
-        "TotalRecordsRead": 10300,
-        "TotalBytesRead": 292300,
-        "FetchWaitTime": 1125,
-        "RemoteBlocksFetched": 900,
-        "RemoteBytesRead": 26100
       }
     },
-    "MemorySize": 0,
-    "numBlocks": 0
+    "name": "Spark shell",
+    "numBlocks": 0,
+    "time": {
+      "end": 1437343979934,
+      "start": 1437343869007
+    },
+    "totalJobDuration": 22705,
+    "totalTaskDuration": 100854,
+    "user": "willir31"
   }
 ]

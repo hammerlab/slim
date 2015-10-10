@@ -1,43 +1,43 @@
 [
   {
     "appId": "local-1440276596119",
+    "host": "localhost",
     "id": "driver",
     "maxMem": 2778778828,
-    "host": "localhost",
-    "port": 37401,
-    "time": {
-      "start": 1440276596431
-    },
-    "status": 1,
-    "taskCounts": {
-      "running": 0,
-      "num": 823,
-      "succeeded": 823
-    },
-    "totalTaskDuration": 161473,
     "metrics": {
       "ExecutorDeserializeTime": 9680,
       "ExecutorRunTime": 129741,
-      "ResultSize": 914452,
-      "JVMGCTime": 23166,
       "InputMetrics": {
         "BytesRead": 106305750,
         "RecordsRead": 1470848
       },
-      "SchedulerDelayTime": 21770,
+      "JVMGCTime": 23166,
       "ResultSerializationTime": 282,
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 431496851,
-        "ShuffleWriteTime": 2201190244,
-        "ShuffleRecordsWritten": 735122
-      },
+      "ResultSize": 914452,
+      "SchedulerDelayTime": 21770,
       "ShuffleReadMetrics": {
+        "FetchWaitTime": 43,
         "LocalBlocksFetched": 977,
         "LocalBytesRead": 1213656051,
         "TotalBytesRead": 1213656051,
-        "TotalRecordsRead": 737106,
-        "FetchWaitTime": 43
+        "TotalRecordsRead": 737106
+      },
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 431496851,
+        "ShuffleRecordsWritten": 735122,
+        "ShuffleWriteTime": 2201190244
       }
-    }
+    },
+    "port": 37401,
+    "status": 1,
+    "taskCounts": {
+      "num": 823,
+      "running": 0,
+      "succeeded": 823
+    },
+    "time": {
+      "start": 1440276596431
+    },
+    "totalTaskDuration": 161473
   }
 ]

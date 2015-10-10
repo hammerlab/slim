@@ -1,22 +1,19 @@
 [
   {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "name": "collect at FastaConverter.scala:118",
-    "rddIDs": [
-      6,
-      2,
-      4,
-      3,
-      5
+    "accumulables": [
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.collect(RDD.scala:884)\norg.bdgenomics.adam.converters.FastaConverter$.getDescriptionLines(FastaConverter.scala:118)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:78)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)",
-    "accumulables": [],
-    "taskCounts": {
-      "num": 2
+    "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
     },
+    "details": "org.apache.spark.rdd.RDD.collect(RDD.scala:884)\norg.bdgenomics.adam.converters.FastaConverter$.getDescriptionLines(FastaConverter.scala:118)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:78)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)",
+    "id": 0,
     "jobId": 0,
+    "name": "collect at FastaConverter.scala:118",
+    "parents": [
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -27,53 +24,60 @@
         "{\"id\":\"7\",\"name\":\"collect\"}"
       ]
     ],
+    "rddIDs": [
+      6,
+      2,
+      4,
+      3,
+      5
+    ],
     "status": 2,
+    "taskCounts": {
+      "num": 2
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
     "attempts": {
       "num": 1,
       "running": 0,
       "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
+    },
+    "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1099)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:132)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 1,
+    "jobId": 1,
     "name": "count at MDTagging.scala:132",
+    "parents": [
+    ],
+    "properties": [
+    ],
     "rddIDs": [
       12,
       0,
       1
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1099)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:132)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 2,
     "taskCounts": {
       "num": 1
-    },
-    "jobId": 1,
-    "properties": [],
-    "status": 2,
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
     "attempts": {
       "num": 1,
       "running": 0,
       "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 2,
-    "name": "reduce at ADAMRDDFunctions.scala:125",
-    "rddIDs": [
-      14,
-      0,
-      1
-    ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.reduce(RDD.scala:965)\norg.bdgenomics.adam.rdd.ADAMSequenceDictionaryRDDAggregator.adamGetSequenceDictionary(ADAMRDDFunctions.scala:125)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:142)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
-    "taskCounts": {
-      "num": 1
     },
+    "details": "org.apache.spark.rdd.RDD.reduce(RDD.scala:965)\norg.bdgenomics.adam.rdd.ADAMSequenceDictionaryRDDAggregator.adamGetSequenceDictionary(ADAMRDDFunctions.scala:125)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:142)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+    "id": 2,
     "jobId": 2,
+    "name": "reduce at ADAMRDDFunctions.scala:125",
+    "parents": [
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -84,30 +88,31 @@
         "{\"id\":\"24\",\"name\":\"reduce\"}"
       ]
     ],
+    "rddIDs": [
+      14,
+      0,
+      1
+    ],
     "status": 2,
+    "taskCounts": {
+      "num": 1
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
     "attempts": {
       "num": 1,
       "running": 0,
       "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 3,
-    "name": "flatMap at ShuffleRegionJoin.scala:62",
-    "rddIDs": [
-      15,
-      13,
-      0,
-      1
-    ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:62)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
-    "taskCounts": {
-      "num": 1
     },
+    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:62)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+    "id": 3,
     "jobId": 3,
+    "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "parents": [
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -118,17 +123,42 @@
         "{\"id\":\"38\",\"name\":\"reduce\"}"
       ]
     ],
+    "rddIDs": [
+      15,
+      13,
+      0,
+      1
+    ],
     "status": 2,
+    "taskCounts": {
+      "num": 1
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
     "attempts": {
       "num": 1,
       "running": 0,
       "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
+    },
+    "details": "org.apache.spark.rdd.RDD.keyBy(RDD.scala:1437)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:86)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 4,
+    "jobId": 3,
     "name": "keyBy at FastaConverter.scala:86",
+    "parents": [
+    ],
+    "properties": [
+      [
+        "spark.rdd.scope.noOverride",
+        "true"
+      ],
+      [
+        "spark.rdd.scope",
+        "{\"id\":\"38\",\"name\":\"reduce\"}"
+      ]
+    ],
     "rddIDs": [
       8,
       2,
@@ -137,13 +167,27 @@
       3,
       5
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.keyBy(RDD.scala:1437)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:86)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 2,
     "taskCounts": {
       "num": 2
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
     },
+    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:69)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+    "id": 5,
     "jobId": 3,
+    "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "parents": [
+      4
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -154,32 +198,34 @@
         "{\"id\":\"38\",\"name\":\"reduce\"}"
       ]
     ],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 5,
-    "name": "flatMap at ShuffleRegionJoin.scala:69",
     "rddIDs": [
       16,
       10,
       11,
       9
     ],
-    "parents": [
-      4
-    ],
-    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:69)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 2,
     "taskCounts": {
       "num": 2
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
     },
+    "details": "org.apache.spark.rdd.RDD.zipPartitions(RDD.scala:828)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:104)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+    "id": 6,
     "jobId": 3,
+    "name": "zipPartitions at ShuffleRegionJoin.scala:104",
+    "parents": [
+      5,
+      3
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -190,32 +236,37 @@
         "{\"id\":\"38\",\"name\":\"reduce\"}"
       ]
     ],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 6,
-    "name": "zipPartitions at ShuffleRegionJoin.scala:104",
     "rddIDs": [
       19,
       18,
       17
     ],
-    "parents": [
-      5,
-      3
-    ],
-    "details": "org.apache.spark.rdd.RDD.zipPartitions(RDD.scala:828)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:104)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 2,
     "taskCounts": {
       "num": 162
+    }
+  },
+  {
+    "accumulables": [
+      {
+        "ID": 1,
+        "Name": "MDTags Added",
+        "Value": "992"
+      }
+    ],
+    "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
     },
+    "details": "org.apache.spark.rdd.RDD.reduce(RDD.scala:965)\norg.bdgenomics.adam.rdd.ADAMSequenceDictionaryRDDAggregator.adamGetSequenceDictionary(ADAMRDDFunctions.scala:125)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:238)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:236)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamConvertToSAM(AlignmentRecordRDDFunctions.scala:236)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:133)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)",
+    "id": 7,
     "jobId": 3,
+    "name": "reduce at ADAMRDDFunctions.scala:125",
+    "parents": [
+      6
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -226,17 +277,6 @@
         "{\"id\":\"38\",\"name\":\"reduce\"}"
       ]
     ],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 7,
-    "name": "reduce at ADAMRDDFunctions.scala:125",
     "rddIDs": [
       25,
       21,
@@ -248,61 +288,42 @@
       1,
       22
     ],
-    "parents": [
-      6
-    ],
-    "details": "org.apache.spark.rdd.RDD.reduce(RDD.scala:965)\norg.bdgenomics.adam.rdd.ADAMSequenceDictionaryRDDAggregator.adamGetSequenceDictionary(ADAMRDDFunctions.scala:125)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:238)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:236)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamConvertToSAM(AlignmentRecordRDDFunctions.scala:236)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:133)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)",
-    "accumulables": [
-      {
-        "ID": 1,
-        "Name": "MDTags Added",
-        "Value": "992"
-      }
-    ],
+    "status": 2,
     "taskCounts": {
       "num": 163
-    },
-    "jobId": 3,
-    "properties": [
-      [
-        "spark.rdd.scope.noOverride",
-        "true"
-      ],
-      [
-        "spark.rdd.scope",
-        "{\"id\":\"38\",\"name\":\"reduce\"}"
-      ]
-    ],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
     }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:62)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 8,
+    "jobId": 4,
     "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "parents": [
+    ],
     "rddIDs": [
       15,
       13,
       0,
       1
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:62)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 1
-    },
-    "jobId": 4,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.keyBy(RDD.scala:1437)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:86)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 9,
+    "jobId": 4,
     "name": "keyBy at FastaConverter.scala:86",
+    "parents": [
+    ],
     "rddIDs": [
       8,
       2,
@@ -311,61 +332,86 @@
       3,
       5
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.keyBy(RDD.scala:1437)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:86)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 2
-    },
-    "jobId": 4,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:69)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 10,
+    "jobId": 4,
     "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "parents": [
+      9
+    ],
     "rddIDs": [
       16,
       10,
       11,
       9
     ],
-    "parents": [
-      9
-    ],
-    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:69)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 2
-    },
-    "jobId": 4,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.zipPartitions(RDD.scala:828)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:104)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 11,
+    "jobId": 4,
     "name": "zipPartitions at ShuffleRegionJoin.scala:104",
+    "parents": [
+      10,
+      8
+    ],
     "rddIDs": [
       19,
       18,
       17
     ],
-    "parents": [
-      10,
-      8
-    ],
-    "details": "org.apache.spark.rdd.RDD.zipPartitions(RDD.scala:828)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:104)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 162
-    },
-    "jobId": 4,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+      {
+        "ID": 1,
+        "Name": "MDTags Added",
+        "Value": "1984"
+      }
+    ],
     "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "details": "org.apache.spark.rdd.RDD.distinct(RDD.scala:328)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamGetReadGroupDictionary(AlignmentRecordRDDFunctions.scala:224)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:239)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:236)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamConvertToSAM(AlignmentRecordRDDFunctions.scala:236)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:133)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)",
     "id": 12,
+    "jobId": 4,
     "name": "distinct at AlignmentRecordRDDFunctions.scala:224",
+    "parents": [
+      11
+    ],
+    "properties": [
+      [
+        "spark.rdd.scope.noOverride",
+        "true"
+      ],
+      [
+        "spark.rdd.scope",
+        "{\"id\":\"61\",\"name\":\"collect\"}"
+      ]
+    ],
     "rddIDs": [
       27,
       21,
@@ -378,21 +424,27 @@
       1,
       22
     ],
-    "parents": [
-      11
-    ],
-    "details": "org.apache.spark.rdd.RDD.distinct(RDD.scala:328)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamGetReadGroupDictionary(AlignmentRecordRDDFunctions.scala:224)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:239)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:236)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamConvertToSAM(AlignmentRecordRDDFunctions.scala:236)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:133)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)",
-    "accumulables": [
-      {
-        "ID": 1,
-        "Name": "MDTags Added",
-        "Value": "1984"
-      }
-    ],
+    "status": 2,
     "taskCounts": {
       "num": 163
+    }
+  },
+  {
+    "accumulables": [
+    ],
+    "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
     },
+    "details": "org.apache.spark.rdd.RDD.collect(RDD.scala:884)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamGetReadGroupDictionary(AlignmentRecordRDDFunctions.scala:225)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:239)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:236)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamConvertToSAM(AlignmentRecordRDDFunctions.scala:236)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:133)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)",
+    "id": 13,
     "jobId": 4,
+    "name": "collect at AlignmentRecordRDDFunctions.scala:225",
+    "parents": [
+      12
+    ],
     "properties": [
       [
         "spark.rdd.scope.noOverride",
@@ -403,70 +455,46 @@
         "{\"id\":\"61\",\"name\":\"collect\"}"
       ]
     ],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 13,
-    "name": "collect at AlignmentRecordRDDFunctions.scala:225",
     "rddIDs": [
       29,
       28
     ],
-    "parents": [
-      12
-    ],
-    "details": "org.apache.spark.rdd.RDD.collect(RDD.scala:884)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamGetReadGroupDictionary(AlignmentRecordRDDFunctions.scala:225)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:239)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamConvertToSAM$1.apply(AlignmentRecordRDDFunctions.scala:236)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamConvertToSAM(AlignmentRecordRDDFunctions.scala:236)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:133)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)",
-    "accumulables": [],
+    "status": 2,
     "taskCounts": {
       "num": 163
-    },
-    "jobId": 4,
-    "properties": [
-      [
-        "spark.rdd.scope.noOverride",
-        "true"
-      ],
-      [
-        "spark.rdd.scope",
-        "{\"id\":\"61\",\"name\":\"collect\"}"
-      ]
-    ],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
     }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:62)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 14,
+    "jobId": 5,
     "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "parents": [
+    ],
     "rddIDs": [
       15,
       13,
       0,
       1
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:62)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 1
-    },
-    "jobId": 5,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.keyBy(RDD.scala:1437)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:86)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 15,
+    "jobId": 5,
     "name": "keyBy at FastaConverter.scala:86",
+    "parents": [
+    ],
     "rddIDs": [
       8,
       2,
@@ -475,61 +503,73 @@
       3,
       5
     ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.keyBy(RDD.scala:1437)\norg.bdgenomics.adam.converters.FastaConverter$.apply(FastaConverter.scala:86)\norg.bdgenomics.adam.rdd.ADAMContext.loadFasta(ADAMContext.scala:404)\norg.bdgenomics.adam.rdd.ADAMContext.loadSequence(ADAMContext.scala:529)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:210)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 2
-    },
-    "jobId": 5,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:69)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 16,
+    "jobId": 5,
     "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "parents": [
+      15
+    ],
     "rddIDs": [
       16,
       10,
       11,
       9
     ],
-    "parents": [
-      15
-    ],
-    "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:69)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 2
-    },
-    "jobId": 5,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "details": "org.apache.spark.rdd.RDD.zipPartitions(RDD.scala:828)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:104)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 17,
+    "jobId": 5,
     "name": "zipPartitions at ShuffleRegionJoin.scala:104",
+    "parents": [
+      16,
+      14
+    ],
     "rddIDs": [
       19,
       18,
       17
     ],
-    "parents": [
-      16,
-      14
-    ],
-    "details": "org.apache.spark.rdd.RDD.zipPartitions(RDD.scala:828)\norg.bdgenomics.adam.rdd.ShuffleRegionJoin.partitionAndJoin(ShuffleRegionJoin.scala:104)\norg.bdgenomics.adam.rdd.read.MDTagging.addMDTagsShuffle(MDTagging.scala:147)\norg.bdgenomics.adam.rdd.read.MDTagging.<init>(MDTagging.scala:48)\norg.bdgenomics.adam.rdd.read.MDTagging$.apply(MDTagging.scala:208)\norg.bdgenomics.adam.cli.Transform.apply(Transform.scala:158)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:172)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 4,
     "taskCounts": {
       "num": 162
-    },
-    "jobId": 5,
-    "status": 4
+    }
   },
   {
+    "accumulables": [
+    ],
     "appId": "local-1440276596119",
+    "attempts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1099)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:162)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
     "id": 18,
+    "jobId": 5,
     "name": "count at AlignmentRecordRDDFunctions.scala:162",
+    "parents": [
+      17
+    ],
+    "properties": [
+    ],
     "rddIDs": [
       33,
       21,
@@ -541,21 +581,9 @@
       1,
       22
     ],
-    "parents": [
-      17
-    ],
-    "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1099)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions$$anonfun$adamSAMSave$1.apply(AlignmentRecordRDDFunctions.scala:162)\norg.apache.spark.rdd.Timer.time(Timer.scala:57)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSAMSave(AlignmentRecordRDDFunctions.scala:130)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.maybeSaveBam(AlignmentRecordRDDFunctions.scala:72)\norg.bdgenomics.adam.rdd.read.AlignmentRecordRDDFunctions.adamSave(AlignmentRecordRDDFunctions.scala:97)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:184)\norg.bdgenomics.utils.cli.BDGSparkCommand$class.run(BDGCommand.scala:53)\norg.bdgenomics.adam.cli.Transform.run(Transform.scala:98)\norg.bdgenomics.adam.cli.ADAMMain$.main(ADAMMain.scala:106)\norg.bdgenomics.adam.cli.ADAMMain.main(ADAMMain.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
-    "accumulables": [],
+    "status": 2,
     "taskCounts": {
       "num": 163
-    },
-    "jobId": 5,
-    "properties": [],
-    "status": 2,
-    "attempts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
     }
   }
 ]

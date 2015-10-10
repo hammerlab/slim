@@ -2,65 +2,65 @@
   {
     "appId": "local-1437323845748",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 0,
     "host": "localhost",
-    "port": 50944,
-    "taskCounts": {
-      "running": 0,
-      "num": 4,
-      "succeeded": 4
-    },
-    "totalTaskDuration": 1938,
     "metrics": {
       "ExecutorDeserializeTime": 109,
       "ExecutorRunTime": 1706,
+      "ResultSerializationTime": 1,
       "ResultSize": 6268,
+      "SchedulerDelayTime": 122,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 2000,
-        "ShuffleWriteTime": 24855000,
-        "ShuffleRecordsWritten": 40
+        "ShuffleRecordsWritten": 40,
+        "ShuffleWriteTime": 24855000
       },
       "UpdatedBlocks": {
         "0": {
           "Status": {
+            "MemorySize": 28704,
             "StorageLevel": {
               "Replication": 4
-            },
-            "MemorySize": 28704
+            }
           }
         }
-      },
-      "SchedulerDelayTime": 122,
-      "ResultSerializationTime": 1
-    }
+      }
+    },
+    "port": 50944,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "taskCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "totalTaskDuration": 1938
   },
   {
     "appId": "local-1437323845748",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 1,
     "host": "localhost",
-    "port": 50944,
-    "taskCounts": {
-      "running": 0,
-      "num": 4,
-      "succeeded": 4
-    },
-    "totalTaskDuration": 318,
     "metrics": {
       "ExecutorDeserializeTime": 81,
       "ExecutorRunTime": 199,
-      "ResultSize": 4116,
       "ResultSerializationTime": 1,
+      "ResultSize": 4116,
+      "SchedulerDelayTime": 37,
       "ShuffleReadMetrics": {
+        "FetchWaitTime": 4,
         "LocalBlocksFetched": 16,
         "LocalBytesRead": 2000,
-        "TotalRecordsRead": 40,
         "TotalBytesRead": 2000,
-        "FetchWaitTime": 4
-      },
-      "SchedulerDelayTime": 37
-    }
+        "TotalRecordsRead": 40
+      }
+    },
+    "port": 50944,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "taskCounts": {
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
+    },
+    "totalTaskDuration": 318
   }
 ]

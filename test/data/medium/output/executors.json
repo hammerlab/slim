@@ -1,496 +1,478 @@
 [
   {
-    "appId": "application_1432740718700_3049",
-    "id": 1,
-    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
-    "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000002/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000002/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343891289,
-      "end": 1437343966822
-    },
-    "status": 5,
-    "duration": 75533,
-    "maxMem": 7872262963,
-    "port": 32947,
     "MemPercent": 0.40040166529177973,
-    "taskCounts": {
-      "running": 0,
-      "num": 194,
-      "succeeded": 194
-    },
-    "totalTaskDuration": 60448,
+    "MemorySize": 3152067200,
+    "appId": "application_1432740718700_3049",
+    "cores": 3,
+    "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
+    "id": 1,
+    "maxMem": 7872262963,
     "metrics": {
       "ExecutorDeserializeTime": 9611,
       "ExecutorRunTime": 43991,
-      "ResultSize": 236356,
+      "JVMGCTime": 10668,
       "ResultSerializationTime": 162,
+      "ResultSize": 236356,
+      "SchedulerDelayTime": 6684,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 48,
+        "LocalBlocksFetched": 9400,
+        "LocalBytesRead": 266200,
+        "TotalBytesRead": 266200,
+        "TotalRecordsRead": 9400
+      },
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 283600,
-        "ShuffleWriteTime": 114207675,
-        "ShuffleRecordsWritten": 10000
+        "ShuffleRecordsWritten": 10000,
+        "ShuffleWriteTime": 114207675
       },
       "UpdatedBlocks": {
         "0": {
           "Status": {
+            "MemorySize": 3152067200,
             "StorageLevel": {
               "Replication": 100
-            },
-            "MemorySize": 3152067200
+            }
           }
         }
-      },
-      "SchedulerDelayTime": 6684,
-      "JVMGCTime": 10668,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 9400,
-        "LocalBytesRead": 266200,
-        "TotalRecordsRead": 9400,
-        "TotalBytesRead": 266200,
-        "FetchWaitTime": 48
       }
     },
-    "MemorySize": 3152067200,
     "numBlocks": 0,
-    "reason": "remote Rpc client disassociated"
+    "port": 32947,
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "taskCounts": {
+      "num": 194,
+      "running": 0,
+      "succeeded": 194
+    },
+    "time": {
+      "end": 1437343966822,
+      "start": 1437343891289
+    },
+    "totalTaskDuration": 60448,
+    "urls": {
+      "stderr": "http://demeter-csmau08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000002/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000002/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 2,
-    "host": "demeter-csmaz10-17.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz10-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000003/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz10-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000003/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933214,
-      "end": 1437343966723
-    },
-    "status": 5,
-    "duration": 33509,
+    "host": "demeter-csmaz10-17.demeter.hpc.mssm.edu",
+    "id": 2,
     "maxMem": 7872262963,
     "port": 37658,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966723,
+      "start": 1437343933214
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz10-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000003/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz10-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000003/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 3,
-    "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000004/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000004/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343932339,
-      "end": 1437343966733
-    },
-    "status": 5,
-    "duration": 34394,
-    "taskCounts": {
-      "running": 0,
-      "num": 3,
-      "succeeded": 3
-    },
-    "totalTaskDuration": 9450,
+    "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
+    "id": 3,
     "maxMem": 7872262963,
-    "port": 34099,
     "metrics": {
       "ExecutorDeserializeTime": 7238,
       "ExecutorRunTime": 1086,
-      "ResultSize": 2619,
       "ResultSerializationTime": 8,
+      "ResultSize": 2619,
+      "SchedulerDelayTime": 1118,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 300,
         "FetchWaitTime": 453,
+        "RemoteBlocksFetched": 300,
         "RemoteBytesRead": 8700,
-        "TotalRecordsRead": 300,
-        "TotalBytesRead": 8700
-      },
-      "SchedulerDelayTime": 1118
+        "TotalBytesRead": 8700,
+        "TotalRecordsRead": 300
+      }
     },
-    "reason": "remote Rpc client disassociated"
-  },
-  {
-    "appId": "application_1432740718700_3049",
-    "id": 4,
-    "host": "demeter-csmaz08-17.demeter.hpc.mssm.edu",
-    "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000005/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000005/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933725,
-      "end": 1437343966731
-    },
+    "port": 34099,
+    "reason": "remote Rpc client disassociated",
     "status": 5,
-    "duration": 33006,
-    "maxMem": 7872262963,
-    "port": 41161,
-    "reason": "remote Rpc client disassociated"
-  },
-  {
-    "appId": "application_1432740718700_3049",
-    "id": 5,
-    "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
-    "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz08-9.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000006/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz08-9.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000006/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343932693,
-      "end": 1437343966725
-    },
-    "status": 5,
-    "duration": 34032,
     "taskCounts": {
-      "running": 0,
       "num": 3,
+      "running": 0,
       "succeeded": 3
     },
-    "totalTaskDuration": 7940,
+    "time": {
+      "end": 1437343966733,
+      "start": 1437343932339
+    },
+    "totalTaskDuration": 9450,
+    "urls": {
+      "stderr": "http://demeter-csmau10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000004/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000004/willir31/stdout?start=0"
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "cores": 3,
+    "host": "demeter-csmaz08-17.demeter.hpc.mssm.edu",
+    "id": 4,
     "maxMem": 7872262963,
-    "port": 54440,
+    "port": 41161,
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966731,
+      "start": 1437343933725
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000005/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000005/willir31/stdout?start=0"
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "cores": 3,
+    "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
+    "id": 5,
+    "maxMem": 7872262963,
     "metrics": {
       "ExecutorDeserializeTime": 6275,
       "ExecutorRunTime": 1086,
-      "ResultSize": 2619,
       "ResultSerializationTime": 8,
+      "ResultSize": 2619,
+      "SchedulerDelayTime": 571,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 300,
         "FetchWaitTime": 444,
+        "RemoteBlocksFetched": 300,
         "RemoteBytesRead": 8700,
-        "TotalRecordsRead": 300,
-        "TotalBytesRead": 8700
-      },
-      "SchedulerDelayTime": 571
+        "TotalBytesRead": 8700,
+        "TotalRecordsRead": 300
+      }
     },
-    "reason": "remote Rpc client disassociated"
-  },
-  {
-    "appId": "application_1432740718700_3049",
-    "id": 6,
-    "host": "demeter-csmaz10-4.demeter.hpc.mssm.edu",
-    "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000007/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000007/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933939,
-      "end": 1437343966717
-    },
+    "port": 54440,
+    "reason": "remote Rpc client disassociated",
     "status": 5,
-    "duration": 32778,
-    "maxMem": 7872262963,
-    "port": 39427,
-    "reason": "remote Rpc client disassociated"
-  },
-  {
-    "appId": "application_1432740718700_3049",
-    "id": 7,
-    "host": "demeter-csmaz10-13.demeter.hpc.mssm.edu",
-    "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz10-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000008/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz10-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000008/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933380,
-      "end": 1437343966730
-    },
-    "status": 5,
-    "duration": 33350,
-    "maxMem": 7872262963,
-    "port": 46070,
-    "reason": "remote Rpc client disassociated"
-  },
-  {
-    "appId": "application_1432740718700_3049",
-    "id": 8,
-    "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
-    "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau10-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000009/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau10-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000009/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343932473,
-      "end": 1437343966729
-    },
-    "status": 5,
-    "duration": 34256,
     "taskCounts": {
-      "running": 0,
       "num": 3,
+      "running": 0,
       "succeeded": 3
     },
-    "totalTaskDuration": 8171,
+    "time": {
+      "end": 1437343966725,
+      "start": 1437343932693
+    },
+    "totalTaskDuration": 7940,
+    "urls": {
+      "stderr": "http://demeter-csmaz08-9.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000006/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz08-9.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000006/willir31/stdout?start=0"
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "cores": 3,
+    "host": "demeter-csmaz10-4.demeter.hpc.mssm.edu",
+    "id": 6,
     "maxMem": 7872262963,
-    "port": 42347,
+    "port": 39427,
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966717,
+      "start": 1437343933939
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000007/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz10-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000007/willir31/stdout?start=0"
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "cores": 3,
+    "host": "demeter-csmaz10-13.demeter.hpc.mssm.edu",
+    "id": 7,
+    "maxMem": 7872262963,
+    "port": 46070,
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966730,
+      "start": 1437343933380
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz10-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000008/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz10-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000008/willir31/stdout?start=0"
+    }
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "cores": 3,
+    "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
+    "id": 8,
+    "maxMem": 7872262963,
     "metrics": {
       "ExecutorDeserializeTime": 6622,
       "ExecutorRunTime": 520,
-      "ResultSize": 2622,
       "ResultSerializationTime": 6,
+      "ResultSize": 2622,
+      "SchedulerDelayTime": 1023,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 300,
         "FetchWaitTime": 180,
+        "RemoteBlocksFetched": 300,
         "RemoteBytesRead": 8700,
-        "TotalRecordsRead": 300,
-        "TotalBytesRead": 8700
-      },
-      "SchedulerDelayTime": 1023
+        "TotalBytesRead": 8700,
+        "TotalRecordsRead": 300
+      }
     },
-    "reason": "remote Rpc client disassociated"
+    "port": 42347,
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "taskCounts": {
+      "num": 3,
+      "running": 0,
+      "succeeded": 3
+    },
+    "time": {
+      "end": 1437343966729,
+      "start": 1437343932473
+    },
+    "totalTaskDuration": 8171,
+    "urls": {
+      "stderr": "http://demeter-csmau10-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000009/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau10-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000009/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 9,
-    "host": "demeter-csmau08-10.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau08-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000010/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau08-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000010/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933638,
-      "end": 1437343967040
-    },
-    "status": 5,
-    "duration": 33402,
+    "host": "demeter-csmau08-10.demeter.hpc.mssm.edu",
+    "id": 9,
     "maxMem": 7872262963,
     "port": 59443,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343967040,
+      "start": 1437343933638
+    },
+    "urls": {
+      "stderr": "http://demeter-csmau08-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000010/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau08-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000010/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 10,
-    "host": "demeter-csmaz08-13.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000011/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000011/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343934028,
-      "end": 1437343966720
-    },
-    "status": 5,
-    "duration": 32692,
+    "host": "demeter-csmaz08-13.demeter.hpc.mssm.edu",
+    "id": 10,
     "maxMem": 7872262963,
     "port": 42654,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966720,
+      "start": 1437343934028
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000011/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz08-13.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000011/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 11,
-    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz08-11.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000012/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz08-11.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000012/willir31/stderr?start=0"
+    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
+    "id": 11,
+    "maxMem": 7872262963,
+    "port": 58414,
+    "status": 1,
+    "taskCounts": {
+      "num": 3,
+      "running": 3
     },
     "time": {
       "start": 1437343933089
     },
-    "status": 1,
-    "taskCounts": {
-      "running": 3,
-      "num": 3
-    },
     "totalTaskDuration": 7420,
-    "maxMem": 7872262963,
-    "port": 58414
+    "urls": {
+      "stderr": "http://demeter-csmaz08-11.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000012/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz08-11.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000012/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 12,
-    "host": "demeter-csmau08-17.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000013/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000013/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933624,
-      "end": 1437343966711
-    },
-    "status": 5,
-    "duration": 33087,
+    "host": "demeter-csmau08-17.demeter.hpc.mssm.edu",
+    "id": 12,
     "maxMem": 7872262963,
     "port": 47918,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966711,
+      "start": 1437343933624
+    },
+    "urls": {
+      "stderr": "http://demeter-csmau08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000013/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau08-17.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000013/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 13,
-    "host": "demeter-csmau08-20.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000014/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000014/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933841,
-      "end": 1437343966722
-    },
-    "status": 5,
-    "duration": 32881,
+    "host": "demeter-csmau08-20.demeter.hpc.mssm.edu",
+    "id": 13,
     "maxMem": 7872262963,
     "port": 56447,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966722,
+      "start": 1437343933841
+    },
+    "urls": {
+      "stderr": "http://demeter-csmau08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000014/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000014/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 14,
-    "host": "demeter-csmaz10-10.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz10-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000015/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz10-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000015/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933601,
-      "end": 1437343966748
-    },
-    "status": 5,
-    "duration": 33147,
+    "host": "demeter-csmaz10-10.demeter.hpc.mssm.edu",
+    "id": 14,
     "maxMem": 7872262963,
     "port": 50106,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966748,
+      "start": 1437343933601
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz10-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000015/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz10-10.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000015/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 15,
-    "host": "demeter-csmau08-7.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau08-7.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000016/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau08-7.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000016/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933473,
-      "end": 1437343966727
-    },
-    "status": 5,
-    "duration": 33254,
+    "host": "demeter-csmau08-7.demeter.hpc.mssm.edu",
+    "id": 15,
     "maxMem": 7872262963,
     "port": 59215,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966727,
+      "start": 1437343933473
+    },
+    "urls": {
+      "stderr": "http://demeter-csmau08-7.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000016/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau08-7.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000016/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 16,
-    "host": "demeter-csmaz11-1.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz11-1.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000017/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz11-1.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000017/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933427,
-      "end": 1437343966718
-    },
-    "status": 5,
-    "duration": 33291,
+    "host": "demeter-csmaz11-1.demeter.hpc.mssm.edu",
+    "id": 16,
     "maxMem": 7872262963,
     "port": 58749,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966718,
+      "start": 1437343933427
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz11-1.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000017/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz11-1.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000017/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 17,
-    "host": "demeter-csmaz08-20.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000018/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000018/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933395,
-      "end": 1437343966743
-    },
-    "status": 5,
-    "duration": 33348,
+    "host": "demeter-csmaz08-20.demeter.hpc.mssm.edu",
+    "id": 17,
     "maxMem": 7872262963,
     "port": 58271,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966743,
+      "start": 1437343933395
+    },
+    "urls": {
+      "stderr": "http://demeter-csmaz08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000018/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz08-20.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000018/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 18,
-    "host": "demeter-csmau10-2.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau10-2.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000019/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau10-2.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000019/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933372,
-      "end": 1437343966740
-    },
-    "status": 5,
-    "duration": 33368,
+    "host": "demeter-csmau10-2.demeter.hpc.mssm.edu",
+    "id": 18,
     "maxMem": 7872262963,
     "port": 43888,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966740,
+      "start": 1437343933372
+    },
+    "urls": {
+      "stderr": "http://demeter-csmau10-2.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000019/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau10-2.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000019/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 19,
-    "host": "demeter-csmau08-4.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmau08-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000020/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmau08-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000020/willir31/stderr?start=0"
-    },
-    "time": {
-      "start": 1437343933754,
-      "end": 1437343966726
-    },
-    "status": 5,
-    "duration": 32972,
+    "host": "demeter-csmau08-4.demeter.hpc.mssm.edu",
+    "id": 19,
     "maxMem": 7872262963,
     "port": 52762,
-    "reason": "remote Rpc client disassociated"
+    "reason": "remote Rpc client disassociated",
+    "status": 5,
+    "time": {
+      "end": 1437343966726,
+      "start": 1437343933754
+    },
+    "urls": {
+      "stderr": "http://demeter-csmau08-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000020/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmau08-4.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000020/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
-    "id": 20,
-    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
     "cores": 3,
-    "urls": {
-      "stdout": "http://demeter-csmaz08-18.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000021/willir31/stdout?start=0",
-      "stderr": "http://demeter-csmaz08-18.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000021/willir31/stderr?start=0"
+    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
+    "id": 20,
+    "maxMem": 7872262963,
+    "port": 42298,
+    "status": 1,
+    "taskCounts": {
+      "num": 3,
+      "running": 3
     },
     "time": {
       "start": 1437343932981
     },
-    "status": 1,
-    "taskCounts": {
-      "running": 3,
-      "num": 3
-    },
     "totalTaskDuration": 7425,
-    "maxMem": 7872262963,
-    "port": 42298
+    "urls": {
+      "stderr": "http://demeter-csmaz08-18.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000021/willir31/stderr?start=0",
+      "stdout": "http://demeter-csmaz08-18.demeter.hpc.mssm.edu:8042/node/containerlogs/container_1432740718700_3049_01_000021/willir31/stdout?start=0"
+    }
   },
   {
     "appId": "application_1432740718700_3049",
+    "host": "172.29.46.14",
     "id": "driver",
     "maxMem": 4630826188,
-    "host": "172.29.46.14",
     "port": 59488,
+    "status": 1,
     "time": {
       "start": 1437343884064
-    },
-    "status": 1
+    }
   }
 ]

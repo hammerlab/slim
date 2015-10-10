@@ -2,60 +2,60 @@
   {
     "appId": "local-1437677504186",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 40,
-    "taskCounts": {
-      "running": 0,
-      "num": 20,
-      "succeeded": 20
-    },
-    "totalTaskDuration": 4204,
     "metrics": {
       "ExecutorDeserializeTime": 141,
       "ExecutorRunTime": 3730,
+      "JVMGCTime": 486,
       "ResultSize": 43760,
+      "SchedulerDelayTime": 333,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 21400,
-        "ShuffleWriteTime": 108488000,
-        "ShuffleRecordsWritten": 200
+        "ShuffleRecordsWritten": 200,
+        "ShuffleWriteTime": 108488000
       },
       "UpdatedBlocks": {
         "0": {
           "Status": {
+            "MemorySize": 28003520,
             "StorageLevel": {
               "Replication": 20
-            },
-            "MemorySize": 28003520
+            }
           }
         }
-      },
-      "SchedulerDelayTime": 333,
-      "JVMGCTime": 486
-    }
+      }
+    },
+    "stageAttemptId": 0,
+    "stageId": 40,
+    "taskCounts": {
+      "num": 20,
+      "running": 0,
+      "succeeded": 20
+    },
+    "totalTaskDuration": 4204
   },
   {
     "appId": "local-1437677504186",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 41,
-    "taskCounts": {
-      "running": 0,
-      "num": 20,
-      "succeeded": 20
-    },
-    "totalTaskDuration": 320,
     "metrics": {
       "ExecutorDeserializeTime": 144,
       "ExecutorRunTime": 99,
       "ResultSize": 32530,
+      "SchedulerDelayTime": 77,
       "ShuffleReadMetrics": {
+        "FetchWaitTime": 1,
         "LocalBlocksFetched": 200,
         "LocalBytesRead": 21400,
-        "TotalRecordsRead": 200,
         "TotalBytesRead": 21400,
-        "FetchWaitTime": 1
-      },
-      "SchedulerDelayTime": 77
-    }
+        "TotalRecordsRead": 200
+      }
+    },
+    "stageAttemptId": 0,
+    "stageId": 41,
+    "taskCounts": {
+      "num": 20,
+      "running": 0,
+      "succeeded": 20
+    },
+    "totalTaskDuration": 320
   }
 ]
