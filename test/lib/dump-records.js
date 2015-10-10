@@ -36,6 +36,7 @@ if (argv._.length) {
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var path = require('path');
+var stringify = require('json-stable-stringify')
 
 var sortObjs = require('./utils').sortObjs;
 
@@ -51,11 +52,11 @@ function dumpMongoToOutputDir(dir) {
           var coll = collections[name];
           var sortObj = sortObjs[name];
           return function (callback) {
-            coll.find({}, {_id: 0, l: 0, n: 0}).sort(sortObj).toArray(function (err, objs) {
+            coll.find({}, {_id: 0, l: 0, n: 0, duration: 0}).sort(sortObj).toArray(function (err, objs) {
               assert.equal(null, err);
               var filename = dir + '/' + coll.collectionName + '.json';
               console.log("Writing:", filename);
-              fs.writeFile(filename, JSON.stringify(objs, null, 2), callback);
+              fs.writeFile(filename, stringify(objs, { space: '  ' }), callback);
             });
           };
         }),
