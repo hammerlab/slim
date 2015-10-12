@@ -1,6 +1,8 @@
 # `slim`
 
-[![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/hammerlab/spree?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ![Travis CI Status](https://travis-ci.org/hammerlab/slim.svg?branch=master)
+[![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/hammerlab/spree?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Travis CI Status](https://travis-ci.org/hammerlab/slim.svg?branch=master)](https://travis-ci.org/hammerlab/slim)
+
+[![npm download stats for slim.js](https://nodei.co/npm/slim.js.png?downloads=true)](https://www.npmjs.com/package/slim.js)
 
 `slim` is a [Node][] server that:
 
