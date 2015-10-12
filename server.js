@@ -72,7 +72,7 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   newTaskAttemptMetrics.SchedulerDelayTime = schedulerDelayTime;
 
   taskAttempt.set('metrics', newTaskAttemptMetrics, true);
-  job.setDuration('totalJobDuration', app);
+  if (job) job.setDuration('totalJobDuration', app);
 
   var taskAttemptMetricsDiff = { metrics: subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics) };
 
@@ -80,7 +80,7 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   executor.inc(taskAttemptMetricsDiff);
   stageExecutor.inc(taskAttemptMetricsDiff);
   stageAttempt.inc(taskAttemptMetricsDiff);
-  job.inc(taskAttemptMetricsDiff);
+  if (job) job.inc(taskAttemptMetricsDiff);
 
   stageAttempt.updateMetrics(
         { metrics: prevTaskAttemptMetrics },
@@ -285,7 +285,7 @@ var handlers = {
 
     stage.fromStageInfo(si).set({ properties: toSeq(e['Properties']) }).inc('attempts.num').inc('attempts.running');
     attempt.fromStageInfo(si).set({ started: true, status: RUNNING });
-    job.inc('stageCounts.running');
+    if (job) job.inc('stageCounts.running');
 
     if (prevStageStatus == SKIPPED) {
       l.warn("Stage %d marked as %s but attempt %d submitted", stage.id, statusStr[prevStageStatus], attempt.id);
@@ -293,15 +293,15 @@ var handlers = {
       l.info("Previously succeeded stage %d starting new attempt: %d", stage.id, attempt.id);
     } else if (prevStageStatus == FAILED) {
       stage.set('status', RUNNING, true);
-      job.dec('stageIdxCounts.failed').inc('stageIdxCounts.running')
+      if(job) job.dec('stageIdxCounts.failed').inc('stageIdxCounts.running')
     } else if (prevStageStatus == PENDING) {
       stage.set('status', RUNNING, true);
-      job.inc('stageIdxCounts.running');
+      if(job) job.inc('stageIdxCounts.running');
     }
 
     attempt.upsert();
     stage.upsert();
-    job.upsert();
+    if(job) job.upsert();
     app.upsert();
   },
 
@@ -343,7 +343,7 @@ var handlers = {
 
     if (prevAttemptStatus == RUNNING) {
       stage.dec('attempts.running');
-      job.dec('stageCounts.running');
+      if (job) job.dec('stageCounts.running');
     } else {
       l.error(
             "Got status %s for stage attempt %d.%d with existing status %s",
@@ -357,7 +357,7 @@ var handlers = {
     if (newAttemptStatus == SUCCEEDED) {
 
       stage.inc('attempts.succeeded');
-      job.inc('stageCounts.succeeded');
+      if (job) job.inc('stageCounts.succeeded');
 
       if (prevStageStatus == SUCCEEDED) {
         l.info(
@@ -367,7 +367,7 @@ var handlers = {
         );
       } else {
         if (prevStageStatus == RUNNING) {
-          job.dec('stageIdxCounts.running');
+          if (job) job.dec('stageIdxCounts.running');
         } else {
           l.error(
                 "Stage attempt %d.%d FAILED when stage was previously %s, not RUNNING",
@@ -376,16 +376,16 @@ var handlers = {
                 statusStr[prevStageStatus]
           );
           if (prevStageStatus == FAILED) {
-            job.dec('stageIdxCounts.failed');
+            if (job) job.dec('stageIdxCounts.failed');
           }
         }
         stage.set('status', SUCCEEDED, true);
-        job.inc('stageIdxCounts.succeeded');
+        if (job) job.inc('stageIdxCounts.succeeded');
       }
     } else {
       // attempt FAILED
       stage.inc('attempts.failed');
-      job.inc('stageCounts.failed');
+      if (job) job.inc('stageCounts.failed');
 
       if (prevStageStatus == SUCCEEDED) {
         l.info(
@@ -395,7 +395,7 @@ var handlers = {
         );
       } else {
         if (prevStageStatus == RUNNING) {
-          job.dec('stageIdxCounts.running');
+          if (job) job.dec('stageIdxCounts.running');
         } else {
           l.error(
                 "Stage attempt %d.%d FAILED when stage was previously %s, not RUNNING",
@@ -405,21 +405,21 @@ var handlers = {
           )
         }
         stage.set('status', FAILED, true);
-        job.inc('stageIdxCounts.failed');
+        if (job) job.inc('stageIdxCounts.failed');
 
         ['num', 'running', 'succeeded', 'failed'].forEach(function(key) {
           var jobKey = ['taskIdxCounts', key].join('.');
           var resetValue =
-                (job.stageIDs || []).reduce(function(sum, stageId) {
+                (job && job.stageIDs || []).reduce(function(sum, stageId) {
                   return sum + (app.getStage(stageId).get('taskIdxCounts')[key] || 0);
                 }, 0);
           l.info(
                 "Resetting job %d 'taskIdxCounts.%s' on stage attempt %d.%d failure: %d -> %d",
-                job.id, key, stage.id, attempt.id, job.get(jobKey), resetValue
+                job && job.id, key, stage.id, attempt.id, job && job.get(jobKey), resetValue
           );
-          job.set(jobKey, resetValue, true);
+          if (job) job.set(jobKey, resetValue, true);
         });
-        job.get('taskIdxCounts');
+        if (job) job.get('taskIdxCounts');
       }
     }
 
@@ -429,7 +429,7 @@ var handlers = {
 
     attempt.upsert();
     stage.upsert();
-    job.upsert();
+    if (job) job.upsert();
     app.upsert();
   },
 
@@ -465,7 +465,7 @@ var handlers = {
       );
     } else {
       taskAttempt.set('status', RUNNING);
-      job.inc('taskCounts.running');
+      if (job) job.inc('taskCounts.running');
       stageAttempt.inc('taskCounts.running');
       executor.inc('taskCounts.running').inc('taskCounts.num');
       stageExecutor.inc('taskCounts.running').inc('taskCounts.num');
@@ -473,11 +473,11 @@ var handlers = {
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
         stageAttempt.inc('taskIdxCounts.running');
-        job.inc('taskIdxCounts.running');
+        if (job) job.inc('taskIdxCounts.running');
       } else if (prevTaskStatus == FAILED) {
         task.set('status', RUNNING, true);
         stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
-        job.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
+        if (job) job.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
       }
     }
 
@@ -486,7 +486,7 @@ var handlers = {
     stageAttempt.upsert();
     stageExecutor.upsert();
     executor.upsert();
-    job.upsert();
+    if (job) job.upsert();
     app.upsert();
   },
 
@@ -544,26 +544,26 @@ var handlers = {
     if (succeeded) {
       if (prevNumFailed) {
         stageAttempt.dec('failing.' + prevNumFailed);
-        job.dec('failing.' + prevNumFailed);
+        if (job) job.dec('failing.' + prevNumFailed);
       }
     } else {
       var numFailed = prevNumFailed + 1;
       task.inc('failed');
       if (prevNumFailed) {
         stageAttempt.dec('failed.' + prevNumFailed);
-        job.dec('failed.' + prevNumFailed);
+        if (job) job.dec('failed.' + prevNumFailed);
         if (task.get('status') != SUCCEEDED) {
           stageAttempt.dec('failing.' + prevNumFailed);
-          job.dec('failing.' + prevNumFailed);
+          if (job) job.dec('failing.' + prevNumFailed);
         }
       }
       stageAttempt.inc('failed.' + numFailed).inc('failing.' + numFailed);
-      job.inc('failed.' + numFailed).inc('failing.' + numFailed);
+      if (job) job.inc('failed.' + numFailed).inc('failing.' + numFailed);
     }
 
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
-      job.dec('taskCounts.running').inc(taskCountKey);
+      if (job) job.dec('taskCounts.running').inc(taskCountKey);
       stageAttempt.dec('taskCounts.running').inc(taskCountKey);
       executor.dec('taskCounts.running').inc(taskCountKey);
       stageExecutor.dec('taskCounts.running').inc(taskCountKey);
@@ -580,13 +580,12 @@ var handlers = {
         if (prevTaskStatus == RUNNING) {
           task.set('status', status, true);
           stageAttempt.dec('taskIdxCounts.running').inc(taskIdxCountKey);
-          job.dec('taskIdxCounts.running').inc(taskIdxCountKey);
-
+          if (job) job.dec('taskIdxCounts.running').inc(taskIdxCountKey);
         } else if (prevTaskStatus == FAILED) {
           if (succeeded) {
             task.set('status', status, true);
             stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.succeeded');
-            job.dec('taskIdxCounts.failed').inc('taskCount.succeeded');
+            if (job) job.dec('taskIdxCounts.failed').inc('taskCount.succeeded');
           }
         } else {
           var logFn = succeeded ? l.info : l.warn;
@@ -616,7 +615,7 @@ var handlers = {
     stageAttempt.upsert();
     stageExecutor.upsert();
     executor.upsert();
-    job.upsert();
+    if (job) job.upsert();
     app.upsert();
   },
 
