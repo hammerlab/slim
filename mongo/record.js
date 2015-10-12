@@ -24,10 +24,11 @@ var upsertCb = function(event) {
   }
 };
 
-var UpsertStats = require('./upsert-stats').UpsertStats;
-var upsertStats = new UpsertStats();
-
 var useRealInc = !argv.f && !argv['fake-inc'];
+var statusLogInterval = argv['status-log-interval'] || 10;
+
+var UpsertStats = require('./upsert-stats').UpsertStats;
+
 
 function getProp(root, key, create) {
   var segments = key.split('.');
@@ -270,6 +271,13 @@ var upsertQueue = new PriorityQueue(function(a,b) {
   return 0;
 });
 
+var upsertStats = new UpsertStats();
+
+setInterval(function() {
+  upsertStats.logStatus(upsertQueue, numBlocked);
+}, statusLogInterval * 1000);
+
+
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function(cb) {
     if (!this.dirty) {
@@ -374,37 +382,17 @@ function addUpsert(clazz, className, collectionName) {
     upsertObj['$set'].l = now.unix() * 1000;
 
     upsertStats.inc();
-    var b = {
-      t: now,
-      started: upsertStats.started,
-      ended: upsertStats.ended
-    };
     this.dirty = false;
     colls[collectionName].findOneAndUpdate(
           this.findObj,
           upsertObj,
           upsertOpts,
           function(err, val) {
-            var after = m();
-            upsertStats.dec();
+            upsertStats.dec(now);
             this.inFlight = false;
             if (err) {
               l.error("%s, upserting:", this.toString(), upsertObj, err);
             } else {
-              l.debug("Added %s: %O", className, val);
-              if (className == 'Stage') {
-                var v = val.value;
-                l.info(
-                      'After upsert (started %d->%d, ended %d->%d, in flight %d->%d): Stage %d: %d running, %d succeeded, took %d ms',
-                      b.started, upsertStats.started,
-                      b.ended, upsertStats.ended,
-                      b.started - b.ended, upsertStats.started - upsertStats.ended,
-                      v.id,
-                      v.taskCounts && v.taskCounts.running || 0,
-                      v.taskCounts && v.taskCounts.succeeded || 0,
-                      after - b.t
-                );
-              }
               if (this.blocked) {
                 this.blocked = false;
                 numBlocked--;

@@ -93,7 +93,7 @@ App.prototype.hydrate = function(cb) {
                   stage.set('jobId', job.id);
                 }
               });
-            };
+            }
 
             r.rdds.forEach(function(rdd) {
               self.rdds[rdd.id] = new RDD(id, rdd.id).fromMongo(rdd);
