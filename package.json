@@ -1,24 +1,25 @@
 {
   "name": "slim.js",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "A server that listens to Spark events, computes aggregate statistics about the Spark applications that generated them (similar to Spark's JobProgressListener), and writes those statistics to MongoDB.",
   "author": "Ryan Williams <ryan.blake.williams@gmail.com>",
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "http://github.com/hammerlab/slim.git"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/hammerlab/slim.git"
   },
   "main": "server.js",
   "dependencies": {
     "async": "1.3.0",
+    "deep-equal": "1.0.0",
+    "json-stable-stringify": "^1.0.0",
     "line-reader": "0.2.4",
     "minimist": "1.1.1",
     "mkdirp": "0.5.1",
     "moment": "2.10.3",
     "mongodb": "2.0.42",
     "node.extend": "1.1.5",
-    "deep-equal": "1.0.0",
     "oboe": "2.1.2",
+    "priorityqueuejs": "^1.0.0",
     "shelljs": "0.5.1",
     "tracer": "0.7.4"
   },
@@ -39,8 +40,8 @@
     "slim": "slim.js"
   },
   "scripts": {
-    "pretest": "nc -z localhost 27017 > /dev/null || mongod --dbpath test/db --fork --logpath /dev/null",
+    "pretest": "nc -z localhost 27017 > /dev/null || ( mongod --dbpath test/db --fork --logpath /dev/null && touch kill-test-mongo )",
     "test": "./node_modules/mocha/bin/mocha --timeout 10000",
-    "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
+    "posttest": "[ ! -e kill-test-mongo ] || (rm -f kill-test-mongo && mongo admin --eval 'db.shutdownServer()' > /dev/null)"
   }
 }

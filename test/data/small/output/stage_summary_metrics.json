@@ -2,35 +2,46 @@
   {
     "appId": "local-1437323845748",
     "id": "duration",
+    "max": 503,
+    "median": 481,
+    "min": 477,
+    "sf": 503,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 477,
-    "tf": 477,
-    "median": 481,
-    "sf": 503,
-    "max": 503
+    "tf": 477
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ExecutorDeserializeTime",
+    "max": 28,
+    "median": 27,
+    "min": 27,
+    "sf": 28,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 27,
-    "tf": 27,
-    "median": 27,
-    "sf": 28,
-    "max": 28
+    "tf": 27
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ExecutorRunTime",
+    "max": 430,
+    "median": 426,
+    "min": 425,
+    "sf": 430,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 425,
-    "tf": 425,
-    "median": 426,
-    "sf": 430,
-    "max": 430
+    "tf": 425
   },
   {
     "appId": "local-1437323845748",
@@ -53,13 +64,24 @@
   {
     "appId": "local-1437323845748",
     "id": "metrics.JVMGCTime",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 0,
-    "tf": 0,
+    "tf": 0
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
     "median": 0,
+    "min": 0,
     "sf": 0,
-    "max": 0
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",
@@ -76,24 +98,24 @@
   {
     "appId": "local-1437323845748",
     "id": "metrics.ResultSerializationTime",
+    "max": 1,
+    "median": 0,
+    "min": 0,
+    "sf": 1,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 0,
-    "tf": 0,
-    "median": 0,
-    "sf": 1,
-    "max": 1
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.SchedulerDelayTime",
+    "max": 50,
+    "median": 24,
+    "min": 24,
+    "sf": 50,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 24,
-    "tf": 24,
-    "median": 24,
-    "sf": 50,
-    "max": 50
+    "tf": 24
   },
   {
     "appId": "local-1437323845748",
@@ -110,57 +132,68 @@
   {
     "appId": "local-1437323845748",
     "id": "metrics.ShuffleWriteMetrics.ShuffleBytesWritten",
+    "max": 500,
+    "median": 500,
+    "min": 500,
+    "sf": 500,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 500,
-    "tf": 500,
-    "median": 500,
-    "sf": 500,
-    "max": 500
+    "tf": 500
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ShuffleWriteMetrics.ShuffleRecordsWritten",
+    "max": 10,
+    "median": 10,
+    "min": 10,
+    "sf": 10,
     "stageAttemptId": 0,
     "stageId": 0,
-    "min": 10,
-    "tf": 10,
-    "median": 10,
-    "sf": 10,
-    "max": 10
+    "tf": 10
   },
   {
     "appId": "local-1437323845748",
     "id": "duration",
+    "max": 93,
+    "median": 83,
+    "min": 65,
+    "sf": 93,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 65,
-    "tf": 77,
-    "median": 83,
-    "sf": 93,
-    "max": 93
+    "tf": 77
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ExecutorDeserializeTime",
+    "max": 49,
+    "median": 16,
+    "min": 7,
+    "sf": 49,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 7,
-    "tf": 9,
-    "median": 16,
-    "sf": 49,
-    "max": 49
+    "tf": 9
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ExecutorRunTime",
+    "max": 67,
+    "median": 62,
+    "min": 31,
+    "sf": 67,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 31,
-    "tf": 39,
-    "median": 62,
-    "sf": 67,
-    "max": 67
+    "tf": 39
   },
   {
     "appId": "local-1437323845748",
@@ -183,13 +216,24 @@
   {
     "appId": "local-1437323845748",
     "id": "metrics.JVMGCTime",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 0,
-    "tf": 0,
+    "tf": 0
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
     "median": 0,
+    "min": 0,
     "sf": 0,
-    "max": 0
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",
@@ -206,46 +250,46 @@
   {
     "appId": "local-1437323845748",
     "id": "metrics.ResultSerializationTime",
+    "max": 1,
+    "median": 0,
+    "min": 0,
+    "sf": 1,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 0,
-    "tf": 0,
-    "median": 0,
-    "sf": 1,
-    "max": 1
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.SchedulerDelayTime",
+    "max": 13,
+    "median": 9,
+    "min": 7,
+    "sf": 13,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 7,
-    "tf": 8,
-    "median": 9,
-    "sf": 13,
-    "max": 13
+    "tf": 8
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ShuffleReadMetrics.TotalBytesRead",
+    "max": 516,
+    "median": 516,
+    "min": 484,
+    "sf": 516,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 484,
-    "tf": 484,
-    "median": 516,
-    "sf": 516,
-    "max": 516
+    "tf": 484
   },
   {
     "appId": "local-1437323845748",
     "id": "metrics.ShuffleReadMetrics.TotalRecordsRead",
+    "max": 12,
+    "median": 12,
+    "min": 8,
+    "sf": 12,
     "stageAttemptId": 0,
     "stageId": 1,
-    "min": 8,
-    "tf": 8,
-    "median": 12,
-    "sf": 12,
-    "max": 12
+    "tf": 8
   },
   {
     "appId": "local-1437323845748",

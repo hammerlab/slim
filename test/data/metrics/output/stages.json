@@ -1,17 +1,5 @@
 [
   {
-    "appId": "local-1437677504186",
-    "id": 40,
-    "name": "map at <console>:27",
-    "taskCounts": {
-      "num": 20
-    },
-    "rddIDs": [
-      61,
-      60
-    ],
-    "parents": [],
-    "details": "org.apache.spark.rdd.RDD.map(RDD.scala:293)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:27)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:34)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:36)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:38)\n$line39.$read$$iwC$$iwC$$iwC$$iwC.<init>(<console>:40)\n$line39.$read$$iwC$$iwC$$iwC.<init>(<console>:42)\n$line39.$read$$iwC$$iwC.<init>(<console>:44)\n$line39.$read$$iwC.<init>(<console>:46)\n$line39.$read.<init>(<console>:48)\n$line39.$read$.<init>(<console>:52)\n$line39.$read$.<clinit>(<console>)\n$line39.$eval$.<init>(<console>:7)\n$line39.$eval$.<clinit>(<console>)\n$line39.$eval.$print(<console>)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)",
     "accumulables": [
       {
         "ID": 41,
@@ -24,29 +12,30 @@
         "Value": "999800"
       }
     ],
-    "jobId": 20,
-    "properties": [],
-    "status": 2,
+    "appId": "local-1437677504186",
     "attempts": {
       "num": 1,
       "running": 0,
       "succeeded": 1
+    },
+    "details": "org.apache.spark.rdd.RDD.map(RDD.scala:293)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:27)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:34)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:36)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:38)\n$line39.$read$$iwC$$iwC$$iwC$$iwC.<init>(<console>:40)\n$line39.$read$$iwC$$iwC$$iwC.<init>(<console>:42)\n$line39.$read$$iwC$$iwC.<init>(<console>:44)\n$line39.$read$$iwC.<init>(<console>:46)\n$line39.$read.<init>(<console>:48)\n$line39.$read$.<init>(<console>:52)\n$line39.$read$.<clinit>(<console>)\n$line39.$eval$.<init>(<console>:7)\n$line39.$eval$.<clinit>(<console>)\n$line39.$eval.$print(<console>)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)",
+    "id": 40,
+    "jobId": 20,
+    "name": "map at <console>:27",
+    "parents": [
+    ],
+    "properties": [
+    ],
+    "rddIDs": [
+      61,
+      60
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 20
     }
   },
   {
-    "appId": "local-1437677504186",
-    "id": 41,
-    "name": "count at <console>:27",
-    "taskCounts": {
-      "num": 20
-    },
-    "rddIDs": [
-      62
-    ],
-    "parents": [
-      40
-    ],
-    "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1099)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:27)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:34)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:36)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:38)\n$line39.$read$$iwC$$iwC$$iwC$$iwC.<init>(<console>:40)\n$line39.$read$$iwC$$iwC$$iwC.<init>(<console>:42)\n$line39.$read$$iwC$$iwC.<init>(<console>:44)\n$line39.$read$$iwC.<init>(<console>:46)\n$line39.$read.<init>(<console>:48)\n$line39.$read$.<init>(<console>:52)\n$line39.$read$.<clinit>(<console>)\n$line39.$eval$.<init>(<console>:7)\n$line39.$eval$.<clinit>(<console>)\n$line39.$eval.$print(<console>)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)",
     "accumulables": [
       {
         "ID": 42,
@@ -54,13 +43,27 @@
         "Value": "999990"
       }
     ],
-    "jobId": 20,
-    "properties": [],
-    "status": 2,
+    "appId": "local-1437677504186",
     "attempts": {
       "num": 1,
       "running": 0,
       "succeeded": 1
+    },
+    "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1099)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:27)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:34)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:36)\n$line39.$read$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:38)\n$line39.$read$$iwC$$iwC$$iwC$$iwC.<init>(<console>:40)\n$line39.$read$$iwC$$iwC$$iwC.<init>(<console>:42)\n$line39.$read$$iwC$$iwC.<init>(<console>:44)\n$line39.$read$$iwC.<init>(<console>:46)\n$line39.$read.<init>(<console>:48)\n$line39.$read$.<init>(<console>:52)\n$line39.$read$.<clinit>(<console>)\n$line39.$eval$.<init>(<console>:7)\n$line39.$eval$.<clinit>(<console>)\n$line39.$eval.$print(<console>)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)",
+    "id": 41,
+    "jobId": 20,
+    "name": "count at <console>:27",
+    "parents": [
+      40
+    ],
+    "properties": [
+    ],
+    "rddIDs": [
+      62
+    ],
+    "status": 2,
+    "taskCounts": {
+      "num": 20
     }
   }
 ]

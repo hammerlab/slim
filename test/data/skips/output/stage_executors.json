@@ -2,153 +2,146 @@
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 0,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 2,
-      "succeeded": 2
-    },
-    "totalTaskDuration": 3691,
     "metrics": {
       "ExecutorDeserializeTime": 1740,
       "ExecutorRunTime": 1831,
-      "ResultSize": 3687,
-      "JVMGCTime": 166,
       "InputMetrics": {
         "BytesRead": 52037580,
         "RecordsRead": 732924
       },
+      "JVMGCTime": 166,
+      "ResultSize": 3687,
       "SchedulerDelayTime": 120
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "taskCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "totalTaskDuration": 3691
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 1,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 1,
-      "succeeded": 1
-    },
-    "totalTaskDuration": 1390,
     "metrics": {
       "ExecutorDeserializeTime": 33,
       "ExecutorRunTime": 1322,
-      "ResultSize": 1805,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
       },
+      "ResultSize": 1805,
       "SchedulerDelayTime": 35
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "taskCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "totalTaskDuration": 1390
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 2,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 1,
-      "succeeded": 1
-    },
-    "totalTaskDuration": 516,
     "metrics": {
       "ExecutorDeserializeTime": 24,
       "ExecutorRunTime": 436,
-      "ResultSize": 2071,
-      "ResultSerializationTime": 15,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
       },
+      "ResultSerializationTime": 15,
+      "ResultSize": 2071,
       "SchedulerDelayTime": 41
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 2,
+    "taskCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "totalTaskDuration": 516
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 3,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 1,
-      "succeeded": 1
-    },
-    "totalTaskDuration": 1971,
     "metrics": {
       "ExecutorDeserializeTime": 29,
       "ExecutorRunTime": 1928,
-      "ResultSize": 2147,
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 195852,
-        "ShuffleWriteTime": 691964162,
-        "ShuffleRecordsWritten": 992
-      },
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
       },
-      "SchedulerDelayTime": 14
-    }
+      "ResultSize": 2147,
+      "SchedulerDelayTime": 14,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 195852,
+        "ShuffleRecordsWritten": 992,
+        "ShuffleWriteTime": 691964162
+      }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 3,
+    "taskCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "totalTaskDuration": 1971
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 4,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 2,
-      "succeeded": 2
-    },
-    "totalTaskDuration": 5057,
     "metrics": {
       "ExecutorDeserializeTime": 38,
       "ExecutorRunTime": 4994,
-      "ResultSize": 3972,
-      "JVMGCTime": 82,
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 21846648,
-        "ShuffleWriteTime": 95855086,
-        "ShuffleRecordsWritten": 732923
-      },
       "InputMetrics": {
         "BytesRead": 52037580,
         "RecordsRead": 732924
       },
-      "SchedulerDelayTime": 25
-    }
+      "JVMGCTime": 82,
+      "ResultSize": 3972,
+      "SchedulerDelayTime": 25,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21846648,
+        "ShuffleRecordsWritten": 732923,
+        "ShuffleWriteTime": 95855086
+      }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 4,
+    "taskCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "totalTaskDuration": 5057
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 5,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 2,
-      "succeeded": 2
-    },
-    "totalTaskDuration": 4193,
     "metrics": {
       "ExecutorDeserializeTime": 13,
       "ExecutorRunTime": 4157,
+      "JVMGCTime": 499,
       "ResultSize": 2372,
+      "SchedulerDelayTime": 23,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 4,
         "LocalBytesRead": 21846648,
@@ -156,31 +149,32 @@
         "TotalRecordsRead": 732923
       },
       "ShuffleWriteMetrics": {
-        "ShuffleWriteTime": 349512660,
         "ShuffleBytesWritten": 18349323,
-        "ShuffleRecordsWritten": 52
-      },
-      "SchedulerDelayTime": 23,
-      "JVMGCTime": 499
-    }
+        "ShuffleRecordsWritten": 52,
+        "ShuffleWriteTime": 349512660
+      }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 5,
+    "taskCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "totalTaskDuration": 4193
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 6,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 162,
-      "succeeded": 162
-    },
-    "totalTaskDuration": 44046,
     "metrics": {
       "ExecutorDeserializeTime": 3475,
       "ExecutorRunTime": 36316,
+      "JVMGCTime": 5986,
+      "ResultSerializationTime": 12,
       "ResultSize": 192132,
+      "SchedulerDelayTime": 4243,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 324,
         "LocalBytesRead": 18545175,
@@ -188,143 +182,149 @@
         "TotalRecordsRead": 1044
       },
       "ShuffleWriteMetrics": {
-        "ShuffleWriteTime": 1014987720,
         "ShuffleBytesWritten": 391079600,
-        "ShuffleRecordsWritten": 992
-      },
-      "SchedulerDelayTime": 4243,
-      "ResultSerializationTime": 12,
-      "JVMGCTime": 5986
-    }
+        "ShuffleRecordsWritten": 992,
+        "ShuffleWriteTime": 1014987720
+      }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 6,
+    "taskCounts": {
+      "num": 162,
+      "running": 0,
+      "succeeded": 162
+    },
+    "totalTaskDuration": 44046
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 7,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 163,
-      "succeeded": 163
-    },
-    "totalTaskDuration": 26460,
     "metrics": {
       "ExecutorDeserializeTime": 1361,
       "ExecutorRunTime": 18074,
-      "ResultSize": 184465,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 162,
-        "LocalBytesRead": 391079600,
-        "TotalRecordsRead": 992,
-        "TotalBytesRead": 391079600
-      },
-      "SchedulerDelayTime": 6915,
-      "ResultSerializationTime": 110,
-      "JVMGCTime": 2386,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
+      },
+      "JVMGCTime": 2386,
+      "ResultSerializationTime": 110,
+      "ResultSize": 184465,
+      "SchedulerDelayTime": 6915,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalBytesRead": 391079600,
+        "TotalRecordsRead": 992
       }
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 7,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "totalTaskDuration": 26460
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 12,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 163,
-      "succeeded": 163
-    },
-    "totalTaskDuration": 45270,
     "metrics": {
       "ExecutorDeserializeTime": 1544,
       "ExecutorRunTime": 41075,
-      "ResultSize": 217226,
-      "JVMGCTime": 9720,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 162,
-        "LocalBytesRead": 391079600,
-        "TotalRecordsRead": 992,
-        "TotalBytesRead": 391079600,
-        "FetchWaitTime": 4
-      },
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 25428,
-        "ShuffleWriteTime": 48870616,
-        "ShuffleRecordsWritten": 163
-      },
-      "SchedulerDelayTime": 2523,
-      "ResultSerializationTime": 128,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
+      },
+      "JVMGCTime": 9720,
+      "ResultSerializationTime": 128,
+      "ResultSize": 217226,
+      "SchedulerDelayTime": 2523,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 4,
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalBytesRead": 391079600,
+        "TotalRecordsRead": 992
+      },
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 25428,
+        "ShuffleRecordsWritten": 163,
+        "ShuffleWriteTime": 48870616
       }
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 12,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "totalTaskDuration": 45270
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 13,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 163,
-      "succeeded": 163
-    },
-    "totalTaskDuration": 3796,
     "metrics": {
       "ExecutorDeserializeTime": 277,
       "ExecutorRunTime": 818,
+      "ResultSerializationTime": 13,
       "ResultSize": 144716,
       "SchedulerDelayTime": 2688,
-      "ResultSerializationTime": 13,
       "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 163,
         "FetchWaitTime": 1,
+        "LocalBlocksFetched": 163,
         "LocalBytesRead": 25428,
-        "TotalRecordsRead": 163,
-        "TotalBytesRead": 25428
+        "TotalBytesRead": 25428,
+        "TotalRecordsRead": 163
       }
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 13,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "totalTaskDuration": 3796
   },
   {
     "appId": "local-1440276596119",
     "execId": "driver",
-    "stageAttemptId": 0,
-    "stageId": 18,
     "host": "localhost",
-    "port": 37401,
-    "taskCounts": {
-      "running": 0,
-      "num": 163,
-      "succeeded": 163
-    },
-    "totalTaskDuration": 25083,
     "metrics": {
       "ExecutorDeserializeTime": 1146,
       "ExecutorRunTime": 18790,
-      "ResultSize": 159859,
-      "JVMGCTime": 4327,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 162,
-        "LocalBytesRead": 391079600,
-        "TotalRecordsRead": 992,
-        "TotalBytesRead": 391079600,
-        "FetchWaitTime": 38
-      },
-      "SchedulerDelayTime": 5143,
-      "ResultSerializationTime": 4,
       "InputMetrics": {
         "BytesRead": 371765
+      },
+      "JVMGCTime": 4327,
+      "ResultSerializationTime": 4,
+      "ResultSize": 159859,
+      "SchedulerDelayTime": 5143,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 38,
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalBytesRead": 391079600,
+        "TotalRecordsRead": 992
       }
-    }
+    },
+    "port": 37401,
+    "stageAttemptId": 0,
+    "stageId": 18,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "totalTaskDuration": 25083
   }
 ]

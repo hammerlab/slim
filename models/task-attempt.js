@@ -93,4 +93,6 @@ if (subRecord) {
   mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts");
 }
 
+TaskAttempt.lowPriority = true;
+
 module.exports.TaskAttempt = TaskAttempt;

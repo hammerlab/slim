@@ -20,12 +20,16 @@ module.exports.l = require('tracer').colorConsole({
   ],
   dateformat : "yyyy/mm/dd HH:MM:ss",
   preprocess: function(data) {
-    data.title = pad(data.title.toUpperCase(), 5);
+    data.title = data.title.toUpperCase()[0];
     var spaces = '';
     for (var i = 0; i < 15 - data.file.length; i++) {
       spaces += ' ';
     }
-    data.file = pad(data.file, 20);
-    data.line = pad(data.line, 4);
+    var lastDot = data.file.lastIndexOf('.');
+    if (lastDot > 0) {
+      data.file = data.file.substring(0, lastDot);
+    }
+    data.file = pad(data.file, 13);
+    data.line = pad(data.line, 3);
   }
 });

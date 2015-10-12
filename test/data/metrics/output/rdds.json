@@ -1,62 +1,63 @@
 [
   {
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "Deserialized": false,
+      "Replication": 1,
+      "UseDisk": false,
+      "UseExternalBlockStore": false,
+      "UseMemory": false
+    },
     "appId": "local-1437677504186",
     "id": 60,
     "name": "ParallelCollectionRDD",
-    "parentIDs": [],
-    "StorageLevel": {
-      "UseDisk": false,
-      "UseMemory": false,
-      "UseExternalBlockStore": false,
-      "Deserialized": false,
-      "Replication": 1
-    },
-    "numPartitions": 20,
     "numCachedPartitions": 0,
-    "ExternalBlockStoreSize": 0,
-    "DiskSize": 0,
+    "numPartitions": 20,
+    "parentIDs": [
+    ],
     "scope": "{\"id\":\"120\",\"name\":\"parallelize\"}"
   },
   {
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "MemorySize": 28003520,
+    "StorageLevel": {
+      "Deserialized": true,
+      "Replication": 1,
+      "UseDisk": false,
+      "UseExternalBlockStore": false,
+      "UseMemory": true
+    },
     "appId": "local-1437677504186",
+    "fractionCached": 1,
     "id": 61,
     "name": "tmp-1437681807788",
+    "numCachedPartitions": 20,
+    "numPartitions": 20,
     "parentIDs": [
       60
     ],
-    "StorageLevel": {
-      "UseDisk": false,
-      "UseMemory": true,
-      "UseExternalBlockStore": false,
-      "Deserialized": true,
-      "Replication": 1
-    },
-    "numPartitions": 20,
-    "numCachedPartitions": 20,
-    "ExternalBlockStoreSize": 0,
-    "DiskSize": 0,
-    "scope": "{\"id\":\"121\",\"name\":\"map\"}",
-    "fractionCached": 1,
-    "MemorySize": 28003520
+    "scope": "{\"id\":\"121\",\"name\":\"map\"}"
   },
   {
+    "DiskSize": 0,
+    "ExternalBlockStoreSize": 0,
+    "StorageLevel": {
+      "Deserialized": false,
+      "Replication": 1,
+      "UseDisk": false,
+      "UseExternalBlockStore": false,
+      "UseMemory": false
+    },
     "appId": "local-1437677504186",
     "id": 62,
     "name": "ShuffledRDD",
+    "numCachedPartitions": 0,
+    "numPartitions": 20,
     "parentIDs": [
       61
     ],
-    "StorageLevel": {
-      "UseDisk": false,
-      "UseMemory": false,
-      "UseExternalBlockStore": false,
-      "Deserialized": false,
-      "Replication": 1
-    },
-    "numPartitions": 20,
-    "numCachedPartitions": 0,
-    "ExternalBlockStoreSize": 0,
-    "DiskSize": 0,
     "scope": "{\"id\":\"122\",\"name\":\"reduceByKey\"}"
   }
 ]

@@ -1,11 +1,11 @@
 [
   {
+    "MemorySize": 28704,
     "appId": "local-1437323845748",
     "execId": "driver",
-    "rddId": 1,
     "host": "localhost",
+    "numBlocks": 4,
     "port": 50944,
-    "MemorySize": 28704,
-    "numBlocks": 4
+    "rddId": 1
   }
 ]

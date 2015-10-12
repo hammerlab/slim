@@ -1,6 +1,252 @@
 [
   {
     "appId": "local-1440276596119",
+    "classpath": [
+      [
+        "http://172.29.46.15:40180/jars/parquet-column-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-cli-1.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/slf4j-api-1.7.10.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/jcommander-1.27.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-compress-1.4.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/ant-launcher-1.8.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-jexl-2.1.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/annotations-2.0.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-jackson-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/xz-1.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-scala_2.10-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/utils-io_2.10-0.2.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/asm-4.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/jackson-mapper-asl-1.9.13.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/reflectasm-1.07-shaded.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-logging-1.1.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/avro-1.7.6.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/guava-14.0.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-io-1.3.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/jackson-core-asl-1.9.13.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/httpclient-4.3.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/objenesis-1.2.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/datanucleus-core-3.2.10.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/kryo-2.21.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/htsjdk-1.133.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/spark-assembly-1.4.1-hadoop2.4.0.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/bdg-formats-0.4.0.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/conf/",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/servo-core-0.5.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/ant-1.8.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/args4j-2.0.23.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/utils-misc_2.10-0.2.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/adam-core_2.10-0.17.2-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/scala-library-2.10.4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-codec-1.4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-format-2.3.0-incubating.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/datanucleus-api-jdo-3.2.6.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/aws-java-sdk-1.7.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/bsh-2.0b4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-common-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/scalac-scoverage-plugin_2.10-0.99.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-hadoop-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/commons-httpclient-3.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-encoding-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/minlog-1.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/fastutil-6.4.4.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/snappy-java-1.1.1.7.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/testng-6.8.8.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/joda-time-2.8.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/hadoop-bam-7.0.0.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/adam-cli_2.10-0.17.2-SNAPSHOT.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/datanucleus-rdbms-3.2.9.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/paranamer-2.6.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/log4j-1.2.17.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/utils-metrics_2.10-0.2.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/parquet-avro-1.8.1.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/slf4j-log4j12-1.7.5.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/utils-cli_2.10-0.2.2.jar",
+        "Added By User"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/httpcore-4.3.1.jar",
+        "Added By User"
+      ],
+      [
+        "/hpc/users/willir31/.json-relay/spark-json-relay-1.0.0.jar",
+        "System Classpath"
+      ],
+      [
+        "http://172.29.46.15:40180/jars/adam-apis_2.10-0.17.2-SNAPSHOT.jar",
+        "Added By User"
+      ]
+    ],
     "jvm": [
       [
         "Java Home",
@@ -309,252 +555,6 @@
       [
         "sun.io.unicode.encoding",
         "UnicodeLittle"
-      ]
-    ],
-    "classpath": [
-      [
-        "http://172.29.46.15:40180/jars/parquet-column-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-cli-1.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/slf4j-api-1.7.10.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/jcommander-1.27.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-compress-1.4.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/ant-launcher-1.8.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-jexl-2.1.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/annotations-2.0.0.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-jackson-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/xz-1.5.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-scala_2.10-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/utils-io_2.10-0.2.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/asm-4.0.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/jackson-mapper-asl-1.9.13.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/reflectasm-1.07-shaded.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-logging-1.1.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/avro-1.7.6.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/guava-14.0.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-io-1.3.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/jackson-core-asl-1.9.13.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/httpclient-4.3.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/objenesis-1.2.jar",
-        "Added By User"
-      ],
-      [
-        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/datanucleus-core-3.2.10.jar",
-        "System Classpath"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/kryo-2.21.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/htsjdk-1.133.jar",
-        "Added By User"
-      ],
-      [
-        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/spark-assembly-1.4.1-hadoop2.4.0.jar",
-        "System Classpath"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/bdg-formats-0.4.0.jar",
-        "Added By User"
-      ],
-      [
-        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/conf/",
-        "System Classpath"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/servo-core-0.5.5.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/ant-1.8.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/args4j-2.0.23.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/utils-misc_2.10-0.2.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/adam-core_2.10-0.17.2-SNAPSHOT.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/scala-library-2.10.4.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-codec-1.4.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-format-2.3.0-incubating.jar",
-        "Added By User"
-      ],
-      [
-        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/datanucleus-api-jdo-3.2.6.jar",
-        "System Classpath"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/aws-java-sdk-1.7.5.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/bsh-2.0b4.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-common-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/scalac-scoverage-plugin_2.10-0.99.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-hadoop-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/commons-httpclient-3.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-encoding-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/minlog-1.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/fastutil-6.4.4.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/snappy-java-1.1.1.7.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/testng-6.8.8.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/joda-time-2.8.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/hadoop-bam-7.0.0.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/adam-cli_2.10-0.17.2-SNAPSHOT.jar",
-        "Added By User"
-      ],
-      [
-        "/hpc/users/willir31/sparks/spark-1.4.1-bin-hadoop2.4/lib/datanucleus-rdbms-3.2.9.jar",
-        "System Classpath"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/paranamer-2.6.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/log4j-1.2.17.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/utils-metrics_2.10-0.2.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/parquet-avro-1.8.1.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/slf4j-log4j12-1.7.5.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/utils-cli_2.10-0.2.2.jar",
-        "Added By User"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/httpcore-4.3.1.jar",
-        "Added By User"
-      ],
-      [
-        "/hpc/users/willir31/.json-relay/spark-json-relay-1.0.0.jar",
-        "System Classpath"
-      ],
-      [
-        "http://172.29.46.15:40180/jars/adam-apis_2.10-0.17.2-SNAPSHOT.jar",
-        "Added By User"
       ]
     ]
   }

@@ -1,12 +1,12 @@
 [
   {
+    "MemorySize": 3152067200,
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "rddId": 1,
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
-    "port": 32947,
-    "MemorySize": 3152067200,
     "numBlocks": 100,
+    "port": 32947,
+    "rddId": 1,
     "status": 5
   }
 ]

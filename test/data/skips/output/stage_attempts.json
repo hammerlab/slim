@@ -1,89 +1,63 @@
 [
   {
+    "accumulables": {
+    },
     "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 0,
-    "jobId": 0,
-    "time": {
-      "start": 1440276599631,
-      "end": 1440276601658
-    },
-    "name": "collect at FastaConverter.scala:118",
-    "taskCounts": {
-      "num": 2,
-      "running": 0,
-      "succeeded": 2
-    },
-    "taskIdxCounts": {
-      "num": 2,
-      "running": 0,
-      "succeeded": 2
-    },
-    "accumulables": {},
-    "duration": 2027,
-    "started": true,
-    "status": 2,
     "ended": true,
-    "totalTaskDuration": 3691,
+    "id": 0,
+    "jobId": 0,
     "metrics": {
       "ExecutorDeserializeTime": 1740,
       "ExecutorRunTime": 1831,
-      "ResultSize": 3687,
-      "JVMGCTime": 166,
       "InputMetrics": {
         "BytesRead": 52037580,
         "RecordsRead": 732924
       },
+      "JVMGCTime": 166,
+      "ResultSize": 3687,
       "SchedulerDelayTime": 120
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 1,
-    "jobId": 1,
-    "time": {
-      "start": 1440276601903,
-      "end": 1440276603295
     },
-    "name": "count at MDTagging.scala:132",
-    "taskCounts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
-    },
-    "taskIdxCounts": {
-      "num": 1,
-      "running": 0,
-      "succeeded": 1
-    },
-    "accumulables": {},
-    "duration": 1392,
+    "name": "collect at FastaConverter.scala:118",
+    "stageId": 0,
     "started": true,
     "status": 2,
+    "taskCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "taskIdxCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "time": {
+      "end": 1440276601658,
+      "start": 1440276599631
+    },
+    "totalTaskDuration": 3691
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
     "ended": true,
-    "totalTaskDuration": 1390,
+    "id": 0,
+    "jobId": 1,
     "metrics": {
       "ExecutorDeserializeTime": 33,
       "ExecutorRunTime": 1322,
-      "ResultSize": 1805,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
       },
+      "ResultSize": 1805,
       "SchedulerDelayTime": 35
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 2,
-    "jobId": 2,
-    "time": {
-      "start": 1440276603385,
-      "end": 1440276603902
     },
-    "name": "reduce at ADAMRDDFunctions.scala:125",
+    "name": "count at MDTagging.scala:132",
+    "stageId": 1,
+    "started": true,
+    "status": 2,
     "taskCounts": {
       "num": 1,
       "running": 0,
@@ -94,34 +68,34 @@
       "running": 0,
       "succeeded": 1
     },
-    "accumulables": {},
-    "duration": 517,
-    "started": true,
-    "status": 2,
+    "time": {
+      "end": 1440276603295,
+      "start": 1440276601903
+    },
+    "totalTaskDuration": 1390
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
     "ended": true,
-    "totalTaskDuration": 516,
+    "id": 0,
+    "jobId": 2,
     "metrics": {
       "ExecutorDeserializeTime": 24,
       "ExecutorRunTime": 436,
-      "ResultSize": 2071,
-      "ResultSerializationTime": 15,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
       },
+      "ResultSerializationTime": 15,
+      "ResultSize": 2071,
       "SchedulerDelayTime": 41
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 3,
-    "jobId": 3,
-    "time": {
-      "start": 1440276604195,
-      "end": 1440276606168
     },
-    "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "name": "reduce at ADAMRDDFunctions.scala:125",
+    "stageId": 2,
+    "started": true,
+    "status": 2,
     "taskCounts": {
       "num": 1,
       "running": 0,
@@ -132,81 +106,81 @@
       "running": 0,
       "succeeded": 1
     },
-    "accumulables": {},
-    "duration": 1973,
-    "started": true,
-    "status": 2,
+    "time": {
+      "end": 1440276603902,
+      "start": 1440276603385
+    },
+    "totalTaskDuration": 516
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
     "ended": true,
-    "totalTaskDuration": 1971,
+    "id": 0,
+    "jobId": 3,
     "metrics": {
       "ExecutorDeserializeTime": 29,
       "ExecutorRunTime": 1928,
-      "ResultSize": 2147,
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 195852,
-        "ShuffleWriteTime": 691964162,
-        "ShuffleRecordsWritten": 992
-      },
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
       },
-      "SchedulerDelayTime": 14
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 4,
-    "jobId": 3,
-    "time": {
-      "start": 1440276604237,
-      "end": 1440276606966
+      "ResultSize": 2147,
+      "SchedulerDelayTime": 14,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 195852,
+        "ShuffleRecordsWritten": 992,
+        "ShuffleWriteTime": 691964162
+      }
     },
-    "name": "keyBy at FastaConverter.scala:86",
-    "taskCounts": {
-      "num": 2,
-      "running": 0,
-      "succeeded": 2
-    },
-    "taskIdxCounts": {
-      "num": 2,
-      "running": 0,
-      "succeeded": 2
-    },
-    "accumulables": {},
-    "duration": 2729,
+    "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "stageId": 3,
     "started": true,
     "status": 2,
+    "taskCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "taskIdxCounts": {
+      "num": 1,
+      "running": 0,
+      "succeeded": 1
+    },
+    "time": {
+      "end": 1440276606168,
+      "start": 1440276604195
+    },
+    "totalTaskDuration": 1971
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
     "ended": true,
-    "totalTaskDuration": 5057,
+    "id": 0,
+    "jobId": 3,
     "metrics": {
       "ExecutorDeserializeTime": 38,
       "ExecutorRunTime": 4994,
-      "ResultSize": 3972,
-      "JVMGCTime": 82,
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 21846648,
-        "ShuffleWriteTime": 95855086,
-        "ShuffleRecordsWritten": 732923
-      },
       "InputMetrics": {
         "BytesRead": 52037580,
         "RecordsRead": 732924
       },
-      "SchedulerDelayTime": 25
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 5,
-    "jobId": 3,
-    "time": {
-      "start": 1440276607001,
-      "end": 1440276611131
+      "JVMGCTime": 82,
+      "ResultSize": 3972,
+      "SchedulerDelayTime": 25,
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21846648,
+        "ShuffleRecordsWritten": 732923,
+        "ShuffleWriteTime": 95855086
+      }
     },
-    "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "name": "keyBy at FastaConverter.scala:86",
+    "stageId": 4,
+    "started": true,
+    "status": 2,
     "taskCounts": {
       "num": 2,
       "running": 0,
@@ -217,16 +191,25 @@
       "running": 0,
       "succeeded": 2
     },
-    "accumulables": {},
-    "duration": 4130,
-    "started": true,
-    "status": 2,
+    "time": {
+      "end": 1440276606966,
+      "start": 1440276604237
+    },
+    "totalTaskDuration": 5057
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
     "ended": true,
-    "totalTaskDuration": 4193,
+    "id": 0,
+    "jobId": 3,
     "metrics": {
       "ExecutorDeserializeTime": 13,
       "ExecutorRunTime": 4157,
+      "JVMGCTime": 499,
       "ResultSize": 2372,
+      "SchedulerDelayTime": 23,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 4,
         "LocalBytesRead": 21846648,
@@ -234,43 +217,45 @@
         "TotalRecordsRead": 732923
       },
       "ShuffleWriteMetrics": {
-        "ShuffleWriteTime": 349512660,
         "ShuffleBytesWritten": 18349323,
-        "ShuffleRecordsWritten": 52
-      },
-      "SchedulerDelayTime": 23,
-      "JVMGCTime": 499
-    }
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 6,
-    "jobId": 3,
-    "time": {
-      "start": 1440276611168,
-      "end": 1440276625189
+        "ShuffleRecordsWritten": 52,
+        "ShuffleWriteTime": 349512660
+      }
     },
-    "name": "zipPartitions at ShuffleRegionJoin.scala:104",
-    "taskCounts": {
-      "num": 162,
-      "running": 0,
-      "succeeded": 162
-    },
-    "taskIdxCounts": {
-      "num": 162,
-      "running": 0,
-      "succeeded": 162
-    },
-    "accumulables": {},
-    "duration": 14021,
+    "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "stageId": 5,
     "started": true,
     "status": 2,
-    "totalTaskDuration": 44046,
+    "taskCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "taskIdxCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
+    "time": {
+      "end": 1440276611131,
+      "start": 1440276607001
+    },
+    "totalTaskDuration": 4193
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "ended": true,
+    "id": 0,
+    "jobId": 3,
     "metrics": {
       "ExecutorDeserializeTime": 3475,
       "ExecutorRunTime": 36316,
+      "JVMGCTime": 5986,
+      "ResultSerializationTime": 12,
       "ResultSize": 192132,
+      "SchedulerDelayTime": 4243,
       "ShuffleReadMetrics": {
         "LocalBlocksFetched": 324,
         "LocalBytesRead": 18545175,
@@ -278,194 +263,187 @@
         "TotalRecordsRead": 1044
       },
       "ShuffleWriteMetrics": {
-        "ShuffleWriteTime": 1014987720,
         "ShuffleBytesWritten": 391079600,
-        "ShuffleRecordsWritten": 992
-      },
-      "SchedulerDelayTime": 4243,
-      "ResultSerializationTime": 12,
-      "JVMGCTime": 5986
+        "ShuffleRecordsWritten": 992,
+        "ShuffleWriteTime": 1014987720
+      }
     },
-    "ended": true
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 7,
-    "jobId": 3,
-    "time": {
-      "start": 1440276625256,
-      "end": 1440276626509
-    },
-    "name": "reduce at ADAMRDDFunctions.scala:125",
+    "name": "zipPartitions at ShuffleRegionJoin.scala:104",
+    "stageId": 6,
+    "started": true,
+    "status": 2,
     "taskCounts": {
-      "num": 163,
+      "num": 162,
       "running": 0,
-      "succeeded": 163
+      "succeeded": 162
     },
     "taskIdxCounts": {
-      "num": 163,
+      "num": 162,
       "running": 0,
-      "succeeded": 163
+      "succeeded": 162
     },
+    "time": {
+      "end": 1440276625189,
+      "start": 1440276611168
+    },
+    "totalTaskDuration": 44046
+  },
+  {
     "accumulables": {
       "1": {
         "ID": 1,
         "Name": "MDTags Added",
+        "Update": null,
         "Value": 992
       }
     },
-    "duration": 1253,
-    "started": true,
-    "status": 2,
-    "totalTaskDuration": 26460,
+    "appId": "local-1440276596119",
+    "ended": true,
+    "id": 0,
+    "jobId": 3,
     "metrics": {
       "ExecutorDeserializeTime": 1361,
       "ExecutorRunTime": 18074,
-      "ResultSize": 184465,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 162,
-        "LocalBytesRead": 391079600,
-        "TotalRecordsRead": 992,
-        "TotalBytesRead": 391079600
-      },
-      "SchedulerDelayTime": 6915,
-      "ResultSerializationTime": 110,
-      "JVMGCTime": 2386,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
+      },
+      "JVMGCTime": 2386,
+      "ResultSerializationTime": 110,
+      "ResultSize": 184465,
+      "SchedulerDelayTime": 6915,
+      "ShuffleReadMetrics": {
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalBytesRead": 391079600,
+        "TotalRecordsRead": 992
       }
     },
-    "ended": true
+    "name": "reduce at ADAMRDDFunctions.scala:125",
+    "stageId": 7,
+    "started": true,
+    "status": 2,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "taskIdxCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "time": {
+      "end": 1440276626509,
+      "start": 1440276625256
+    },
+    "totalTaskDuration": 26460
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1440276596119",
     "id": 0,
-    "stageId": 8,
     "jobId": 4,
     "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "stageId": 8,
+    "status": 4,
     "taskCounts": {
       "num": 1
     },
     "taskIdxCounts": {
       "num": 1
-    },
-    "accumulables": {},
-    "status": 4
+    }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1440276596119",
     "id": 0,
-    "stageId": 9,
     "jobId": 4,
     "name": "keyBy at FastaConverter.scala:86",
+    "stageId": 9,
+    "status": 4,
     "taskCounts": {
       "num": 2
     },
     "taskIdxCounts": {
       "num": 2
-    },
-    "accumulables": {},
-    "status": 4
+    }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1440276596119",
     "id": 0,
-    "stageId": 10,
     "jobId": 4,
     "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "stageId": 10,
+    "status": 4,
     "taskCounts": {
       "num": 2
     },
     "taskIdxCounts": {
       "num": 2
-    },
-    "accumulables": {},
-    "status": 4
+    }
   },
   {
+    "accumulables": {
+    },
     "appId": "local-1440276596119",
     "id": 0,
-    "stageId": 11,
     "jobId": 4,
     "name": "zipPartitions at ShuffleRegionJoin.scala:104",
+    "stageId": 11,
+    "status": 4,
     "taskCounts": {
       "num": 162
     },
     "taskIdxCounts": {
       "num": 162
-    },
-    "accumulables": {},
-    "status": 4
+    }
   },
   {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 12,
-    "jobId": 4,
-    "time": {
-      "start": 1440276626646,
-      "end": 1440276628665
-    },
-    "name": "distinct at AlignmentRecordRDDFunctions.scala:224",
-    "taskCounts": {
-      "num": 163,
-      "running": 0,
-      "succeeded": 163
-    },
-    "taskIdxCounts": {
-      "num": 163,
-      "running": 0,
-      "succeeded": 163
-    },
     "accumulables": {
       "1": {
         "ID": 1,
         "Name": "MDTags Added",
+        "Update": null,
         "Value": 1984
       }
     },
-    "duration": 2019,
-    "started": true,
-    "status": 2,
-    "totalTaskDuration": 45270,
+    "appId": "local-1440276596119",
+    "ended": true,
+    "id": 0,
+    "jobId": 4,
     "metrics": {
       "ExecutorDeserializeTime": 1544,
       "ExecutorRunTime": 41075,
-      "ResultSize": 217226,
-      "JVMGCTime": 9720,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 162,
-        "LocalBytesRead": 391079600,
-        "TotalRecordsRead": 992,
-        "TotalBytesRead": 391079600,
-        "FetchWaitTime": 4
-      },
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 25428,
-        "ShuffleWriteTime": 48870616,
-        "ShuffleRecordsWritten": 163
-      },
-      "SchedulerDelayTime": 2523,
-      "ResultSerializationTime": 128,
       "InputMetrics": {
         "BytesRead": 371765,
         "RecordsRead": 1000
+      },
+      "JVMGCTime": 9720,
+      "ResultSerializationTime": 128,
+      "ResultSize": 217226,
+      "SchedulerDelayTime": 2523,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 4,
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalBytesRead": 391079600,
+        "TotalRecordsRead": 992
+      },
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 25428,
+        "ShuffleRecordsWritten": 163,
+        "ShuffleWriteTime": 48870616
       }
     },
-    "ended": true
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 13,
-    "jobId": 4,
-    "time": {
-      "start": 1440276628683,
-      "end": 1440276628879
-    },
-    "name": "collect at AlignmentRecordRDDFunctions.scala:225",
+    "name": "distinct at AlignmentRecordRDDFunctions.scala:224",
+    "stageId": 12,
+    "started": true,
+    "status": 2,
     "taskCounts": {
       "num": 163,
       "running": 0,
@@ -476,130 +454,160 @@
       "running": 0,
       "succeeded": 163
     },
-    "accumulables": {},
-    "duration": 196,
-    "started": true,
-    "status": 2,
-    "totalTaskDuration": 3796,
+    "time": {
+      "end": 1440276628665,
+      "start": 1440276626646
+    },
+    "totalTaskDuration": 45270
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "ended": true,
+    "id": 0,
+    "jobId": 4,
     "metrics": {
       "ExecutorDeserializeTime": 277,
       "ExecutorRunTime": 818,
+      "ResultSerializationTime": 13,
       "ResultSize": 144716,
       "SchedulerDelayTime": 2688,
-      "ResultSerializationTime": 13,
       "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 163,
         "FetchWaitTime": 1,
+        "LocalBlocksFetched": 163,
         "LocalBytesRead": 25428,
-        "TotalRecordsRead": 163,
-        "TotalBytesRead": 25428
+        "TotalBytesRead": 25428,
+        "TotalRecordsRead": 163
       }
     },
-    "ended": true
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 14,
-    "jobId": 5,
-    "name": "flatMap at ShuffleRegionJoin.scala:62",
-    "taskCounts": {
-      "num": 1
-    },
-    "taskIdxCounts": {
-      "num": 1
-    },
-    "accumulables": {},
-    "status": 4
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 15,
-    "jobId": 5,
-    "name": "keyBy at FastaConverter.scala:86",
-    "taskCounts": {
-      "num": 2
-    },
-    "taskIdxCounts": {
-      "num": 2
-    },
-    "accumulables": {},
-    "status": 4
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 16,
-    "jobId": 5,
-    "name": "flatMap at ShuffleRegionJoin.scala:69",
-    "taskCounts": {
-      "num": 2
-    },
-    "taskIdxCounts": {
-      "num": 2
-    },
-    "accumulables": {},
-    "status": 4
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 17,
-    "jobId": 5,
-    "name": "zipPartitions at ShuffleRegionJoin.scala:104",
-    "taskCounts": {
-      "num": 162
-    },
-    "taskIdxCounts": {
-      "num": 162
-    },
-    "accumulables": {},
-    "status": 4
-  },
-  {
-    "appId": "local-1440276596119",
-    "id": 0,
-    "stageId": 18,
-    "jobId": 5,
-    "time": {
-      "start": 1440276629008,
-      "end": 1440276630061
-    },
-    "name": "count at AlignmentRecordRDDFunctions.scala:162",
-    "taskCounts": {
-      "num": 163,
-      "running": 0,
-      "succeeded": 163
-    },
-    "taskIdxCounts": {
-      "num": 163,
-      "running": 0,
-      "succeeded": 163
-    },
-    "accumulables": {},
-    "duration": 1053,
+    "name": "collect at AlignmentRecordRDDFunctions.scala:225",
+    "stageId": 13,
     "started": true,
     "status": 2,
-    "totalTaskDuration": 25083,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "taskIdxCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "time": {
+      "end": 1440276628879,
+      "start": 1440276628683
+    },
+    "totalTaskDuration": 3796
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "id": 0,
+    "jobId": 5,
+    "name": "flatMap at ShuffleRegionJoin.scala:62",
+    "stageId": 14,
+    "status": 4,
+    "taskCounts": {
+      "num": 1
+    },
+    "taskIdxCounts": {
+      "num": 1
+    }
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "id": 0,
+    "jobId": 5,
+    "name": "keyBy at FastaConverter.scala:86",
+    "stageId": 15,
+    "status": 4,
+    "taskCounts": {
+      "num": 2
+    },
+    "taskIdxCounts": {
+      "num": 2
+    }
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "id": 0,
+    "jobId": 5,
+    "name": "flatMap at ShuffleRegionJoin.scala:69",
+    "stageId": 16,
+    "status": 4,
+    "taskCounts": {
+      "num": 2
+    },
+    "taskIdxCounts": {
+      "num": 2
+    }
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "id": 0,
+    "jobId": 5,
+    "name": "zipPartitions at ShuffleRegionJoin.scala:104",
+    "stageId": 17,
+    "status": 4,
+    "taskCounts": {
+      "num": 162
+    },
+    "taskIdxCounts": {
+      "num": 162
+    }
+  },
+  {
+    "accumulables": {
+    },
+    "appId": "local-1440276596119",
+    "ended": true,
+    "id": 0,
+    "jobId": 5,
     "metrics": {
       "ExecutorDeserializeTime": 1146,
       "ExecutorRunTime": 18790,
-      "ResultSize": 159859,
-      "JVMGCTime": 4327,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 162,
-        "LocalBytesRead": 391079600,
-        "TotalRecordsRead": 992,
-        "TotalBytesRead": 391079600,
-        "FetchWaitTime": 38
-      },
-      "SchedulerDelayTime": 5143,
-      "ResultSerializationTime": 4,
       "InputMetrics": {
         "BytesRead": 371765
+      },
+      "JVMGCTime": 4327,
+      "ResultSerializationTime": 4,
+      "ResultSize": 159859,
+      "SchedulerDelayTime": 5143,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 38,
+        "LocalBlocksFetched": 162,
+        "LocalBytesRead": 391079600,
+        "TotalBytesRead": 391079600,
+        "TotalRecordsRead": 992
       }
     },
-    "ended": true
+    "name": "count at AlignmentRecordRDDFunctions.scala:162",
+    "stageId": 18,
+    "started": true,
+    "status": 2,
+    "taskCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "taskIdxCounts": {
+      "num": 163,
+      "running": 0,
+      "succeeded": 163
+    },
+    "time": {
+      "end": 1440276630061,
+      "start": 1440276629008
+    },
+    "totalTaskDuration": 25083
   }
 ]

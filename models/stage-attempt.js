@@ -30,7 +30,9 @@ var metricIds = [
   'metrics.ShuffleReadMetrics.TotalBytesRead',
   'metrics.ShuffleReadMetrics.TotalRecordsRead',
   'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
-  'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten'
+  'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
+  'metrics.MemoryBytesSpilled',
+  'metrics.DiskBytesSpilled'
 ];
 
 function StageAttempt(stage, id) {

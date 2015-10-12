@@ -1,20 +1,62 @@
 [
   {
     "appId": "local-1437677504186",
+    "ended": true,
     "id": 20,
-    "time": {
-      "start": 1437681807808,
-      "end": 1437681809000
+    "metrics": {
+      "ExecutorDeserializeTime": 285,
+      "ExecutorRunTime": 3829,
+      "JVMGCTime": 486,
+      "ResultSize": 76290,
+      "SchedulerDelayTime": 410,
+      "ShuffleReadMetrics": {
+        "FetchWaitTime": 1,
+        "LocalBlocksFetched": 200,
+        "LocalBytesRead": 21400,
+        "TotalBytesRead": 21400,
+        "TotalRecordsRead": 200
+      },
+      "ShuffleWriteMetrics": {
+        "ShuffleBytesWritten": 21400,
+        "ShuffleRecordsWritten": 200,
+        "ShuffleWriteTime": 108488000
+      },
+      "UpdatedBlocks": {
+        "0": {
+          "Status": {
+            "MemorySize": 28003520,
+            "StorageLevel": {
+              "Replication": 20
+            }
+          }
+        }
+      }
+    },
+    "properties": [
+    ],
+    "result": {
+      "Result": "JobSucceeded"
+    },
+    "stageCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
     },
     "stageIDs": [
       40,
       41
     ],
+    "stageIdxCounts": {
+      "num": 2,
+      "running": 0,
+      "succeeded": 2
+    },
     "stageNames": [
       "map at <console>:27",
       "count at <console>:27"
     ],
     "status": 2,
+    "succeeded": true,
     "taskCounts": {
       "num": 40,
       "running": 0,
@@ -25,52 +67,10 @@
       "running": 0,
       "succeeded": 40
     },
-    "stageCounts": {
-      "num": 2,
-      "running": 0,
-      "succeeded": 2
+    "time": {
+      "end": 1437681809000,
+      "start": 1437681807808
     },
-    "stageIdxCounts": {
-      "num": 2,
-      "running": 0,
-      "succeeded": 2
-    },
-    "properties": [],
-    "duration": 1192,
-    "totalTaskDuration": 4524,
-    "metrics": {
-      "ExecutorDeserializeTime": 285,
-      "ExecutorRunTime": 3829,
-      "ResultSize": 76290,
-      "ShuffleWriteMetrics": {
-        "ShuffleBytesWritten": 21400,
-        "ShuffleWriteTime": 108488000,
-        "ShuffleRecordsWritten": 200
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "StorageLevel": {
-              "Replication": 20
-            },
-            "MemorySize": 28003520
-          }
-        }
-      },
-      "SchedulerDelayTime": 410,
-      "JVMGCTime": 486,
-      "ShuffleReadMetrics": {
-        "LocalBlocksFetched": 200,
-        "LocalBytesRead": 21400,
-        "TotalRecordsRead": 200,
-        "TotalBytesRead": 21400,
-        "FetchWaitTime": 1
-      }
-    },
-    "result": {
-      "Result": "JobSucceeded"
-    },
-    "succeeded": true,
-    "ended": true
+    "totalTaskDuration": 4524
   }
 ]

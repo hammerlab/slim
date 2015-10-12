@@ -2,173 +2,173 @@
   {
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "stageAttemptId": 0,
-    "stageId": 0,
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
-    "port": 32947,
-    "taskCounts": {
-      "running": 0,
-      "num": 100,
-      "succeeded": 100
-    },
-    "totalTaskDuration": 55068,
     "metrics": {
       "ExecutorDeserializeTime": 9290,
       "ExecutorRunTime": 41344,
-      "ResultSize": 154200,
+      "JVMGCTime": 10668,
       "ResultSerializationTime": 82,
+      "ResultSize": 154200,
+      "SchedulerDelayTime": 4352,
       "ShuffleWriteMetrics": {
         "ShuffleBytesWritten": 283600,
-        "ShuffleWriteTime": 114207675,
-        "ShuffleRecordsWritten": 10000
+        "ShuffleRecordsWritten": 10000,
+        "ShuffleWriteTime": 114207675
       },
       "UpdatedBlocks": {
         "0": {
           "Status": {
+            "MemorySize": 3152067200,
             "StorageLevel": {
               "Replication": 100
-            },
-            "MemorySize": 3152067200
+            }
           }
         }
-      },
-      "SchedulerDelayTime": 4352,
-      "JVMGCTime": 10668
-    }
+      }
+    },
+    "port": 32947,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "taskCounts": {
+      "num": 100,
+      "running": 0,
+      "succeeded": 100
+    },
+    "totalTaskDuration": 55068
   },
   {
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "stageAttemptId": 0,
-    "stageId": 1,
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
-    "port": 32947,
-    "taskCounts": {
-      "running": 0,
-      "num": 94,
-      "succeeded": 94
-    },
-    "totalTaskDuration": 5380,
     "metrics": {
       "ExecutorDeserializeTime": 321,
       "ExecutorRunTime": 2647,
+      "ResultSerializationTime": 80,
       "ResultSize": 82156,
+      "SchedulerDelayTime": 2332,
       "ShuffleReadMetrics": {
+        "FetchWaitTime": 48,
         "LocalBlocksFetched": 9400,
         "LocalBytesRead": 266200,
-        "TotalRecordsRead": 9400,
         "TotalBytesRead": 266200,
-        "FetchWaitTime": 48
-      },
-      "SchedulerDelayTime": 2332,
-      "ResultSerializationTime": 80
-    }
+        "TotalRecordsRead": 9400
+      }
+    },
+    "port": 32947,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "taskCounts": {
+      "num": 94,
+      "running": 0,
+      "succeeded": 94
+    },
+    "totalTaskDuration": 5380
   },
   {
     "appId": "application_1432740718700_3049",
     "execId": 3,
-    "stageAttemptId": 0,
-    "stageId": 1,
     "host": "demeter-csmau10-4.demeter.hpc.mssm.edu",
-    "taskCounts": {
-      "running": 0,
-      "num": 3,
-      "succeeded": 3
-    },
-    "totalTaskDuration": 9450,
-    "port": 34099,
     "metrics": {
       "ExecutorDeserializeTime": 7238,
       "ExecutorRunTime": 1086,
-      "ResultSize": 2619,
       "ResultSerializationTime": 8,
+      "ResultSize": 2619,
+      "SchedulerDelayTime": 1118,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 300,
         "FetchWaitTime": 453,
+        "RemoteBlocksFetched": 300,
         "RemoteBytesRead": 8700,
-        "TotalRecordsRead": 300,
-        "TotalBytesRead": 8700
-      },
-      "SchedulerDelayTime": 1118
-    }
+        "TotalBytesRead": 8700,
+        "TotalRecordsRead": 300
+      }
+    },
+    "port": 34099,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "taskCounts": {
+      "num": 3,
+      "running": 0,
+      "succeeded": 3
+    },
+    "totalTaskDuration": 9450
   },
   {
     "appId": "application_1432740718700_3049",
     "execId": 5,
-    "stageAttemptId": 0,
-    "stageId": 1,
     "host": "demeter-csmaz08-9.demeter.hpc.mssm.edu",
-    "taskCounts": {
-      "running": 0,
-      "num": 3,
-      "succeeded": 3
-    },
-    "totalTaskDuration": 7940,
-    "port": 54440,
     "metrics": {
       "ExecutorDeserializeTime": 6275,
       "ExecutorRunTime": 1086,
-      "ResultSize": 2619,
       "ResultSerializationTime": 8,
+      "ResultSize": 2619,
+      "SchedulerDelayTime": 571,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 300,
         "FetchWaitTime": 444,
+        "RemoteBlocksFetched": 300,
         "RemoteBytesRead": 8700,
-        "TotalRecordsRead": 300,
-        "TotalBytesRead": 8700
-      },
-      "SchedulerDelayTime": 571
-    }
+        "TotalBytesRead": 8700,
+        "TotalRecordsRead": 300
+      }
+    },
+    "port": 54440,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "taskCounts": {
+      "num": 3,
+      "running": 0,
+      "succeeded": 3
+    },
+    "totalTaskDuration": 7940
   },
   {
     "appId": "application_1432740718700_3049",
     "execId": 8,
-    "stageAttemptId": 0,
-    "stageId": 1,
     "host": "demeter-csmau10-20.demeter.hpc.mssm.edu",
-    "taskCounts": {
-      "running": 0,
-      "num": 3,
-      "succeeded": 3
-    },
-    "totalTaskDuration": 8171,
-    "port": 42347,
     "metrics": {
       "ExecutorDeserializeTime": 6622,
       "ExecutorRunTime": 520,
-      "ResultSize": 2622,
       "ResultSerializationTime": 6,
+      "ResultSize": 2622,
+      "SchedulerDelayTime": 1023,
       "ShuffleReadMetrics": {
-        "RemoteBlocksFetched": 300,
         "FetchWaitTime": 180,
+        "RemoteBlocksFetched": 300,
         "RemoteBytesRead": 8700,
-        "TotalRecordsRead": 300,
-        "TotalBytesRead": 8700
-      },
-      "SchedulerDelayTime": 1023
-    }
+        "TotalBytesRead": 8700,
+        "TotalRecordsRead": 300
+      }
+    },
+    "port": 42347,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "taskCounts": {
+      "num": 3,
+      "running": 0,
+      "succeeded": 3
+    },
+    "totalTaskDuration": 8171
   },
   {
     "appId": "application_1432740718700_3049",
     "execId": 11,
+    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
     "stageAttemptId": 0,
     "stageId": 1,
-    "host": "demeter-csmaz08-11.demeter.hpc.mssm.edu",
     "taskCounts": {
-      "running": 3,
-      "num": 3
+      "num": 3,
+      "running": 3
     },
     "totalTaskDuration": 7420
   },
   {
     "appId": "application_1432740718700_3049",
     "execId": 20,
+    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
     "stageAttemptId": 0,
     "stageId": 1,
-    "host": "demeter-csmaz08-18.demeter.hpc.mssm.edu",
     "taskCounts": {
-      "running": 3,
-      "num": 3
+      "num": 3,
+      "running": 3
     },
     "totalTaskDuration": 7425
   }

@@ -11,6 +11,8 @@ var isEmptyObject = require('../utils/utils').isEmptyObject;
 var colls = require('./collections').collections;
 var deq = require('deep-equal');
 
+var PriorityQueue = require('priorityqueuejs');
+
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
   return function(err, val) {
@@ -22,10 +24,11 @@ var upsertCb = function(event) {
   }
 };
 
-var UpsertStats = require('./upsert-stats').UpsertStats;
-var upsertStats = new UpsertStats();
-
 var useRealInc = !argv.f && !argv['fake-inc'];
+var statusLogInterval = argv['status-log-interval'] || 10;
+
+var UpsertStats = require('./upsert-stats').UpsertStats;
+
 
 function getProp(root, key, create) {
   var segments = key.split('.');
@@ -261,6 +264,19 @@ function addHasProp(clazz) {
 }
 
 var numBlocked = 0;
+var maximumInflightUpserts = 1000;
+var upsertQueue = new PriorityQueue(function(a,b) {
+  if (a.clazz.lowPriority) return -1;
+  if (b.clazz.lowPriority) return 1;
+  return 0;
+});
+
+var upsertStats = new UpsertStats();
+
+setInterval(function() {
+  upsertStats.logStatus(upsertQueue, numBlocked);
+}, statusLogInterval * 1000);
+
 
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function(cb) {
@@ -268,16 +284,21 @@ function addUpsert(clazz, className, collectionName) {
       return this;
     }
     this.setDuration();
-    if (this.applyRateLimit) {
-      if (this.blocking) {
-        if (!this.blocked) {
-          numBlocked++;
-          this.blocked = true;
-        }
-        return this;
-      } else {
-        this.blocking = true;
+
+    if (this.inFlight) {
+      if (!this.blocked) {
+        this.blocked = true;
+        numBlocked++;
       }
+      return this;
+    } else if (upsertStats.inFlight >= maximumInflightUpserts) {
+      if (!this.enqueued) {
+        this.enqueued = true;
+        upsertQueue.enq(this);
+      }
+      return this;
+    } else {
+      this.inFlight = true;
     }
 
     if (this.upsertHooks) {
@@ -361,42 +382,27 @@ function addUpsert(clazz, className, collectionName) {
     upsertObj['$set'].l = now.unix() * 1000;
 
     upsertStats.inc();
-    var b = {
-      t: now,
-      started: upsertStats.started,
-      ended: upsertStats.ended
-    };
     this.dirty = false;
     colls[collectionName].findOneAndUpdate(
           this.findObj,
           upsertObj,
           upsertOpts,
           function(err, val) {
-            var after = m();
-            upsertStats.dec();
-            this.blocking = false;
+            upsertStats.dec(now);
+            this.inFlight = false;
             if (err) {
               l.error("%s, upserting:", this.toString(), upsertObj, err);
             } else {
-              l.debug("Added %s: %O", className, val);
-              if (className == 'Stage') {
-                var v = val.value;
-                l.info(
-                      'After upsert (started %d->%d, ended %d->%d, in flight %d->%d): Stage %d: %d running, %d succeeded, took %d ms',
-                      b.started, upsertStats.started,
-                      b.ended, upsertStats.ended,
-                      b.started - b.ended, upsertStats.started - upsertStats.ended,
-                      v.id,
-                      v.taskCounts && v.taskCounts.running || 0,
-                      v.taskCounts && v.taskCounts.succeeded || 0,
-                      after - b.t
-                );
-              }
               if (this.blocked) {
                 this.blocked = false;
                 numBlocked--;
                 this.upsert();
               } else {
+                while (!upsertQueue.isEmpty() && upsertStats.inFlight < maximumInflightUpserts) {
+                  var next = upsertQueue.deq();
+                  next.enqueued = false;
+                  next.upsert();
+                }
                 if (!numBlocked && !upsertStats.inFlight && module.exports.emptyQueueCb) {
                   module.exports.emptyQueueCb();
                 }
@@ -432,7 +438,6 @@ function addInit(clazz, className) {
     this.propsObj = {};
     this.toSyncObj = {};
     this.dirty = true;
-    this.applyRateLimit = true;
   };
 
   clazz.prototype.toString = function() {

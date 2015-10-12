@@ -1,9 +1,9 @@
 [
   {
+    "MemorySize": 28003520,
     "appId": "local-1437677504186",
     "execId": "driver",
-    "rddId": 61,
-    "MemorySize": 28003520,
-    "numBlocks": 20
+    "numBlocks": 20,
+    "rddId": 61
   }
 ]
