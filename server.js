@@ -781,7 +781,7 @@ function handleEvent(e) {
 }
 
 function Server(mongoUrl) {
-  l.info("Starting slim v1.2.2");
+  l.info("Starting slim v1.3.0");
   if (argv.log) {
     var lastSlashIdx = argv.log.lastIndexOf('/');
     if (lastSlashIdx >= 0) {
