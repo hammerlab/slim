@@ -1,6 +1,6 @@
 # `slim`
 
-[![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/hammerlab/spree?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/hammerlab/spree?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ![Travis CI Status](https://travis-ci.org/hammerlab/slim.svg?branch=master)
 
 `slim` is a [Node][] server that:
 
