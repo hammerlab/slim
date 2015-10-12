@@ -12,6 +12,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 870,
     "median": 870,
@@ -70,6 +81,17 @@
     "stageAttemptId": 0,
     "stageId": 0,
     "tf": 83
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "tf": 0
   },
   {
     "appId": "local-1440276596119",
@@ -142,6 +164,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 33,
     "median": 33,
@@ -193,6 +226,17 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "max": 0,
     "median": 0,
     "min": 0,
@@ -272,6 +316,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 2,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 24,
     "median": 24,
@@ -323,6 +378,17 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 2,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "max": 0,
     "median": 0,
     "min": 0,
@@ -402,6 +468,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 3,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 29,
     "median": 29,
@@ -453,6 +530,17 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 3,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "max": 0,
     "median": 0,
     "min": 0,
@@ -542,6 +630,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 4,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 20,
     "median": 20,
@@ -600,6 +699,17 @@
     "stageAttemptId": 0,
     "stageId": 4,
     "tf": 41
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 4,
+    "tf": 0
   },
   {
     "appId": "local-1440276596119",
@@ -682,6 +792,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 5,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 7,
     "median": 7,
@@ -727,6 +848,17 @@
     "median": 499,
     "min": 0,
     "sf": 499,
+    "stageAttemptId": 0,
+    "stageId": 5,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
     "stageAttemptId": 0,
     "stageId": 5,
     "tf": 0
@@ -822,6 +954,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 6,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 253,
     "median": 16,
@@ -864,6 +1007,17 @@
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
     "max": 442,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 6,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
     "median": 0,
     "min": 0,
     "sf": 0,
@@ -962,6 +1116,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 7,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 66,
     "median": 5,
@@ -1017,6 +1182,17 @@
     "median": 0,
     "min": 0,
     "sf": 35,
+    "stageAttemptId": 0,
+    "stageId": 7,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
     "stageAttemptId": 0,
     "stageId": 7,
     "tf": 0
@@ -1097,6 +1273,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 8
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 8
@@ -1128,6 +1310,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 8
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 8
   },
@@ -1187,6 +1375,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 9
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 9
@@ -1218,6 +1412,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 9
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 9
   },
@@ -1277,6 +1477,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 10
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 10
@@ -1308,6 +1514,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 10
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 10
   },
@@ -1367,6 +1579,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 11
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 11
@@ -1398,6 +1616,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 11
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 11
   },
@@ -1462,6 +1686,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 12,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 103,
     "median": 5,
@@ -1517,6 +1752,17 @@
     "median": 80,
     "min": 0,
     "sf": 95,
+    "stageAttemptId": 0,
+    "stageId": 12,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
     "stageAttemptId": 0,
     "stageId": 12,
     "tf": 0
@@ -1612,6 +1858,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 13,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 11,
     "median": 1,
@@ -1653,6 +1910,17 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 13,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "max": 0,
     "median": 0,
     "min": 0,
@@ -1737,6 +2005,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 14
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 14
@@ -1768,6 +2042,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 14
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 14
   },
@@ -1827,6 +2107,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 15
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 15
@@ -1858,6 +2144,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 15
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 15
   },
@@ -1917,6 +2209,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 16
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 16
@@ -1948,6 +2246,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 16
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 16
   },
@@ -2007,6 +2311,12 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "stageAttemptId": 0,
+    "stageId": 17
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "stageAttemptId": 0,
     "stageId": 17
@@ -2038,6 +2348,12 @@
   {
     "appId": "local-1440276596119",
     "id": "metrics.JVMGCTime",
+    "stageAttemptId": 0,
+    "stageId": 17
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
     "stageAttemptId": 0,
     "stageId": 17
   },
@@ -2102,6 +2418,17 @@
   },
   {
     "appId": "local-1440276596119",
+    "id": "metrics.DiskBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 18,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
     "id": "metrics.ExecutorDeserializeTime",
     "max": 56,
     "median": 6,
@@ -2157,6 +2484,17 @@
     "median": 27,
     "min": 0,
     "sf": 66,
+    "stageAttemptId": 0,
+    "stageId": 18,
+    "tf": 0
+  },
+  {
+    "appId": "local-1440276596119",
+    "id": "metrics.MemoryBytesSpilled",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
     "stageAttemptId": 0,
     "stageId": 18,
     "tf": 0
