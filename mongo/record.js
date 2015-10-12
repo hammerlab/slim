@@ -11,6 +11,8 @@ var isEmptyObject = require('../utils/utils').isEmptyObject;
 var colls = require('./collections').collections;
 var deq = require('deep-equal');
 
+var PriorityQueue = require('priorityqueuejs');
+
 var upsertOpts = { upsert: true, returnOriginal: false };
 var upsertCb = function(event) {
   return function(err, val) {
@@ -261,6 +263,12 @@ function addHasProp(clazz) {
 }
 
 var numBlocked = 0;
+var maximumInflightUpserts = 1000;
+var upsertQueue = new PriorityQueue(function(a,b) {
+  if (a.clazz.lowPriority) return -1;
+  if (b.clazz.lowPriority) return 1;
+  return 0;
+});
 
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function(cb) {
@@ -268,16 +276,21 @@ function addUpsert(clazz, className, collectionName) {
       return this;
     }
     this.setDuration();
-    if (this.applyRateLimit) {
-      if (this.blocking) {
-        if (!this.blocked) {
-          numBlocked++;
-          this.blocked = true;
-        }
-        return this;
-      } else {
-        this.blocking = true;
+
+    if (this.inFlight) {
+      if (!this.blocked) {
+        this.blocked = true;
+        numBlocked++;
       }
+      return this;
+    } else if (upsertStats.inFlight >= maximumInflightUpserts) {
+      if (!this.enqueued) {
+        this.enqueued = true;
+        upsertQueue.enq(this);
+      }
+      return this;
+    } else {
+      this.inFlight = true;
     }
 
     if (this.upsertHooks) {
@@ -374,7 +387,7 @@ function addUpsert(clazz, className, collectionName) {
           function(err, val) {
             var after = m();
             upsertStats.dec();
-            this.blocking = false;
+            this.inFlight = false;
             if (err) {
               l.error("%s, upserting:", this.toString(), upsertObj, err);
             } else {
@@ -397,6 +410,11 @@ function addUpsert(clazz, className, collectionName) {
                 numBlocked--;
                 this.upsert();
               } else {
+                while (!upsertQueue.isEmpty() && upsertStats.inFlight < maximumInflightUpserts) {
+                  var next = upsertQueue.deq();
+                  next.enqueued = false;
+                  next.upsert();
+                }
                 if (!numBlocked && !upsertStats.inFlight && module.exports.emptyQueueCb) {
                   module.exports.emptyQueueCb();
                 }
@@ -432,7 +450,6 @@ function addInit(clazz, className) {
     this.propsObj = {};
     this.toSyncObj = {};
     this.dirty = true;
-    this.applyRateLimit = true;
   };
 
   clazz.prototype.toString = function() {

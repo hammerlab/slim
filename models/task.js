@@ -27,4 +27,5 @@ if (subRecord) {
   mixinMongoMethods(Task, "Task", "Tasks");
 }
 
+Task.lowPriority = true;
 module.exports.Task = Task;
