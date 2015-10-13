@@ -2,7 +2,6 @@
 var argv = require('minimist')(process.argv.slice(2));
 
 var l = require("../utils/log").l;
-var subRecord = !!argv.s;
 
 var apps = null;
 var utils = require("../utils/utils");
@@ -10,7 +9,6 @@ var acc = utils.acc;
 var processTime = utils.processTime;
 var accumulablesObj = utils.accumulablesObj;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
-var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
 var OST = require("../utils/ost").OST;
 

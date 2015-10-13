@@ -52,12 +52,13 @@ function maybeAddTotalShuffleReadBytes(metrics) {
 }
 
 function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt) {
-  var prevTaskAttemptMetrics = taskAttempt.get('metrics');
   var newTaskAttemptMetrics = taskMetrics;
-
   if (!newTaskAttemptMetrics) {
     return;
   }
+
+  var prevTaskAttemptMetrics = taskAttempt.get('metrics');
+
   taskAttempt.setDuration();
   var grt = taskAttempt.get('GettingResultTime') || 0;
   if (grt) {

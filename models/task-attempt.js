@@ -2,14 +2,12 @@
 var argv = require('minimist')(process.argv.slice(2));
 
 var l = require("../utils/log").l;
-var subRecord = !!argv.s;
 
 var apps = null;
 var utils = require("../utils/utils");
 var processTime = utils.processTime;
 var accumulablesObj = utils.accumulablesObj;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
-var mixinMongoSubrecordMethods = require("../mongo/subrecord").mixinMongoSubrecordMethods;
 
 function TaskAttempt(stageAttempt, id) {
   if (!stageAttempt) {
@@ -33,18 +31,12 @@ function TaskAttempt(stageAttempt, id) {
   this.stageAttemptId = stageAttempt.id;
   this.id = id;
 
-  if (subRecord) {
-    this.super = stageAttempt;
-    this.superKey = ['tasks', id, ''].join('.');
-    this.set('id', id);
-  } else {
-    this.init(
-          [ 'appId', 'stageId', 'stageAttemptId', 'id' ],
-          'totalTaskDuration',
-          [ this.stageAttempt, this.job, this.app ],
-          [ this.stageAttempt.metricsMap['duration'] ]
-    );
-  }
+  this.init(
+        [ 'appId', 'stageId', 'stageAttemptId', 'id' ],
+        'totalTaskDuration',
+        [ this.stageAttempt, this.job, this.app ],
+        [ this.stageAttempt.metricsMap['duration'] ]
+  );
 }
 
 var getExecutorId = require('./executor').getExecutorId;
@@ -87,11 +79,7 @@ TaskAttempt.prototype.setExecutors = function() {
   return this;
 };
 
-if (subRecord) {
-  mixinMongoSubrecordMethods(TaskAttempt, "TaskAttempt");
-} else {
-  mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts");
-}
+mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts");
 
 TaskAttempt.lowPriority = true;
 
