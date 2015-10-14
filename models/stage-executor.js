@@ -1,11 +1,11 @@
 
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
-function StageExecutor(stageAttempt, executorId) {
+function StageExecutor(stageAttempt, executor) {
   this.appId = stageAttempt.appId;
   this.stageId = stageAttempt.stageId;
   this.stageAttemptId = stageAttempt.id;
-  this.execId = executorId;
+  this.execId = executor.id;
 
   this.init([ 'appId', 'stageId', 'stageAttemptId', 'execId' ]);
 

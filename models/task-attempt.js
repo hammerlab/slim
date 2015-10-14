@@ -69,7 +69,7 @@ TaskAttempt.prototype.setExecutors = function() {
       l.error("%s: empty executor %s", this.toString(), execId);
     }
 
-    this.stageExecutor = this.stageAttempt.getExecutor(execId);
+    this.stageExecutor = this.stageAttempt.getExecutor(this.executor);
     if (this.stageExecutor) {
       this.durationAggregationObjs.push(this.stageExecutor);
     } else {

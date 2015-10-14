@@ -138,10 +138,10 @@ StageAttempt.prototype.getTaskAttempt = function(taskId) {
   return this.task_attempts[taskId];
 };
 
-StageAttempt.prototype.getExecutor = function(execId) {
-  execId = getExecutorId(execId);
+StageAttempt.prototype.getExecutor = function(executor) {
+  var execId = executor.id;
   if (!(execId in this.executors)) {
-    this.executors[execId] = new StageExecutor(this, execId);
+    this.executors[execId] = new StageExecutor(this, executor);
   }
   return this.executors[execId];
 };

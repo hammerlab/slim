@@ -239,11 +239,21 @@ App.prototype.hydrate = function(cb) {
                       id,
                       self.stages.map(function(e) { return e.id; }).join(',')
                 );
+              } else if (!(stageExecutor.execId in self.executors)) {
+                l.error(
+                      "StageExecutor %s's execId %s not found in app %s's executors: %s",
+                      stageExecutor.id,
+                      stageExecutor.execId,
+                      id,
+                      self.executors.map(function (e) {
+                        return e.id;
+                      }).join(',')
+                );
               } else {
                 self
                       .stages[stageExecutor.stageId]
                       .attempts[stageExecutor.stageAttemptId]
-                      .getExecutor(stageExecutor.execId)
+                      .getExecutor(self.executors[stageExecutor.execId])
                       .fromMongo(stageExecutor);
               }
             });

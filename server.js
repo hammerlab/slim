@@ -455,7 +455,7 @@ var handlers = {
     var taskId = ti['Task ID'];
 
     var executor = app.getExecutor(ti);
-    var stageExecutor = stageAttempt.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
+    var stageExecutor = stageAttempt.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
 
     var taskIndex = ti['Index'];
     var task = stageAttempt.getTask(taskIndex);
@@ -539,7 +539,7 @@ var handlers = {
     }
 
     var executor = app.getExecutor(ti);
-    var stageExecutor = stageAttempt.getExecutor(ti).set({ host: executor.get('host'), port: executor.get('port') });
+    var stageExecutor = stageAttempt.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
 
     var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
@@ -775,7 +775,7 @@ var handlers = {
       var job = app.getJob(stage.get('jobId'));
       var stageAttempt = stage.getAttempt(m);
       var taskAttempt = stageAttempt.getTaskAttempt(m);
-      var stageExecutor = stageAttempt.getExecutor(e);
+      var stageExecutor = stageAttempt.getExecutor(executor);
       var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
       handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt);
       taskAttempt.upsert();
