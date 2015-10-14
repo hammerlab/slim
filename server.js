@@ -760,9 +760,8 @@ var handlers = {
           .upsert();
 
   },
-
   SparkListenerLogStart: function(app, e) {
-
+    // Spark EventListenerBus doesn't actually send this event.
   },
   SparkListenerExecutorMetricsUpdate: function(app, e) {
     var executor = app.getExecutor(e);
