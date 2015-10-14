@@ -31,6 +31,7 @@ function App(id) {
   // to work around a bug in Spark where a TaskEnd will imply that a task
   // belongs to a different (newer) attempt of its stage than it does / was
   // `TaskStart`ed with.
+  // TODO(ryan): post relevant JIRA here.
   this.task_attempts = {};
 }
 
@@ -49,8 +50,8 @@ var appsInFlight = {};
 
 App.prototype.hydrate = function(cb) {
   function fetch(collName) {
-    return function (cb) {
-      colls[collName].find({appId: id}).toArray(cb);
+    return function (callback) {
+      colls[collName].find({appId: id}).toArray(callback);
     };
   }
 
