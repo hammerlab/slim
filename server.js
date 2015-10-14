@@ -650,6 +650,7 @@ var handlers = {
           upsertOpts,
           upsertCb("Environment")
     );
+    app.set('maxTaskFailures', e['JVM Information']['spark.task.maxFailures'] || 4).upsert();
   },
   SparkListenerBlockManagerAdded: function(app, e) {
     app
