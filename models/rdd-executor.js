@@ -1,10 +1,10 @@
 
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
-function RDDExecutor(rdd, executorId) {
+function RDDExecutor(rdd, executor) {
   this.appId = rdd.appId;
   this.rddId = rdd.id;
-  this.execId = executorId;
+  this.execId = executor.id;
 
   this.init([ 'appId', 'rddId', 'execId' ]);
 

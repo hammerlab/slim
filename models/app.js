@@ -267,8 +267,16 @@ App.prototype.hydrate = function(cb) {
                       id,
                       self.rdds.map(function(e) { return e.id; }).join(',')
                 );
+              } else if (!(rddExecutor.execId in self.executors)) {
+                l.error(
+                      "RDDExecutor %s's execId %s not found in app %s's Executors: %s",
+                      rddExecutor.id,
+                      rddExecutor.execId,
+                      id,
+                      self.executors.map(function(e) { return e.id; }).join(',')
+                );
               } else {
-                self.rdds[rddExecutor.rddId].getExecutor(rddExecutor.execId).fromMongo(rddExecutor);
+                self.rdds[rddExecutor.rddId].getExecutor(self.executors[rddExecutor.execId]).fromMongo(rddExecutor);
               }
             });
           }

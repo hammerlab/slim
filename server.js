@@ -110,7 +110,7 @@ function handleBlockUpdates(taskMetrics, app, executor) {
         rdd = app.getRDD(rddId);
         rdds.push(rdd);
 
-        rddExecutor = rdd.getExecutor(executor.id).set({ host: executor.get('host'), port: executor.get('port') });
+        rddExecutor = rdd.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
         rddExecutors.push(rddExecutor);
 
         block = rdd.getBlock(blockIndex).set('execId', executor.id, true).addToSet('execIds', executor.id);
@@ -711,7 +711,7 @@ var handlers = {
     var rdd = app.getRDD(rddId).set({ unpersisted: true });
     for (var eid in app.executors) {
       var executor = app.executors[eid];
-      var rddExecutor = rdd.getExecutor(eid).set({ host: executor.get('host'), port: executor.get('port') });
+      var rddExecutor = rdd.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
 
       ['numBlocks', 'MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function(key) {
         var extant = rddExecutor.get(key) || 0;

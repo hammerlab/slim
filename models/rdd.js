@@ -48,10 +48,10 @@ RDD.prototype.getBlock = function(blockIndex) {
   return this.blocks[blockIndex];
 };
 
-RDD.prototype.getExecutor = function(execId) {
-  execId = getExecutorId(execId);
+RDD.prototype.getExecutor = function(executor) {
+  execId = executor.id;
   if (!(execId in this.executors)) {
-    this.executors[execId] = new RDDExecutor(this, execId);
+    this.executors[execId] = new RDDExecutor(this, executor);
   }
   return this.executors[execId];
 };
