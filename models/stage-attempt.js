@@ -46,7 +46,7 @@ function StageAttempt(stage, id) {
     this.metricsMap[metric.id] = metric;
   }.bind(this));
 
-  this.upsertHooks = [ this.syncMetrics ];
+  this.upsertHooks.push(this.syncMetrics);
 }
 
 StageAttempt.prototype.initMetrics = function() {

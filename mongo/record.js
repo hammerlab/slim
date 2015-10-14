@@ -29,27 +29,60 @@ var statusLogInterval = argv['status-log-interval'] || 10;
 var UpsertStats = require('./upsert-stats').UpsertStats;
 
 
-function getProp(root, key, create) {
+function getProp(root, key, create, callbackObjs) {
   var segments = key.split('.');
-  var parentObj = segments.reduce(function(obj, segment, idx) {
-    if (!obj || idx + 1 == segments.length) {
-      return obj;
-    }
-    if (!(segment in obj)) {
-      if (create) {
-        obj[segment] = {};
-      } else {
-        return null;
-      }
-    }
-    return obj[segment];
-  }, root);
+  var parentAndCallbackObj = segments.reduce(
+        function(objs, segment, idx) {
+          if (!objs[0] || idx + 1 == segments.length) {
+            return objs;
+          }
+          var nextCallbackObj = (objs[1] && (segment in objs[1])) ? objs[1][segment] : objs[1];
+          if (!(segment in objs[0])) {
+            if (create) {
+              objs[0][segment] = {};
+            } else {
+              return [ null, nextCallbackObj ];
+            }
+          }
+          return [ objs[0][segment], nextCallbackObj ];
+        },
+        [
+          root,
+          callbackObjs
+        ]
+  );
+  var parentObj = parentAndCallbackObj[0];
+  var callbackObj = (callbackObj == callbackObjs) ? null : parentAndCallbackObj[1];
   var name = segments[segments.length - 1];
   var exists = parentObj && (name in parentObj);
   return {
     obj: parentObj,
     name: name,
     val: parentObj && parentObj[name],
+    handleValueChange(prev, val) {
+      if (callbackObj) {
+        var sumsConfig = callbackObj.sums;
+        if (sumsConfig) {
+          if (sumsConfig instanceof Array) {
+            sumsConfig.forEach((obj) => {
+              obj[key].inc(val - prev);
+            });
+          } else {
+            for (var sumsKey in sumsConfig) {
+              sumsConfig[sumsKey].map((obj) => {
+                obj[sumsKey].inc(val - prev);
+              });
+            }
+          }
+        }
+        var callbacksConfig = callbackObj.callbacks;
+        if (callbacksConfig) {
+          callbacksConfig.map((obj) => {
+            obj.handleValueChange(prev, val);
+          });
+        }
+      }
+    },
     exists: exists,
     set: function(val) {
       if (parentObj) {
@@ -66,7 +99,7 @@ function getProp(root, key, create) {
 
 function addSetProp(clazz, className) {
   clazz.prototype.getProp = function(key, create) {
-    return getProp(this.propsObj, key, create);
+    return getProp(this.propsObj, key, create, this.propCallbackObj);
   };
   clazz.prototype.set = function(key, val, allowExtant) {
     if (typeof key == 'string') {
@@ -84,7 +117,9 @@ function addSetProp(clazz, className) {
                   JSON.stringify(val)
             );
           }
+          var prev = prop.val;
           prop.set(val);
+          prop.handleValueChange(prev, val);
           this.toSyncObj[key] = val;
           this.dirty = true;
         }
@@ -140,7 +175,10 @@ function addIncProp(clazz) {
     if (!this.incObj) this.incObj = {};
     this.incObj[key] = (this.incObj[key] || 0) + i;
     var prop = this.getProp(key, true);
-    prop.set((prop.val || 0) + i);
+    var prev = prop.val;
+    var next = (prop.val || 0) + i;
+    prop.set(next);
+    prop.handleValueChange(prev, next);
     this.dirty = true;
     return this;
   };
@@ -212,24 +250,12 @@ function addPull(clazz) {
 }
 
 function addSetDuration(clazz) {
-  clazz.prototype.maybeIncrementAggregatedDurations = function(delta, before, after) {
-    if (this.durationAggregationKey) {
-      (this.durationAggregationObjs || []).forEach(function (obj) {
-        obj.inc(this.durationAggregationKey, delta);
-      }.bind(this));
-      (this.durationCallbackObjs || []).forEach(function(obj) {
-        obj.handleTaskDurationChange(delta, before, after);
-      });
-    }
-  };
   clazz.prototype.setDuration = function() {
     var start = this.get('time.start');
     if (start) {
       var end = this.get('time.end');
-      var curDur = this.get('duration');
       var newDur = end ? end - start : Math.max(0, (m().unix() * 1000) - start);
       this.set('duration', newDur, true);
-      this.maybeIncrementAggregatedDurations(delta, curDur, newDur);
     }
     return this;
   }
@@ -267,7 +293,12 @@ function addUpsert(clazz, className, collectionName) {
     if (!this.dirty) {
       return this;
     }
-    this.setDuration();
+
+    if (this.upsertHooks) {
+      this.upsertHooks.forEach(function(hook) {
+        hook.bind(this)();
+      }.bind(this));
+    }
 
     if (this.inFlight) {
       if (!this.blocked) {
@@ -285,11 +316,6 @@ function addUpsert(clazz, className, collectionName) {
       this.inFlight = true;
     }
 
-    if (this.upsertHooks) {
-      this.upsertHooks.forEach(function(hook) {
-        hook.bind(this)();
-      }.bind(this));
-    }
     var upsertObj = {};
     if (!isEmptyObject(this.toSyncObj)) {
       upsertObj['$set'] = extend({}, this.toSyncObj);
@@ -399,12 +425,25 @@ function addUpsert(clazz, className, collectionName) {
 }
 
 function addInit(clazz, className) {
-  clazz.prototype.init = function(findKeys, durationAggregationKey, durationAggregationObjs, durationCallbackObjs) {
+  clazz.prototype.init = function(findKeys, propCallbackObj) {
     this.findObj = {};
-    this.findKeys = findKeys;
-    this.durationAggregationKey = durationAggregationKey;
-    this.durationAggregationObjs = durationAggregationObjs;
-    this.durationCallbackObjs = durationCallbackObjs;
+    this.propCallbackObj = propCallbackObj;
+    if (propCallbackObj) {
+      for (var prop in this.propCallbackObj) {
+        var propCallback = this.propCallbackObj[prop];
+        if (propCallback.sums) {
+          for (var sumsKey in propCallback.sums) {
+            if (!(propCallback.sums[sumsKey] instanceof Array)) {
+              propCallback.sums[sumsKey] = [propCallback.sums[sumsKey]];
+            }
+          }
+        }
+        if (propCallback.callbacks && !(propCallback.callbacks instanceof Array)) {
+          propCallback.callbacks = [propCallback.callbacks];
+        }
+      }
+    }
+
     this.clazz = className;
 
     if (!findKeys || !findKeys.length) {
@@ -422,6 +461,7 @@ function addInit(clazz, className) {
     this.propsObj = {};
     this.toSyncObj = {};
     this.dirty = true;
+    this.upsertHooks = [ this.setDuration ];
   };
 
   clazz.prototype.toString = function() {
@@ -445,6 +485,7 @@ function addFromMongo(clazz) {
 }
 
 function mixinMongoMethods(clazz, className, collectionName) {
+  addSetDuration(clazz);
   addInit(clazz, className);
   addFromMongo(clazz);
   addSetProp(clazz, className);
@@ -455,7 +496,6 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addHasProp(clazz);
   addPull(clazz);
   addUpsert(clazz, className, collectionName);
-  addSetDuration(clazz);
   addAddToSetProp(clazz);
 }
 

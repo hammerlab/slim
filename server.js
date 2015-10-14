@@ -328,19 +328,13 @@ var handlers = {
 
     // Set tasks' end times now just in case; allow them to be overwritten if we actually end up
     // seeing a TaskEnd event for them. cf. SPARK-9038.
-    var durationAggregationsObjs = {};
-    var durationAggregationsObjsArr = [];
+    var taskAttemptsToUpsert = [];
     for (var tid in attempt.task_attempts) {
       var task = attempt.task_attempts[tid];
       if (task.get('status') === RUNNING) {
         if (!task.get('time.end')) {
-          task.set('time.end', endTime, true).upsert();
-          task.durationAggregationObjs.forEach(function(obj) {
-            if (!(obj.toString() in durationAggregationsObjs)) {
-              durationAggregationsObjs[obj.toString()] = obj;
-              durationAggregationsObjsArr.push(obj);
-            }
-          });
+          task.set('time.end', endTime, true).setDuration();
+          taskAttemptsToUpsert.push(task);
         }
       }
     }
@@ -436,7 +430,7 @@ var handlers = {
       }
     }
 
-    durationAggregationsObjsArr.forEach(function(obj) {
+    taskAttemptsToUpsert.forEach(function(obj) {
       obj.upsert();
     });
 

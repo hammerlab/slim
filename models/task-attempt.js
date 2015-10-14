@@ -45,17 +45,24 @@ function TaskAttempt(stageAttempt, id) {
   this.app = stageAttempt.app;
   this.job = stageAttempt.job;
 
-
   this.appId = stageAttempt.appId;
   this.stageId = stageAttempt.stageId;
   this.stageAttemptId = stageAttempt.id;
   this.id = id;
 
+  this.callbackObjs = [ this.stageAttempt, this.job, this.app ];
+  var callbackObj = {
+    duration: {
+      sums: {
+        totalTaskDuration: this.callbackObjs
+      },
+      callbacks: this.stageAttempt.metricsMap['duration']
+    }
+  };
+
   this.init(
         [ 'appId', 'stageId', 'stageAttemptId', 'id' ],
-        'totalTaskDuration',
-        [ this.stageAttempt, this.job, this.app ],
-        [ this.stageAttempt.metricsMap['duration'] ]
+        callbackObj
   );
 }
 
@@ -84,14 +91,14 @@ TaskAttempt.prototype.setExecutors = function() {
     var execId = this.get('execId');
     this.executor = this.app.getExecutor(execId);
     if (this.executor) {
-      this.durationAggregationObjs.push(this.executor);
+      this.callbackObjs.push(this.executor);
     } else {
       l.error("%s: empty executor %s", this.toString(), execId);
     }
 
     this.stageExecutor = this.stageAttempt.getExecutor(this.executor);
     if (this.stageExecutor) {
-      this.durationAggregationObjs.push(this.stageExecutor);
+      this.callbackObjs.push(this.stageExecutor);
     } else {
       l.error("%s: empty stageExecutor %s", this.toString(), execId);
     }

@@ -6,7 +6,16 @@ function Job(app, id) {
   this.appId = app.id;
   this.id = id;
 
-  this.init([ 'appId', 'id' ], 'totalJobDuration', [app]);
+  this.init(
+        [ 'appId', 'id' ],
+        {
+          duration: {
+            aggregate: {
+              totalJobDuration: [ app ]
+            }
+          }
+        }
+  );
 }
 
 mixinMongoMethods(Job, "Job", "Jobs");

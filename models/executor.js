@@ -9,7 +9,7 @@ function Executor(app, id) {
   this.init([ 'appId', 'id' ]);
 
   this.blocks = {};
-  this.upsertHooks = [ this.updateMemUsedPercent ];
+  this.upsertHooks.push(this.updateMemUsedPercent);
 }
 
 mixinMongoMethods(Executor, "Executor", "Executors");

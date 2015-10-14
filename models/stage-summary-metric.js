@@ -26,12 +26,6 @@ function StageSummaryMetric(stageAttempt, id) {
   this.init([ 'appId', 'stageId', 'stageAttemptId', 'id' ]);
 
   this.tree = new OST();
-
-  if (this.id === 'duration') {
-    this.handleTaskDurationChange = function(delta, before, after) {
-      this.handleValueChange(before, after);
-    };
-  }
 }
 
 StageSummaryMetric.prototype.initTree = function() {

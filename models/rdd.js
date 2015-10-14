@@ -18,7 +18,7 @@ function RDD(app, id) {
   this.blocks = {};
   this.executors = {};
 
-  this.upsertHooks = [ this.updateFractionCached ];
+  this.upsertHooks.push(this.updateFractionCached);
 }
 
 mixinMongoMethods(RDD, "RDD", "RDDs");
