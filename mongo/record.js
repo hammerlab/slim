@@ -24,7 +24,6 @@ var upsertCb = function(event) {
   }
 };
 
-var useRealInc = !argv.f && !argv['fake-inc'];
 var statusLogInterval = argv['status-log-interval'] || 10;
 
 var UpsertStats = require('./upsert-stats').UpsertStats;
@@ -138,16 +137,12 @@ function addIncProp(clazz) {
       i = 1;
     }
     if (i == 0) return this;
-    if (useRealInc) {
-      if (!this.incObj) this.incObj = {};
-      this.incObj[key] = (this.incObj[key] || 0) + i;
-      var prop = this.getProp(key, true);
-      prop.set((prop.val || 0) + i);
-      this.dirty = true;
-      return this;
-    } else {
-      return this.set(key, (this.get(key) || 0) + i, true);
-    }
+    if (!this.incObj) this.incObj = {};
+    this.incObj[key] = (this.incObj[key] || 0) + i;
+    var prop = this.getProp(key, true);
+    prop.set((prop.val || 0) + i);
+    this.dirty = true;
+    return this;
   };
 }
 
