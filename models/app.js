@@ -207,7 +207,7 @@ App.prototype.hydrate = function(cb) {
                       block.id,
                       block.execId,
                       id,
-                      r.executors.map(function(e) { return e.id; }).join(',')
+                      self.executors.map(function(e) { return e.id; }).join(',')
                 );
               } else {
                 self.executors[block.execId].getBlock(block.id).fromMongo(block);
@@ -221,7 +221,7 @@ App.prototype.hydrate = function(cb) {
                       block.id,
                       block.rddId,
                       id,
-                      r.rdds.map(function(e) { return e.id; }).join(',')
+                      self.rdds.map(function(e) { return e.id; }).join(',')
                 );
               } else {
                 self.rdds[block.rddId].getBlock(block.id).fromMongo(block);
@@ -237,7 +237,7 @@ App.prototype.hydrate = function(cb) {
                       stageExecutor.stageId,
                       stageExecutor.stageAttemptId,
                       id,
-                      r.stages.map(function(e) { return e.id; }).join(',')
+                      self.stages.map(function(e) { return e.id; }).join(',')
                 );
               } else {
                 self
@@ -255,7 +255,7 @@ App.prototype.hydrate = function(cb) {
                       rddExecutor.id,
                       rddExecutor.rddId,
                       id,
-                      r.rdds.map(function(e) { return e.id; }).join(',')
+                      self.rdds.map(function(e) { return e.id; }).join(',')
                 );
               } else {
                 self.rdds[rddExecutor.rddId].getExecutor(rddExecutor.execId).fromMongo(rddExecutor);
@@ -279,7 +279,7 @@ function getApp(id, cb) {
       // A new Spark application! "Stop the world" and page in all records that
       // have anything to do with it; when this is done we will go forth
       // recklessly in write-only mode to Mongo.
-      appsInFlight[id] = [cb];
+      appsInFlight[id] = [ cb ];
       l.info("Fetching app: ", id);
       var self = this;
       colls.Applications.findOne({ id: id }, function(err, appRecord) {
