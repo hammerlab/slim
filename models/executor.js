@@ -3,8 +3,8 @@ var maybeParseInt = require("../utils/utils").maybeParseInt;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var NonRddBlock = require("./block").NonRddBlock;
 
-function Executor(appId, id) {
-  this.appId = appId;
+function Executor(app, id) {
+  this.appId = app.id;
   this.id = id;
   this.init([ 'appId', 'id' ]);
 

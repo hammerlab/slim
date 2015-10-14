@@ -102,7 +102,7 @@ App.prototype.hydrate = function(cb) {
               self.rdds[rdd.id] = new RDD(self, rdd.id).fromMongo(rdd);
             });
             r.executors.forEach(function(executor) {
-              self.executors[executor.id] = new Executor(id, executor.id).fromMongo(executor);
+              self.executors[executor.id] = new Executor(self, executor.id).fromMongo(executor);
             });
 
             l.info(
@@ -369,7 +369,7 @@ App.prototype.getRDD = function(rddId) {
 App.prototype.getExecutor = function(executorId) {
   executorId = getExecutorId(executorId);
   if (!(executorId in this.executors)) {
-    this.executors[executorId] = new Executor(this.id, executorId);
+    this.executors[executorId] = new Executor(this, executorId);
   }
   return this.executors[executorId];
 };
