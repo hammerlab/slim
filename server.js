@@ -327,7 +327,7 @@ var handlers = {
     var endTime = attempt.get('time.end');
 
     // Set tasks' end times now just in case; allow them to be overwritten if we actually end up
-    // seeing a TaskEnd event for them. cf. SPARK-9308.
+    // seeing a TaskEnd event for them. cf. SPARK-9038.
     var durationAggregationsObjs = {};
     var durationAggregationsObjsArr = [];
     for (var tid in attempt.task_attempts) {
