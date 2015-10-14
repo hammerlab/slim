@@ -15,25 +15,7 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var getExecutorId = require('./executor').getExecutorId;
 
-var metricIds = [
-  'duration',
-  'metrics.ExecutorRunTime',
-  'metrics.ExecutorDeserializeTime',
-  'metrics.GettingResultTime',
-  'metrics.SchedulerDelayTime',
-  'metrics.ResultSerializationTime',
-  'metrics.JVMGCTime',
-  'metrics.InputMetrics.BytesRead',
-  'metrics.InputMetrics.RecordsRead',
-  'metrics.OutputMetrics.BytesWritten',
-  'metrics.OutputMetrics.RecordsWritten',
-  'metrics.ShuffleReadMetrics.TotalBytesRead',
-  'metrics.ShuffleReadMetrics.TotalRecordsRead',
-  'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
-  'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
-  'metrics.MemoryBytesSpilled',
-  'metrics.DiskBytesSpilled'
-];
+var metricIds = require('./task-attempt').metricIds;
 
 function StageAttempt(stage, id) {
   this.app = stage.app;
