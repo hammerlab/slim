@@ -33,26 +33,38 @@ function getProp(root, key, create, callbackObjs) {
   var segments = key.split('.');
   var parentAndCallbackObj = segments.reduce(
         function(objs, segment, idx) {
-          if (!objs[0] || idx + 1 == segments.length) {
+          if (!objs[0]) {
             return objs;
           }
-          var nextCallbackObj = (objs[1] && (segment in objs[1])) ? objs[1][segment] : objs[1];
-          if (!(segment in objs[0])) {
+
+          var nextCallbackObj = (objs[1] && (segment in objs[1])) ? objs[1][segment] : null;
+          var previousCallbackObj = nextCallbackObj || objs[2];
+
+          if (idx + 1 == segments.length) {
+            return [ objs[0], nextCallbackObj, previousCallbackObj ];
+          } else if (!(segment in objs[0])) {
             if (create) {
               objs[0][segment] = {};
             } else {
-              return [ null, nextCallbackObj ];
+              return [ null, nextCallbackObj, previousCallbackObj ];
             }
           }
-          return [ objs[0][segment], nextCallbackObj ];
+          return [ objs[0][segment], nextCallbackObj, previousCallbackObj ];
         },
         [
           root,
-          callbackObjs
+          callbackObjs,
+          null
         ]
   );
   var parentObj = parentAndCallbackObj[0];
-  var callbackObj = (parentAndCallbackObj[1] == callbackObjs) ? null : parentAndCallbackObj[1];
+
+  var callbackObj = parentAndCallbackObj[2];
+  if (callbackObjs) {
+    if (!callbackObj && (key in callbackObjs)) {
+      callbackObj = callbackObjs[key];
+    }
+  }
   var name = segments[segments.length - 1];
   var exists = parentObj && (name in parentObj);
   return {
@@ -64,14 +76,14 @@ function getProp(root, key, create, callbackObjs) {
         var sumsConfig = callbackObj.sums;
         if (sumsConfig) {
           sumsConfig.forEach((obj) => {
-            obj.inc(key, val - prev);
+            obj.inc(key, val - (prev || 0));
           });
         }
         var renamedSumsConfig = callbackObj.renamedSums;
         if (renamedSumsConfig) {
           for (var renamedKey in renamedSumsConfig) {
             renamedSumsConfig[renamedKey].map((obj) => {
-              obj.inc(renamedKey, val - prev);
+              obj.inc(renamedKey, val - (prev || 0));
             });
           }
         }
