@@ -116,29 +116,38 @@ function addSetProp(clazz, className) {
   clazz.prototype.set = function(key, val, allowExtant) {
     if (typeof key == 'string') {
       if (val === undefined) return this;
-      var prop = this.getProp(key, true);
-      if (prop.exists) {
-        if (!deq(prop.val, val)) {
-          if (!allowExtant) {
-            l.error(
-                  "%s(%s) overwriting %s: %s -> %s",
-                  className,
-                  JSON.stringify(this.findObj),
-                  key,
-                  JSON.stringify(prop.val),
-                  JSON.stringify(val)
-            );
+      if (typeof val == 'object' && !(val instanceof Array)) {
+        var flattenedVal = flattenObj(val, key);
+        for (var subKey in flattenedVal) {
+          this.set(subKey, flattenedVal[subKey], allowExtant);
+        }
+      } else {
+        var prop = this.getProp(key, true);
+        if (prop.exists) {
+          if (!deq(prop.val, val)) {
+            if (!allowExtant) {
+              l.error(
+                    "%s(%s) overwriting %s: %s -> %s",
+                    className,
+                    JSON.stringify(this.findObj),
+                    key,
+                    JSON.stringify(prop.val),
+                    JSON.stringify(val)
+              );
+            }
+            var prev = prop.val;
+            prop.set(val);
+            prop.handleValueChange(prev, val);
+            this.toSyncObj[key] = val;
+            this.dirty = true;
           }
+        } else {
           var prev = prop.val;
           prop.set(val);
           prop.handleValueChange(prev, val);
           this.toSyncObj[key] = val;
           this.dirty = true;
         }
-      } else {
-        prop.set(val);
-        this.toSyncObj[key] = val;
-        this.dirty = true;
       }
     } else if (typeof key == 'object') {
       for (k in key) {
