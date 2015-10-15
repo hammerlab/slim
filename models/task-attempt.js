@@ -21,10 +21,18 @@ var metricIds = module.exports.metricIds = [
   'metrics.InputMetrics.RecordsRead',
   'metrics.OutputMetrics.BytesWritten',
   'metrics.OutputMetrics.RecordsWritten',
+  'metrics.ResultSize',
+
   'metrics.ShuffleReadMetrics.TotalBytesRead',
   'metrics.ShuffleReadMetrics.TotalRecordsRead',
+  'metrics.ShuffleReadMetrics.FetchWaitTime',
+  'metrics.ShuffleReadMetrics.LocalBlocksFetched',
+  'metrics.ShuffleReadMetrics.LocalBytesRead',
+
   'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
   'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
+  'metrics.ShuffleWriteMetrics.ShuffleWriteTime',
+
   'metrics.MemoryBytesSpilled',
   'metrics.DiskBytesSpilled'
 ];
