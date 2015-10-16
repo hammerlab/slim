@@ -63,7 +63,8 @@ function TaskAttempt(stageAttempt, id) {
   metricIds.forEach((metricId) => {
     if (!callbackObj[metricId]) {
       callbackObj[metricId] = {
-        sums: this.callbackObjs
+        sums: this.callbackObjs,
+        callbacks: [ this.stageAttempt.metricsMap[metricId] ]
       };
     }
   });
