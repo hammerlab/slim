@@ -51,13 +51,11 @@ function maybeAddTotalShuffleReadBytes(metrics) {
   return metrics;
 }
 
-function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt) {
+function handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt) {
   var newTaskAttemptMetrics = taskMetrics;
   if (!newTaskAttemptMetrics) {
     return;
   }
-
-  var prevTaskAttemptMetrics = taskAttempt.get('metrics');
 
   taskAttempt.setDuration();
   var grt = taskAttempt.get('GettingResultTime') || 0;
@@ -73,16 +71,6 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   newTaskAttemptMetrics.SchedulerDelayTime = schedulerDelayTime;
 
   taskAttempt.set('metrics', newTaskAttemptMetrics, true);
-  if (job) job.setDuration('totalJobDuration', app);
-
-  var taskAttemptMetricsDiff = { metrics: subObjs(newTaskAttemptMetrics, prevTaskAttemptMetrics) };
-
-  app.inc(taskAttemptMetricsDiff);
-  executor.inc(taskAttemptMetricsDiff);
-  stageExecutor.inc(taskAttemptMetricsDiff);
-  stageAttempt.inc(taskAttemptMetricsDiff);
-  if (job) job.inc(taskAttemptMetricsDiff);
-
   stageAttempt.metrics.map((metric) => {
     metric.upsert();
   });
@@ -533,7 +521,7 @@ var handlers = {
     var prevTaskStatus = task.get('status');
 
     var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
-    handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt);
+    handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt);
     handleBlockUpdates(taskMetrics, app, executor);
 
     var succeeded = !ti['Failed'];
@@ -761,7 +749,7 @@ var handlers = {
       var taskAttempt = stageAttempt.getTaskAttempt(m);
       var stageExecutor = stageAttempt.getExecutor(executor);
       var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
-      handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageExecutor, taskAttempt);
+      handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt);
       taskAttempt.upsert();
       stageAttempt.upsert();
       executor.upsert();
