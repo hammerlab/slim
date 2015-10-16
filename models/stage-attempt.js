@@ -54,7 +54,6 @@ function StageAttempt(stage, id) {
   };
   this.metrics.forEach(function(metric) {
     this.metricsMap[metric.id] = metric;
-    callbackObj[metric.id] = { callbacks: [ metric ] }
   }.bind(this));
 
   this.init(
