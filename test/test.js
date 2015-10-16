@@ -28,7 +28,7 @@ function verifyMongoDir(dir, findObjs) {
     colls.forEach(function(c) {
       var collName = c[0];
       it(
-            "should have the expected " + collName + " records",
+            dir + " should have the expected " + collName + " records",
             function(done) {
               var coll = collections[collName];
               var filename = outputDir + '/' + coll.collectionName + '.json';
