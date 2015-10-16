@@ -81,11 +81,10 @@ function maxObjs(a, b) {
 
 function flattenObj(o, prefix, ret) {
   ret = ret || {};
-  if (typeof o != 'object') {
+  if (typeof o != 'object' || o instanceof Array) {
     ret[prefix] = o;
     return ret;
   }
-  prefix = prefix || '';
   var prefixDot = prefix ? (prefix + '.') : '';
   for (k in o) {
     flattenObj(o[k], prefixDot + k, ret);
