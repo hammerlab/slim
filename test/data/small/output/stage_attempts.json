@@ -4,17 +4,16 @@
       "1": {
         "ID": 1,
         "Name": "foo",
-        "Update": null,
         "Value": 500500
       },
       "2": {
         "ID": 2,
         "Name": "bar",
-        "Update": null,
         "Value": 960
       }
     },
     "appId": "local-1437323845748",
+    "duration": 517,
     "ended": true,
     "id": 0,
     "jobId": 0,
@@ -28,16 +27,6 @@
         "ShuffleBytesWritten": 2000,
         "ShuffleRecordsWritten": 40,
         "ShuffleWriteTime": 24855000
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 28704,
-            "StorageLevel": {
-              "Replication": 4
-            }
-          }
-        }
       }
     },
     "name": "map at <console>:26",
@@ -65,11 +54,11 @@
       "2": {
         "ID": 2,
         "Name": "bar",
-        "Update": null,
         "Value": 990
       }
     },
     "appId": "local-1437323845748",
+    "duration": 95,
     "ended": true,
     "id": 0,
     "jobId": 0,
