@@ -311,15 +311,17 @@ setInterval(function() {
 
 function addUpsert(clazz, className, collectionName) {
   clazz.prototype.upsert = function(cb) {
+    this.commitHooks.forEach(((hook) => {
+      hook.bind(this)();
+    }).bind(this));
+
     if (!this.dirty) {
       return this;
     }
 
-    if (this.upsertHooks) {
-      this.upsertHooks.forEach(function(hook) {
-        hook.bind(this)();
-      }.bind(this));
-    }
+    this.upsertHooks.forEach(function(hook) {
+      hook.bind(this)();
+    }.bind(this));
 
     if (this.inFlight) {
       if (!this.blocked) {
@@ -468,6 +470,7 @@ function addInit(clazz, className) {
     this.toSyncObj = {};
     this.dirty = true;
     this.upsertHooks = [ this.setDuration ];
+    this.commitHooks = [];
   };
 
   clazz.prototype.toString = function() {

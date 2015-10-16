@@ -26,6 +26,8 @@ function StageSummaryMetric(stageAttempt, id) {
   this.init([ 'appId', 'stageId', 'stageAttemptId', 'id' ]);
 
   this.tree = new OST();
+
+  this.commitHooks.push(this.syncChanges);
 }
 
 StageSummaryMetric.prototype.initTree = function() {
@@ -37,6 +39,7 @@ StageSummaryMetric.prototype.initTree = function() {
 
 StageSummaryMetric.prototype.handleValueChange = function(prevValue, newValue) {
   if (newValue !== undefined && newValue !== null) {
+    var changed = false;
     if (prevValue !== undefined) {
       if (prevValue !== newValue) {
         var n = this.tree.search(prevValue);
@@ -50,11 +53,16 @@ StageSummaryMetric.prototype.handleValueChange = function(prevValue, newValue) {
           );
         } else {
           this.tree.delete(n);
+          changed = true;
         }
       }
     }
     if (prevValue !== newValue) {
       this.tree.insert(newValue, newValue);
+      changed = true;
+    }
+    if (changed) {
+      this.markChanged();
     }
   }
 };
