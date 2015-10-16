@@ -41,6 +41,7 @@ var toSeq = objUtils.toSeq;
 var removeKeySpaces = objUtils.removeKeySpaces;
 
 var recordUtils = require("./mongo/record");
+var fireUpserts = recordUtils.fireUpserts;
 var upsertCb = recordUtils.upsertCb;
 var upsertOpts = recordUtils.upsertOpts;
 
@@ -71,9 +72,6 @@ function handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt) {
   newTaskAttemptMetrics.SchedulerDelayTime = schedulerDelayTime;
 
   taskAttempt.set('metrics', newTaskAttemptMetrics, true);
-  stageAttempt.metrics.map((metric) => {
-    metric.upsert();
-  });
 }
 
 function handleBlockUpdates(taskMetrics, app, executor) {
@@ -150,9 +148,6 @@ function handleBlockUpdates(taskMetrics, app, executor) {
       block.set({ host: executor.get('host'), port: executor.get('port') }, true);
     });
   }
-  rdds.forEach(function(rdd) { rdd.upsert(); });
-  rddExecutors.forEach(function(rddExecutor) { rddExecutor.upsert(); });
-  blocks.forEach(function(block) { block.upsert(); });
 }
 
 // NOTE(ryan): this is called with Stage and StageAttempt records.
@@ -167,7 +162,7 @@ function maybeSetSkipped(app, job, stage, stageCountsKey, taskCountsKey) {
     );
   } else if (!status) {
     // Will log an error if a status exists for this stage
-    stage.set('status', SKIPPED).upsert();
+    stage.set('status', SKIPPED);
     var skippedStages = stage.get('taskCounts.num') || 0;
     if (job) job.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', skippedStages);
     app.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', skippedStages);
@@ -177,15 +172,14 @@ function maybeSetSkipped(app, job, stage, stageCountsKey, taskCountsKey) {
 var handlers = {
 
   SparkListenerApplicationStart: function(app, e) {
-    app.fromEvent(e).set('status', RUNNING).upsert();
+    app.fromEvent(e).set('status', RUNNING);
   },
 
   SparkListenerApplicationEnd: function(app, e) {
     app
           .set('time.end', processTime(e['Timestamp']))
           // NOTE(ryan): we don't get actual success/failure info via the JSON API today.
-          .set('status', SUCCEEDED, true)
-          .upsert();
+          .set('status', SUCCEEDED, true);
 
     setTimeout(function() {
       evictApp(app.id);
@@ -201,11 +195,11 @@ var handlers = {
     var stageNames = [];
     stageInfos.forEach(function(si) {
 
-      var stage = app.getStage(si['Stage ID']).fromStageInfo(si).setJob(job).upsert();
-      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si).upsert();
+      var stage = app.getStage(si['Stage ID']).fromStageInfo(si).setJob(job);
+      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si);
 
       si['RDD Info'].forEach(function(ri) {
-        app.getRDD(ri).fromRDDInfo(ri).upsert();
+        app.getRDD(ri).fromRDDInfo(ri);
       }.bind(this));
 
       numTasks += si['Number of Tasks'];
@@ -222,9 +216,7 @@ var handlers = {
       'stageCounts.num': e['Stage IDs'].length,
       'stageIdxCounts.num': e['Stage IDs'].length,
       properties: toSeq(e['Properties'])
-    }).upsert();
-
-    app.upsert();
+    });
   },
 
   SparkListenerJobEnd: function(app, e) {
@@ -249,9 +241,6 @@ var handlers = {
         maybeSetSkipped(app, job, attempt, 'stageCounts', 'taskCounts');
       }
     });
-
-    job.upsert();
-    app.upsert();
   },
 
   SparkListenerStageSubmitted: function(app, e) {
@@ -291,11 +280,6 @@ var handlers = {
       if(job) job.inc('stageIdxCounts.running');
       app.inc('stageIdxCounts.running');
     }
-
-    attempt.upsert();
-    stage.upsert();
-    if(job) job.upsert();
-    app.upsert();
   },
 
   SparkListenerStageCompleted: function(app, e) {
@@ -315,13 +299,11 @@ var handlers = {
 
     // Set tasks' end times now just in case; allow them to be overwritten if we actually end up
     // seeing a TaskEnd event for them. cf. SPARK-9038.
-    var taskAttemptsToUpsert = [];
     for (var tid in attempt.task_attempts) {
       var task = attempt.task_attempts[tid];
       if (task.get('status') === RUNNING) {
         if (!task.get('time.end')) {
           task.set('time.end', endTime, true).setDuration();
-          taskAttemptsToUpsert.push(task);
         }
       }
     }
@@ -416,15 +398,6 @@ var handlers = {
         });
       }
     }
-
-    taskAttemptsToUpsert.forEach(function(obj) {
-      obj.upsert();
-    });
-
-    attempt.upsert();
-    stage.upsert();
-    if (job) job.upsert();
-    app.upsert();
   },
 
   SparkListenerTaskStart: function(app, e) {
@@ -469,14 +442,6 @@ var handlers = {
         stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
       }
     }
-
-    taskAttempt.upsert();
-    task.upsert();
-    stageAttempt.upsert();
-    stageExecutor.upsert();
-    executor.upsert();
-    if (job) job.upsert();
-    app.upsert();
   },
 
   SparkListenerTaskGettingResult: function(app, e) {
@@ -486,7 +451,7 @@ var handlers = {
     var ti = e['Task Info'];
     var taskId = ti['Task ID'];
 
-    stageAttempt.getTaskAttempt(taskId).fromTaskInfo(ti).upsert();
+    stageAttempt.getTaskAttempt(taskId).fromTaskInfo(ti);
   },
 
   SparkListenerTaskEnd: function(app, e) {
@@ -598,14 +563,6 @@ var handlers = {
         }
       }
     }
-
-    taskAttempt.upsert();
-    task.upsert();
-    stageAttempt.upsert();
-    stageExecutor.upsert();
-    executor.upsert();
-    if (job) job.upsert();
-    app.upsert();
   },
 
   SparkListenerEnvironmentUpdate: function(app, e) {
@@ -622,7 +579,7 @@ var handlers = {
           upsertOpts,
           upsertCb("Environment")
     );
-    app.set('maxTaskFailures', e['JVM Information']['spark.task.maxFailures'] || 4).upsert();
+    app.set('maxTaskFailures', e['JVM Information']['spark.task.maxFailures'] || 4);
   },
   SparkListenerBlockManagerAdded: function(app, e) {
     app
@@ -635,13 +592,11 @@ var handlers = {
           .set({
             'time.start': processTime(e['Timestamp']),
             'status': RUNNING
-          }, true)
-          .upsert();
+          }, true);
     app
           .inc('maxMem', e['Maximum Memory'])
           .inc('blockManagerCounts.num')
-          .inc('blockManagerCounts.running')
-          .upsert();
+          .inc('blockManagerCounts.running');
   },
   SparkListenerBlockManagerRemoved: function(app, e) {
     var executor = app.getExecutor(e);
@@ -668,15 +623,8 @@ var handlers = {
 
     for (var rddId in app.rdds) {
       var rdd = app.rdds[rddId];
-      var rddExecutor = rdd.handleExecutorRemoved(e);
-      if (rddExecutor) {
-        rddExecutor.upsert();
-      }
-      rdd.upsert();
+      rdd.handleExecutorRemoved(e);
     }
-
-    executor.upsert();
-    app.upsert();
   },
 
   SparkListenerUnpersistRDD: function(app, e) {
@@ -689,12 +637,10 @@ var handlers = {
       ['numBlocks', 'MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function(key) {
         var extant = rddExecutor.get(key) || 0;
         app.dec(key, extant);
-        executor.dec(key, extant).upsert();
+        executor.dec(key, extant);
       });
-      rddExecutor.set('unpersisted', true).upsert();
+      rddExecutor.set('unpersisted', true);
     }
-    rdd.upsert();
-    app.upsert();
   },
 
   SparkListenerExecutorAdded: function(app, e) {
@@ -709,12 +655,10 @@ var handlers = {
           .set({
             'time.start': processTime(e['Timestamp']),
             'status': RUNNING
-          }, true)
-          .upsert();
+          }, true);
     app
           .inc('executorCounts.num')
-          .inc('executorCounts.running')
-          .upsert();
+          .inc('executorCounts.running');
   },
 
   SparkListenerExecutorRemoved: function(app, e) {
@@ -724,12 +668,10 @@ var handlers = {
           .set({
             'status': REMOVED,
             'time.end': processTime(e['Timestamp'])
-          }, true)
-          .upsert();
+          }, true);
     app
           .dec('executorCounts.running')
-          .inc('executorCounts.removed')
-          .upsert();
+          .inc('executorCounts.removed');
 
   },
   SparkListenerLogStart: function(app, e) {
@@ -750,12 +692,6 @@ var handlers = {
       var stageExecutor = stageAttempt.getExecutor(executor);
       var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
       handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt);
-      taskAttempt.upsert();
-      stageAttempt.upsert();
-      executor.upsert();
-      stageExecutor.upsert();
-      job.upsert();
-      app.upsert();
     });
   }
 };
@@ -765,6 +701,7 @@ function handleEvent(e) {
   if ('Event' in e) {
     getApp(e, function(app) {
       handlers[e['Event']](app, e);
+      fireUpserts();
     });
   }
 }
