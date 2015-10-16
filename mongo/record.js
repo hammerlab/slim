@@ -52,7 +52,7 @@ function getProp(root, key, create, callbackObjs) {
         ]
   );
   var parentObj = parentAndCallbackObj[0];
-  var callbackObj = (callbackObj == callbackObjs) ? null : parentAndCallbackObj[1];
+  var callbackObj = (parentAndCallbackObj[1] == callbackObjs) ? null : parentAndCallbackObj[1];
   var name = segments[segments.length - 1];
   var exists = parentObj && (name in parentObj);
   return {
