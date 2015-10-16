@@ -304,15 +304,22 @@ function getApp(id, cb) {
         if (err) {
           l.error("Error fetching app %s: %s", id, JSON.stringify(err));
         } else {
-          l.info("Got app record: %s", id, JSON.stringify(appRecord));
-          var app = new App(id).fromMongo(appRecord);
-          app.hydrate(function() {
+          var app = new App(id);
+          function drainAppCallbacks() {
             while (appsInFlight[id].length) {
               appsInFlight[id].shift()(app);
             }
             apps[id] = app;
             delete appsInFlight[id];
-          });
+          }
+
+          if (appRecord) {
+            l.info("Got app record: %s", id, JSON.stringify(appRecord));
+            app = app.fromMongo(appRecord);
+            app.hydrate(drainAppCallbacks);
+          } else {
+            drainAppCallbacks();
+          }
         }
       });
     }
