@@ -6,8 +6,14 @@ function RDDExecutor(rdd, executor) {
   this.rddId = rdd.id;
   this.execId = executor.id;
 
-  this.init([ 'appId', 'rddId', 'execId' ]);
-
+  var callbackObj = {};
+  ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize', 'numBlocks'].forEach((key) => {
+    callbackObj[key] = { sums: [ rdd.app, rdd, executor ] };
+  });
+  this.init(
+        [ 'appId', 'rddId', 'execId' ],
+        callbackObj
+  );
 }
 
 mixinMongoMethods(RDDExecutor, 'RDDExecutor', 'RDDExecutors');

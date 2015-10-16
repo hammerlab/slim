@@ -10,6 +10,7 @@ var isEmptyObject = require('../utils/utils').isEmptyObject;
 var REMOVED = require('../utils/utils').REMOVED;
 
 function RDD(app, id) {
+  this.app = app;
   this.appId = app.id;
   this.id = id;
 
