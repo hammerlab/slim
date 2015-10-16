@@ -472,9 +472,6 @@ var handlers = {
       );
     } else {
       taskAttempt.set('status', RUNNING);
-      if (job) job.inc('taskCounts.running');
-      stageAttempt.inc('taskCounts.running');
-      executor.inc('taskCounts.running').inc('taskCounts.num');
       stageExecutor.inc('taskCounts.running').inc('taskCounts.num');
 
       if (!prevTaskStatus) {
@@ -574,9 +571,6 @@ var handlers = {
 
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
-      if (job) job.dec('taskCounts.running').inc(taskCountKey);
-      stageAttempt.dec('taskCounts.running').inc(taskCountKey);
-      executor.dec('taskCounts.running').inc(taskCountKey);
       stageExecutor.dec('taskCounts.running').inc(taskCountKey);
 
       if (!prevTaskStatus) {
@@ -618,7 +612,19 @@ var handlers = {
             taskIndex + "." + taskAttemptId,
             statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
             statusStr[status], status
-      )
+      );
+
+      // NOTE(ryan): we "should" never get here, but make an attempt to do sane things in case we do.
+      // We can (only?) get here if the Spark EventListenerBus drops events, which it does if it gets
+      // 10,000 events behind.
+      if (succeeded) {
+        stageExecutor.inc('taskCounts.succeeded');
+        if (prevTaskAttemptStatus == FAILED) {
+          stageExecutor.dec('taskCounts.failed');
+        }
+      }
+    }
+
     }
 
     taskAttempt.upsert();

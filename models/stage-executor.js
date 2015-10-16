@@ -7,7 +7,24 @@ function StageExecutor(stageAttempt, executor) {
   this.stageAttemptId = stageAttempt.id;
   this.execId = executor.id;
 
-  this.init([ 'appId', 'stageId', 'stageAttemptId', 'execId' ]);
+  var stage = stageAttempt.stage;
+
+  var taskCountCallbackObjs =
+        [ stageAttempt, executor, stage, stage.app ]
+              .concat(stage.job ? [ stage.job ] : []);
+
+  this.init(
+        [ 'appId', 'stageId', 'stageAttemptId', 'execId' ],
+        {
+          taskCounts: {
+            num: { sums: [ executor ] },
+            running: { sums: taskCountCallbackObjs },
+            succeeded: { sums: taskCountCallbackObjs },
+            failed: { sums: taskCountCallbackObjs },
+            skipped: { sums: taskCountCallbackObjs }
+          }
+        }
+  );
 
 }
 
