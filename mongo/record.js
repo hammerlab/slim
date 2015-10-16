@@ -63,16 +63,16 @@ function getProp(root, key, create, callbackObjs) {
       if (callbackObj) {
         var sumsConfig = callbackObj.sums;
         if (sumsConfig) {
-          if (sumsConfig instanceof Array) {
-            sumsConfig.forEach((obj) => {
-              obj[key].inc(val - prev);
+          sumsConfig.forEach((obj) => {
+            obj.inc(key, val - prev);
+          });
+        }
+        var renamedSumsConfig = callbackObj.renamedSums;
+        if (renamedSumsConfig) {
+          for (var renamedKey in renamedSumsConfig) {
+            renamedSumsConfig[renamedKey].map((obj) => {
+              obj.inc(renamedKey, val - prev);
             });
-          } else {
-            for (var sumsKey in sumsConfig) {
-              sumsConfig[sumsKey].map((obj) => {
-                obj[sumsKey].inc(val - prev);
-              });
-            }
           }
         }
         var callbacksConfig = callbackObj.callbacks;
@@ -428,21 +428,6 @@ function addInit(clazz, className) {
   clazz.prototype.init = function(findKeys, propCallbackObj) {
     this.findObj = {};
     this.propCallbackObj = propCallbackObj;
-    if (propCallbackObj) {
-      for (var prop in this.propCallbackObj) {
-        var propCallback = this.propCallbackObj[prop];
-        if (propCallback.sums) {
-          for (var sumsKey in propCallback.sums) {
-            if (!(propCallback.sums[sumsKey] instanceof Array)) {
-              propCallback.sums[sumsKey] = [propCallback.sums[sumsKey]];
-            }
-          }
-        }
-        if (propCallback.callbacks && !(propCallback.callbacks instanceof Array)) {
-          propCallback.callbacks = [propCallback.callbacks];
-        }
-      }
-    }
 
     this.clazz = className;
 

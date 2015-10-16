@@ -53,10 +53,10 @@ function TaskAttempt(stageAttempt, id) {
   this.callbackObjs = [ this.stageAttempt, this.job, this.app ];
   var callbackObj = {
     duration: {
-      sums: {
+      renamedSums: {
         totalTaskDuration: this.callbackObjs
       },
-      callbacks: this.stageAttempt.metricsMap['duration']
+      callbacks: [ this.stageAttempt.metricsMap['duration'] ]
     }
   };
 

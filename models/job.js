@@ -10,7 +10,7 @@ function Job(app, id) {
         [ 'appId', 'id' ],
         {
           duration: {
-            aggregate: {
+            renamedSums: {
               totalJobDuration: [ app ]
             }
           }
