@@ -41,7 +41,7 @@ function verifyMongoDir(dir, findObjs) {
               }
               collections[collName].find(findObj).sort(sortObj).toArray(function (err, aObjs) {
                 assert.equal(null, err);
-                assert.equal(eObjs.length, aObjs.length);
+                assert.equal(eObjs.length, aObjs.length, "Expected " + eObjs.length + " records, got " + aObjs.length);
                 eObjs.forEach(function (eObj, idx) {
                   var aObj = aObjs[idx];
                   expect(aObj).to.containSubset(eObj);
