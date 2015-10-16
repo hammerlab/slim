@@ -83,10 +83,9 @@ function handleTaskMetrics(taskMetrics, app, job, stageAttempt, executor, stageE
   stageAttempt.inc(taskAttemptMetricsDiff);
   if (job) job.inc(taskAttemptMetricsDiff);
 
-  stageAttempt.updateMetrics(
-        { metrics: prevTaskAttemptMetrics },
-        { metrics: newTaskAttemptMetrics }
-  );
+  stageAttempt.metrics.map((metric) => {
+    metric.upsert();
+  });
 }
 
 function handleBlockUpdates(taskMetrics, app, executor) {

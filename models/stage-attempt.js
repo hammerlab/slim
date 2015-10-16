@@ -54,6 +54,7 @@ function StageAttempt(stage, id) {
   };
   this.metrics.forEach(function(metric) {
     this.metricsMap[metric.id] = metric;
+    callbackObj[metric.id] = { callbacks: [ metric ] }
   }.bind(this));
 
   this.init(
@@ -62,7 +63,6 @@ function StageAttempt(stage, id) {
   );
 
   if (this.job) this.set('jobId', this.job.id);
-  this.upsertHooks.push(this.syncMetrics);
 }
 
 StageAttempt.prototype.initMetrics = function() {
@@ -83,19 +83,6 @@ StageAttempt.prototype.fromStageInfo = function(si) {
         })
         .set('accumulables', accumulablesObj(si['Accumulables']), true)
         .setDuration();
-};
-
-StageAttempt.prototype.updateMetrics = function(prevMetrics, nextMetrics) {
-  this.metrics.forEach(function(metric) {
-    metric.handleMetrics(prevMetrics, nextMetrics);
-  });
-};
-
-StageAttempt.prototype.syncMetrics = function() {
-  this.metrics.forEach(function(metric) {
-    metric.syncChanges();
-    metric.upsert();
-  });
 };
 
 StageAttempt.prototype.getTask = function(taskIndex) {
