@@ -81,8 +81,7 @@ StageAttempt.prototype.fromStageInfo = function(si) {
           'taskIdxCounts.num': si['Number of Tasks'],
           failureReason: si['Failure Reason']
         })
-        .set('accumulables', accumulablesObj(si['Accumulables']), true)
-        .setDuration();
+        .set('accumulables', accumulablesObj(si['Accumulables']), true);
 };
 
 StageAttempt.prototype.getTask = function(taskIndex) {
