@@ -477,11 +477,9 @@ var handlers = {
       if (!prevTaskStatus) {
         task.set('status', RUNNING);
         stageAttempt.inc('taskIdxCounts.running');
-        if (job) job.inc('taskIdxCounts.running');
       } else if (prevTaskStatus == FAILED) {
         task.set('status', RUNNING, true);
         stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
-        if (job) job.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
       }
     }
 
@@ -564,37 +562,6 @@ var handlers = {
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
       stageExecutor.dec('taskCounts.running').inc(taskCountKey);
-
-      if (!prevTaskStatus) {
-        l.error(
-              "Got TaskEnd for %d (%s:%s) with previous task status %s",
-              taskId,
-              stageAttempt.stageId + "." + stageAttempt.id,
-              taskIndex + "." + taskAttemptId,
-              statusStr[prevTaskStatus]
-        );
-      } else {
-        if (prevTaskStatus == RUNNING) {
-          task.set('status', status, true);
-          stageAttempt.dec('taskIdxCounts.running').inc(taskIdxCountKey);
-          if (job) job.dec('taskIdxCounts.running').inc(taskIdxCountKey);
-        } else if (prevTaskStatus == FAILED) {
-          if (succeeded) {
-            task.set('status', status, true);
-            stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.succeeded');
-            if (job) job.dec('taskIdxCounts.failed').inc('taskCount.succeeded');
-          }
-        } else {
-          var logFn = succeeded ? l.info : l.warn;
-          logFn(
-                "Ignoring status %s for task %d (%s:%s) because existing status is SUCCEEDED",
-                statusStr[status],
-                taskId,
-                stageAttempt.stageId + "." + stageAttempt.id,
-                taskIndex + "." + taskAttemptId
-          )
-        }
-      }
     } else {
       l.error(
             "%s: Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
@@ -617,6 +584,32 @@ var handlers = {
       }
     }
 
+    if (prevTaskStatus == RUNNING) {
+      task.set('status', status, true);
+      stageAttempt.dec('taskIdxCounts.running').inc(taskIdxCountKey);
+    } else if (prevTaskStatus == SUCCEEDED) {
+      var logFn = succeeded ? l.info : l.warn;
+      logFn(
+            "Ignoring status %s for task %d (%s:%s) because existing status is SUCCEEDED",
+            statusStr[status],
+            taskId,
+            stageAttempt.stageId + "." + stageAttempt.id,
+            taskIndex + "." + taskAttemptId
+      )
+    } else {
+      l.error(
+            "Got TaskEnd for %d (%s:%s) with previous task status %s",
+            taskId,
+            stageAttempt.stageId + "." + stageAttempt.id,
+            taskIndex + "." + taskAttemptId,
+            statusStr[prevTaskStatus]
+      );
+      if (prevTaskStatus == FAILED) {
+        if (succeeded) {
+          task.set('status', status, true);
+          stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.succeeded');
+        }
+      }
     }
 
     taskAttempt.upsert();

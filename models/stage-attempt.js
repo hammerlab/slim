@@ -47,6 +47,9 @@ function StageAttempt(stage, id) {
     },
     failed: {
       sums: callbackObjs
+    },
+    taskIdxCounts: {
+      sums: callbackObjs
     }
   };
   this.metrics.forEach(function(metric) {
