@@ -548,25 +548,17 @@ var handlers = {
     if (succeeded) {
       if (prevNumFailed) {
         stageAttempt.dec('failing.' + prevNumFailed);
-        if (job) job.dec('failing.' + prevNumFailed);
-        app.dec('failing.' + prevNumFailed);
       }
     } else {
       var numFailed = prevNumFailed + 1;
       task.inc('failed');
       if (prevNumFailed) {
         stageAttempt.dec('failed.' + prevNumFailed);
-        if (job) job.dec('failed.' + prevNumFailed);
-        app.dec('failed.' + prevNumFailed);
         if (task.get('status') != SUCCEEDED) {
           stageAttempt.dec('failing.' + prevNumFailed);
-          if (job) job.dec('failing.' + prevNumFailed);
-          app.dec('failing.' + prevNumFailed);
         }
       }
       stageAttempt.inc('failed.' + numFailed).inc('failing.' + numFailed);
-      if (job) job.inc('failed.' + numFailed).inc('failing.' + numFailed);
-      app.inc('failed.' + numFailed).inc('failing.' + numFailed);
     }
 
     if (prevTaskAttemptStatus == RUNNING) {

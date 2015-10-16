@@ -20,16 +20,14 @@ var metricIds = require('./task-attempt').metricIds;
 function StageAttempt(stage, id) {
   this.app = stage.app;
   this.appId = stage.appId;
+  this.stage = stage;
   this.stageId = stage.id;
   this.id = id;
-
-  this.init([ 'appId', 'stageId', 'id' ]);
 
   if (!stage.job) {
     l.error("%s: stage missing job (stage %s)", this.toString(), stage.toString());
   } else {
     this.job = stage.job;
-    this.set('jobId', this.job.id);
   }
 
   this.tasks = {};
@@ -41,11 +39,26 @@ function StageAttempt(stage, id) {
     return new StageSummaryMetric(this, id);
   }.bind(this));
 
+  var callbackObjs = [ this.app ].concat(this.job ? [ this.job ] : []);
   this.metricsMap = {};
+  var callbackObj = {
+    failing: {
+      sums: callbackObjs
+    },
+    failed: {
+      sums: callbackObjs
+    }
+  };
   this.metrics.forEach(function(metric) {
     this.metricsMap[metric.id] = metric;
   }.bind(this));
 
+  this.init(
+        [ 'appId', 'stageId', 'id' ],
+        callbackObj
+  );
+
+  if (this.job) this.set('jobId', this.job.id);
   this.upsertHooks.push(this.syncMetrics);
 }
 
