@@ -484,6 +484,7 @@ var handlers = {
     taskAttempt.fromTaskInfo(ti);
 
     if (taskAttempt.stageAttemptId != stageAttempt.id) {
+      // TODO(ryan): which JIRA is this working around?
       l.warn(
             "Task %d found for attempt %d, not %d; using the former",
             taskAttempt.id,
