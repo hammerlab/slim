@@ -48,6 +48,9 @@ function StageAttempt(stage, id) {
     failed: {
       sums: callbackObjs
     },
+    taskCounts: {
+      sums: callbackObjs
+    },
     taskIdxCounts: {
       sums: callbackObjs
     }

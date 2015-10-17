@@ -28,6 +28,8 @@ var metricIds = module.exports.metricIds = [
   'metrics.ShuffleReadMetrics.FetchWaitTime',
   'metrics.ShuffleReadMetrics.LocalBlocksFetched',
   'metrics.ShuffleReadMetrics.LocalBytesRead',
+  'metrics.ShuffleReadMetrics.RemoteBlocksFetched',
+  'metrics.ShuffleReadMetrics.RemoteBytesRead',
 
   'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
   'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
