@@ -52,7 +52,7 @@ function maybeAddTotalShuffleReadBytes(metrics) {
   return metrics;
 }
 
-function handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt) {
+function handleTaskMetrics(taskMetrics, taskAttempt) {
   var newTaskAttemptMetrics = taskMetrics;
   if (!newTaskAttemptMetrics) {
     return;
@@ -468,7 +468,7 @@ var handlers = {
     var prevTaskStatus = task.get('status');
 
     var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(e['Task Metrics']));
-    handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt);
+    handleTaskMetrics(taskMetrics, taskAttempt);
     handleBlockUpdates(taskMetrics, app, executor);
 
     var succeeded = !ti['Failed'];
@@ -643,12 +643,10 @@ var handlers = {
     }
     e['Metrics Updated'].map(function(m) {
       var stage = app.getStage(m);
-      var job = app.getJob(stage.get('jobId'));
       var stageAttempt = stage.getAttempt(m);
       var taskAttempt = stageAttempt.getTaskAttempt(m);
-      var stageExecutor = stageAttempt.getExecutor(executor);
       var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
-      handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt);
+      handleTaskMetrics(taskMetrics, taskAttempt);
     });
   }
 };
