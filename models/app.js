@@ -200,10 +200,10 @@ App.prototype.hydrate = function(cb) {
               }
             }
 
-            r.rddBlocks.forEach(function(block) {
+            r.nonRddBlocks.forEach(function(block) {
               if (!(block.execId in self.executors)) {
                 l.error(
-                      "Block %s's execId %s not found in app %s's executors: %s",
+                      "NonRddBlock %s's execId %s not found in app %s's executors: %s",
                       block.id,
                       block.execId,
                       id,
@@ -214,10 +214,10 @@ App.prototype.hydrate = function(cb) {
               }
             });
 
-            r.nonRddBlocks.forEach(function(block) {
+            r.rddBlocks.forEach(function(block) {
               if (!(block.rddId in self.rdds)) {
                 l.error(
-                      "Block %s's rddId %d not found in app %s's RDDs: %s",
+                      "RddBlock %s's rddId %d not found in app %s's RDDs: %s",
                       block.id,
                       block.rddId,
                       id,
