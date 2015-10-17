@@ -230,7 +230,7 @@ var handlers = {
 
     var stage = app.getStage(si);
     var attempt = stage.getAttempt(si);
-    var job = app.getJobByStageId(stage.id);
+    var job = stage.job;
 
     var prevStageStatus = stage.get('status');
     var prevAttemptStatus = attempt.get('status');
@@ -290,7 +290,7 @@ var handlers = {
       }
     }
 
-    var job = app.getJobByStageId(stage.id);
+    var job = stage.job;
 
     if (prevAttemptStatus == RUNNING) {
       stage.dec('attempts.running');
@@ -384,7 +384,6 @@ var handlers = {
 
   SparkListenerTaskStart: function(app, e) {
     var stage = app.getStage(e);
-    var job = app.getJobByStageId(stage.id);
     var stageAttempt = stage.getAttempt(e);
 
     var ti = e['Task Info'];
@@ -438,7 +437,6 @@ var handlers = {
 
   SparkListenerTaskEnd: function(app, e) {
     var stage = app.getStage(e);
-    var job = app.getJobByStageId(stage.id);
     var stageAttempt = stage.getAttempt(e);
 
     var ti = e['Task Info'];

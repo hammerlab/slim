@@ -355,24 +355,6 @@ App.prototype.getJob = function(jobId) {
   return this.jobs[jobId];
 };
 
-App.prototype.getJobByStageId = function(stageId) {
-  if (!(stageId in this.stages)) {
-    l.error("Stage %d not found.", stageId);
-    return;
-  }
-  var stage = this.stages[stageId];
-  if (!stage.has('jobId')) {
-    l.error("Stage %d has no jobId set.", stageId);
-    return;
-  }
-  var jobId = stage.get('jobId');
-  if (!(jobId in this.jobs)) {
-    l.error("Job %d not found for stage %d", jobId, stageId);
-    return;
-  }
-  return this.jobs[jobId];
-};
-
 App.prototype.getStage = function(stageId) {
   if (typeof stageId == 'object') {
     if ('Stage ID' in stageId) {
