@@ -1,7 +1,5 @@
 [
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -38,8 +36,6 @@
     "totalTaskDuration": 3691
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -75,8 +71,6 @@
     "totalTaskDuration": 1390
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -113,8 +107,6 @@
     "totalTaskDuration": 516
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -155,8 +147,6 @@
     "totalTaskDuration": 1971
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -198,8 +188,6 @@
     "totalTaskDuration": 5057
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -243,8 +231,6 @@
     "totalTaskDuration": 4193
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -293,7 +279,6 @@
       "1": {
         "ID": 1,
         "Name": "MDTags Added",
-        "Update": null,
         "Value": 992
       }
     },
@@ -340,8 +325,6 @@
     "totalTaskDuration": 26460
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 4,
@@ -353,11 +336,12 @@
     },
     "taskIdxCounts": {
       "num": 1
+    },
+    "time": {
+      "start": 1445115170000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 4,
@@ -369,11 +353,12 @@
     },
     "taskIdxCounts": {
       "num": 2
+    },
+    "time": {
+      "start": 1445115170000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 4,
@@ -385,11 +370,12 @@
     },
     "taskIdxCounts": {
       "num": 2
+    },
+    "time": {
+      "start": 1445115170000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 4,
@@ -401,6 +387,9 @@
     },
     "taskIdxCounts": {
       "num": 162
+    },
+    "time": {
+      "start": 1445115170000
     }
   },
   {
@@ -408,7 +397,6 @@
       "1": {
         "ID": 1,
         "Name": "MDTags Added",
-        "Update": null,
         "Value": 1984
       }
     },
@@ -461,8 +449,6 @@
     "totalTaskDuration": 45270
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,
@@ -502,8 +488,6 @@
     "totalTaskDuration": 3796
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 5,
@@ -515,11 +499,12 @@
     },
     "taskIdxCounts": {
       "num": 1
+    },
+    "time": {
+      "start": 1445115174000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 5,
@@ -531,11 +516,12 @@
     },
     "taskIdxCounts": {
       "num": 2
+    },
+    "time": {
+      "start": 1445115174000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 5,
@@ -547,11 +533,12 @@
     },
     "taskIdxCounts": {
       "num": 2
+    },
+    "time": {
+      "start": 1445115174000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "id": 0,
     "jobId": 5,
@@ -563,11 +550,12 @@
     },
     "taskIdxCounts": {
       "num": 162
+    },
+    "time": {
+      "start": 1445115174000
     }
   },
   {
-    "accumulables": {
-    },
     "appId": "local-1440276596119",
     "ended": true,
     "id": 0,

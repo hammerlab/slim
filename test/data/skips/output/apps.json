@@ -6,6 +6,7 @@
     },
     "id": "local-1440276596119",
     "maxMem": 2778778828,
+    "maxTaskFailures": 4,
     "metrics": {
       "ExecutorDeserializeTime": 9680,
       "ExecutorRunTime": 129741,
@@ -31,6 +32,29 @@
       }
     },
     "name": "adam: transform",
+    "stageCounts": {
+      "running": 0,
+      "skipped": 8,
+      "succeeded": 11
+    },
+    "stageIdxCounts": {
+      "running": 0,
+      "skipped": 8,
+      "succeeded": 11
+    },
+    "status": 2,
+    "taskCounts": {
+      "num": 1157,
+      "running": 0,
+      "skipped": 334,
+      "succeeded": 823
+    },
+    "taskIdxCounts": {
+      "num": 1157,
+      "running": 0,
+      "skipped": 334,
+      "succeeded": 823
+    },
     "time": {
       "end": 1440276630092,
       "start": 1440276594023
