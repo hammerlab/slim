@@ -465,7 +465,13 @@ function addUpsert(clazz, collectionName) {
 
 function addInit(clazz, className) {
   clazz.prototype.init = function(findKeys, propCallbackObj) {
-    this.findObj = {};
+
+    // propCallbackObj is a mapping of properties to objects to notify when
+    // those properties change on this record.
+    // For each property, the notifications can be delivered in the form of a callback being
+    // called with the previous and new values for a property, or changes
+    // to to the property can be automatically inc- or dec-remented on the notified record,
+    // under the same field name or a different one.
     this.propCallbackObj = propCallbackObj;
 
     this.clazz = className;
@@ -474,6 +480,11 @@ function addInit(clazz, className) {
       l.error('%s: no findKeys set', className);
     }
 
+    // Set a "findObj" on this record which will be the first argument to Mongo
+    // upserts, used to find the record to modify fields on. The fields of the
+    // findObj come from @param findKeys and should have their corresponding
+    // values set on the record prior to calling init().
+    this.findObj = {};
     findKeys.forEach(function(key) {
       if (!(key in this)) {
         l.error("%s: missing findKey %s.", className, key, JSON.stringify(this));
@@ -482,11 +493,25 @@ function addInit(clazz, className) {
       }
     }.bind(this));
 
+    // All properties currently set on this record and its counterpart in
+    // Mongo.
     this.propsObj = {};
+
+    // Properties that have been changed on the local object, that need
+    // syncing to Mongo.
     this.toSyncObj = {};
+
+    // Start the record off as flagged for upsertion.
     this.markChanged();
-    this.upsertHooks = [ this.setDuration ];
+
+    // Evaluate these when an upsert is attempted, *before* the record's
+    // "needsUpsert" field is checked, giving it an option to modify the
+    // record and cause an upsert.
     this.commitHooks = [];
+
+    // Evaluate these before each upsert, but after the "needsUpsert"
+    // field is checked.
+    this.upsertHooks = [ this.setDuration ];
   };
 
   clazz.prototype.toString = function() {
