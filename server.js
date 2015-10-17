@@ -648,6 +648,11 @@ var handlers = {
       var taskMetrics = maybeAddTotalShuffleReadBytes(removeKeySpaces(m['Task Metrics']));
       handleTaskMetrics(taskMetrics, taskAttempt);
     });
+  },
+
+  SparkListenerBlockUpdated: function(app, e) {
+    var executor = app.getExecutor(e);
+    handleBlockUpdate(app, executor, e);
   }
 };
 
