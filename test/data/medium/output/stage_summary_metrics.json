@@ -108,6 +108,17 @@
   },
   {
     "appId": "application_1432740718700_3049",
+    "id": "metrics.ResultSize",
+    "max": 1542,
+    "median": 1542,
+    "min": 1542,
+    "sf": 1542,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "tf": 1542
+  },
+  {
+    "appId": "application_1432740718700_3049",
     "id": "metrics.SchedulerDelayTime",
     "max": 165,
     "median": 32,
@@ -116,6 +127,36 @@
     "stageAttemptId": 0,
     "stageId": 0,
     "tf": 30
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.FetchWaitTime",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.LocalBlocksFetched",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.LocalBytesRead",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.RemoteBlocksFetched",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.RemoteBytesRead",
+    "stageAttemptId": 0,
+    "stageId": 0
   },
   {
     "appId": "application_1432740718700_3049",
@@ -150,6 +191,17 @@
     "stageAttemptId": 0,
     "stageId": 0,
     "tf": 100
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleWriteMetrics.ShuffleWriteTime",
+    "max": 3099705,
+    "median": 901496,
+    "min": 750286,
+    "sf": 1327212,
+    "stageAttemptId": 0,
+    "stageId": 0,
+    "tf": 795474
   },
   {
     "appId": "application_1432740718700_3049",
@@ -260,6 +312,17 @@
   },
   {
     "appId": "application_1432740718700_3049",
+    "id": "metrics.ResultSize",
+    "max": 874,
+    "median": 874,
+    "min": 873,
+    "sf": 874,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 874
+  },
+  {
+    "appId": "application_1432740718700_3049",
     "id": "metrics.SchedulerDelayTime",
     "max": 384,
     "median": 18,
@@ -268,6 +331,61 @@
     "stageAttemptId": 0,
     "stageId": 1,
     "tf": 16
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.FetchWaitTime",
+    "max": 220,
+    "median": 0,
+    "min": 0,
+    "sf": 1,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.LocalBlocksFetched",
+    "max": 100,
+    "median": 100,
+    "min": 0,
+    "sf": 100,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 100
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.LocalBytesRead",
+    "max": 2900,
+    "median": 2800,
+    "min": 0,
+    "sf": 2900,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 2800
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.RemoteBlocksFetched",
+    "max": 100,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleReadMetrics.RemoteBytesRead",
+    "max": 2900,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
   },
   {
     "appId": "application_1432740718700_3049",
@@ -300,6 +418,12 @@
   {
     "appId": "application_1432740718700_3049",
     "id": "metrics.ShuffleWriteMetrics.ShuffleRecordsWritten",
+    "stageAttemptId": 0,
+    "stageId": 1
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "id": "metrics.ShuffleWriteMetrics.ShuffleWriteTime",
     "stageAttemptId": 0,
     "stageId": 1
   }

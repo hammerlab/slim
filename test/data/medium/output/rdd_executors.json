@@ -4,9 +4,8 @@
     "appId": "application_1432740718700_3049",
     "execId": 1,
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
-    "numBlocks": 100,
+    "numCachedPartitions": 100,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   }
 ]

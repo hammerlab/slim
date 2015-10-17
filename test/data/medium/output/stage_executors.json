@@ -14,16 +14,6 @@
         "ShuffleBytesWritten": 283600,
         "ShuffleRecordsWritten": 10000,
         "ShuffleWriteTime": 114207675
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 3152067200,
-            "StorageLevel": {
-              "Replication": 100
-            }
-          }
-        }
       }
     },
     "port": 32947,

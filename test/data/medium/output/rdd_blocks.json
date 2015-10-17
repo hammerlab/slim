@@ -12,13 +12,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 0,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -33,13 +30,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 1,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -54,13 +48,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 2,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -75,13 +66,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 3,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -96,13 +84,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 4,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -117,13 +102,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 5,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -138,13 +120,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 6,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -159,13 +138,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 7,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -180,13 +156,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 8,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -201,13 +174,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 9,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -222,13 +192,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 10,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -243,13 +210,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 11,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -264,13 +228,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 12,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -285,13 +246,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 13,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -306,13 +264,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 14,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -327,13 +282,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 15,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -348,13 +300,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 16,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -369,13 +318,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 17,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -390,13 +336,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 18,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -411,13 +354,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 19,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -432,13 +372,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 20,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -453,13 +390,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 21,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -474,13 +408,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 22,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -495,13 +426,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 23,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -516,13 +444,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 24,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -537,13 +462,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 25,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -558,13 +480,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 26,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -579,13 +498,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 27,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -600,13 +516,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 28,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -621,13 +534,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 29,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -642,13 +552,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 30,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -663,13 +570,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 31,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -684,13 +588,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 32,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -705,13 +606,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 33,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -726,13 +624,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 34,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -747,13 +642,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 35,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -768,13 +660,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 36,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -789,13 +678,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 37,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -810,13 +696,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 38,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -831,13 +714,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 39,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -852,13 +732,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 40,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -873,13 +750,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 41,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -894,13 +768,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 42,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -915,13 +786,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 43,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -936,13 +804,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 44,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -957,13 +822,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 45,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -978,13 +840,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 46,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -999,13 +858,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 47,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1020,13 +876,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 48,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1041,13 +894,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 49,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1062,13 +912,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 50,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1083,13 +930,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 51,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1104,13 +948,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 52,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1125,13 +966,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 53,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1146,13 +984,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 54,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1167,13 +1002,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 55,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1188,13 +1020,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 56,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1209,13 +1038,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 57,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1230,13 +1056,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 58,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1251,13 +1074,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 59,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1272,13 +1092,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 60,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1293,13 +1110,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 61,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1314,13 +1128,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 62,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1335,13 +1146,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 63,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1356,13 +1164,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 64,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1377,13 +1182,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 65,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1398,13 +1200,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 66,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1419,13 +1218,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 67,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1440,13 +1236,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 68,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1461,13 +1254,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 69,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1482,13 +1272,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 70,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1503,13 +1290,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 71,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1524,13 +1308,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 72,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1545,13 +1326,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 73,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1566,13 +1344,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 74,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1587,13 +1362,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 75,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1608,13 +1380,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 76,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1629,13 +1398,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 77,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1650,13 +1416,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 78,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1671,13 +1434,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 79,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1692,13 +1452,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 80,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1713,13 +1470,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 81,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1734,13 +1488,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 82,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1755,13 +1506,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 83,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1776,13 +1524,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 84,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1797,13 +1542,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 85,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1818,13 +1560,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 86,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1839,13 +1578,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 87,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1860,13 +1596,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 88,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1881,13 +1614,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 89,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1902,13 +1632,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 90,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1923,13 +1650,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 91,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1944,13 +1668,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 92,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1965,13 +1686,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 93,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -1986,13 +1704,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 94,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -2007,13 +1722,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 95,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -2028,13 +1740,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 96,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -2049,13 +1758,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 97,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -2070,13 +1776,10 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 98,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   },
   {
     "DiskSize": 0,
@@ -2091,12 +1794,9 @@
     },
     "appId": "application_1432740718700_3049",
     "execId": 1,
-    "execIds": [
-    ],
     "host": "demeter-csmau08-13.demeter.hpc.mssm.edu",
     "id": 99,
     "port": 32947,
-    "rddId": 1,
-    "status": 5
+    "rddId": 1
   }
 ]

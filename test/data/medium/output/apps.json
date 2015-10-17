@@ -1,18 +1,17 @@
 [
   {
-    "MemorySize": 0,
+    "MemorySize": 3152067200,
     "blockManagerCounts": {
       "num": 21,
-      "removed": 18,
-      "running": 3
+      "running": 21
     },
     "executorCounts": {
       "num": 20,
-      "removed": 18,
-      "running": 2
+      "running": 20
     },
     "id": "application_1432740718700_3049",
-    "maxMem": 20375352114,
+    "maxMem": 162076085448,
+    "maxTaskFailures": 4,
     "metrics": {
       "ExecutorDeserializeTime": 29746,
       "ExecutorRunTime": 46683,
@@ -33,22 +32,31 @@
         "ShuffleBytesWritten": 283600,
         "ShuffleRecordsWritten": 10000,
         "ShuffleWriteTime": 114207675
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 3152067200,
-            "StorageLevel": {
-              "Replication": 100
-            }
-          }
-        }
       }
     },
     "name": "Spark shell",
-    "numBlocks": 0,
+    "numCachedPartitions": 100,
+    "stageCounts": {
+      "running": 0,
+      "succeeded": 2
+    },
+    "stageIdxCounts": {
+      "running": 0,
+      "succeeded": 2
+    },
+    "status": 1,
+    "taskCounts": {
+      "leaked": 6,
+      "num": 200,
+      "running": 0,
+      "succeeded": 203
+    },
+    "taskIdxCounts": {
+      "num": 200,
+      "running": 0,
+      "succeeded": 200
+    },
     "time": {
-      "end": 1437343979934,
       "start": 1437343869007
     },
     "totalJobDuration": 22705,

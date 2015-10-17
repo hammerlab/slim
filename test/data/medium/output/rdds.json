@@ -21,7 +21,7 @@
   {
     "DiskSize": 0,
     "ExternalBlockStoreSize": 0,
-    "MemorySize": 0,
+    "MemorySize": 3152067200,
     "StorageLevel": {
       "Deserialized": true,
       "Replication": 1,
@@ -33,7 +33,7 @@
     "fractionCached": 1,
     "id": 1,
     "name": "tmp-1437343912617",
-    "numCachedPartitions": 0,
+    "numCachedPartitions": 100,
     "numPartitions": 100,
     "parentIDs": [
       0

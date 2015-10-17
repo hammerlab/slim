@@ -1,7 +1,5 @@
 [
   {
-    "accumulables": {
-    },
     "appId": "application_1432740718700_3049",
     "ended": true,
     "id": 0,
@@ -17,16 +15,6 @@
         "ShuffleBytesWritten": 283600,
         "ShuffleRecordsWritten": 10000,
         "ShuffleWriteTime": 114207675
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 3152067200,
-            "StorageLevel": {
-              "Replication": 100
-            }
-          }
-        }
       }
     },
     "name": "map at <console>:22",
@@ -50,8 +38,6 @@
     "totalTaskDuration": 55068
   },
   {
-    "accumulables": {
-    },
     "appId": "application_1432740718700_3049",
     "ended": true,
     "id": 0,
@@ -77,8 +63,9 @@
     "started": true,
     "status": 2,
     "taskCounts": {
+      "leaked": 6,
       "num": 100,
-      "running": 6,
+      "running": 0,
       "succeeded": 103
     },
     "taskIdxCounts": {

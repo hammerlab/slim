@@ -25,29 +25,17 @@
         "ShuffleBytesWritten": 283600,
         "ShuffleRecordsWritten": 10000,
         "ShuffleWriteTime": 114207675
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 3152067200,
-            "StorageLevel": {
-              "Replication": 100
-            }
-          }
-        }
       }
     },
-    "numBlocks": 0,
+    "numCachedPartitions": 100,
     "port": 32947,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "taskCounts": {
       "num": 194,
       "running": 0,
       "succeeded": 194
     },
     "time": {
-      "end": 1437343966822,
       "start": 1437343891289
     },
     "totalTaskDuration": 60448,
@@ -63,10 +51,8 @@
     "id": 2,
     "maxMem": 7872262963,
     "port": 37658,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966723,
       "start": 1437343933214
     },
     "urls": {
@@ -95,15 +81,13 @@
       }
     },
     "port": 34099,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "taskCounts": {
       "num": 3,
       "running": 0,
       "succeeded": 3
     },
     "time": {
-      "end": 1437343966733,
       "start": 1437343932339
     },
     "totalTaskDuration": 9450,
@@ -119,10 +103,8 @@
     "id": 4,
     "maxMem": 7872262963,
     "port": 41161,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966731,
       "start": 1437343933725
     },
     "urls": {
@@ -151,15 +133,13 @@
       }
     },
     "port": 54440,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "taskCounts": {
       "num": 3,
       "running": 0,
       "succeeded": 3
     },
     "time": {
-      "end": 1437343966725,
       "start": 1437343932693
     },
     "totalTaskDuration": 7940,
@@ -175,10 +155,8 @@
     "id": 6,
     "maxMem": 7872262963,
     "port": 39427,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966717,
       "start": 1437343933939
     },
     "urls": {
@@ -193,10 +171,8 @@
     "id": 7,
     "maxMem": 7872262963,
     "port": 46070,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966730,
       "start": 1437343933380
     },
     "urls": {
@@ -225,15 +201,13 @@
       }
     },
     "port": 42347,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "taskCounts": {
       "num": 3,
       "running": 0,
       "succeeded": 3
     },
     "time": {
-      "end": 1437343966729,
       "start": 1437343932473
     },
     "totalTaskDuration": 8171,
@@ -249,10 +223,8 @@
     "id": 9,
     "maxMem": 7872262963,
     "port": 59443,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343967040,
       "start": 1437343933638
     },
     "urls": {
@@ -267,10 +239,8 @@
     "id": 10,
     "maxMem": 7872262963,
     "port": 42654,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966720,
       "start": 1437343934028
     },
     "urls": {
@@ -306,10 +276,8 @@
     "id": 12,
     "maxMem": 7872262963,
     "port": 47918,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966711,
       "start": 1437343933624
     },
     "urls": {
@@ -324,10 +292,8 @@
     "id": 13,
     "maxMem": 7872262963,
     "port": 56447,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966722,
       "start": 1437343933841
     },
     "urls": {
@@ -342,10 +308,8 @@
     "id": 14,
     "maxMem": 7872262963,
     "port": 50106,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966748,
       "start": 1437343933601
     },
     "urls": {
@@ -360,10 +324,8 @@
     "id": 15,
     "maxMem": 7872262963,
     "port": 59215,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966727,
       "start": 1437343933473
     },
     "urls": {
@@ -378,10 +340,8 @@
     "id": 16,
     "maxMem": 7872262963,
     "port": 58749,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966718,
       "start": 1437343933427
     },
     "urls": {
@@ -396,10 +356,8 @@
     "id": 17,
     "maxMem": 7872262963,
     "port": 58271,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966743,
       "start": 1437343933395
     },
     "urls": {
@@ -414,10 +372,8 @@
     "id": 18,
     "maxMem": 7872262963,
     "port": 43888,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966740,
       "start": 1437343933372
     },
     "urls": {
@@ -432,10 +388,8 @@
     "id": 19,
     "maxMem": 7872262963,
     "port": 52762,
-    "reason": "remote Rpc client disassociated",
-    "status": 5,
+    "status": 1,
     "time": {
-      "end": 1437343966726,
       "start": 1437343933754
     },
     "urls": {

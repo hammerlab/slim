@@ -23,16 +23,6 @@
         "ShuffleBytesWritten": 283600,
         "ShuffleRecordsWritten": 10000,
         "ShuffleWriteTime": 114207675
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 3152067200,
-            "StorageLevel": {
-              "Replication": 100
-            }
-          }
-        }
       }
     },
     "properties": [
@@ -61,8 +51,9 @@
     "status": 2,
     "succeeded": true,
     "taskCounts": {
+      "leaked": 6,
       "num": 200,
-      "running": 6,
+      "running": 0,
       "succeeded": 203
     },
     "taskIdxCounts": {
