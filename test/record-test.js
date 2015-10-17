@@ -6,6 +6,7 @@ var mixinMongoMethods = require('../mongo/record').mixinMongoMethods;
 
 var Foo = function(id) {
   this.id = id;
+  this.enqueued = true;
   this.init(['id']);
 };
 mixinMongoMethods(Foo, "Foo", "foo");
@@ -15,10 +16,12 @@ function makeBar(callbackObj) {
     this.fooId = foo.id;
     this.id = id;
 
+    this.enqueued = true;
     this.init(
           ['fooId', 'id'],
           callbackObj
     );
+    this.needsUpsert = true;
   };
   mixinMongoMethods(Bar, "Bar", "bar");
   return Bar;
