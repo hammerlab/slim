@@ -556,5 +556,6 @@ module.exports = {
   mixinMongoMethods: mixinMongoMethods,
   addSetDuration: addSetDuration,
   addAddToSetProp: addAddToSetProp,
-  addHasProp: addHasProp
+  addHasProp: addHasProp,
+  upsertStats: upsertStats
 };

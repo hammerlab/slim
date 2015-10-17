@@ -5,6 +5,7 @@ var fs = require("fs");
 var lineReader = require('line-reader');
 var recordUtils = require("../../mongo/record");
 var handleEvent = require("../../server").handleEvent;
+var upsertStats = recordUtils.upsertStats;
 
 function Server(mongoUrl, eventLogFile, cb) {
   colls.init(mongoUrl, function (err) {
@@ -15,6 +16,7 @@ function Server(mongoUrl, eventLogFile, cb) {
 
       function doneCb() {
         if (done) {
+          upsertStats.logStatus(0);
           cb();
         }
       }
