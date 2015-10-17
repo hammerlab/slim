@@ -32,7 +32,9 @@
     ],
     "status": 2,
     "taskCounts": {
-      "num": 4
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
     }
   },
   {
@@ -63,7 +65,9 @@
     ],
     "status": 2,
     "taskCounts": {
-      "num": 4
+      "num": 4,
+      "running": 0,
+      "succeeded": 4
     }
   }
 ]

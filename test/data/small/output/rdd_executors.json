@@ -4,7 +4,7 @@
     "appId": "local-1437323845748",
     "execId": "driver",
     "host": "localhost",
-    "numBlocks": 4,
+    "numCachedPartitions": 4,
     "port": 50944,
     "rddId": 1
   }
