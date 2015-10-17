@@ -20,7 +20,6 @@ var metricIds = require('./task-attempt').metricIds;
 function StageAttempt(stage, id) {
   this.app = stage.app;
   this.appId = stage.appId;
-  this.stage = stage;
   this.stageId = stage.id;
   this.id = id;
 

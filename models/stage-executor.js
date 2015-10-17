@@ -7,11 +7,7 @@ function StageExecutor(stageAttempt, executor) {
   this.stageAttemptId = stageAttempt.id;
   this.execId = executor.id;
 
-  var stage = stageAttempt.stage;
-
-  var taskCountCallbackObjs =
-        [ stageAttempt, executor, stage, stage.app ]
-              .concat(stage.job ? [ stage.job ] : []);
+  var taskCountCallbackObjs = [ stageAttempt, executor ];
 
   this.init(
         [ 'appId', 'stageId', 'stageAttemptId', 'execId' ],
