@@ -317,10 +317,10 @@ function addHasProp(clazz) {
 var numBlocked = 0;
 var maximumInflightUpserts = 1000;
 
-var upsertStats = new UpsertStats();
+var upsertStats = new UpsertStats(upsertQueue);
 
 setInterval(function() {
-  upsertStats.logStatus(upsertQueue, numBlocked);
+  upsertStats.logStatus(numBlocked);
 }, statusLogInterval * 1000);
 
 

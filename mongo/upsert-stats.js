@@ -2,11 +2,12 @@
 var l = require('../utils/log').l;
 var moment = require('moment');
 
-var UpsertStats = function() {
+var UpsertStats = function(queue) {
   this.started = 0;
   this.ended = 0;
   this.inFlight = 0;
   this.totalTime = 0;
+  this.queue = queue;
 
   var thresholds = [0, 100, 200, 500];
   var thresholdMinIdx = 0;
@@ -36,7 +37,7 @@ var UpsertStats = function() {
     totalTime: 0
   };
 
-  this.logStatus = function(queue, numBlocked) {
+  this.logStatus = function(numBlocked) {
     var now = moment();
     var startDelta = this.started - lastLog.started;
     var endDelta = this.ended - lastLog.ended;
@@ -45,7 +46,7 @@ var UpsertStats = function() {
     if (startDelta || endDelta) {
       l.info(
             "In flight: %d, blocked: %d, queue: %d. Last %ss: +%d,-%d (+%s,-%s/s), %dms avg. Total +%d,-%d",
-            this.inFlight, numBlocked, queue.size(),
+            this.inFlight, numBlocked, this.queue.size(),
             timeDelta.toFixed(1),
             startDelta, endDelta,
             (startDelta / timeDelta).toFixed(1), (endDelta / timeDelta).toFixed(1),
