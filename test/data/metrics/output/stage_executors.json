@@ -12,16 +12,6 @@
         "ShuffleBytesWritten": 21400,
         "ShuffleRecordsWritten": 200,
         "ShuffleWriteTime": 108488000
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 28003520,
-            "StorageLevel": {
-              "Replication": 20
-            }
-          }
-        }
       }
     },
     "stageAttemptId": 0,

@@ -19,19 +19,27 @@
         "ShuffleBytesWritten": 21400,
         "ShuffleRecordsWritten": 200,
         "ShuffleWriteTime": 108488000
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 28003520,
-            "StorageLevel": {
-              "Replication": 20
-            }
-          }
-        }
       }
     },
-    "numBlocks": 20,
+    "numCachedPartitions": 20,
+    "stageCounts": {
+      "running": 0,
+      "succeeded": 2
+    },
+    "stageIdxCounts": {
+      "running": 0,
+      "succeeded": 2
+    },
+    "taskCounts": {
+      "num": 40,
+      "running": 0,
+      "succeeded": 40
+    },
+    "taskIdxCounts": {
+      "num": 40,
+      "running": 0,
+      "succeeded": 40
+    },
     "totalJobDuration": 1192,
     "totalTaskDuration": 4524
   }

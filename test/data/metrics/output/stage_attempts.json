@@ -4,13 +4,11 @@
       "41": {
         "ID": 41,
         "Name": "foo",
-        "Update": null,
         "Value": 1784293664
       },
       "42": {
         "ID": 42,
         "Name": "bar",
-        "Update": null,
         "Value": 999800
       }
     },
@@ -28,16 +26,6 @@
         "ShuffleBytesWritten": 21400,
         "ShuffleRecordsWritten": 200,
         "ShuffleWriteTime": 108488000
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 28003520,
-            "StorageLevel": {
-              "Replication": 20
-            }
-          }
-        }
       }
     },
     "name": "map at <console>:27",
@@ -65,7 +53,6 @@
       "42": {
         "ID": 42,
         "Name": "bar",
-        "Update": null,
         "Value": 999990
       }
     },

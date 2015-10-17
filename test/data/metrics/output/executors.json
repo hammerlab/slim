@@ -20,19 +20,9 @@
         "ShuffleBytesWritten": 21400,
         "ShuffleRecordsWritten": 200,
         "ShuffleWriteTime": 108488000
-      },
-      "UpdatedBlocks": {
-        "0": {
-          "Status": {
-            "MemorySize": 28003520,
-            "StorageLevel": {
-              "Replication": 20
-            }
-          }
-        }
       }
     },
-    "numBlocks": 20,
+    "numCachedPartitions": 20,
     "taskCounts": {
       "num": 40,
       "running": 0,
