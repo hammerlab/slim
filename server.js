@@ -145,9 +145,9 @@ function maybeSetSkipped(app, job, stage, stageCountsKey, taskCountsKey) {
   } else if (!status) {
     // Will log an error if a status exists for this stage
     stage.set('status', SKIPPED);
-    var skippedStages = stage.get('taskCounts.num') || 0;
-    if (job) job.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', skippedStages);
-    app.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', skippedStages);
+    var skippedTasks = stage.get('taskCounts.num') || 0;
+    if (job) job.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', skippedTasks);
+    app.inc(stageCountsKey + '.skipped').inc(taskCountsKey + '.skipped', skippedTasks);
   }
 }
 
