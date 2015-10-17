@@ -8,6 +8,7 @@ var UpsertStats = function(queue) {
   this.inFlight = 0;
   this.totalTime = 0;
   this.queue = queue;
+  this.numEvents = 0;
 
   var thresholds = [0, 100, 200, 500];
   var thresholdMinIdx = 0;
@@ -34,7 +35,8 @@ var UpsertStats = function(queue) {
     t: moment(),
     started: 0,
     ended: 0,
-    totalTime: 0
+    totalTime: 0,
+    numEvents: 0
   };
 
   this.logStatus = function(numBlocked) {
@@ -43,22 +45,25 @@ var UpsertStats = function(queue) {
     var endDelta = this.ended - lastLog.ended;
     var timeDelta = (now - lastLog.t) / 1000;
     var totalTimeDelta = this.totalTime - lastLog.totalTime;
+    var eventsDelta = this.numEvents - lastLog.numEvents;
     if (startDelta || endDelta) {
       l.info(
-            "In flight: %d, blocked: %d, queue: %d. Last %ss: +%d,-%d (+%s,-%s/s), %dms avg. Total +%d,-%d",
+            "In flight: %d, blocked: %d, queue: %d. Last %ss: +%d,-%d (+%s,-%s/s), %dms avg. Total +%d,-%d, %d events (%s/s)",
             this.inFlight, numBlocked, this.queue.size(),
             timeDelta.toFixed(1),
             startDelta, endDelta,
             (startDelta / timeDelta).toFixed(1), (endDelta / timeDelta).toFixed(1),
             parseInt(totalTimeDelta / endDelta),
-            this.started, this.ended
+            this.started, this.ended,
+            this.numEvents, (eventsDelta / timeDelta).toFixed(1)
       );
     }
     lastLog = {
       t: now,
       started: this.started,
       ended: this.ended,
-      totalTime: this.totalTime
+      totalTime: this.totalTime,
+      numEvents: this.numEvents
     }
   };
 

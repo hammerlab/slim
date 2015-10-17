@@ -45,6 +45,7 @@ var recordUtils = require("./mongo/record");
 var fireUpserts = recordUtils.fireUpserts;
 var upsertCb = recordUtils.upsertCb;
 var upsertOpts = recordUtils.upsertOpts;
+var upsertStats = recordUtils.upsertStats;
 
 function maybeAddTotalShuffleReadBytes(metrics) {
   if (!metrics || !('ShuffleReadMetrics' in metrics)) return metrics;
@@ -728,6 +729,7 @@ function handleEvent(e) {
     getApp(e, function(app) {
       handlers[e['Event']](app, e);
       fireUpserts();
+      upsertStats.numEvents++;
     });
   }
 }
