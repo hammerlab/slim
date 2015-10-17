@@ -148,6 +148,18 @@
   },
   {
     "appId": "local-1437323845748",
+    "id": "metrics.ShuffleReadMetrics.RemoteBlocksFetched",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.ShuffleReadMetrics.RemoteBytesRead",
+    "stageAttemptId": 0,
+    "stageId": 0
+  },
+  {
+    "appId": "local-1437323845748",
     "id": "metrics.ShuffleReadMetrics.TotalBytesRead",
     "stageAttemptId": 0,
     "stageId": 0
@@ -352,6 +364,28 @@
     "stageAttemptId": 0,
     "stageId": 1,
     "tf": 484
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.ShuffleReadMetrics.RemoteBlocksFetched",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
+  },
+  {
+    "appId": "local-1437323845748",
+    "id": "metrics.ShuffleReadMetrics.RemoteBytesRead",
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "sf": 0,
+    "stageAttemptId": 0,
+    "stageId": 1,
+    "tf": 0
   },
   {
     "appId": "local-1437323845748",

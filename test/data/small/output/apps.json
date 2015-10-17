@@ -39,6 +39,7 @@
     },
     "status": 2,
     "taskCounts": {
+      "num": 8,
       "running": 0,
       "succeeded": 8
     },
