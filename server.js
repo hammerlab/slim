@@ -427,25 +427,34 @@ var handlers = {
     taskAttempt.fromTaskInfo(ti);
 
     if (prevTaskAttemptStatus) {
-      var taskAttemptId = ti['Attempt'];
+      var taskAttemptId = taskAttempt.get('attempt');
       l.error(
-            "Unexpected TaskStart for %d (%s:%s), status: %s (%d) -> %s (%d)",
+            "Unexpected TaskStart for TID %d (%d.%d:%d.%d), status: %s (%d) -> %s (%d)",
             taskId,
-            stageAttempt.stageId + "." + stageAttempt.id,
-            taskIndex + "." + taskAttemptId,
+            stageAttempt.stageId, stageAttempt.id,
+            taskIndex, taskAttemptId,
             statusStr[prevTaskAttemptStatus], prevTaskAttemptStatus,
-            "RUNNING", RUNNING
+            statusStr[RUNNING], RUNNING
       );
     } else {
       taskAttempt.set('status', RUNNING);
       stageExecutor.inc('taskCounts.running').inc('taskCounts.num');
+    }
 
-      if (!prevTaskStatus) {
-        task.set('status', RUNNING);
+    if (prevTaskStatus == SUCCEEDED) {
+      l.error(
+            "Unexpected TaskStart for task index %d (%d.%d:%d.%d); already marked as SUCCEEDED",
+            taskIndex,
+            stageAttempt.stageId, stageAttempt.id,
+            taskIndex, taskAttemptId
+      )
+    } else {
+      task.set('status', RUNNING, true);
+      if (prevTaskStatus != RUNNING) {
         stageAttempt.inc('taskIdxCounts.running');
-      } else if (prevTaskStatus == FAILED) {
-        task.set('status', RUNNING, true);
-        stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.running');
+      }
+      if (prevTaskStatus == FAILED) {
+        stageAttempt.dec('taskIdxCounts.failed');
       }
     }
   },
@@ -505,21 +514,28 @@ var handlers = {
     var taskCountKey = succeeded ? 'taskCounts.succeeded' : 'taskCounts.failed';
     var taskIdxCountKey = succeeded ? 'taskIdxCounts.succeeded' : 'taskIdxCounts.failed';
 
+    // Update stageAttempt's histograms of task indexes' numbers of failing/failed attempts.
     var prevNumFailed = task.get('failed') || 0;
-    if (succeeded) {
-      if (prevNumFailed) {
+
+    // If this task has previously failed, then decrement stageAttempt's 'failed' and 'failing' counts before
+    // incrementing them to reflect the new number of times that the task's attempts have failed.
+    //
+    // Note that "failing" should only be decremented if the task's status was anything but SUCCEEDED; even if its
+    // previous status was, say, RUNNING, `prevNumFailed > 0` means that the task was being *re-run* after at least one
+    // previous failure, and was in a "failing" state. We don't currently distinguish tasks that are RUNNING from those
+    // that are being ["re-run" after a failure].
+    if (prevNumFailed) {
+      stageAttempt.dec('failed.' + prevNumFailed);
+      if (prevTaskStatus != SUCCEEDED) {
         stageAttempt.dec('failing.' + prevNumFailed);
       }
-    } else {
-      var numFailed = prevNumFailed + 1;
+    }
+    if (!succeeded) {
       task.inc('failed');
-      if (prevNumFailed) {
-        stageAttempt.dec('failed.' + prevNumFailed);
-        if (task.get('status') != SUCCEEDED) {
-          stageAttempt.dec('failing.' + prevNumFailed);
-        }
-      }
-      stageAttempt.inc('failed.' + numFailed).inc('failing.' + numFailed);
+      var numFailed = prevNumFailed + 1;
+      stageAttempt
+            .inc('failed.' + numFailed)
+            .inc('failing.' + numFailed);
     }
 
     // Update TaskAttempt's status and various downstream records' 'taskCounts' objects.
@@ -541,11 +557,15 @@ var handlers = {
       );
 
       // NOTE(ryan): we "should" never get here, but make an attempt to do sane things in case we do.
-      // We can (only?) get here if the Spark EventListenerBus drops events, which it does if it gets
-      // 10,000 events behind.
-      if (succeeded) {
-        stageExecutor.inc('taskCounts.succeeded');
+      // We can (only?) get here if the Spark LiveListenerBus drops events, which it does if it gets
+      // 10,000 events behind; if it drops a TaskStart event then we could receive a TaskEnd for an
+      // attempt that we know nothing about and that has an empty status.
+      if (succeeded && prevTaskAttemptStatus != SUCCEEDED) {
+        taskAttempt.set('status', status, true);
+        stageExecutor.inc(taskCountKey);
         if (prevTaskAttemptStatus == FAILED) {
+          // I know what you're thinking: "how could a single task *attempt* have previously failed but now succeeded?
+          // This would require two TaskEnd events for the same TaskAttempt!" And to that I say check out SPARK-10551.
           stageExecutor.dec('taskCounts.failed');
         }
       }
@@ -568,6 +588,9 @@ var handlers = {
             taskIndex + "." + taskAttemptId
       )
     } else {
+      // This task should have been marked as "RUNNING" before we received a TaskEnd about an attempt of it; if we're
+      // here it likely means that a TaskStart event for this attempt was dropped. See the above comment about
+      // LiveListenerBus.
       l.error(
             "Got TaskEnd for %d (%s:%s) with previous task status %s",
             taskId,
@@ -575,10 +598,15 @@ var handlers = {
             taskIndex + "." + taskAttemptId,
             statusStr[prevTaskStatus]
       );
-      if (prevTaskStatus == FAILED) {
-        if (succeeded) {
-          task.set('status', status, true);
-          stageAttempt.dec('taskIdxCounts.failed').inc('taskIdxCounts.succeeded');
+
+      // Try to do some sane things here anyway: if this attempt succeeded, then mark the task succeeded if it's not
+      // already marked as such (e.g. by another attempt having already returned successfully).
+      if (succeeded && prevTaskStatus != SUCCEEDED) {
+        task.set('status', status, true);
+        stageAttempt.inc(taskIdxCountKey);
+        if (prevTaskStatus == FAILED) {
+          // In particular, if
+          stageAttempt.dec('taskIdxCounts.failed');
         }
       }
     }
