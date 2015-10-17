@@ -30,6 +30,7 @@ var FAILED = utils.FAILED;
 var SUCCEEDED = utils.SUCCEEDED;
 var SKIPPED = utils.SKIPPED;
 var REMOVED = utils.REMOVED;
+var LEAKED = utils.LEAKED;
 var taskEndObj = utils.taskEndObj;
 
 var objUtils = require("./utils/objs");
@@ -279,15 +280,33 @@ var handlers = {
     attempt.fromStageInfo(si).set({ ended: true }).set('status', newAttemptStatus, true);
     var endTime = attempt.get('time.end');
 
-    // Set tasks' end times now just in case; allow them to be overwritten if we actually end up
-    // seeing a TaskEnd event for them. cf. SPARK-9038.
+    // We often never receive TaskEnd events for TaskAttempts that are still running when the StageAttempt completes;
+    // see SPARK-9038.
+    // Mark such TaskAttempts as "leaked" and set their end-times now so that finished StageAttempts aren't shown as
+    // having TaskAttempts still running.
+    // If we subsequently receive TaskEnds for "leaked" TaskAttempts, we just let them count as succeeded or failed and
+    // remove them from "leaked" purgatory.
     for (var tid in attempt.task_attempts) {
-      var task = attempt.task_attempts[tid];
-      if (task.get('status') === RUNNING) {
-        if (!task.get('time.end')) {
-          task.set('time.end', endTime, true).setDuration();
+      var taskAttempt = attempt.task_attempts[tid];
+      if (taskAttempt.get('status') === RUNNING) {
+        if (!taskAttempt.has('time.end')) {
+          taskAttempt.set('time.end', endTime, true).set('status', LEAKED, true);
         }
       }
+    }
+
+    // Port this stageAttempt's counts of "running" taskAttempts to counts of "leaked" attempts instead.
+    var tasksRunning = attempt.get('taskCounts.running');
+    attempt
+          .dec('taskCounts.running', tasksRunning)
+          .inc('taskCounts.leaked', tasksRunning);
+
+    if (attempt.get('taskIdxCounts.running') != 0) {
+      l.error(
+            "%s marked completed with %d tasks still marked as having running (and no succeeded) attempts.",
+            attempt.toString(),
+            attempt.get('taskIdxCounts.running')
+      );
     }
 
     var job = stage.job;
@@ -390,7 +409,13 @@ var handlers = {
     var taskId = ti['Task ID'];
 
     var executor = app.getExecutor(ti);
-    var stageExecutor = stageAttempt.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
+    var stageExecutor =
+          stageAttempt
+                .getExecutor(executor)
+                .set({
+                  host: executor.get('host'),
+                  port: executor.get('port')
+                });
 
     var taskIndex = ti['Index'];
     var task = stageAttempt.getTask(taskIndex);
@@ -460,7 +485,13 @@ var handlers = {
     }
 
     var executor = app.getExecutor(ti);
-    var stageExecutor = stageAttempt.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
+    var stageExecutor =
+          stageAttempt
+                .getExecutor(executor)
+                .set({
+                  host: executor.get('host'),
+                  port: executor.get('port')
+                });
 
     var task = stageAttempt.getTask(taskIndex).set({ type: e['Task Type'] });
     var prevTaskStatus = task.get('status');
@@ -491,9 +522,13 @@ var handlers = {
       stageAttempt.inc('failed.' + numFailed).inc('failing.' + numFailed);
     }
 
+    // Update TaskAttempt's status and various downstream records' 'taskCounts' objects.
     if (prevTaskAttemptStatus == RUNNING) {
       taskAttempt.set('status', status, true);
       stageExecutor.dec('taskCounts.running').inc(taskCountKey);
+    } else if (prevTaskAttemptStatus == LEAKED) {
+      taskAttempt.set('status', status, true);
+      stageExecutor.dec('taskCounts.leaked').inc(taskCountKey);
     } else {
       l.error(
             "%s: Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
@@ -516,9 +551,13 @@ var handlers = {
       }
     }
 
+    // Update Task's status and various downstream records' 'taskIdxCounts' objects.
     if (prevTaskStatus == RUNNING) {
       task.set('status', status, true);
       stageAttempt.dec('taskIdxCounts.running').inc(taskIdxCountKey);
+    } else if (prevTaskStatus == LEAKED) {
+      task.set('status', status, true);
+      stageAttempt.dec('taskIdxCounts.leaked').inc(taskIdxCountKey);
     } else if (prevTaskStatus == SUCCEEDED) {
       var logFn = succeeded ? l.info : l.warn;
       logFn(

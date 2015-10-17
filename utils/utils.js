@@ -64,7 +64,8 @@ module.exports = {
   SUCCEEDED: 2,
   FAILED: 3,
   SKIPPED: 4,
-  REMOVED: 5
+  REMOVED: 5,
+  LEAKED: 6
 };
 
 module.exports.status = {};
@@ -74,6 +75,7 @@ module.exports.status[module.exports.FAILED] = "FAILED";
 module.exports.status[module.exports.SUCCEEDED] = "SUCCEEDED";
 module.exports.status[module.exports.SKIPPED] = "SKIPPED";
 module.exports.status[module.exports.REMOVED] = "REMOVED";
+module.exports.status[module.exports.LEAKED] = "LEAKED";
 
 module.exports.processTime = processTime;
 module.exports.accumulablesObj = accumulablesObj;
