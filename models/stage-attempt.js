@@ -74,15 +74,17 @@ StageAttempt.prototype.initMetrics = function() {
 
 StageAttempt.prototype.fromStageInfo = function(si) {
   return this
-        .set('time.start', si['Submission Time'] || (moment().unix() * 1000), true)
+        .set({
+          'time.start': si['Submission Time'],
+          'accumulables': accumulablesObj(si['Accumulables'])
+        }, true)
         .set({
           name: si['Stage Name'],
           'time.end': processTime(si['Completion Time']),
           'taskCounts.num': si['Number of Tasks'],
           'taskIdxCounts.num': si['Number of Tasks'],
           failureReason: si['Failure Reason']
-        })
-        .set('accumulables', accumulablesObj(si['Accumulables']), true);
+        });
 };
 
 StageAttempt.prototype.getTask = function(taskIndex) {
