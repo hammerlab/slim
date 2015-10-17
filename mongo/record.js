@@ -80,14 +80,14 @@ function getProp(root, key, create, callbackObjs) {
         var sumsConfig = callbackObj.sums;
         if (sumsConfig) {
           sumsConfig.forEach((obj) => {
-            obj.inc(key, val - (prev || 0));
+            obj.inc(key, (val || 0) - (prev || 0));
           });
         }
         var renamedSumsConfig = callbackObj.renamedSums;
         if (renamedSumsConfig) {
           for (var renamedKey in renamedSumsConfig) {
             renamedSumsConfig[renamedKey].map((obj) => {
-              obj.inc(renamedKey, val - (prev || 0));
+              obj.inc(renamedKey, (val || 0) - (prev || 0));
             });
           }
         }
@@ -182,15 +182,19 @@ function addSetProp(clazz, className) {
 }
 
 function addUnset(clazz) {
-  clazz.prototype.unset = function(key) {
+  clazz.prototype.unset = function(key, virtual) {
     var prop = this.getProp(key);
     if (prop.exists) {
-      this.unsetKeys = this.unsetKeys || [];
-      this.unsetKeys.push(key);
-      prop.delete();
-      getProp(this.toSyncObj, key).delete();
-      delete this.toSyncObj[key];
-      this.markChanged();
+      var prev = prop.val;
+      if (!virtual) {
+        this.unsetKeys = this.unsetKeys || [];
+        this.unsetKeys.push(key);
+        prop.delete();
+        getProp(this.toSyncObj, key).delete();
+        delete this.toSyncObj[key];
+        this.markChanged();
+      }
+      prop.handleValueChange(prev, undefined);
     }
     return this;
   }
