@@ -223,8 +223,16 @@ App.prototype.hydrate = function(cb) {
                       id,
                       self.rdds.map(function(e) { return e.id; }).join(',')
                 );
+              } else if (!(block.execId in self.executors)) {
+                l.error(
+                      "RddBlock %s's execId %s not found in app %s's Executors: %s",
+                      block.id,
+                      block.execId,
+                      id,
+                      self.executors.map(function(e) { return e.id; }).join(',')
+                );
               } else {
-                self.rdds[block.rddId].getBlock(block.id).fromMongo(block);
+                self.rdds[block.rddId].getExecutor(self.executors[block.execId]).getBlock(block.id).fromMongo(block);
               }
             });
 

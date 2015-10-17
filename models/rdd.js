@@ -2,7 +2,6 @@
 var objUtils = require('../utils/objs');
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var removeKeySpaces = objUtils.removeKeySpaces;
-var RddBlock = require('./block').RddBlock;
 var RDDExecutor = require('./rdd-executor').RDDExecutor;
 var getExecutorId = require('./executor').getExecutorId;
 var isEmptyObject = require('../utils/utils').isEmptyObject;
@@ -10,7 +9,6 @@ var isEmptyObject = require('../utils/utils').isEmptyObject;
 var REMOVED = require('../utils/utils').REMOVED;
 
 function RDD(app, id) {
-  this.app = app;
   this.appId = app.id;
   this.id = id;
 
@@ -40,13 +38,6 @@ RDD.prototype.fromRDDInfo = function(ri) {
         },
         true
   );
-};
-
-RDD.prototype.getBlock = function(blockIndex) {
-  if (!(blockIndex in this.blocks)) {
-    this.blocks[blockIndex] = new RddBlock(this, blockIndex);
-  }
-  return this.blocks[blockIndex];
 };
 
 RDD.prototype.getExecutor = function(executor) {
