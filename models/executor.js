@@ -6,7 +6,15 @@ var NonRddBlock = require("./block").NonRddBlock;
 function Executor(app, id) {
   this.appId = app.id;
   this.id = id;
-  this.init([ 'appId', 'id' ]);
+
+  this.app = app;
+
+  this.init(
+        [ 'appId', 'id' ],
+        {
+          maxMem: { sums: [ app ] }
+        }
+  );
 
   this.blocks = {};
   this.upsertHooks.push(this.updateMemUsedPercent);
@@ -26,6 +34,10 @@ Executor.prototype.updateMemUsedPercent = function() {
     this.set('MemPercent', this.get('MemorySize') / this.get('maxMem'), true);
   }
   return this;
+};
+
+Executor.prototype.remove = function() {
+  this.unset('maxMem', true);
 };
 
 function getExecutorId(executorId) {

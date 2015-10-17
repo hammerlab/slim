@@ -48,46 +48,27 @@ RDD.prototype.getExecutor = function(executor) {
   return this.executors[execId];
 };
 
+RDD.prototype.removeExecutor = function(executor) {
+  if (executor.id in this.executors) {
+    this.executors[executor.id].remove();
+    delete this.executors[executor.id];
+  }
+};
+
+RDD.prototype.unpersist = function() {
+  this.set({ unpersisted: true });
+  for (var eid in this.executors) {
+    this.executors[eid].set({ host: executor.get('host'), port: executor.get('port') }).remove(true);
+  }
+};
+
 RDD.prototype.updateFractionCached = function() {
-  if (this.get('numCachedPartitions') && this.get('numPartitions')) {
+  var numCachedPartitions = this.get('numCachedPartitions');
+  var numPartitions = this.get('numPartitions');
+  if (numCachedPartitions && numPartitions) {
     this.set('fractionCached', this.get('numCachedPartitions') / this.get('numPartitions'), true);
   }
   return this;
-};
-
-RDD.prototype.handleExecutorRemoved = function(execId) {
-  execId = getExecutorId(execId);
-  var executor = null;
-  if (execId in this.executors) {
-    executor = this.executors[execId];
-    ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
-      if (executor.get(key)) {
-        this.dec(key, executor.get(key));
-      }
-    }.bind(this));
-    this.dec('numCachedPartitions', executor.get('numBlocks'));
-    executor.set('status', REMOVED, true);
-  }
-  for (var blockId in this.blocks) {
-    var block = this.blocks[blockId];
-    var execIds = block.get('execIds');
-    if (execIds && execIds.indexOf(execId) >= 0) {
-      block.pull('execIds', execId);
-      if (isEmptyObject(block.get('execIds'))) {
-        block.set('status', REMOVED, true);
-      } else {
-        if (block.get('execId') == execId) {
-          var newExecId = null;
-          for (newExecId in block.get('execIds')) {
-            break;
-          }
-          block.set('execId', newExecId, true);
-        }
-      }
-      block.upsert();
-    }
-  }
-  return executor;
 };
 
 module.exports.RDD = RDD;

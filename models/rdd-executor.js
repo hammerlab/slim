@@ -7,16 +7,16 @@ function RDDExecutor(rdd, executor) {
   this.rddId = rdd.id;
   this.execId = executor.id;
 
-  var callbackObj = {};
-  ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize', 'numBlocks'].forEach((key) => {
-    callbackObj[key] = { sums: [ rdd.app, rdd, executor ] };
-  });
+  this.rdd = rdd;
+  this.executor = executor;
 
   this.blocks = {};
 
   this.init(
         [ 'appId', 'rddId', 'execId' ],
-        callbackObj
+        {
+          numCachedPartitions: { sums: [ rdd, executor, executor.app ] }
+        }
   );
 }
 
@@ -25,6 +25,16 @@ RDDExecutor.prototype.getBlock = function(blockIndex) {
     this.blocks[blockIndex] = new RddBlock(this, blockIndex);
   }
   return this.blocks[blockIndex];
+};
+
+RDDExecutor.prototype.remove = function(unpersist) {
+  if (unpersist) {
+    this.set('unpersisted', true);
+  }
+  for (var blockId in this.blocks) {
+    var block = this.blocks[blockId];
+    block.remove();
+  }
 };
 
 mixinMongoMethods(RDDExecutor, 'RDDExecutor', 'RDDExecutors');

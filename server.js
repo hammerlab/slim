@@ -74,78 +74,60 @@ function handleTaskMetrics(taskMetrics, stageAttempt, taskAttempt) {
   taskAttempt.set('metrics', newTaskAttemptMetrics, true);
 }
 
+function handleBlockUpdate(app, executor, blockInfo) {
+  var blockId = blockInfo['BlockID'];
+
+  var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
+  var rdd = null;
+  var rddExecutor = null;
+  var block = null;
+  var blockWasCached = false;
+  if (rddIdMatch) {
+    var rddId = parseInt(rddIdMatch[1]);
+    var blockIndex = parseInt(rddIdMatch[2]);
+
+    rdd = app.getRDD(rddId);
+
+    rddExecutor = rdd.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
+
+    block = rddExecutor.getBlock(blockIndex);
+
+    if (block.isCached()) {
+      blockWasCached = true;
+    }
+  } else {
+    block = executor.getBlock(blockId);
+  }
+
+  var status = blockInfo['Status'];
+  var blockIsCached = false;
+  ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
+    if (status[key] && rdd) {
+      blockIsCached = true;
+    }
+    block.set(key, status[key], true);
+  });
+
+  if (rdd) {
+    if (blockIsCached) {
+      if (!blockWasCached) {
+        rddExecutor.inc('numCachedPartitions');
+      }
+    } else {
+      if (blockWasCached) {
+        rddExecutor.dec('numCachedPartitions');
+      }
+    }
+    block.set('StorageLevel', status['StorageLevel'], true);
+  }
+  block.set({ host: executor.get('host'), port: executor.get('port') }, true);
+}
+
 function handleBlockUpdates(taskMetrics, app, executor) {
   var updatedBlocks = taskMetrics && taskMetrics['UpdatedBlocks'];
-  var rdds = [];
-  var rddExecutors = [];
-  var blocks = [];
   if (updatedBlocks) {
     updatedBlocks.forEach(function (blockInfo) {
-      var blockId = blockInfo['BlockID'];
-
-      var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
-      var rdd = null;
-      var rddExecutor = null;
-      var block = null;
-      var blockWasCached = false;
-      if (rddIdMatch) {
-        var rddId = parseInt(rddIdMatch[1]);
-        var blockIndex = parseInt(rddIdMatch[2]);
-
-        rdd = app.getRDD(rddId);
-        rdds.push(rdd);
-
-        rddExecutor = rdd.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
-        rddExecutors.push(rddExecutor);
-
-        block = rdd.getBlock(blockIndex).set('execId', executor.id, true).addToSet('execIds', executor.id);
-        blocks.push(block);
-
-        if (block.isCached()) {
-          blockWasCached = true;
-        }
-      } else {
-        block = executor.getBlock(blockId);
-      }
-
-      var status = blockInfo['Status'];
-      var blockIsCached = false;
-      ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
-        if (status[key] && rdd) {
-          blockIsCached = true;
-        }
-        var delta = status[key] - (block.get(key) || 0);
-        executor.inc(key, delta);
-        app.inc(key, delta);
-        if (rdd) {
-          rdd.inc(key, delta);
-          rddExecutor.inc(key, delta);
-        }
-        block.set(key, status[key], true);
-      });
-      if (!blockIsCached) {
-        if (blockWasCached) {
-          executor.dec('numBlocks');
-          app.dec('numBlocks');
-          if (rdd) {
-            rdd.dec("numCachedPartitions");
-            rddExecutor.dec('numBlocks');
-          }
-        }
-      } else {
-        if (!blockWasCached) {
-          executor.inc('numBlocks');
-          app.inc('numBlocks');
-          if (rdd) {
-            rdd.inc("numCachedPartitions");
-            rddExecutor.inc('numBlocks');
-          }
-        }
-      }
-      if (rdd) {
-        block.set('StorageLevel', status['StorageLevel'], true);
-      }
-      block.set({ host: executor.get('host'), port: executor.get('port') }, true);
+      handleBlockUpdate(app, executor, blockInfo);
     });
   }
 }
@@ -594,53 +576,30 @@ var handlers = {
             'status': RUNNING
           }, true);
     app
-          .inc('maxMem', e['Maximum Memory'])
           .inc('blockManagerCounts.num')
           .inc('blockManagerCounts.running');
   },
   SparkListenerBlockManagerRemoved: function(app, e) {
     var executor = app.getExecutor(e);
-    var numBlocks = executor.get('numBlocks') || 0;
-    executor
-                .set({
-                  host: e['Block Manager ID']['Host'],
-                  port: e['Block Manager ID']['Port']
-                }, true)
-                .set({
-                  'time.end': processTime(e['Timestamp']),
-                  'status': REMOVED
-                }, true)
-                .dec('numBlocks', numBlocks);
-    app
-          .dec('maxMem', executor.get('maxMem'))
-          .dec('blockManagerCounts.running')
-          .inc('blockManagerCounts.removed')
-          .dec('numBlocks', numBlocks);
 
-    ['MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function (key) {
-      app.dec(key, executor.get(key) || 0);
-    });
+    executor.set({
+      host: e['Block Manager ID']['Host'],
+      port: e['Block Manager ID']['Port'],
+      'time.end': processTime(e['Timestamp']),
+      'status': REMOVED
+    }, true);
+
+    app
+          .dec('blockManagerCounts.running')
+          .inc('blockManagerCounts.removed');
 
     for (var rddId in app.rdds) {
-      var rdd = app.rdds[rddId];
-      rdd.handleExecutorRemoved(e);
+      app.rdds[rddId].removeExecutor(executor);
     }
   },
 
   SparkListenerUnpersistRDD: function(app, e) {
-    var rddId = e['RDD ID'];
-    var rdd = app.getRDD(rddId).set({ unpersisted: true });
-    for (var eid in app.executors) {
-      var executor = app.executors[eid];
-      var rddExecutor = rdd.getExecutor(executor).set({ host: executor.get('host'), port: executor.get('port') });
-
-      ['numBlocks', 'MemorySize', 'DiskSize', 'ExternalBlockStoreSize'].forEach(function(key) {
-        var extant = rddExecutor.get(key) || 0;
-        app.dec(key, extant);
-        executor.dec(key, extant);
-      });
-      rddExecutor.set('unpersisted', true);
-    }
+    app.getRDD(e['RDD ID']).unpersist();
   },
 
   SparkListenerExecutorAdded: function(app, e) {
@@ -672,13 +631,11 @@ var handlers = {
     app
           .dec('executorCounts.running')
           .inc('executorCounts.removed');
-
   },
   SparkListenerLogStart: function(app, e) {
     // Spark EventListenerBus doesn't actually send this event.
   },
   SparkListenerExecutorMetricsUpdate: function(app, e) {
-    var executor = app.getExecutor(e);
     if (!e['Metrics Updated']) {
       // Depend on JsonRelay to filter out empty MetricsUpdate events.
       l.error("Got SparkListenerExecutorMetricsUpdate event with empty 'Metrics Updated': ", JSON.stringify(e));
