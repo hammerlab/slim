@@ -64,6 +64,9 @@ function StageAttempt(stage, id) {
   );
 
   if (this.job) this.set('jobId', this.job.id);
+
+  this.commitHooks.push(this.syncSummaryMetrics);
+
 }
 
 StageAttempt.prototype.initMetrics = function() {
@@ -131,6 +134,12 @@ StageAttempt.prototype.getExecutor = function(executor) {
     this.executors[execId] = new StageExecutor(this, executor);
   }
   return this.executors[execId];
+};
+
+StageAttempt.prototype.syncSummaryMetrics = function() {
+  for (var metricId in this.metrics) {
+    this.metrics[metricId].syncChanges();
+  }
 };
 
 mixinMongoMethods(StageAttempt, "StageAttempt", "StageAttempts");

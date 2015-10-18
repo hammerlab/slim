@@ -8,26 +8,16 @@ var utils = require("../utils/utils");
 var acc = utils.acc;
 var processTime = utils.processTime;
 var accumulablesObj = utils.accumulablesObj;
-var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var OST = require("../utils/ost").OST;
 
 function StageSummaryMetric(stageAttempt, id) {
-  this.app = stageAttempt.app;
   this.stageAttempt = stageAttempt;
-
-  this.appId = stageAttempt.appId;
-  this.stageId = stageAttempt.stageId;
-  this.stageAttemptId = stageAttempt.id;
   this.id = id;
 
   this.fn = acc(id);
 
-  this.init([ 'appId', 'stageId', 'stageAttemptId', 'id' ]);
-
   this.tree = new OST();
-
-  this.commitHooks.push(this.syncChanges);
 }
 
 StageSummaryMetric.prototype.initTree = function() {
@@ -62,7 +52,7 @@ StageSummaryMetric.prototype.handleValueChange = function(prevValue, newValue) {
       changed = true;
     }
     if (changed) {
-      this.markChanged();
+      this.stageAttempt.markChanged();
     }
   }
 };
@@ -85,11 +75,9 @@ StageSummaryMetric.prototype.syncChanges = function() {
   makeStatsArr(this.tree.size()).forEach(function(stat) {
     var node = this.tree.select(stat[1]);
     if (node && node.value !== undefined && node.value !== null) {
-      this.set(stat[0], node.value, true);
+      this.stageAttempt.set('sm.' + this.id + '.' + stat[0], node.value, true);
     }
   }.bind(this));
 };
-
-mixinMongoMethods(StageSummaryMetric, "StageSummaryMetric", "StageSummaryMetrics");
 
 module.exports.StageSummaryMetric = StageSummaryMetric;

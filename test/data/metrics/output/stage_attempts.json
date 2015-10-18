@@ -29,6 +29,96 @@
       }
     },
     "name": "map at <console>:27",
+    "sm": {
+      "duration": {
+        "max": 370,
+        "median": 199,
+        "min": 57,
+        "sf": 286,
+        "tf": 155
+      },
+      "metrics": {
+        "DiskBytesSpilled": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "ExecutorDeserializeTime": {
+          "max": 14,
+          "median": 7,
+          "min": 3,
+          "sf": 10,
+          "tf": 4
+        },
+        "ExecutorRunTime": {
+          "max": 357,
+          "median": 183,
+          "min": 52,
+          "sf": 254,
+          "tf": 140
+        },
+        "JVMGCTime": {
+          "max": 77,
+          "median": 25,
+          "min": 0,
+          "sf": 45,
+          "tf": 0
+        },
+        "MemoryBytesSpilled": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "ResultSerializationTime": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "ResultSize": {
+          "max": 2188,
+          "median": 2188,
+          "min": 2188,
+          "sf": 2188,
+          "tf": 2188
+        },
+        "SchedulerDelayTime": {
+          "max": 104,
+          "median": 4,
+          "min": 1,
+          "sf": 13,
+          "tf": 3
+        },
+        "ShuffleWriteMetrics": {
+          "ShuffleBytesWritten": {
+            "max": 1070,
+            "median": 1070,
+            "min": 1070,
+            "sf": 1070,
+            "tf": 1070
+          },
+          "ShuffleRecordsWritten": {
+            "max": 10,
+            "median": 10,
+            "min": 10,
+            "sf": 10,
+            "tf": 10
+          },
+          "ShuffleWriteTime": {
+            "max": 80837000,
+            "median": 975000,
+            "min": 403000,
+            "sf": 2764000,
+            "tf": 726000
+          }
+        }
+      }
+    },
     "stageId": 40,
     "started": true,
     "status": 2,
@@ -74,6 +164,124 @@
       }
     },
     "name": "count at <console>:27",
+    "sm": {
+      "duration": {
+        "max": 93,
+        "median": 10,
+        "min": 3,
+        "sf": 16,
+        "tf": 6
+      },
+      "metrics": {
+        "DiskBytesSpilled": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "ExecutorDeserializeTime": {
+          "max": 71,
+          "median": 4,
+          "min": 2,
+          "sf": 4,
+          "tf": 3
+        },
+        "ExecutorRunTime": {
+          "max": 22,
+          "median": 4,
+          "min": 0,
+          "sf": 8,
+          "tf": 1
+        },
+        "JVMGCTime": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "MemoryBytesSpilled": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "ResultSerializationTime": {
+          "max": 0,
+          "median": 0,
+          "min": 0,
+          "sf": 0,
+          "tf": 0
+        },
+        "ResultSize": {
+          "max": 1629,
+          "median": 1629,
+          "min": 1624,
+          "sf": 1629,
+          "tf": 1624
+        },
+        "SchedulerDelayTime": {
+          "max": 16,
+          "median": 3,
+          "min": 0,
+          "sf": 5,
+          "tf": 1
+        },
+        "ShuffleReadMetrics": {
+          "FetchWaitTime": {
+            "max": 1,
+            "median": 0,
+            "min": 0,
+            "sf": 0,
+            "tf": 0
+          },
+          "LocalBlocksFetched": {
+            "max": 20,
+            "median": 20,
+            "min": 0,
+            "sf": 20,
+            "tf": 0
+          },
+          "LocalBytesRead": {
+            "max": 2140,
+            "median": 2140,
+            "min": 0,
+            "sf": 2140,
+            "tf": 0
+          },
+          "RemoteBlocksFetched": {
+            "max": 0,
+            "median": 0,
+            "min": 0,
+            "sf": 0,
+            "tf": 0
+          },
+          "RemoteBytesRead": {
+            "max": 0,
+            "median": 0,
+            "min": 0,
+            "sf": 0,
+            "tf": 0
+          },
+          "TotalBytesRead": {
+            "max": 2140,
+            "median": 2140,
+            "min": 0,
+            "sf": 2140,
+            "tf": 0
+          },
+          "TotalRecordsRead": {
+            "max": 20,
+            "median": 20,
+            "min": 0,
+            "sf": 20,
+            "tf": 0
+          }
+        }
+      }
+    },
     "stageId": 41,
     "started": true,
     "status": 2,
