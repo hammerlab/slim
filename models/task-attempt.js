@@ -8,36 +8,7 @@ var utils = require("../utils/utils");
 var processTime = utils.processTime;
 var accumulablesObj = utils.accumulablesObj;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
-
-var metricIds = module.exports.metricIds = [
-  'duration',
-  'metrics.ExecutorRunTime',
-  'metrics.ExecutorDeserializeTime',
-  'metrics.GettingResultTime',
-  'metrics.SchedulerDelayTime',
-  'metrics.ResultSerializationTime',
-  'metrics.JVMGCTime',
-  'metrics.InputMetrics.BytesRead',
-  'metrics.InputMetrics.RecordsRead',
-  'metrics.OutputMetrics.BytesWritten',
-  'metrics.OutputMetrics.RecordsWritten',
-  'metrics.ResultSize',
-
-  'metrics.ShuffleReadMetrics.TotalBytesRead',
-  'metrics.ShuffleReadMetrics.TotalRecordsRead',
-  'metrics.ShuffleReadMetrics.FetchWaitTime',
-  'metrics.ShuffleReadMetrics.LocalBlocksFetched',
-  'metrics.ShuffleReadMetrics.LocalBytesRead',
-  'metrics.ShuffleReadMetrics.RemoteBlocksFetched',
-  'metrics.ShuffleReadMetrics.RemoteBytesRead',
-
-  'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
-  'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
-  'metrics.ShuffleWriteMetrics.ShuffleWriteTime',
-
-  'metrics.MemoryBytesSpilled',
-  'metrics.DiskBytesSpilled'
-];
+var metricIds = require("../mongo/collections").metricIds;
 
 function TaskAttempt(stageAttempt, id) {
   if (!stageAttempt) {

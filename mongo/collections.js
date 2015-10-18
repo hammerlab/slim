@@ -6,6 +6,36 @@ var MongoClient = require('mongodb').MongoClient;
 
 var l = require('../utils/log').l;
 
+var metricIds = module.exports.metricIds = [
+  'duration',
+  'metrics.ExecutorRunTime',
+  'metrics.ExecutorDeserializeTime',
+  'metrics.GettingResultTime',
+  'metrics.SchedulerDelayTime',
+  'metrics.ResultSerializationTime',
+  'metrics.JVMGCTime',
+  'metrics.InputMetrics.BytesRead',
+  'metrics.InputMetrics.RecordsRead',
+  'metrics.OutputMetrics.BytesWritten',
+  'metrics.OutputMetrics.RecordsWritten',
+  'metrics.ResultSize',
+
+  'metrics.ShuffleReadMetrics.TotalBytesRead',
+  'metrics.ShuffleReadMetrics.TotalRecordsRead',
+  'metrics.ShuffleReadMetrics.FetchWaitTime',
+  'metrics.ShuffleReadMetrics.LocalBlocksFetched',
+  'metrics.ShuffleReadMetrics.LocalBytesRead',
+  'metrics.ShuffleReadMetrics.RemoteBlocksFetched',
+  'metrics.ShuffleReadMetrics.RemoteBytesRead',
+
+  'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
+  'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
+  'metrics.ShuffleWriteMetrics.ShuffleWriteTime',
+
+  'metrics.MemoryBytesSpilled',
+  'metrics.DiskBytesSpilled'
+];
+
 var colls = module.exports.colls = [
   [ 'Applications', 'apps', [{ id: 1 }] ],
   [ 'Jobs', 'jobs', [{ appId: 1, id: 1 }] ],
@@ -21,36 +51,19 @@ var colls = module.exports.colls = [
   [
     'TaskAttempts',
     'task_attempts',
-    [
+    metricIds.concat([
       'id',
-      'metrics.JVMGCTime',
-      'metrics.ShuffleReadMetrics.TotalBytesRead',
-      'metrics.ShuffleReadMetrics.TotalRecordsRead',
-      'metrics.ShuffleWriteMetrics.ShuffleBytesWritten',
-      'metrics.ShuffleWriteMetrics.ShuffleRecordsWritten',
-      'metrics.InputMetrics.BytesRead',
-      'metrics.InputMetrics.RecordsRead',
-      'metrics.OutputMetrics.BytesWritten',
-      'metrics.OutputMetrics.RecordsWritten',
-      'metrics.ExecutorRunTime.Bytes',
       'time.start',
       'metrics.HostName',
       'status',
       'index',
       'execId',
-      'time.end',
-      'metrics.MemoryBytesSpilled',
-      'metrics.DiskBytesSpilled',
-      'metrics.ResultSize',
-      'metrics.GettingResultTime',
-      'metrics.SchedulerDelayTime',
-      'duration'
-    ].map(function(key) {
-            var o = {appId: 1, stageId: 1, stageAttemptId: 1};
-            o[key] = 1;
-            return o;
-          }
-    )
+      'time.end'
+    ]).map(function(key) {
+      var o = { appId: 1, stageId: 1, stageAttemptId: 1 };
+      o[key] = 1;
+      return o;
+    })
   ],
   [ 'Environment', 'environment', [{ appId: 1 }] ]
 ];

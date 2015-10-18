@@ -15,7 +15,7 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var getExecutorId = require('./executor').getExecutorId;
 
-var metricIds = require('./task-attempt').metricIds;
+var metricIds = require('../mongo/collections').metricIds;
 
 function StageAttempt(stage, id) {
   this.app = stage.app;
