@@ -101,7 +101,7 @@ function ensureIndexes(cb) {
         }.bind(this)),
         function(err) {
           if (err) {
-            l.error("Failed to create Mongo indexes");
+            l.error("Failed to create Mongo indexes:", err);
           } else {
             l.info("Done creating indexes");
           }
