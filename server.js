@@ -719,7 +719,7 @@ var handlers = {
 
   SparkListenerBlockUpdated: function(app, e) {
     var executor = app.getExecutor(e);
-    handleBlockUpdate(app, executor, e);
+    handleBlockUpdate(app, executor, removeKeySpaces(e));
   }
 };
 
