@@ -240,7 +240,6 @@ var handlers = {
   SparkListenerSubmitDAG: function(app, e) {
     var graph = app.getGraph(e);
     graph.fromDAG(e);
-    l.debug('DAG found for appId %s and stageId %s', graph.appId, graph.stageId);
     graph.upsert();
   },
 
