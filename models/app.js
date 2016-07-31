@@ -12,6 +12,7 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 var Job = require('./job').Job;
 var Stage = require('./stage').Stage;
+var Graph = require('./graph').Graph;
 var RDD = require('./rdd').RDD;
 var Executor = require('./executor').Executor;
 var getExecutorId = require('./executor').getExecutorId;
@@ -24,6 +25,7 @@ function App(id) {
 
   this.jobs = {};
   this.stages = {};
+  this.graphs = {};
   this.rdds = {};
   this.executors = {};
 
@@ -61,6 +63,7 @@ App.prototype.hydrate = function(cb) {
         {
           jobs: fetch('Jobs'),
           stages: fetch('Stages'),
+          graphs: fetch('Graphs'),
           stageAttempts: fetch('StageAttempts'),
           executors: fetch('Executors'),
           stageExecutors: fetch('StageExecutors'),
@@ -97,6 +100,9 @@ App.prototype.hydrate = function(cb) {
               });
             }
 
+            r.graphs.forEach(function(graph) {
+              self.graphs[graph.stageId] = new Graph(id, graph.stageId).fromMongo(graph);
+            });
             r.rdds.forEach(function(rdd) {
               self.rdds[rdd.id] = new RDD(id, rdd.id).fromMongo(rdd);
             });
@@ -109,6 +115,7 @@ App.prototype.hydrate = function(cb) {
                     "Found app %s:",
                     "%d jobs",
                     "%d stages",
+                    "%d graphs",
                     "%d stage attempts",
                     "%d executors",
                     "%d stage-executors",
@@ -122,6 +129,7 @@ App.prototype.hydrate = function(cb) {
                   id,
                   r.jobs.length,
                   r.stages.length,
+                  r.graphs.length,
                   r.stageAttempts.length,
                   r.executors.length,
                   r.stageExecutors.length,
@@ -354,6 +362,16 @@ App.prototype.getStage = function(stageId) {
   }
   return this.stages[stageId];
 };
+
+App.prototype.getGraph = function(stageId) {
+  if (typeof stageId == 'object') {
+    stageId = stageId['stageId'];
+  }
+  if (!(stageId in this.graphs)) {
+    this.graphs[stageId] = new Graph(this, stageId);
+  }
+  return this.graphs[stageId];
+}
 
 App.prototype.getRDD = function(rddId) {
   if (typeof rddId == 'object') {
