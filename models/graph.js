@@ -9,10 +9,17 @@ function Graph(app, stageId) {
   this.init(['appId', 'stageId']);
 }
 
-mixinMongoMethods(Graph, "Graph", "Graphs");
+mixinMongoMethods(Graph, 'Graph', 'Graphs');
 
 Graph.prototype.fromDAG = function(dag) {
-  return this.set(dag);
+  return this.set({
+    'jobId': dag['jobId'],
+    'dotFile': dag['dotFile'],
+    'skipped': dag['skipped'],
+    'cachedRDDs': dag['cachedRDDs'],
+    'incomingEdges': dag['incomingEdges'],
+    'outgoingEdges': dag['outgoingEdges']
+  });
 }
 
 module.exports.Graph = Graph;

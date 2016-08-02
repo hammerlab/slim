@@ -25,4 +25,3 @@ if (!mongoUrl.match(/^mongodb:\/\//)) {
 
 var Server = require('./server').Server;
 new Server(mongoUrl);
-
