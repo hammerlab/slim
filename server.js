@@ -237,10 +237,19 @@ var handlers = {
     app.upsert();
   },
 
-  SparkListenerSubmitDAG: function(app, e) {
+  SparkListenerGraphSubmit: function(app, e) {
     var graph = app.getGraph(e);
-    graph.fromDAG(e);
-    graph.upsert();
+    graph.fromDAG(e).upsert();
+  },
+
+  SparkListenerGraphUpdate: function(app, e) {
+    var graph = app.getGraph(e);
+    graph.update(e).upsert();
+  },
+
+  SparkListenerGraphCheck: function(app, e) {
+    var graph = app.getGraph(e);
+    graph.check(e).upsert();
   },
 
   SparkListenerJobEnd: function(app, e) {
