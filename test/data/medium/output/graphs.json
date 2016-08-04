@@ -1,0 +1,24 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "stageId": 0,
+    "jobId": 0,
+    "dotFile": "digraph G {\n  subgraph clusterstage_0 {\n    label=\"Stage 0\";\n    subgraph cluster4 {\n      label=\"TungstenExchange\";\n      7 [label=\"MapPartitionsRDD [7]\\ncount at <console>:28\"];\n    }\n    subgraph cluster6 {\n      label=\"Project\";\n      5 [label=\"MapPartitionsRDD [5]\\ncount at <console>:28\"];\n    }\n    subgraph cluster0 {\n      label=\"range\";\n      0 [label=\"ParallelCollectionRDD [0]\\nrange at <console>:25\"];\n      1 [label=\"MapPartitionsRDD [1]\\nrange at <console>:25\"];\n    }\n    subgraph cluster5 {\n      label=\"TungstenAggregate\";\n      6 [label=\"MapPartitionsRDD [6]\\ncount at <console>:28\"];\n    }\n    subgraph cluster7 {\n      label=\"Filter\";\n      4 [label=\"MapPartitionsRDD [4]\\ncount at <console>:28\"];\n    }\n    subgraph cluster0 {\n      label=\"range\";\n      0 [label=\"ParallelCollectionRDD [0]\\nrange at <console>:25\"];\n      1 [label=\"MapPartitionsRDD [1]\\nrange at <console>:25\"];\n    }\n    subgraph cluster1 {\n      label=\"map\";\n      2 [label=\"MapPartitionsRDD [2]\\nrange at <console>:25\"];\n    }\n    subgraph cluster2 {\n      label=\"map\";\n      3 [label=\"MapPartitionsRDD [3]\\nrange at <console>:25\"];\n    }\n  }\n  6->7;\n  4->5;\n  5->6;\n  3->4;\n  0->1;\n  1->2;\n  2->3;\n}",
+    "skipped": false,
+    "cachedRDDs": [],
+    "incomingEdges": [],
+    "outgoingEdges": []
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "stageId": 1,
+    "jobId": 0,
+    "dotFile": "digraph G {\n  subgraph clusterstage_1 {\n    label=\"Stage 1\";\n    subgraph cluster9 {\n      label=\"map\";\n      10 [label=\"MapPartitionsRDD [10]\\ncount at <console>:28\"];\n    }\n    subgraph cluster3 {\n      label=\"TungstenAggregate\";\n      9 [label=\"MapPartitionsRDD [9]\\ncount at <console>:28\"];\n    }\n    subgraph cluster4 {\n      label=\"TungstenExchange\";\n      8 [label=\"ShuffledRowRDD [8]\\ncount at <console>:28\"];\n    }\n  }\n  9->10;\n  8->9;\n}",
+    "skipped": false,
+    "cachedRDDs": [],
+    "incomingEdges": [
+      {"fromId": 7, "toId": 8}
+    ],
+    "outgoingEdges": []
+  }
+]
