@@ -41,7 +41,7 @@
   },
   "scripts": {
     "pretest": "nc -z localhost 27017 > /dev/null || ( mongod --dbpath test/db --fork --logpath /dev/null && touch kill-test-mongo )",
-    "test": "./node_modules/mocha/bin/mocha --timeout 10000",
+    "test": "./node_modules/mocha/bin/mocha --timeout 20000",
     "posttest": "[ ! -e kill-test-mongo ] || (rm -f kill-test-mongo && mongo admin --eval 'db.shutdownServer()' > /dev/null)"
   }
 }
