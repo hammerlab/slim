@@ -1,0 +1,57 @@
+[
+  {
+    "appId": "application_1432740718700_3049",
+    "stageId": 0,
+    "jobId": 0,
+    "dotFile": "digraph G {\n  subgraph clusterstage_0 {\n    label=\"Stage 0\";\n    subgraph cluster8 {\n      label=\"TungstenExchange\";\n      9 [label=\"MapPartitionsRDD [9]\\ncache at <console>:27\"];\n    }\n    subgraph cluster2 {\n      label=\"map\";\n      3 [label=\"MapPartitionsRDD [3]\\nrange at <console>:25\"];\n    }\n    subgraph cluster10 {\n      label=\"InMemoryColumnarTableScan\";\n      7 [label=\"MapPartitionsRDD [7]\\ncache at <console>:27\"];\n    }\n    subgraph cluster3 {\n      label=\"ConvertToUnsafe\";\n      5 [label=\"MapPartitionsRDD [5]\\ncache at <console>:25\"];\n    }\n    subgraph cluster0 {\n      label=\"range\";\n      0 [label=\"ParallelCollectionRDD [0]\\nrange at <console>:25\"];\n      1 [label=\"MapPartitionsRDD [1]\\nrange at <console>:25\"];\n    }\n    subgraph cluster6 {\n      label=\"mapPartitionsInternal\";\n      6 [label=\"ConvertToUnsafe\\n+- Filter (id#0L > 2)\\n   +- Scan ExistingRDD[id#0L] \\n [6]\\ncache at <console>:25\"];\n    }\n    subgraph cluster4 {\n      label=\"Filter\";\n      4 [label=\"MapPartitionsRDD [4]\\ncache at <console>:25\"];\n    }\n    subgraph cluster9 {\n      label=\"TungstenAggregate\";\n      8 [label=\"MapPartitionsRDD [8]\\ncache at <console>:27\"];\n    }\n    subgraph cluster1 {\n      label=\"map\";\n      2 [label=\"MapPartitionsRDD [2]\\nrange at <console>:25\"];\n    }\n    subgraph cluster0 {\n      label=\"range\";\n      0 [label=\"ParallelCollectionRDD [0]\\nrange at <console>:25\"];\n      1 [label=\"MapPartitionsRDD [1]\\nrange at <console>:25\"];\n    }\n  }\n  8->9;\n  2->3;\n  6->7;\n  4->5;\n  5->6;\n  3->4;\n  7->8;\n  1->2;\n  0->1;\n}",
+    "submitted": true,
+    "childSubmitted": true,
+    "cachedRDDs": [
+      {
+        "rddId": 6,
+        "name": "ConvertToUnsafe\n+- Filter (id#0L > 2)\n   +- Scan ExistingRDD[id#0L] \n",
+        "cached": true
+      }
+    ],
+    "incomingEdges": [],
+    "outgoingEdges": []
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "stageId": 1,
+    "jobId": 0,
+    "dotFile": "digraph G {\n  subgraph clusterstage_1 {\n    label=\"Stage 1\";\n    subgraph cluster13 {\n      label=\"TungstenExchange\";\n      15 [label=\"MapPartitionsRDD [15]\\ncount at <console>:30\"];\n    }\n    subgraph cluster14 {\n      label=\"TungstenAggregate\";\n      14 [label=\"MapPartitionsRDD [14]\\ncount at <console>:30\"];\n    }\n    subgraph cluster11 {\n      label=\"mapPartitionsInternal\";\n      12 [label=\"TungstenAggregate(key=[id#0L], functions=[(count(1),mode=Final,isDistinct=false)], output=[id#0L,count#6L])\\n+- TungstenExchange hashpartitioning(id#0L,200), None\\n   +- TungstenAggregate(key=[id#0L], functions=[(count(1),mode=Partial,isDistinct=false)], output=[id#0L,count#14L])\\n      +- InMemoryColumnarTableScan [id#0L], InMemoryRelation [id#0L], true, 10000, StorageLevel(true, true, false, true, 1), ConvertToUnsafe, None\\n [12]\\ncache at <console>:27\"];\n    }\n    subgraph cluster8 {\n      label=\"TungstenExchange\";\n      10 [label=\"ShuffledRowRDD [10]\\ncache at <console>:27\"];\n    }\n    subgraph cluster15 {\n      label=\"InMemoryColumnarTableScan\";\n      13 [label=\"MapPartitionsRDD [13]\\ncount at <console>:30\"];\n    }\n    subgraph cluster7 {\n      label=\"TungstenAggregate\";\n      11 [label=\"MapPartitionsRDD [11]\\ncache at <console>:27\"];\n    }\n  }\n  14->15;\n  13->14;\n  11->12;\n  12->13;\n  10->11;\n}",
+    "submitted": true,
+    "childSubmitted": true,
+    "cachedRDDs": [
+      {
+        "rddId": 12,
+        "name": "TungstenAggregate(key=[id#0L], functions=[(count(1),mode=Final,isDistinct=false)], output=[id#0L,count#6L])\n+- TungstenExchange hashpartitioning(id#0L,200), None\n   +- TungstenAggregate(key=[id#0L], functions=[(count(1),mode=Partial,isDistinct=false)], output=[id#0L,count#14L])\n      +- InMemoryColumnarTableScan [id#0L], InMemoryRelation [id#0L], true, 10000, StorageLevel(true, true, false, true, 1), ConvertToUnsafe, None\n",
+        "cached": true
+      }
+    ],
+    "incomingEdges": [
+      {
+        "fromId": 9,
+        "toId": 10
+      }
+    ],
+    "outgoingEdges": []
+  },
+  {
+    "appId": "application_1432740718700_3049",
+    "stageId": 2,
+    "jobId": 0,
+    "dotFile":"digraph G {\n  subgraph clusterstage_2 {\n    label=\"Stage 2\";\n    subgraph cluster16 {\n      label=\"map\";\n      18 [label=\"MapPartitionsRDD [18]\\ncount at <console>:30\"];\n    }\n    subgraph cluster13 {\n      label=\"TungstenExchange\";\n      16 [label=\"ShuffledRowRDD [16]\\ncount at <console>:30\"];\n    }\n    subgraph cluster12 {\n      label=\"TungstenAggregate\";\n      17 [label=\"MapPartitionsRDD [17]\\ncount at <console>:30\"];\n    }\n  }\n  17->18;\n  16->17;\n}",
+    "submitted": true,
+    "childSubmitted": false,
+    "cachedRDDs": [],
+    "incomingEdges": [
+      {
+        "fromId": 15,
+        "toId": 16
+      }
+    ],
+    "outgoingEdges": []
+  }
+]

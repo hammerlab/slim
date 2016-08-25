@@ -2,6 +2,7 @@
 module.exports.sortObjs = {
   Applications: { id: 1 },
   Jobs: { appId: 1, id: 1 },
+  Graphs: {appId: 1, jobId: 1, stageId: 1},
   Stages: { appId: 1, id: 1 },
   StageAttempts: { appId: 1, stageId: 1, id: 1 },
   StageExecutors: { appId: 1, stageId: 1, execId: 1 },

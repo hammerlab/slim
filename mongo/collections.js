@@ -10,6 +10,7 @@ var colls = module.exports.colls = [
   [ 'Applications', 'apps', [{ id: 1 }] ],
   [ 'Jobs', 'jobs', [{ appId: 1, id: 1 }] ],
   [ 'Stages', 'stages', [{ appId: 1, id: 1 }, { appId: 1, jobId: 1 }] ],
+  [ 'Graphs', 'graphs', [{ appId: 1, stageId: 1 }, { appId: 1, jobId: 1 }] ],
   [ 'StageAttempts', 'stage_attempts', [{ appId: 1, stageId: 1, id: 1 }] ],
   [ 'StageExecutors', 'stage_executors', [{ appId: 1, stageId: 1, execId: 1 }] ],
   [ 'RDDs', 'rdds', [{ appId: 1, id: 1 }] ],

@@ -237,6 +237,21 @@ var handlers = {
     app.upsert();
   },
 
+  SparkListenerGraphSubmit: function(app, e) {
+    var graph = app.getGraph(e);
+    graph.fromDAG(e).upsert();
+  },
+
+  SparkListenerGraphUpdate: function(app, e) {
+    var graph = app.getGraph(e);
+    graph.update(e).upsert();
+  },
+
+  SparkListenerGraphCheck: function(app, e) {
+    var graph = app.getGraph(e);
+    graph.check(e).upsert();
+  },
+
   SparkListenerJobEnd: function(app, e) {
     var job = app.getJob(e);
 
