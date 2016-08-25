@@ -2,6 +2,7 @@
 var maybeParseInt = require("../utils/utils").maybeParseInt;
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 var NonRddBlock = require("./block").NonRddBlock;
+var ExecutorThreadDump = require("./executor-thread-dump").ExecutorThreadDump;
 
 function Executor(appId, id) {
   this.appId = appId;
@@ -10,6 +11,7 @@ function Executor(appId, id) {
 
   this.blocks = {};
   this.upsertHooks = [ this.updateMemUsedPercent ];
+  this.threads = {};
 }
 
 mixinMongoMethods(Executor, "Executor", "Executors");
@@ -27,6 +29,13 @@ Executor.prototype.updateMemUsedPercent = function() {
   }
   return this;
 };
+
+Executor.prototype.getThreadDump = function(threadId) {
+  if (!(threadId in this.threads)) {
+    this.threads[threadId] = new ExecutorThreadDump(this.appId, this.id, threadId);
+  }
+  return this.threads[threadId];
+}
 
 function getExecutorId(executorId) {
   if (typeof executorId == 'object') {

@@ -768,6 +768,14 @@ var handlers = {
       job.upsert();
       app.upsert();
     });
+  },
+
+  SparkListenerExecutorThreadDumpEvent: function(app, e) {
+    var execId = e['executorId'];
+    var threadId = e['threadId'];
+    var executor = app.getExecutor(execId);
+    var threadDump = executor.getThreadDump(threadId).fromThreadInfo(e);
+    threadDump.upsert();
   }
 };
 
