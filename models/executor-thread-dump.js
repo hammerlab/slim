@@ -4,9 +4,9 @@ var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 function ExecutorThreadDump(appId, execId, threadId) {
   this.appId = appId;
   this.execId = execId;
-  this.threadId = threadId;
+  this.id = threadId;
 
-  this.init(['appId', 'execId', 'threadId']);
+  this.init(['appId', 'execId', 'id']);
 }
 
 mixinMongoMethods(ExecutorThreadDump, "ExecutorThreadDump", "ExecutorThreadDumps");

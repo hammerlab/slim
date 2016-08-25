@@ -108,13 +108,13 @@ App.prototype.hydrate = function(cb) {
               if (!(threadDump.execId in self.executors)) {
                 l.error(
                   "Executor thread %s refers to non-existing executor %s in app %s",
-                  threadDump.threadId,
+                  threadDump.id,
                   threadDump.execId,
                   id
                 );
               }
 
-              self.executors[threadDump.execId].getThreadDump(threadId).fromMongo(threadDump);
+              self.executors[threadDump.execId].getThreadDump(threadDump.id).fromMongo(threadDump);
             })
 
             l.info(
