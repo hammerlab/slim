@@ -1,0 +1,18 @@
+[
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 101,
+    "threadName": "shuffle-server-0",
+    "threadState": "RUNNABLE",
+    "stackTrace": "sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)\nsun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)\nsun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:79)\nsun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)\nsun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)\nio.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:622)\nio.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:310)\nio.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 109,
+    "threadName": "Spark Context Cleaner",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "java.lang.Object.wait(Native Method)\njava.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)\norg.apache.spark.ContextCleaner$$anonfun$org$apache$spark$ContextCleaner$$keepCleaning$1.apply$mcV$sp(ContextCleaner.scala:176)\norg.apache.spark.util.Utils$.tryOrStopSparkContext(Utils.scala:1181)\norg.apache.spark.ContextCleaner.org$apache$spark$ContextCleaner$$keepCleaning(ContextCleaner.scala:173)\norg.apache.spark.ContextCleaner$$anon$3.run(ContextCleaner.scala:68)"
+  }
+]

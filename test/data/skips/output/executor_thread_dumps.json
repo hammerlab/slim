@@ -1,0 +1,10 @@
+[
+  {
+    "appId": "local-1440276596119",
+    "execId": "driver",
+    "id": 78,
+    "threadName": "qtp975079216-78",
+    "threadState": "TIME_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  }
+]
