@@ -17,6 +17,7 @@ var colls = module.exports.colls = [
   [ 'NonRddBlocks', 'non_rdd_blocks', [{ appId: 1, execId: 1, id: 1 }] ],
   [ 'RddBlocks', 'rdd_blocks', [{ appId: 1, rddId: 1, id: 1 }] ],
   [ 'Executors', 'executors', [{ appId: 1, id: 1 }] ],
+  [ 'ExecutorThreadDumps', 'executor_thread_dumps', [{ appId: 1, execId: 1, id: 1 }, {appId: 1, execId: 1}] ],
   [ 'Tasks', 'tasks', [{ appId: 1, stageId: 1, id: 1 }] ],
   [
     'TaskAttempts',

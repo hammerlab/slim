@@ -1,0 +1,74 @@
+[
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 78,
+    "threadName": "qtp975079216-78",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 79,
+    "threadName": "qtp975079216-79",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 80,
+    "threadName": "qtp975079216-80",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 81,
+    "threadName": "qtp975079216-81",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 82,
+    "threadName": "qtp975079216-82",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 83,
+    "threadName": "qtp975079216-83",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\norg.spark-project.jetty.util.BlockingArrayQueue.poll(BlockingArrayQueue.java:342)\norg.spark-project.jetty.util.thread.QueuedThreadPool.idleJobPoll(QueuedThreadPool.java:526)\norg.spark-project.jetty.util.thread.QueuedThreadPool.access$600(QueuedThreadPool.java:44)\norg.spark-project.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 84,
+    "threadName": "heartbeat-receiver-event-loop-thread",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\njava.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1090)\njava.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:807)\njava.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1068)\njava.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\njava.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)\njava.lang.Thread.run(Thread.java:745)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 85,
+    "threadName": "Timer-0",
+    "threadState": "WAITING",
+    "stackTrace": "java.lang.Object.wait(Native Method)\njava.lang.Object.wait(Object.java:503)\njava.util.TimerThread.mainLoop(Timer.java:526)\njava.util.TimerThread.run(Timer.java:505)"
+  },
+  {
+    "appId": "app-20160826042932-0001",
+    "execId": "driver",
+    "id": 86,
+    "threadName": "netty-rpc-env-timeout",
+    "threadState": "TIMED_WAITING",
+    "stackTrace": "sun.misc.Unsafe.park(Native Method)\njava.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)\njava.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)\njava.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1090)\njava.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:807)\njava.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1068)\njava.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\njava.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)\njava.lang.Thread.run(Thread.java:745)"
+  }
+]

@@ -10,6 +10,7 @@ module.exports.sortObjs = {
   NonRddBlocks: { appId: 1, execId: 1, id: 1 },
   RddBlocks: { appId: 1, rddId: 1, id: 1, execId: 1 },
   Executors: { appId: 1, id: 1 },
+  ExecutorThreadDumps: {appId: 1, execId: 1, id: 1},
   Tasks: { appId: 1, stageId: 1, stageAttemptId: 1, id: 1 },
   TaskAttempts: { appId: 1, id: 1 },
   Environment: { appId: 1 },

@@ -63,6 +63,7 @@ App.prototype.hydrate = function(cb) {
           stages: fetch('Stages'),
           stageAttempts: fetch('StageAttempts'),
           executors: fetch('Executors'),
+          executorThreadDumps: fetch('ExecutorThreadDumps'),
           stageExecutors: fetch('StageExecutors'),
           rdds: fetch('RDDs'),
           rddExecutors: fetch('RDDExecutors'),
@@ -103,6 +104,18 @@ App.prototype.hydrate = function(cb) {
             r.executors.forEach(function(executor) {
               self.executors[executor.id] = new Executor(id, executor.id).fromMongo(executor);
             });
+            r.executorThreadDumps.forEach(function(threadDump) {
+              if (!(threadDump.execId in self.executors)) {
+                l.error(
+                  "Executor thread %s refers to non-existing executor %s in app %s",
+                  threadDump.id,
+                  threadDump.execId,
+                  id
+                );
+              }
+
+              self.executors[threadDump.execId].getThreadDump(threadDump.id).fromMongo(threadDump);
+            })
 
             l.info(
                   [
@@ -111,6 +124,7 @@ App.prototype.hydrate = function(cb) {
                     "%d stages",
                     "%d stage attempts",
                     "%d executors",
+                    "%d executor thread dumps",
                     "%d stage-executors",
                     "%d rdds",
                     "%d rdd-executors",
@@ -124,6 +138,7 @@ App.prototype.hydrate = function(cb) {
                   r.stages.length,
                   r.stageAttempts.length,
                   r.executors.length,
+                  r.executorThreadDumps.length,
                   r.stageExecutors.length,
                   r.rdds.length,
                   r.rddExecutors.length,
