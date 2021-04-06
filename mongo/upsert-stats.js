@@ -48,7 +48,7 @@ var UpsertStats = function(queue) {
     var eventsDelta = this.numEvents - lastLog.numEvents;
     if (startDelta || endDelta) {
       l.info(
-            "In-flight:%d, blocked:%d, Q:%d. In %ss: +%d,-%d,%d (+%s,-%s,%s/s), %dms avg. Total +%d,-%d,%d",
+            "In-flight:%d blocked:%d Q:%d in %ss: +%d -%d %d (+%s -%s %s/s), %dms avg. Total +%d -%d %d",
             this.inFlight, numBlocked, this.queue.size(),
             timeDelta.toFixed(1),
             startDelta, endDelta, eventsDelta,

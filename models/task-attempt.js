@@ -18,7 +18,7 @@ function TaskAttempt(stageAttempt, id) {
       l.error("TaskAttempt(%d): missing app, stageAttempt: %s", id, stageAttempt.toString());
     }
     if (!stageAttempt.job) {
-      l.error("TaskAttempt(%d): missing job, stageAttempt: %s", id, stageAttempt.toString());
+      l.warn("TaskAttempt(%d): missing job, stageAttempt: %s", id, stageAttempt.toString());
     }
   }
 
@@ -96,8 +96,10 @@ TaskAttempt.prototype.setExecutors = function() {
   return this;
 };
 
-mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts");
+mixinMongoMethods(TaskAttempt, "TaskAttempt", "TaskAttempts", -1);
 
-TaskAttempt.lowPriority = true;
-
+if (argv.nt || argv['no-task-upserts']) {
+  l.info("Disabling upserts for TaskAttempts");
+  TaskAttempt.noUpsert = true;
+}
 module.exports.TaskAttempt = TaskAttempt;

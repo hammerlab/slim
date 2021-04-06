@@ -345,6 +345,15 @@ function evictApp(id) {
   delete apps[id];
 }
 
+App.prototype.evictStage = function(stageId) {
+  if (!(stageId in this.stages)) {
+    l.error("Failed to evict missing stage from app %s: %s", this.id, stageId);
+    return;
+  }
+  l.info("Evicting stage %s from app %s", stageId, this.id);
+  delete this.stages[stageId];
+};
+
 App.prototype.getJob = function(jobId) {
   if (typeof jobId == 'object') {
     jobId = jobId['Job ID'];

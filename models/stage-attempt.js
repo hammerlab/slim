@@ -75,10 +75,10 @@ StageAttempt.prototype.initMetrics = function() {
   });
 };
 
-StageAttempt.prototype.fromStageInfo = function(si) {
+StageAttempt.prototype.fromStageInfo = function(si, fillSubmissionTime) {
   return this
         .set({
-          'time.start': si['Submission Time'],
+          'time.start': fillSubmissionTime ? (si['Submission Time'] || (moment().unix() * 1000)) : si['Submission Time'],
           'accumulables': accumulablesObj(si['Accumulables'])
         }, true)
         .set({
@@ -86,7 +86,8 @@ StageAttempt.prototype.fromStageInfo = function(si) {
           'time.end': processTime(si['Completion Time']),
           'taskCounts.num': si['Number of Tasks'],
           'taskIdxCounts.num': si['Number of Tasks'],
-          failureReason: si['Failure Reason']
+          failureReason: si['Failure Reason'],
+          details: si['Details']
         });
 };
 
@@ -142,6 +143,6 @@ StageAttempt.prototype.syncSummaryMetrics = function() {
   }
 };
 
-mixinMongoMethods(StageAttempt, "StageAttempt", "StageAttempts");
+mixinMongoMethods(StageAttempt, "StageAttempt", "StageAttempts", 10);
 
 module.exports.StageAttempt = StageAttempt;

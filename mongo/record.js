@@ -28,9 +28,7 @@ var upsertCb = function(event) {
 var statusLogInterval = argv['status-log-interval'] || 10;
 
 var upsertQueue = new PriorityQueue(function(a,b) {
-  if (a.clazz.lowPriority) return -1;
-  if (b.clazz.lowPriority) return 1;
-  return 0;
+  return a.clazz.priority - b.clazz.priority;
 });
 
 function getProp(root, key, create, callbackObjs) {
@@ -80,21 +78,27 @@ function getProp(root, key, create, callbackObjs) {
         var sumsConfig = callbackObj.sums;
         if (sumsConfig) {
           sumsConfig.forEach((obj) => {
-            obj.inc(key, (val || 0) - (prev || 0));
+            if (obj) {
+              obj.inc(key, (val || 0) - (prev || 0));
+            }
           });
         }
         var renamedSumsConfig = callbackObj.renamedSums;
         if (renamedSumsConfig) {
           for (var renamedKey in renamedSumsConfig) {
             renamedSumsConfig[renamedKey].map((obj) => {
-              obj.inc(renamedKey, (val || 0) - (prev || 0));
+              if (obj) {
+                obj.inc(renamedKey, (val || 0) - (prev || 0));
+              }
             });
           }
         }
         var callbacksConfig = callbackObj.callbacks;
         if (callbacksConfig) {
           callbacksConfig.map((obj) => {
-            obj.handleValueChange(prev, val);
+            if (obj) {
+              obj.handleValueChange(prev, val);
+            }
           });
         }
       }
@@ -118,7 +122,7 @@ function addSetProp(clazz, className) {
     return getProp(this.propsObj, key, create, this.propCallbackObj);
   };
   clazz.prototype.enqueue = function() {
-    if (!this.enqueued) {
+    if (!this.enqueued && !clazz.noUpsert) {
       upsertQueue.enq(this);
       this.enqueued = true;
     }
@@ -235,61 +239,6 @@ function addDecProp(clazz) {
   };
 }
 
-function addAddToSetProp(clazz) {
-  clazz.prototype.addToSet = function(key, val) {
-    var prop = this.getProp(key, true);
-    if (!prop.exists || !prop.val) {
-      prop.obj[prop.name] = [];
-    }
-    if (!(val in prop.obj[prop.name])) {
-      prop.obj[prop.name].push(val);
-
-      this.addToSetObj = this.addToSetObj || {};
-      if (!(key in this.addToSetObj)) {
-        this.addToSetObj[key] = [];
-      }
-      this.addToSetObj[key].push(val);
-      this.markChanged();
-    }
-    return this;
-  };
-}
-
-function addPull(clazz) {
-  clazz.prototype.pull = function(key, val) {
-    if (!this.pullObj) {
-      this.pullObj = {};
-    }
-    if (key in this.propsObj) {
-      var vals = this.propsObj[key];
-      var idx = vals.indexOf(val);
-      if (idx >= 0) {
-        this.propsObj[key].splice(idx, 1);
-      }
-    }
-    var foundUncommittedValue = false;
-    if (key in this.toSyncObj) {
-      var vals = this.toSyncObj[key];
-      var idx = vals.indexOf(val);
-      if (idx >= 0) {
-        foundUncommittedValue = true;
-        this.toSyncObj[key].splice(idx, 1);
-      }
-    }
-    if (key in this.addToSetObj) {
-      var vals = this.addToSetObj[key];
-      var idx = vals.indexOf(val);
-      if (idx >= 0) {
-        foundUncommittedValue = true;
-        this.addToSetObj[key].splice(idx, 1);
-      }
-    }
-    if (!foundUncommittedValue) {
-      this.pullObj[key] = val;
-    }
-  };
-}
-
 function addSetDuration(clazz) {
   clazz.prototype.setDuration = function() {
     var start = this.get('time.start');
@@ -315,7 +264,7 @@ function addHasProp(clazz) {
 }
 
 var numBlocked = 0;
-var maximumInflightUpserts = 1000;
+var maximumInflightUpserts = argv.i || argv['maximum-in-flight'] || 1000;
 
 var upsertStats = new UpsertStats(upsertQueue);
 
@@ -338,7 +287,7 @@ function addUpsert(clazz, collectionName) {
       hook.bind(this)();
     }).bind(this));
 
-    if (!this.needsUpsert) {
+    if (!this.needsUpsert || this.clazz.noUpsert) {
       return this;
     }
 
@@ -387,47 +336,6 @@ function addUpsert(clazz, collectionName) {
     }
     upsertObj['$inc']['n'] = 1;
 
-    if (this.addToSetObj && !isEmptyObject(this.addToSetObj)) {
-      var addToSetObj = {};
-      for (var k in this.addToSetObj) {
-        var vals = this.addToSetObj[k];
-        if (vals.length == 1) {
-          addToSetObj[k] = vals[0];
-        } else if (vals.length > 1) {
-          addToSetObj[k] = { $each: vals }
-        }
-      }
-      if (!isEmptyObject(addToSetObj)) {
-        upsertObj['$addToSet'] = addToSetObj;
-      }
-      this.addToSetObj = {};
-    }
-
-    if (this.pullObj && !isEmptyObject(this.pullObj)) {
-      upsertObj['$pull'] = extend({}, this.pullObj);
-      this.pullObj = {};
-    }
-
-    if (upsertObj['$addToSet'] && upsertObj['$pull']) {
-      var dupedKeys = [];
-      for (var k in upsertObj['$addToSet']) {
-        if (k in upsertObj['$pull']) {
-          dupedKeys.push(k);
-          upsertObj['$set'][k] = this.propsObj[k];
-          delete upsertObj['$pull'][k];
-        }
-      }
-      dupedKeys.forEach(function(k) {
-        delete upsertObj['$addToSet'][k];
-      });
-      if (isEmptyObject(upsertObj['$addToSet'])) {
-        delete upsertObj['$addToSet'];
-      }
-      if (isEmptyObject(upsertObj['$pull'])) {
-        delete upsertObj['$pull'];
-      }
-    }
-
     var now = m();
     if (!upsertObj['$set']) {
       upsertObj['$set'] = {};
@@ -445,16 +353,15 @@ function addUpsert(clazz, collectionName) {
             this.inFlight = false;
             if (err) {
               l.error("%s, upserting:", this.toString(), upsertObj, err);
+            }
+            if (this.blocked) {
+              this.blocked = false;
+              numBlocked--;
+              this.upsert();
             } else {
-              if (this.blocked) {
-                this.blocked = false;
-                numBlocked--;
-                this.upsert();
-              } else {
-                fireUpserts();
-                if (!numBlocked && !upsertStats.inFlight && module.exports.emptyQueueCb) {
-                  module.exports.emptyQueueCb();
-                }
+              fireUpserts();
+              if (!numBlocked && !upsertStats.inFlight && module.exports.emptyQueueCb) {
+                module.exports.emptyQueueCb();
               }
             }
           }.bind(this)
@@ -534,7 +441,7 @@ function addFromMongo(clazz) {
   };
 }
 
-function mixinMongoMethods(clazz, className, collectionName) {
+function mixinMongoMethods(clazz, className, collectionName, priority) {
   addSetDuration(clazz);
   addInit(clazz, className);
   addFromMongo(clazz);
@@ -544,9 +451,8 @@ function mixinMongoMethods(clazz, className, collectionName) {
   addDecProp(clazz);
   addGetProp(clazz);
   addHasProp(clazz);
-  addPull(clazz);
   addUpsert(clazz, collectionName);
-  addAddToSetProp(clazz);
+  clazz.priority = priority || 0;
 }
 
 module.exports = {
@@ -555,7 +461,6 @@ module.exports = {
   upsertCb: upsertCb,
   mixinMongoMethods: mixinMongoMethods,
   addSetDuration: addSetDuration,
-  addAddToSetProp: addAddToSetProp,
   addHasProp: addHasProp,
   upsertStats: upsertStats
 };

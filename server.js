@@ -13,6 +13,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var port = argv.P || argv.port || 8123;
 
 var appEvictionDelay = argv.e || argv['eviction-delay'] || 10;
+var stageEvictionDelay = appEvictionDelay;
 
 var colls = require('./mongo/collections');
 var getApp = require('./models/app').getApp;
@@ -78,7 +79,10 @@ function handleTaskMetrics(taskMetrics, taskAttempt) {
 
 function handleBlockUpdate(app, executor, blockInfo) {
   var blockId = blockInfo['BlockID'];
-
+  if (!blockId) {
+    l.error("No block ID found in BlockUpdate event:", blockInfo);
+    return;
+  }
   var rddIdMatch = blockId.match(/^rdd_([0-9]+)_([0-9]+)$/);
   var rdd = null;
   var rddExecutor = null;
@@ -180,7 +184,7 @@ var handlers = {
     stageInfos.forEach(function(si) {
 
       var stage = app.getStage(si['Stage ID']).fromStageInfo(si).setJob(job);
-      var attempt = stage.getAttempt(si['Stage Attempt ID']).fromStageInfo(si);
+      stage.getAttempt(si).fromStageInfo(si);
 
       si['RDD Info'].forEach(function(ri) {
         app.getRDD(ri).fromRDDInfo(ri);
@@ -246,8 +250,16 @@ var handlers = {
       );
     }
 
-    stage.fromStageInfo(si).set({ properties: toSeq(e['Properties']) }).inc('attempts.num').inc('attempts.running');
-    attempt.fromStageInfo(si).set({ started: true, status: RUNNING });
+    stage
+          .fromStageInfo(si)
+          .set({ properties: toSeq(e['Properties']) })
+          .inc('attempts.num')
+          .inc('attempts.running');
+
+    attempt
+          .fromStageInfo(si, true)
+          .set({ started: true, status: RUNNING });
+
     if (job) job.inc('stageCounts.running');
     app.inc('stageCounts.running');
 
@@ -272,6 +284,10 @@ var handlers = {
     var stage = app.getStage(si);
     stage.fromStageInfo(si);
     var prevStageStatus = stage.get('status');
+
+    setTimeout(function() {
+      app.evictStage(stage.id);
+    }, stageEvictionDelay * 1000);
 
     var attempt = stage.getAttempt(si);
 
@@ -429,7 +445,7 @@ var handlers = {
 
     if (prevTaskAttemptStatus) {
       var taskAttemptId = taskAttempt.get('attempt');
-      l.error(
+      l.warn(
             "Unexpected TaskStart for TID %d (%d.%d:%d.%d), status: %s (%d) -> %s (%d)",
             taskId,
             stageAttempt.stageId, stageAttempt.id,
@@ -443,7 +459,7 @@ var handlers = {
     }
 
     if (prevTaskStatus == SUCCEEDED) {
-      l.error(
+      l.warn(
             "Unexpected TaskStart for task index %d (%d.%d:%d.%d); already marked as SUCCEEDED",
             taskIndex,
             stageAttempt.stageId, stageAttempt.id,
@@ -479,7 +495,8 @@ var handlers = {
     var taskIndex = ti['Index'];
     var taskAttemptId = ti['Attempt'];
 
-    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: taskEndObj(e['Task End Reason']) });
+    var taskAttemptEndObj = taskEndObj(e['Task End Reason']);
+    var taskAttempt = stageAttempt.getTaskAttempt(taskId).set({ end: taskAttemptEndObj });
     var prevTaskAttemptStatus = taskAttempt.get('status');
 
     taskAttempt.fromTaskInfo(ti);
@@ -527,17 +544,21 @@ var handlers = {
     // previous failure, and was in a "failing" state. We don't currently distinguish tasks that are RUNNING from those
     // that are being ["re-run" after a failure].
     if (prevNumFailed) {
-      stageAttempt.dec('failed.' + prevNumFailed);
       if (prevTaskStatus != SUCCEEDED) {
         stageAttempt.dec('failing.' + prevNumFailed);
       }
     }
     if (!succeeded) {
       task.inc('failed');
+      if (prevNumFailed) {
+        stageAttempt.dec('failed.' + prevNumFailed);
+      }
       var numFailed = prevNumFailed + 1;
       stageAttempt
             .inc('failed.' + numFailed)
             .inc('failing.' + numFailed);
+
+      stageAttempt.inc('failTypes.' + taskAttemptEndObj.Reason);
     }
 
     // Update TaskAttempt's status and various downstream records' 'taskCounts' objects.
@@ -548,7 +569,7 @@ var handlers = {
       taskAttempt.set('status', status, true);
       stageExecutor.dec('taskCounts.leaked').inc(taskCountKey);
     } else {
-      l.error(
+      l.warn(
             "%s: Unexpected TaskEnd for %d (%s:%s), status: %s (%d) -> %s (%d)",
             taskAttempt.toString(),
             taskId,
@@ -593,7 +614,7 @@ var handlers = {
       // This task should have been marked as "RUNNING" before we received a TaskEnd about an attempt of it; if we're
       // here it likely means that a TaskStart event for this attempt was dropped. See the above comment about
       // LiveListenerBus.
-      l.error(
+      l.warn(
             "Got TaskEnd for %d (%s:%s) with previous task status %s",
             taskId,
             stageAttempt.stageId + "." + stageAttempt.id,
@@ -628,7 +649,12 @@ var handlers = {
           upsertOpts,
           upsertCb("Environment")
     );
-    app.set('maxTaskFailures', e['JVM Information']['spark.task.maxFailures'] || 4);
+    var sparkProperties = e['Spark Properties'];
+    app.set('maxTaskFailures', sparkProperties['spark.task.maxFailures'] || 4);
+    var driverUrlKey = 'spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_URI_BASES';
+    if (driverUrlKey in sparkProperties) {
+      app.set('driverUrl', sparkProperties[driverUrlKey]);
+    }
   },
   SparkListenerBlockManagerAdded: function(app, e) {
     app

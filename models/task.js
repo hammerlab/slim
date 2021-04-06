@@ -1,6 +1,8 @@
 
 var argv = require('minimist')(process.argv.slice(2));
 
+var l = require("../utils/log").l;
+
 var mixinMongoMethods = require("../mongo/record").mixinMongoMethods;
 
 function Task(stageAttempt, id) {
@@ -12,7 +14,11 @@ function Task(stageAttempt, id) {
   this.init([ 'appId', 'stageId', 'stageAttemptId', 'id' ]);
 }
 
-mixinMongoMethods(Task, "Task", "Tasks");
+mixinMongoMethods(Task, "Task", "Tasks", -2);
 
-Task.lowPriority = true;
+if (argv.nt || argv['no-task-upserts']) {
+  l.info("Disabling upserts for Tasks");
+  Task.noUpsert = true;
+}
+
 module.exports.Task = Task;

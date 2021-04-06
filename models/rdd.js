@@ -20,7 +20,7 @@ function RDD(app, id) {
   this.upsertHooks.push(this.updateFractionCached);
 }
 
-mixinMongoMethods(RDD, "RDD", "RDDs");
+mixinMongoMethods(RDD, "RDD", "RDDs", 5);
 
 RDD.prototype.fromRDDInfo = function(ri) {
   return this.set({
@@ -58,7 +58,8 @@ RDD.prototype.removeExecutor = function(executor) {
 RDD.prototype.unpersist = function() {
   this.set({ unpersisted: true });
   for (var eid in this.executors) {
-    this.executors[eid].set({ host: executor.get('host'), port: executor.get('port') }).remove(true);
+    var executor = this.executors[eid];
+    executor.set({ host: executor.get('host'), port: executor.get('port') }).remove(true);
   }
 };
 

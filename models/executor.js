@@ -20,7 +20,7 @@ function Executor(app, id) {
   this.upsertHooks.push(this.updateMemUsedPercent);
 }
 
-mixinMongoMethods(Executor, "Executor", "Executors");
+mixinMongoMethods(Executor, "Executor", "Executors", 4);
 
 Executor.prototype.getBlock = function(blockId) {
   if (!(blockId in this.blocks)) {
